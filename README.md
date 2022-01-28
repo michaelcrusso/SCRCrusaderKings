@@ -44,10 +44,11 @@ Players may, of course, fight and kill each other's armies, but this actually ac
 
 ### Upgrades
 
-Duchy upgrades are tracked via calculations performed on the decimal places of Cybernetics Core HP. Each Cybernetics Core starts with 52000 HP and has their HP% set to 87%, meaning the base HP of all duchies is 45,240 HP. This means I have (at least) 4 values per decimal place that can be modified without going over 10, and thus affecting the decimal place to its right. The decimals are tracked thus:
+Duchy upgrades are tracked via calculations performed on the decimal places of Cybernetics Core HP. Each Cybernetics Core starts with 52000 HP and has their HP% set to 87%, meaning the base HP of all duchies is **45,240 HP.** This means I have (at least) 4 values per decimal place that can be modified without going over 10, and thus affecting the decimal place to its right. The decimals are tracked thus:
 
-  4       5        2        4       0
-Base   Castle   Militia   Town    Stables
+| 4 | 5 | 2 | 4 | 0 |
+| :---: | :---: | :---: | :---: | :---: |
+| Base | Castle | Militia | Town | Stables | 
 
 Thus, when a player upgrades the castle of their Duchy, an EUD trigger will increase the HP of the Duchy by 1,000, modifying the Thousandsth decimal place and increasing the HP to 46,240. If a player upgrades their militia training grounds by two, it will increase the Hundredths by 200,, increasing HP to 45,460.
 
