@@ -44,7 +44,7 @@ Players may, of course, fight and kill each other's armies, but this actually ac
 
 ### Upgrades
 
-Duchy upgrades are tracked via calculations performed on the decimal places of Cybernetics Core HP. Each Cybernetics Core starts with 52000 HP and has their HP% set to 87%, meaning the base HP of all duchies is **45,240 HP.** This means I have (at least) 4 values per decimal place that can be modified without going over 10, and thus affecting the decimal place to its right. The decimals are tracked thus:
+Duchy upgrades are tracked via calculations performed on the decimal places of Cybernetics Core HP. Each Cybernetics Core starts with 52000 HP and has their HP% set to 87%, meaning the base HP of all duchies is **45,240 HP.** (Note, I realize that 81% equals 42,120, which gives me more margin for higher level upgrades, and may switch to this.) This means I have (at least) 4 values per decimal place that can be modified without going over 10, and thus affecting the decimal place to its right. The decimals are tracked thus:
 
 | 4 | 5 | 2 | 4 | 0 |
 | :---: | :---: | :---: | :---: | :---: |
