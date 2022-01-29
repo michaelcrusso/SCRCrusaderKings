@@ -50,7 +50,7 @@ Duchy upgrades are tracked via calculations performed on the decimal places of C
 | :---: | :---: | :---: | :---: | :---: |
 | Base | Castle | Militia | Town | Stables | 
 
-Thus, when a player upgrades the castle of their Duchy, an EUD trigger will increase the HP of the Duchy by 1,000, modifying the Thousandsth decimal place and increasing the HP to 46,240. If a player upgrades their militia training grounds by two, it will increase the Hundredths by 200, increasing HP to 45,400. This allows for dozens of different permutations of upgrades with only a couple of dozen triggers in total.
+Thus, when a player upgrades the castle of their Duchy, an EUD trigger will increase the HP of the Duchy by 1,000, modifying the Thousandsth decimal place and increasing the HP to 46,240. If a player upgrades their militia training grounds by two, it will increase the Hundredths by 200, increasing HP to 45,440. This allows for dozens of different permutations of upgrades with only a couple of dozen triggers in total.
 
 Each time units are spawned, arithmetic is performed on each Duchy by subtracting sequentially from right to left down to the base of 45,240, and spawning units based on how many numbers are in each decimal place. When the spawn is complete, these numbers use a reverse binary counter to feed the HP back into the Duchy. This requires several steps and stages in sequence, but occurs quickly and only one time when the units are being summoned.
 
