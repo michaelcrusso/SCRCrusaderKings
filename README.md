@@ -15,11 +15,11 @@ There will be only five human players, and three CPU players that will interact 
 - Selectable starting date between 1066 (post-Hastings England) and 1337 (Hundred Year's War).
 - Nearly unlimited selectable nations, from the majors like France, England, and the HRE to small kingdoms like Sicily, Croatia, and Ireland.
 - Upgradeable "holdings"; individual Duchies will comprise four to five different structures that can be upgraded individually, up to level 5, to provide different bonuses; increased archers, increased cavalry, increased income, longer siege times, etc.
-- Warscore; functionality that can determine a the victor in a war and whether the defender can be forced to accept demands.
+- Warscore; functionality that can determine the victor in a war and whether the defender can be forced to accept demands.
 - Sieges; In order to conquer enemy territory in war, you have to hold your men in the province and "siege" all of its holdings. Occupation shifts warscore in your favor.
 - Crusades; the Christians and Muslims will occasionally call Crusades or Jihads on one another and participation is voluntary -- but the rewards are great. In religious wars, defenders will get bonuses in troop levies, higher vassal opinions, and access to religious orders that will fight for free.
 - Army upkeep;  raised soldiers will substantially drain your treasury. Wars in Europe will be expensive ventures. Getting into "debt" will negatively impact you (levies spawn with reduced health, mercenaries will abandon you, revolts will become common).
-– Mercenaries; the ability to raise fresh mercenary soldiers for a considerable cost to supplement your levies. They spawn instantly in your capital province.
+- Mercenaries; the ability to raise fresh mercenary soldiers for a considerable cost to supplement your levies. They spawn instantly in your capital province, but at low HP and require time to regenerate.
 
 
 ## Basic systems
