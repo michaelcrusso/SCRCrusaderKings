@@ -1,0 +1,195 @@
+//<Timers//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", set);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Timer, 12 per second");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Set Deaths("Current Player", "Scantid (Desert)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Music timer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 1);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 1);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 2);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 1);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 3);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 1);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 4);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 2);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 5);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 2);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 6);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 3);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 7);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 3);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 8);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 4);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 9);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 4);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", at most, 0);
+	Deaths("Current Player", "Manpower Regen", exactly, 10);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Pay Resources Switch", Set To, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 5);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+

@@ -1,0 +1,1232 @@
+//<Enable/Disable Levy//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Terran SCV", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran SCV", "Anywhere", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Disable Duchy Levies");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Terran SCV", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+
+Actions:
+	Give Units to Player("Current Player", "Player 12", "Terran SCV", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x01f------------------------------------------------------------\r\n\x011Levies in this holding have been disabled.\r\n\x01f------------------------------------------------------------");
+	Preserve Trigger();
+	Comment("Duchy Levy Disabled");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Terran SCV", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At least, 1);
+
+Actions:
+	Remove Unit At Location("Player 12", "Terran SCV", 1, "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran SCV", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x01f----------------------------------------------------------------------\r\n\x011You have already disabled levies in this holding.\r\n\x01f----------------------------------------------------------------------");
+	Preserve Trigger();
+	Comment("Duchy Levy Already Disabled");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Enable Levy", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Enable Levy", "Anywhere", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Re-enable Levy Holdings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Enable Levy", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At least, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Enable Levy", 1, "County Loc Universal");
+	Remove Unit At Location("Player 12", "Terran SCV", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x01f-----------------------------------------------\r\n\x011Levies re-enabled in this holding.\r\n\x01f-----------------------------------------------");
+	Preserve Trigger();
+	Comment("Duchy Levy Re-Enabled");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Enable Levy", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Larva", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x01f---------------------------------------------------------------------\r\n\x011You have already enabled levies in this holding.\r\n\x01f---------------------------------------------------------------------");
+	Preserve Trigger();
+	Comment("Duchy Levy Already Disabled");
+}
+
+//<Mobilize levies init//>
+
+Trigger("Player 1"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY1 Menu", Exactly, 0);
+	Deaths("Current Player", "Mobilization Stage", At most, 0);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY1 Menu");
+	Display Text Message(Always Display, "\x01f-------------------------------\r\n\x011Calling upon our men...\r\n\x01f-------------------------------");
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Play WAV("staredit\\wav\\levy.ogg", 0);
+	Preserve Trigger();
+	Comment("Raise Levy Initialize");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY2 Menu", Exactly, 0);
+	Deaths("Current Player", "Mobilization Stage", At most, 0);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY2 Menu");
+	Display Text Message(Always Display, "\x01f-------------------------------\r\n\x011Calling upon our men...\r\n\x01f-------------------------------");
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Play WAV("staredit\\wav\\levy.ogg", 0);
+	Preserve Trigger();
+	Comment("Raise Levy Initialize");
+}
+
+//<Mobilization, auto//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy", "Anywhere", At least, 1);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Move Location("Current Player", "Duchy", "Anywhere", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Display Text Message(Always Display, "Go to Duchy Detect");
+	Preserve Trigger();
+	Comment("Select New Duchy, go to Detect trigger");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 4);
+	Bring("Current Player", "Income", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Income", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Display Text Message(Always Display, "Select new town");
+	Preserve Trigger();
+	Comment("Select New Town");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 5);
+	Bring("Current Player", "Income", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Effective Manpower", At least, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Income", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 2);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 2);
+	Display Text Message(Always Display, "Cycle to new town");
+	Preserve Trigger();
+	Comment("Spawn Units, Cycle to New Town");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 5);
+	Bring("Current Player", "Income", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Effective Manpower", At most, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Income", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Insufficient manpower, skip town spawn");
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 5);
+	Bring("Current Player", "Income", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Income", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Spawn units disabled, cycle to new town");
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New County");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 5);
+	Bring("Current Player", "Income", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Income", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Levy already raised, cycle to new Town");
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New Town");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 4);
+	Bring("Current Player", "Income", "Anywhere", At most, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 6);
+	Display Text Message(Always Display, "Town levies raised, Initiate town return");
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 6);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Duchy Demobilization Tracker", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Income", 1, "County Loc Universal");
+	Display Text Message(Always Display, "Return town P12 -> player");
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 6);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 7);
+	Display Text Message(Always Display, "Town levy complete, go to castles");
+	Preserve Trigger();
+	Comment("Town Levy Complete, Go to Castles");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 7);
+	Bring("Current Player", "Terran Missile Turret", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Missile Turret", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Display Text Message(Always Display, "Select new castle");
+	Preserve Trigger();
+	Comment("Select New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Effective Manpower", At least, 3);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Protoss Zealot", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 3);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 3);
+	Display Text Message(Always Display, "Cycle to new castle");
+	Preserve Trigger();
+	Comment("Spawn Units, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Effective Manpower", At most, 2);
+
+Actions:
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Insufficient manpower, skip castle spawn");
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Spawn units disabled, cycle to new castle");
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Hyperion (Battlecruiser)", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Castle occupied [?] cycle to new castle");
+	Preserve Trigger();
+	Comment("Castle occupied, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Levy already raised, cycle to new castle");
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 7);
+	Bring("Current Player", "Terran Missile Turret", "Anywhere", At most, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 9);
+	Display Text Message(Always Display, "Castle levy complete, initiate castle return");
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 9);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Duchy Demobilization Tracker", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Terran Missile Turret", 1, "County Loc Universal");
+	Display Text Message(Always Display, "Return castle, P12 -> player");
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 9);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 10);
+	Display Text Message(Always Display, "Castled returned, finalize levy cascade");
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 10);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 11);
+	Display Text Message(Always Display, "\x01f---------------------\r\n\x011Levies raised!\r\n\x01f---------------------");
+	Preserve Trigger();
+	Comment("Levy Complete!");
+}
+
+//<Mobilize levies detect duchies, then move to unit spawns (auto)//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Spawn units disabled, cycle to new Duchy");
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Raise Local Levy", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Disable Levy", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Levy already raised, cycle to new duchy");
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Bedford", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Bedford", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 1);
+	Display Text Message(Always Display, "Detect Bedford ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Cornwall", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Cornwall", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 2);
+		Display Text Message(Always Display, "Detect Cornwall ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Wales", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Wales", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 3);
+		Display Text Message(Always Display, "Detect Wales ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Lancaster", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Lancaster", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 4);
+		Display Text Message(Always Display, "Detect Lancaster ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Norfolk", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Norfolk", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 5);
+		Display Text Message(Always Display, "Detect Norfolk ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Northumberland", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Northumberland", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 6);
+		Display Text Message(Always Display, "Detect Northumberland ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Lothian", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Lothian", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 7);
+		Display Text Message(Always Display, "Detect Lothian ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Albany", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Albany", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 8);
+		Display Text Message(Always Display, "Detect Albany ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Galloway", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Galloway", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 9);
+		Display Text Message(Always Display, "Detect Galloway ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Hebrides", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Hebrides", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 10);
+	Display Text Message(Always Display, "Detect Hebrides ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Morway", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Morway", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 11);
+		Display Text Message(Always Display, "Detect Morway ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Ulster", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Ulster", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 12);
+		Display Text Message(Always Display, "Detect Ulster ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Connacht", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Connacht", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 13);
+		Display Text Message(Always Display, "Detect Connacht ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Munster", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Munster", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 14);
+		Display Text Message(Always Display, "Detect Munster ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Normandy", Exactly, 1);
+	Bring("Current Player", "Duchy", "Duchy of Normandy", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
+	Deaths("Current Player", "Manual Levy Switch", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 15);
+	Display Text Message(Always Display, "Detect Normandy ID, move to unit spawn");
+	Preserve Trigger();
+	Comment("Set index ID, move to unit spawns");
+}
+
+//<Unit spawn levels//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 1);
+	Deaths("Current Player", "Effective Manpower", At least, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Add, 2);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 2);
+	Preserve Trigger();
+	Comment("Spawn militia based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 1);
+	Deaths("Current Player", "Effective Manpower", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip militia hall spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 2);
+	Deaths("Current Player", "Effective Manpower", At least, 3);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Add, 3);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 3);
+	Preserve Trigger();
+	Comment("Spawn militia based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 2);
+	Deaths("Current Player", "Effective Manpower", At most, 2);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce militia hall by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 3);
+	Deaths("Current Player", "Effective Manpower", At least, 5);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Add, 5);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 5);
+	Preserve Trigger();
+	Comment("Spawn militia based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 3);
+	Deaths("Current Player", "Effective Manpower", At most, 4);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce militia hall by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 4);
+	Deaths("Current Player", "Effective Manpower", At least, 6);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 3, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Add, 6);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 6);
+	Preserve Trigger();
+	Comment("Spawn militia based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 4);
+	Deaths("Current Player", "Effective Manpower", At most, 5);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce militia hall by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 7);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 8);
+	Preserve Trigger();
+	Comment("Finish spawn cascade, move back to Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 10);
+	Deaths("Current Player", "Effective Manpower", At least, 1);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 10);
+	Set Deaths("Current Player", "Raised Army Size", Add, 1);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn barracks based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 10);
+	Deaths("Current Player", "Effective Manpower", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip barracks spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 20);
+	Deaths("Current Player", "Effective Manpower", At least, 3);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Protoss Zealot", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 10);
+	Set Deaths("Current Player", "Raised Army Size", Add, 3);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 3);
+	Preserve Trigger();
+	Comment("Spawn barracks based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 20);
+	Deaths("Current Player", "Effective Manpower", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 10);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce barracks by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 30);
+	Deaths("Current Player", "Effective Manpower", At least, 5);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Protoss Zealot", 2, "Buffer Zone");
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 10);
+	Set Deaths("Current Player", "Raised Army Size", Add, 5);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 5);
+	Preserve Trigger();
+	Comment("Spawn barracks based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 30);
+	Deaths("Current Player", "Effective Manpower", At most, 2);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 10);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce barracks by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 40);
+	Deaths("Current Player", "Effective Manpower", At least, 7);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Protoss Zealot", 3, "Buffer Zone");
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 10);
+	Set Deaths("Current Player", "Raised Army Size", Add, 7);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 7);
+	Preserve Trigger();
+	Comment("Spawn barracks based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 40);
+	Deaths("Current Player", "Effective Manpower", At most, 3);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 10);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce barracks by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 5);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 6);
+	Preserve Trigger();
+	Comment("Finish spawn cascade, move back to Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 3);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 100);
+	Deaths("Current Player", "Effective Manpower", At least, 1);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Ultralisk", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 4);
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Set to, 0);
+	Set Deaths("Current Player", "Raised Army Size", Add, 1);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn cavalry based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 3);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 200);
+	Deaths("Current Player", "Effective Manpower", At least, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Ultralisk", 2, "Buffer Zone");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 4);
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Set to, 0);
+	Set Deaths("Current Player", "Raised Army Size", Add, 2);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 2);
+	Preserve Trigger();
+	Comment("Spawn cavalry based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 3);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 300);
+	Deaths("Current Player", "Effective Manpower", At least, 3);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Ultralisk", 3, "Buffer Zone");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 4);
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Set to, 0);
+	Set Deaths("Current Player", "Raised Army Size", Add, 3);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 3);
+	Preserve Trigger();
+	Comment("Spawn cavalry based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 3);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 400);
+	Deaths("Current Player", "Effective Manpower", At least, 4);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Zerg Ultralisk", 4, "Buffer Zone");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 4);
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Set to, 0);
+	Set Deaths("Current Player", "Raised Army Size", Add, 4);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 4);
+	Preserve Trigger();
+	Comment("Spawn cavalry based on counter");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 3);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 400);
+	Deaths("Current Player", "Effective Manpower", At most, 3);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 100);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce cavalry by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 3);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 300);
+	Deaths("Current Player", "Effective Manpower", At most, 2);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 100);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce cavalry by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 3);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 200);
+	Deaths("Current Player", "Effective Manpower", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Subtract, 100);
+	Preserve Trigger();
+	Comment("Insufficient manpower, reduce cavalry by 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 3);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Exactly, 100);
+	Deaths("Current Player", "Effective Manpower", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 4);
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Set to, 0);
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip cavalry spawn");
+}
+

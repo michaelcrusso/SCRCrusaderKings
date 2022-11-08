@@ -1,0 +1,31 @@
+//<Computer AI//>
+
+Trigger("Player 8", "\x006Kings"){
+Conditions:
+	Commands the Most At("Men", "Empire of Britannia");
+	Switch("1 vs Comp", set);
+	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+
+Actions:
+	Order("Player 8", "Men", "Empire of Britannia", "Duchy of Northumberland", attack);
+	Wait(3000);
+	Display Text Message(Always Display, "Aggressive AI");
+	Comment("Aggressive AI");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+	
+Trigger("Player 8", "\x006Kings"){
+Conditions:
+	Command the Least At("Men", "Empire of Britannia");
+	Switch("1 vs Comp", set);
+	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+
+Actions:
+	Order("Player 8", "Men", "Empire of Britannia", "Duchy of Lothian", move);
+	Wait(3000);
+	Display Text Message(Always Display, "Defensive AI");
+	Comment("Defensive AI");
+	Preserve Trigger();
+}

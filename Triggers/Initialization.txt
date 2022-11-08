@@ -1,0 +1,713 @@
+//<Initialization//>
+
+Trigger("All players"){
+Conditions:
+	Bring("Player 9", "Buildings", "Anywhere", At least, 1);
+
+Actions:
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\r\n\x01f------------------------\r\n\x011[Setting board...]\r\n\x01f------------------------\r\n\r\n\r\n\r\n");
+	Center View("CenterView");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All players"){
+Conditions:
+	Bring("Player 9", "Buildings", "Anywhere", At most, 0);
+	Bring("Player 12", "Zerg Larva", "Anywhere", At most, 0);
+
+Actions:
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x01f--------------------------\r\n\x011[Setup complete!]\r\n\x01f--------------------------\r\n\r\n\r\n\r\n\r\n");
+	Set Score("Player 8", Set To, 1066, Custom);
+	Set Switch("Choose", set);
+	Wait(1500);
+	Center View("Diplo Holding");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01f------------------------------------------------\r\n\x00fIt is the year of our lord, \x0171066...\r\n\x011Select your Nation!\r\n\x01f------------------------------------------------\r\n\r\n\x016Move near a flag to see nation information. Press the Diplomatic Action button to select.\r\n\r\n\r\n");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All players"){
+Conditions:
+	Switch("Help", set);
+	Switch("Start", not set);
+
+Actions:
+	Display Text Message(Always Display, "\r\n\x006TUTORIAL\r\n\r\n\x016Please select whether or not you would like the game to display\r\n\x016help messages as you complete tasks throughout the game. \r\n\x016Up is \x006OFF\x016, down is \x006ON. \x016If you're familiar\r\n\x016with the game, you may wish to disable this.\r\n\r\n\x00f[DEFAULT ON]\r\n\r\n\r\n");
+	Wait(3000);
+	Set Switch("Start", set);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Set Alliance Status("Player 12", Ally);
+	Set Alliance Status("Player 8", Ally);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Always();
+
+Actions:
+	Set Alliance Status("\x006Kings", Ally);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Current Player", "Zerg Overlord", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 1", "Zerg Overlord", "Anywhere", "PLY1 Menu");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Current Player", "Zerg Overlord", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 2", "Zerg Overlord", "Anywhere", "PLY2 Menu");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Move Unit("\x006Kings", "Terran Science Vessel", All, "Anywhere", "Can'tMoveAir");
+	Move Unit("\x006Kings", "Protoss Observer", All, "Anywhere", "Can'tMoveAir");
+	Preserve Trigger();
+	Comment("Immobilize Air Units");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Mute Unit Speech();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Current Player", "Zerg Zergling", "Menu", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Zerg Zergling", "Menu", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Zerg Zergling", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Zerg Overlord", 1, "County Loc Universal", 2);
+	Preserve Trigger();
+	Comment("Set board");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Play WAV("staredit\\wav\\saladinarrivesatjerusalem.ogg", 7438);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Run AI Script("+Vi7");
+	Run AI Script("+Vi6");
+	Run AI Script("+Vi5");
+	Comment("Set AI shared vision");
+}
+
+//<Set board and diplo menu//>
+
+Trigger("All Players"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 9", "Terran Missile Turret", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 9", "Terran Missile Turret", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 9", "Terran Missile Turret", 1, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Missile Turret", 1, "Buildings Buffer 1", 2);
+	Move Unit("Player 8", "Terran Missile Turret", 1, "Buildings Buffer 1", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Set board");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All Players"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 9", "Income", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 9", "Income", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 9", "Income", 1, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Income", 1, "Buildings Buffer 1", 2);
+	Set Doodad State("Player 8", "Income", "Buildings Buffer 1", enabled);
+	Move Unit("Player 8", "Income", 1, "Buildings Buffer 1", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Set board");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 12", "Devouring One (Zergling)", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 12", "Devouring One (Zergling)", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Devouring One (Zergling)", 1, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Zerg Lurker", 1, "County Loc Universal", 2);
+	Give Units to Player("Player 8", "Player 12", "Zerg Lurker", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Reset Menu Lurkers");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 12", "Zerg Hydralisk", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
+	Create Unit with Properties("Player 1", "Zerg Larva", 1, "County Loc Universal", 2);
+	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
+	Create Unit with Properties("Player 2", "Zerg Larva", 1, "County Loc Universal", 2);
+	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
+	Create Unit with Properties("Player 3", "Zerg Larva", 1, "County Loc Universal", 2);
+	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
+	Create Unit with Properties("Player 4", "Zerg Larva", 1, "County Loc Universal", 2);
+	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
+	Create Unit with Properties("Player 5", "Zerg Larva", 1, "County Loc Universal", 2);
+	Display Text Message(Always Display, "#Replace neutral hydras");
+	Comment("Reset Menu Hydras");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All Players"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 8", "Norad II (Crashed Battlecruiser)", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 8", "Norad II (Crashed Battlecruiser)", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 8", "Norad II (Crashed Battlecruiser)", 1, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Norad II (Crashed Battlecruiser)", 1, "County Loc Universal", 2);
+	Give Units to Player("Player 8", "Player 12", "Norad II (Crashed Battlecruiser)", All, "County Loc Universal");
+	Comment("Reset England");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All Players"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 8", "Warp Gate", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 8", "Warp Gate", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 8", "Warp Gate", 1, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Warp Gate", 1, "County Loc Universal", 2);
+	Give Units to Player("Player 8", "Player 12", "Warp Gate", All, "County Loc Universal");
+	Comment("Reset Scotland");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All Players"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 8", "Stasis Cell/Prison", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 8", "Stasis Cell/Prison", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 8", "Stasis Cell/Prison", 1, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Stasis Cell/Prison", 1, "County Loc Universal", 2);
+	Give Units to Player("Player 8", "Player 12", "Stasis Cell/Prison", All, "County Loc Universal");
+	Comment("Reset France");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Zerg Larva", "Diplo", At least, 1);
+
+Actions:
+	Move Location("Player 1", "Zerg Larva", "Diplo", "Diplo 1");
+	Move Location("Player 2", "Zerg Larva", "Diplo", "Diplo 2");
+	Move Location("Player 3", "Zerg Larva", "Diplo", "Diplo 3");
+	Move Location("Player 4", "Zerg Larva", "Diplo", "Diplo 4");
+	Move Location("Player 5", "Zerg Larva", "Diplo", "Diplo 5");
+	Comment("Wrap location to diplo unit");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 3"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo", At least, 1);
+	Bring("Current Player", "Zerg Larva", "Diplo 3", At most, 0);
+
+Actions:
+	Move Location("Current Player", "Zerg Larva", "Diplo", "Diplo 3");
+	Comment("Wrap location to diplo unit");
+	Preserve Trigger();
+}
+
+//<Select year and nation//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", not set);
+	Bring("\x006Kings", "Zerg Larva", "Diplo", At least, 1);
+	Deaths("Current Player", "Independent Command Center", Exactly, 1);
+	Switch("Choose", set);
+
+Actions:
+	Display Text Message(Always Display, "\r\n\r\n\x016Waiting on other players...\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", not set);
+	Bring("\x006Kings", "Zerg Larva", "Diplo", At most, 0);
+	Deaths("Current Player", "Independent Command Center", Exactly, 1);
+	Switch("Choose", set);
+	Switch("Help", not set);
+
+Actions:
+	Set Switch("Help", set);
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1","Player 2","Player 3","Player 4","Player 5","Player 6","Player 7"){
+Conditions:
+	Switch("Start", set);
+	Deaths("Current Player", "Independent Command Center", Exactly, 1);
+
+Actions:
+	Move Unit("Player 1", "Men", All, "Buffer Zone", "Diplo 1");
+	Move Unit("Player 2", "Men", All, "Buffer Zone", "Diplo 2");
+	Move Unit("Player 3", "Men", All, "Buffer Zone", "Diplo 3");
+	Move Unit("Player 4", "Men", All, "Buffer Zone", "Diplo 4");
+	Move Unit("Player 5", "Men", All, "Buffer Zone", "Diplo 5");
+	Remove Unit At Location("Player 8", "Men", All, "Diplo");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x006----------\r\n\x016START!\r\n\x006----------\r\n\r\n\r\n\r\n\r\n");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Bring("Current Player", "Zerg Lurker", "Diplo 1", At least, 1);
+	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 1", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Norad II (Crashed Battlecruiser)", "Anywhere", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
+	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Give Units to Player("Player 8", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Duchy of Bedford");
+	Give Units to Player("Player 12", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Diplo");
+	Move Location("Current Player", "Norad II (Crashed Battlecruiser)", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Bedford");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lancaster");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cornwall");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Normandy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Northumberland");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Norfolk");
+	Set Doodad State("All Players", "Duchy", "Duchy of Bedford", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Cornwall", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Wales", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Norfolk", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Lancaster", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Northumberland", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Normandy", enabled);
+	Set Deaths("Current Player", "Religion", Set To, 3);
+	Set Deaths("Current Player", "Income", Set To, 27);
+	Set Deaths("Current Player", "Permanent Manpower", Set To, 48);
+	Set Deaths("Current Player", "Effective Manpower", Set To, 48);
+	Set Deaths("Current Player", "Manpower Regen", Set To, 1);
+	Comment("Choose England 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Bring("Current Player", "Zerg Lurker", "Diplo 1", At least, 1);
+	Bring("Player 12", "Warp Gate", "Diplo 1", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Warp Gate", "Anywhere", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
+	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Give Units to Player("Player 8", "Current Player", "Warp Gate", All, "Duchy of Morway");
+	Give Units to Player("Player 12", "Current Player", "Warp Gate", All, "Diplo");
+	Move Location("Current Player", "Warp Gate", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Morway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Galloway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Albany");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lothian");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Hebrides");
+	Set Doodad State("Current Player", "Duchy", "Duchy of Galloway", enabled);
+	Set Doodad State("Current Player", "Duchy", "Duchy of Albany", enabled);
+	Set Doodad State("Current Player", "Duchy", "Duchy of Lothian", enabled);
+	Set Doodad State("Current Player", "Duchy", "Duchy of Morway", enabled);
+	Set Doodad State("Current Player", "Duchy", "Duchy of Hebrides", enabled);
+	Set Deaths("Current Player", "Religion", Set To, 1);
+	Set Deaths("Current Player", "Income", Set To, 21);
+	Set Deaths("Current Player", "Permanent Manpower", Set To, 38);
+	Set Deaths("Current Player", "Effective Manpower", Set To, 38);
+	Set Deaths("Current Player", "Manpower Regen", Set To, 1);
+	Comment("Choose Scotland 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Bring("Current Player", "Zerg Lurker", "Diplo 1", At least, 1);
+	Bring("Player 12", "Stasis Cell/Prison", "Diplo 1", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Stasis Cell/Prison", "Anywhere", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
+	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Give Units to Player("Player 8", "Current Player", "Stasis Cell/Prison", All, "Duchy of Orleans");
+	Give Units to Player("Player 12", "Current Player", "Stasis Cell/Prison", All, "Diplo");
+	Move Location("Current Player", "Stasis Cell/Prison", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Anjou");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Orleans");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Gascogne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Toulouse");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Auvergne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Burgundy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Flanders");
+	Set Deaths("Current Player", "Religion", Set To, 1);
+	Set Deaths("Current Player", "Income", Set To, 31);
+	Set Deaths("Current Player", "Permanent Manpower", Set To, 65);
+	Set Deaths("Current Player", "Effective Manpower", Set To, 65);
+	Set Deaths("Current Player", "Manpower Regen", Set To, 1);
+	Comment("Choose France 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Bring("Current Player", "Zerg Lurker", "Diplo 2", At least, 1);
+	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 2", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Norad II (Crashed Battlecruiser)", "Anywhere", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
+	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Give Units to Player("Player 12", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Diplo");
+	Move Location("Current Player", "Norad II (Crashed Battlecruiser)", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Bedford");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lancaster");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cornwall");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Normandy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Northumberland");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Norfolk");
+	Set Doodad State("All Players", "Duchy", "Duchy of Bedford", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Cornwall", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Wales", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Norfolk", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Lancaster", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Northumberland", enabled);
+	Set Doodad State("All Players", "Duchy", "Duchy of Normandy", enabled);
+	Set Deaths("Current Player", "Religion", Set To, 3);
+	Set Deaths("Current Player", "Income", Set To, 27);
+	Set Deaths("Current Player", "Permanent Manpower", Set To, 48);
+	Set Deaths("Current Player", "Effective Manpower", Set To, 48);
+	Set Deaths("Current Player", "Manpower Regen", Set To, 1);
+	Comment("Choose England 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Bring("Current Player", "Zerg Lurker", "Diplo 2", At least, 1);
+	Bring("Player 12", "Warp Gate", "Diplo 2", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Warp Gate", "Anywhere", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
+	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Give Units to Player("Player 12", "Current Player", "Warp Gate", All, "Diplo");
+	Move Location("Current Player", "Warp Gate", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Morway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Galloway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Albany");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lothian");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Hebrides");
+	Set Doodad State("Current Player", "Duchy", "Duchy of Galloway", enabled);
+	Set Doodad State("Current Player", "Duchy", "Duchy of Albany", enabled);
+	Set Doodad State("Current Player", "Duchy", "Duchy of Lothian", enabled);
+	Set Doodad State("Current Player", "Duchy", "Duchy of Morway", enabled);
+	Set Doodad State("Current Player", "Duchy", "Duchy of Hebrides", enabled);
+	Set Deaths("Current Player", "Religion", Set To, 1);
+	Set Deaths("Current Player", "Income", Set To, 21);
+	Set Deaths("Current Player", "Permanent Manpower", Set To, 38);
+	Set Deaths("Current Player", "Effective Manpower", Set To, 38);
+	Set Deaths("Current Player", "Manpower Regen", Set To, 1);
+	Comment("Choose Scotland 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Bring("Current Player", "Zerg Lurker", "Diplo 2", At least, 1);
+	Bring("Player 12", "Stasis Cell/Prison", "Diplo 2", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Stasis Cell/Prison", "Anywhere", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
+	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Give Units to Player("Player 12", "Current Player", "Stasis Cell/Prison", All, "Diplo");
+	Move Location("Current Player", "Stasis Cell/Prison", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Brittany");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Anjou");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Orleans");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Gascogne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Toulouse");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Auvergne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Burgundy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Flanders");
+	Set Deaths("Current Player", "Religion", Set To, 1);
+	Set Deaths("Current Player", "Income", Set To, 31);
+	Set Deaths("Current Player", "Permanent Manpower", Set To, 65);
+	Set Deaths("Current Player", "Effective Manpower", Set To, 65);
+	Set Deaths("Current Player", "Manpower Regen", Set To, 1);
+	Comment("Choose France 1066");
+}
+
+//<Nation Selection Information//>
+
+Trigger("Player 1"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 1", At least, 1);
+	Bring("Player 12", "Stasis Cell/Prison", "Diplo 1", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Orleans");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of France\r\n\x019Capital: \x00fParis\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x01012\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("France Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 1", At least, 1);
+	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 1", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Bedford");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of England\r\n\x019Capital: \x00fMiddlesex\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x0169\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("England Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 1", At least, 1);
+	Bring("Player 12", "Warp Gate", "Diplo 1", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Albany");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of Scotland\r\n\x019Capital: \x00fScone\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0116\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("England Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 2", At least, 1);
+	Bring("Player 12", "Stasis Cell/Prison", "Diplo 2", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Orleans");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of France\r\n\x019Capital: \x00fParis\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x01012\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("France Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 2", At least, 1);
+	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 2", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Bedford");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of England\r\n\x019Capital: \x00fMiddlesex\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x0169\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("England Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 2", At least, 1);
+	Bring("Player 12", "Warp Gate", "Diplo 2", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Albany");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of Scotland\r\n\x019Capital: \x00fScone\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0116\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("England Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 3"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 3", At least, 1);
+	Bring("Player 12", "Stasis Cell/Prison", "Diplo 3", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Orleans");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of France\r\n\x019Capital: \x00fParis\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x01012\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("France Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 3"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 3", At least, 1);
+	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 3", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Bedford");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of England\r\n\x019Capital: \x00fMiddlesex\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x0169\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("England Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 3"){
+Conditions:
+	Bring("Current Player", "Zerg Larva", "Diplo 3", At least, 1);
+	Bring("Player 12", "Warp Gate", "Diplo 3", At least, 1);
+	Switch("Choose", set);
+	Switch("Start", not set);
+
+Actions:
+	Minimap Ping("Duchy of Albany");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of Scotland\r\n\x019Capital: \x00fScone\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0116\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("England Info, 1066");
+}

@@ -1,0 +1,420 @@
+//<Income//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 1);
+	Deaths("Current Player", "Income", at least, 20);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Income", Subtract, 20);
+	Set Resources("Current Player", Add, 20, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 20);
+	Preserve Trigger();
+	Comment("Accelerated x20, Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 1);
+	Deaths("Current Player", "Income", at least, 10);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Income", Subtract, 10);
+	Set Resources("Current Player", Add, 10, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated x10, Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 1);
+	Deaths("Current Player", "Income", at least, 5);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Income", Subtract, 5);
+	Set Resources("Current Player", Add, 5, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Preserve Trigger();
+	Comment("Accelerated x5, Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 1);
+	Deaths("Current Player", "Income", at least, 1);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Income", Subtract, 1);
+	Set Resources("Current Player", Add, 1, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 1);
+	Deaths("Current Player", "Income", at least, 20);
+	Accumulate("Current Player", At least, 20, gas);
+
+Actions:
+	Set Deaths("Current Player", "Income", Subtract, 20);
+	Set Resources("Current Player", Subtract, 20, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 20);
+	Preserve Trigger();
+	Comment("Accelerated x20, Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 1);
+	Deaths("Current Player", "Income", at least, 10);
+	Accumulate("Current Player", At least, 10, gas);
+
+Actions:
+	Set Deaths("Current Player", "Income", Subtract, 10);
+	Set Resources("Current Player", Subtract, 10, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated x10, Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 1);
+	Deaths("Current Player", "Income", at least, 5);
+	Accumulate("Current Player", At least, 5, gas);
+
+Actions:
+	Set Deaths("Current Player", "Income", Subtract, 5);
+	Set Resources("Current Player", Subtract, 5, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 1);
+	Deaths("Current Player", "Income", at least, 1);
+	Accumulate("Current Player", At least, 1, gas);
+
+Actions:
+	Set Deaths("Current Player", "Income", Subtract, 1);
+	Set Resources("Current Player", Subtract, 1, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", Exactly, 1);
+	Deaths("Current Player", "Income", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Pay Resources Switch", Add, 1);
+	Play WAV("staredit\\wav\\money_in2.ogg", 0);
+	Preserve Trigger();
+	Comment("When county development hits zero, restore counties from buffer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 2);
+	Deaths("Current Player", "Protoss Nexus", at least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 1);
+	Set Deaths("Current Player", "Income", Add, 1);
+	Preserve Trigger();
+	Comment("Restore counties from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 2);
+	Deaths("Current Player", "Protoss Nexus", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Pay Resources Switch", Set to, 3);
+	Preserve Trigger();
+	Comment("Move on to expenses");
+}
+
+//<Expenses//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Pay Resources Switch", Set to, 0);
+	Preserve Trigger();
+	Comment("Levies not raised, skip expenses and reset timer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 20);
+	Accumulate("Current Player", At least, 20, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 20);
+	Set Resources("Current Player", Subtract, 20, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 20);
+	Preserve Trigger();
+	Comment("Accelerated x20, Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 10);
+	Accumulate("Current Player", At least, 10, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 10);
+	Set Resources("Current Player", Subtract, 10, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated x10, Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 5);
+	Accumulate("Current Player", At least, 5, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 5);
+	Set Resources("Current Player", Subtract, 5, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Preserve Trigger();
+	Comment("Accelerated x5, Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Set Resources("Current Player", Subtract, 1, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Preserve Trigger();
+	Comment("Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 20);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 20);
+	Set Resources("Current Player", Add, 20, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 20);
+	Preserve Trigger();
+	Comment("Accelerated x20, Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 10);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 10);
+	Set Resources("Current Player", Add, 10, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated x10, Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 5);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 5);
+	Set Resources("Current Player", Add, 5, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Preserve Trigger();
+	Comment("Accelerated x5, Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Set Resources("Current Player", Add, 1, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Preserve Trigger();
+	Comment("Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", Exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Pay Resources Switch", Add, 1);
+	Preserve Trigger();
+	Comment("When army size hits zero, restore army size from buffer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", at least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 1);
+	Preserve Trigger();
+	Comment("Restore army size from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", at least, 10);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 10);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated, Restore army size from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", at most, 9);
+	Deaths("Current Player", "Protoss Nexus", at least, 5);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 5);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 5);
+	Preserve Trigger();
+	Comment("Accelerated, Restore army size from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Pay Resources Switch", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Pay Resources Switch", Set to, 0);
+	Preserve Trigger();
+	Comment("Reset timer");
+}
+
+//<Remove unit casualties from expense calculations//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Zealot", At least, 1);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Zealot", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 2);
+	Preserve Trigger();
+	Comment("Zealot casualty, remove from expenses calculation");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Terran Ghost", At least, 1);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Terran Ghost", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 1);
+	Preserve Trigger();
+	Comment("Ghost casualty, remove from expenses calculation");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Zerg Zergling", At least, 1);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Zergling", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 1);
+	Preserve Trigger();
+	Comment("Zergling casualty, remove from expenses calculation");
+}

@@ -1,0 +1,1444 @@
+//<Holding development upgrades//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "Anywhere", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "County Low Ground", At most, 0);
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 0);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Display Text Message(Always Display, "Upgrade Detected");
+	Preserve Trigger();
+	Comment("Initialize Upgrade #1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Low Ground", At most, 0);
+	Bring("All Players", "Income", "County Loc Universal", At most, 0);
+	Bring("All Players", "Pay Resources Switch", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Nexus", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Fleet Beacon", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Observatory", "County Loc Universal", At most, 0);
+	Bring("All Players", "Terran Missile Turret", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Citadel of Adun", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Arbiter Tribunal", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Robotics Support Bay", "County Loc Universal", At most, 0);
+	Bring("All Players", "HolyWar", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Duchy", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011You must construct a pylon directly adjacent a County or Duchy...");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Set to, 0);
+	Preserve Trigger();
+	Comment("County Detect Failure #2, Reset DEFUNCT?");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Bedford", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Bedford", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 1);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Bedford");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Cornwall", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Cornwall", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 2);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Cornwall");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Wales", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Wales", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 3);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Wales");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Lancaster", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Lancaster", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 4);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Lancaster");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Norfolk", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Norfolk", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 5);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Norfolk");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Northumberland", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Northumberland", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 6);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Northumberland");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Lothian", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Lothian", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 7);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Lothian");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Albany", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Albany", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 8);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Albany");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Galloway", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Galloway", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 9);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Galloway");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Hebrides", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Hebrides", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 10);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Hebrides");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Morway", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Morway", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 11);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Morway");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Ulster", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Ulster", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 12);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Ulster");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Connacht", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Connacht", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 13);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Connacht");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Munster", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Munster", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 14);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Munster");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Normandy", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Duchy", "Duchy of Normandy", Exactly, 1);
+	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 15);
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Normandy");
+	Preserve Trigger();
+	Comment("Set index ID, move to duchy upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Militia INFO, Base");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Militia Training Grounds INFO, Base");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Militia INFO, Level 2");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Militia Training Grounds INFO, Level 2");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Militia INFO, Level 3");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Militia Training Grounds INFO, Level 3");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 3);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Militia INFO, Level 4");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Militia Training Grounds INFO, Level 4");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 4);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Militia INFO, Level 5");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Militia Training Grounds INFO, Level 5");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Castle INFO, Base");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Castle INFO, Base");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Castle INFO, Level 2");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Castle INFO, Level 2");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Castle INFO, Level 3");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Castle INFO, Level 3");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 3);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Castle INFO, Level 4");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Castle INFO, Level 4");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Barracks INFO, Base");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Guard Barracks INFO, Base");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Barracks INFO, Level 2");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Guard Barracks INFO, Level 2");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Barracks INFO, Level 3");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Guard Barracks INFO, Level 3");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 3);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Barracks INFO, Level 4");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Guard Barracks INFO, Level 4");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 4);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Barracks INFO, Level 5");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Guard Barracks INFO, Level 5");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Stables INFO, base");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Stables INFO, Base");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Stables INFO, Level 2");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Stables INFO, Level 2");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Stables INFO, Level 3");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Stables INFO, Level 3");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 3);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Stables INFO, Level 4");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Stables INFO, Level 4");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Cancel INFO");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Cancel Upgrade INFO");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Militia Hall UPGRADED to Level 2!");
+	Set Deaths("Current Player", "Effective Manpower", Add, 2);
+	Set Deaths("Current Player", "Permanent Manpower", Add, 2);
+	Set Deaths("Current Player", "Protoss Shield Battery", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Militia Training Grounds Upgrade LVL2 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Militia Training Grounds Upgrade LVL2 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Militia Hall UPGRADED to Level 3!");
+	Set Deaths("Current Player", "Effective Manpower", Add, 3);
+	Set Deaths("Current Player", "Permanent Manpower", Add, 3);
+	Set Deaths("Current Player", "Protoss Shield Battery", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Militia Training Grounds Upgrade LVL3 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Militia Training Grounds Upgrade LVL3 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Militia Hall UPGRADED to Level 4!");
+	Set Deaths("Current Player", "Effective Manpower", Add, 5);
+	Set Deaths("Current Player", "Permanent Manpower", Add, 5);
+	Set Deaths("Current Player", "Protoss Shield Battery", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Militia Training Grounds Upgrade LVL4 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Militia Training Grounds Upgrade LVL4 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 3);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Militia Hall UPGRADED to Level 5!");
+	Set Deaths("Current Player", "Effective Manpower", Add, 6);
+	Set Deaths("Current Player", "Permanent Manpower", Add, 6);
+	Set Deaths("Current Player", "Protoss Shield Battery", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Militia Training Grounds Upgrade LVL5 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 3);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Militia Training Grounds Upgrade LVL5 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 4);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Move Unit("Current Player", "Men", All, "Duchy Left", "Duchy Information");
+	Display Text Message(Always Display, "Militia Training Grounds is already at maximum level");
+	Preserve Trigger();
+	Comment("Militia Training Grounds Max Level");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Castle UPGRADED to Level 2!");
+	Set Deaths("Current Player", "Terran Bunker", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Castle Upgrade LVL2 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Castle upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Castle Upgrade LVL2 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Castle UPGRADED to Level 2!");
+	Set Deaths("Current Player", "Terran Bunker", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Castle Upgrade LVL3 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Castle upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Castle Upgrade LVL3 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Castle UPGRADED to Level 2!");
+	Set Deaths("Current Player", "Terran Bunker", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Castle Upgrade LVL4 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Bunker", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Castle upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Castle Upgrade LVL4 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Guard Barracks UPGRADED to Level 2!");
+	Set Deaths("Current Player", "Effective Manpower", Add, 1);
+	Set Deaths("Current Player", "Permanent Manpower", Add, 1);
+	Set Deaths("Current Player", "Terran Armory", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Guard Barracks Upgrade LVL2 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Guard Barracks upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Guard Barracks Upgrade LVL2 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Guard Barracks UPGRADED to Level 3!");
+	Set Deaths("Current Player", "Effective Manpower", Add, 3);
+	Set Deaths("Current Player", "Permanent Manpower", Add, 3);
+	Set Deaths("Current Player", "Terran Armory", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Guard Barracks Upgrade LVL3 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Guard Barracks upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Guard Barracks Upgrade LVL3 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Guard Barracks UPGRADED to Level 4!");
+	Set Deaths("Current Player", "Effective Manpower", Add, 5);
+	Set Deaths("Current Player", "Permanent Manpower", Add, 5);
+	Set Deaths("Current Player", "Terran Armory", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Guard Barracks Upgrade LVL4 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Guard Barracks upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Guard Barracks Upgrade LVL4 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 3);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Guard Barracks UPGRADED to Level 5!");
+	Set Deaths("Current Player", "Effective Manpower", Add, 7);
+	Set Deaths("Current Player", "Permanent Manpower", Add, 7);
+	Set Deaths("Current Player", "Terran Armory", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Guard Barracks Upgrade LVL5 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 3);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Guard Barracks upgrade failed, insufficient resources");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Guard Barracks Upgrade LVL5 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 4);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
+
+Actions:
+	Move Unit("Current Player", "Men", All, "Duchy Left", "Duchy Information");
+	Display Text Message(Always Display, "Guard Barracks is already at maximum level");
+	Preserve Trigger();
+	Comment("Guard Barracks Max Level");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Stables UPGRADED to Level 2!");
+	Set Deaths("Current Player", "Protoss Robotics Facility", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Stables Upgrade LVL2 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Stables UPGRADE failed, insufficient resources!");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Stables Upgrade LVL2 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Stables UPGRADED to Level 3!");
+	Set Deaths("Current Player", "Protoss Robotics Facility", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Stables Upgrade LVL3 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Stables UPGRADE failed, insufficient resources!");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Stables Upgrade LVL3 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Set Resources("Current Player", Subtract, 0, ore);
+	Display Text Message(Always Display, "Stables UPGRADED to Level 3!");
+	Set Deaths("Current Player", "Protoss Robotics Facility", Add, 1);
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Stables Upgrade LVL4 Success");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 2);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Stables UPGRADE failed, insufficient resources!");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Stables Upgrade LVL4 Failure");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
+	Center View("CenterView");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
+	Display Text Message(Always Display, "Duchy Upgrade cancelled");
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Add, 1);
+	Preserve Trigger();
+	Comment("Cancel Upgrade");
+}
+

@@ -1,0 +1,803 @@
+//<1 Bedford Upgrades//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11837440);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Subtract, 256000);
+	Set Deaths("Current Player", "Terran Bunker", Add, 1);
+	Display Text Message(Always Display, "Castle level detected");
+	Preserve Trigger();
+	Comment("Detect Castle if HP is at least 46240");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11607040);
+	Memory(19027, At Most, 11709440);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Subtract, 25600);
+	Set Deaths("Current Player", "Protoss Robotics Facility", Add, 1);
+	Display Text Message(Always Display, "Stable level detected");
+	Preserve Trigger();
+	Comment("Detect Stables if HP is at least 45340-45740");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11584000);
+	Memory(19027, At Most, 11594240);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Subtract, 2560);
+	Set Deaths("Current Player", "Terran Armory", Add, 1);
+	Display Text Message(Always Display, "Barracks level detected");
+	Preserve Trigger();
+	Comment("Detect Barracks if HP is at least 45250-45290");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11581696);
+	Memory(19027, At Most, 11582720);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Subtract, 256);
+	Set Deaths("Current Player", "Protoss Shield Battery", Add, 1);
+	Display Text Message(Always Display, "Militia Hall detected");
+	Preserve Trigger();
+	Comment("Detect Militia Hall if HP is at least 45241-45245");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19060, At Most, 16777215);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Town INFO, Base");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Town INFO, Base");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19060, At Least, 16777216);
+	Memory(19060, At Most, 33554431);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Town INFO, Level 2");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Town INFO, Level 2");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19060, At Least, 33554432);
+	Memory(19060, At Most, 50331647);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Town INFO, Level 3");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Town INFO, Level 3");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19060, At Least, 50331648);
+	Memory(19060, At Most, 67108863);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "Town INFO, Level 4");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Upgrade Town INFO, Level 4");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 3);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Terran Bunker", At least, 1);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Add, 256000);
+	Set Deaths("Current Player", "Terran Bunker", Subtract, 1);
+	Display Text Message(Always Display, "Restoring HP");
+	Preserve Trigger();
+	Comment("Restore current Castle level to HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 3);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Protoss Robotics Facility", At least, 1);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Add, 25600);
+	Set Deaths("Current Player", "Protoss Robotics Facility", Subtract, 1);
+	Display Text Message(Always Display, "Restoring HP");
+	Preserve Trigger();
+	Comment("Restore current Stable level to HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 3);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Terran Armory", At least, 1);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Add, 2560);
+	Set Deaths("Current Player", "Terran Armory", Subtract, 1);
+	Display Text Message(Always Display, "Restoring HP");
+	Preserve Trigger();
+	Comment("Restore current Guard Barracks level to HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 3);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Protoss Shield Battery", At least, 1);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Add, 256);
+	Set Deaths("Current Player", "Protoss Shield Battery", Subtract, 1);
+	Display Text Message(Always Display, "Restoring HP");
+	Preserve Trigger();
+	Comment("Restore current Militia Hall level to HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 3);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Terran Armory", Exactly, 0);
+	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 0);
+	Deaths("Current Player", "Protoss Shield Battery", Exactly, 0);
+	Deaths("Current Player", "Terran Bunker", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "County/Duchy Upgrade Switch", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
+	Preserve Trigger();
+	Comment("Clear Duchy upgrade after returning HP");
+}
+
+//<1 Bedford Spawns//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11581440);
+	Memory(19027, At Most, 11581695);
+	Deaths("Current Player", "Effective Manpower", At least, 5);
+	Deaths("Current Player", "Manual Levy Switch", At most, 0);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Raised Army Size", Add, 5);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 5);
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Preserve Trigger();
+	Comment("Auto-Spawn duchy base units if solvent");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11581440);
+	Memory(19027, At Most, 11581695);
+	Deaths("Current Player", "Effective Manpower", At least, 5);
+	Deaths("Current Player", "Manual Levy Switch", At most, 0);
+	Accumulate("Current Player", At most, 0, ore);
+	Accumulate("Current Player", At least, 50, gas);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Raised Army Size", Add, 5);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 5);
+	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Preserve Trigger();
+	Comment("Auto-Spawn duchy base units if bankrupt");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11581440);
+	Memory(19027, At Most, 11581695);
+	Deaths("Current Player", "Effective Manpower", At least, 5);
+	Deaths("Current Player", "Manual Levy Switch", At least, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Raised Army Size", Add, 5);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 5);
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
+	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
+	Give Units to Player("Current Player", "Player 12", "Raise Local Levy", 1, "Duchy of Bedford");
+	Preserve Trigger();
+	Comment("Manual-Spawn duchy base units if solvent");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11581440);
+	Memory(19027, At Most, 11581695);
+	Deaths("Current Player", "Effective Manpower", At least, 5);
+	Deaths("Current Player", "Manual Levy Switch", At least, 1);
+	Accumulate("Current Player", At most, 0, ore);
+	Accumulate("Current Player", At least, 50, gas);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Raised Army Size", Add, 5);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 5);
+	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
+	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
+	Give Units to Player("Current Player", "Player 12", "Raise Local Levy", 1, "Duchy of Bedford");
+	Preserve Trigger();
+	Comment("Manual-Spawn duchy base units if bankrupt");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 9021440);
+	Memory(19027, At Most, 9021695);
+	Deaths("Current Player", "Effective Manpower", At least, 2);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Raised Army Size", Add, 2);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 2);
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Preserve Trigger();
+	Comment("Auto-Spawn duchy base units if HP is exactly 35240 (Devastated) if solvent");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 9021440);
+	Memory(19027, At Most, 9021695);
+	Deaths("Current Player", "Effective Manpower", At least, 2);
+	Deaths("Current Player", "Manual Levy Switch", At most, 0);
+	Accumulate("Current Player", At most, 0, ore);
+	Accumulate("Current Player", At least, 50, gas);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Raised Army Size", Add, 2);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 2);
+	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Preserve Trigger();
+	Comment("Auto-Spawn duchy base units if HP is exactly 35240 (Devastated) if bankrupt");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 9021440);
+	Memory(19027, At Most, 9021695);
+	Deaths("Current Player", "Effective Manpower", At least, 2);
+	Deaths("Current Player", "Manual Levy Switch", At least, 1);
+	Accumulate("Current Player", At most, 0, ore);
+	Accumulate("Current Player", At least, 50, gas);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Raised Army Size", Add, 2);
+	Set Deaths("Current Player", "Effective Manpower", Subtract, 2);
+	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
+	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
+	Give Units to Player("Current Player", "Player 12", "Raise Local Levy", 1, "Duchy of Bedford");
+	Preserve Trigger();
+	Comment("Manual-Spawn duchy base units if HP is exactly 35240 (Devastated) if bankrupt");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Most, 7627520);
+	Deaths("Current Player", "Manual Levy Switch", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
+	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
+	Move Location("Current Player", "Raise Local Levy", "Duchy of Bedford", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Raise Local Levy", 1, "County Loc Universal");
+	Display Text Message(Always Display, "You cannot raise levies in an occupied holding!");
+	Preserve Trigger();
+	Comment("Manual-Spawn fail if Occupied");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Most, 7627520);
+	Deaths("Current Player", "Manual Levy Switch", At most, 0);
+
+Actions:
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Preserve Trigger();
+	Comment("Skip spawn if HP is exactly 35239 (Occupied)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11581440);
+	Memory(19027, At Most, 11581695);
+	Deaths("Current Player", "Effective Manpower", At most, 4);
+
+Actions:
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip base spawn");
+}
+
+//-----------------------------------------------------------------//
+
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 1);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11581696);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 2);
+	Preserve Trigger();
+	Comment("If upgrades are detected, initiate arithmetic");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11607040);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Subtract, 25600);
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Add, 100);
+	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Add, 100);
+	Preserve Trigger();
+	Comment("Arithmetic enabled, if HP is at least 45340, detect stables");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At most, 0);
+	Memory(19027, At Least, 11581696);
+	Memory(19027, At Most, 11592704);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 4);
+	Preserve Trigger();
+	Comment("No stables detected, if HP is already at least 45241 and at most 45284, skip stables");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 2);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At least, 100);
+	Memory(19027, At Most, 11592704);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 3);
+	Preserve Trigger();
+	Comment("Stables arithmetic finished, if HP is at most 45284, move to cavalry spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 4);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11584000);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Subtract, 2560);
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Add, 10);
+	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Add, 10);
+	Preserve Trigger();
+	Comment("Arithmetic enabled, if HP is at least 45250, detect barracks");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 4);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At most, 0);
+	Memory(19027, At Most, 11582464);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 6);
+	Preserve Trigger();
+	Comment("No barracks detected, if HP is already at most 45244, skip barracks");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 4);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At least, 10);
+	Memory(19027, At Most, 11582719);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 5);
+	Preserve Trigger();
+	Comment("Barracks arithmetic finished, if HP is at most 45244, move to barracks spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 6);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Memory(19027, At Least, 11581696);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Subtract, 256);
+	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Add, 1);
+	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Add, 1);
+	Preserve Trigger();
+	Comment("Arithmetic enabled, if HP is at least 45241, detect militia hall");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 6);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At most, 0);
+	Memory(19027, At Least, 11581440);
+	Memory(19027, At Most, 11581695);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 8);
+	Preserve Trigger();
+	Comment("No militia hall detected, if HP is already at most 45240, skip militia hall");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 6);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At least, 1);
+	Memory(19027, At Most, 11581695);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 7);
+	Preserve Trigger();
+	Comment("Militia arithmetic finished, if HP is at most 45240, move to militia hall spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 8);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Memory(19027, At Least, 11581440);
+	Memory(19027, At Most, 11581695);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "Duchy of Bedford");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 9);
+	Preserve Trigger();
+	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 8);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+	Memory(19027, At Least, 11581440);
+	Memory(19027, At Most, 11581695);
+	Accumulate("Current Player", At most, 0, ore);
+	Accumulate("Current Player", At least, 50, gas);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "Duchy of Bedford");
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 9);
+	Preserve Trigger();
+	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 9);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", At least, 100);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Add, 25600);
+	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Subtract, 100);
+	Preserve Trigger();
+	Comment("Return HP to unit x100");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 9);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", At least, 10);
+	Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", At most, 99);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Add, 2560);
+	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Subtract, 10);
+	Preserve Trigger();
+	Comment("Return HP to unit x10");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 9);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", At least, 1);
+	Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", At most, 9);
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Add, 256);
+	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Return HP to unit x1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 9);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", At most, 0);
+	Deaths("Current Player", "Manual Levy Switch", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Preserve Trigger();
+	Comment("Finish HP return, go to next duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 9);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", At most, 0);
+	Deaths("Current Player", "Manual Levy Switch", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
+	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
+	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
+	Give Units to Player("Player 12", "Current Player", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Raise Local Levy", 1, "Duchy of Bedford");
+	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
+	Preserve Trigger();
+	Comment("Finish HP return for manual levy");
+}
+
+
