@@ -248,6 +248,7 @@ Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "## Spawn base duchy units if solvent");
 	Preserve Trigger();
 	Comment("Auto-Spawn duchy base units if solvent");
 }
@@ -279,6 +280,7 @@ Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "## Spawn base duchy units if bankrupt");
 	Preserve Trigger();
 	Comment("Auto-Spawn duchy base units if bankrupt");
 }
@@ -309,6 +311,7 @@ Actions:
 	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
 	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
 	Give Units to Player("Current Player", "Player 12", "Raise Local Levy", 1, "Duchy of Bedford");
+	Display Text Message(Always Display, "## Manual spawn base duchy units if solvent");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -341,6 +344,7 @@ Actions:
 	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
 	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
 	Give Units to Player("Current Player", "Player 12", "Raise Local Levy", 1, "Duchy of Bedford");
+	Display Text Message(Always Display, "## Manual spawn base duchy units if bankrupt");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -368,6 +372,7 @@ Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "## Spawn base duchy units if solvent (devastated)");
 	Preserve Trigger();
 	Comment("Auto-Spawn duchy base units if HP is exactly 35240 (Devastated) if solvent");
 }
@@ -398,6 +403,7 @@ Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "## Spawn base duchy units if bankrupt (devastated)");
 	Preserve Trigger();
 	Comment("Auto-Spawn duchy base units if HP is exactly 35240 (Devastated) if bankrupt");
 }
@@ -430,6 +436,7 @@ Actions:
 	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
 	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
 	Give Units to Player("Current Player", "Player 12", "Raise Local Levy", 1, "Duchy of Bedford");
+	Display Text Message(Always Display, "## Manual spawn base duchy units if bankrupt (devastated)");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if HP is exactly 35240 (Devastated) if bankrupt");
 }
@@ -507,6 +514,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 2);
+	Display Text Message(Always Display, "## Upgrades detected, initiate arithmetic");
 	Preserve Trigger();
 	Comment("If upgrades are detected, initiate arithmetic");
 }
@@ -524,6 +532,7 @@ Actions:
 	Set Deaths("Player 8", "Int:1585", Subtract, 25600);
 	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Add, 100);
 	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Add, 100);
+	Display Text Message(Always Display, "## Add stable spawn level +1");
 	Preserve Trigger();
 	Comment("Arithmetic enabled, if HP is at least 45340, detect stables");
 }
@@ -541,6 +550,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 4);
+	Display Text Message(Always Display, "## No stables detected, move to barracks");
 	Preserve Trigger();
 	Comment("No stables detected, if HP is already at least 45241 and at most 45284, skip stables");
 }
@@ -557,6 +567,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 3);
+	Display Text Message(Always Display, "## Spawn cavalry");
 	Preserve Trigger();
 	Comment("Stables arithmetic finished, if HP is at most 45284, move to cavalry spawn");
 }
@@ -574,6 +585,7 @@ Actions:
 	Set Deaths("Player 8", "Int:1585", Subtract, 2560);
 	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Add, 10);
 	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Add, 10);
+	Display Text Message(Always Display, "## Add barracks spawn level +1");
 	Preserve Trigger();
 	Comment("Arithmetic enabled, if HP is at least 45250, detect barracks");
 }
@@ -590,6 +602,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 6);
+	Display Text Message(Always Display, "## No barracks detected, move to militia hall");
 	Preserve Trigger();
 	Comment("No barracks detected, if HP is already at most 45244, skip barracks");
 }
@@ -606,6 +619,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 5);
+	Display Text Message(Always Display, "## Spawn barracks");
 	Preserve Trigger();
 	Comment("Barracks arithmetic finished, if HP is at most 45244, move to barracks spawn");
 }
@@ -623,8 +637,26 @@ Actions:
 	Set Deaths("Player 8", "Int:1585", Subtract, 256);
 	Set Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", Add, 1);
 	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Add, 1);
+	Display Text Message(Always Display, "## Add militia spawn level +1");
 	Preserve Trigger();
 	Comment("Arithmetic enabled, if HP is at least 45241, detect militia hall");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
+	Deaths("Current Player", "Unit Spawn Stage", Exactly, 6);
+	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
+	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At least, 1);
+	Memory(19027, At Most, 11581695);
+
+Actions:
+	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 7);
+	Display Text Message(Always Display, "## Spawn militia");
+	Preserve Trigger();
+	Comment("Militia arithmetic finished, if HP is at most 45240, move to end");
 }
 
 //-----------------------------------------------------------------//
@@ -640,24 +672,9 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 8);
+	Display Text Message(Always Display, "## No militia detected, skip to end");
 	Preserve Trigger();
 	Comment("No militia hall detected, if HP is already at most 45240, skip militia hall");
-}
-
-//-----------------------------------------------------------------//
-
-Trigger("\x006Kings"){
-Conditions:
-	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
-	Deaths("Current Player", "Unit Spawn Stage", Exactly, 6);
-	Deaths("Current Player", "Duchy Index ID", Exactly, 1);
-	Deaths("Current Player", "Upgrade Buffer 1 (unit spawn)", At least, 1);
-	Memory(19027, At Most, 11581695);
-
-Actions:
-	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 7);
-	Preserve Trigger();
-	Comment("Militia arithmetic finished, if HP is at most 45240, move to militia hall spawn");
 }
 
 //-----------------------------------------------------------------//
@@ -680,6 +697,7 @@ Actions:
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
 	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "Duchy of Bedford");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 9);
+	Display Text Message(Always Display, "## Finish spawn, restore Duchy HP solvent");
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
 }
@@ -706,6 +724,7 @@ Actions:
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
 	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "Duchy of Bedford");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 9);
+	Display Text Message(Always Display, "## Finishing spawn, restore Duchy HP bankrupt");
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
 }
@@ -722,6 +741,7 @@ Conditions:
 Actions:
 	Set Deaths("Player 8", "Int:1585", Add, 25600);
 	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Subtract, 100);
+	Display Text Message(Always Display, "## Restore Duchy HP x100");
 	Preserve Trigger();
 	Comment("Return HP to unit x100");
 }
@@ -739,6 +759,7 @@ Conditions:
 Actions:
 	Set Deaths("Player 8", "Int:1585", Add, 2560);
 	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Subtract, 10);
+	Display Text Message(Always Display, "## Restore Duchy HP x10");
 	Preserve Trigger();
 	Comment("Return HP to unit x10");
 }
@@ -756,6 +777,7 @@ Conditions:
 Actions:
 	Set Deaths("Player 8", "Int:1585", Add, 256);
 	Set Deaths("Current Player", "Upgrade Buffer 2 (restore HP)", Subtract, 1);
+	Display Text Message(Always Display, "## Restore Duchy HP x1");
 	Preserve Trigger();
 	Comment("Return HP to unit x1");
 }
@@ -774,6 +796,7 @@ Actions:
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "## Finish Restore Duchy, go to next duchy");
 	Preserve Trigger();
 	Comment("Finish HP return, go to next duchy");
 }

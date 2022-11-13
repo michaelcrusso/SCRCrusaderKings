@@ -120,12 +120,12 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 1);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
-	Bring("Current Player", "Duchy", "Anywhere", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Anywhere", At least, 1);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
 
 Actions:
-	Move Location("Current Player", "Duchy", "Anywhere", "County Loc Universal");
+	Move Location("Current Player", "Duchy Unit", "Anywhere", "County Loc Universal");
 	Create Unit with Properties("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal", 2);
 	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
 	Display Text Message(Always Display, "Go to Duchy Detect");
@@ -449,13 +449,13 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 	Bring("Player 12", "Disable Levy", "County Loc Universal", Exactly, 1);
 	Bring("Player 12", "Raise Local Levy", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
 
 Actions:
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
 	Display Text Message(Always Display, "Spawn units disabled, cycle to new Duchy");
 	Preserve Trigger();
@@ -467,13 +467,13 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 	Bring("Player 12", "Raise Local Levy", "County Loc Universal", Exactly, 1);
 	Bring("Player 12", "Disable Levy", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
 
 Actions:
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
 	Display Text Message(Always Display, "Levy already raised, cycle to new duchy");
 	Preserve Trigger();
@@ -487,7 +487,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Bedford", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Bedford", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Bedford", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -507,7 +507,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Cornwall", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Cornwall", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Cornwall", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -527,7 +527,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Wales", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Wales", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Wales", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -547,7 +547,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Lancaster", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lancaster", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lancaster", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -567,7 +567,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Norfolk", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Norfolk", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Norfolk", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -587,7 +587,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Northumberland", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Northumberland", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Northumberland", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -607,7 +607,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Lothian", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -627,7 +627,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Albany", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Albany", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Albany", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -647,7 +647,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Galloway", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Galloway", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Galloway", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -667,7 +667,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Hebrides", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Hebrides", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Hebrides", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -687,7 +687,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Morway", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Morway", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Morway", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -707,7 +707,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Ulster", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Ulster", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Ulster", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -727,7 +727,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Connacht", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Connacht", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Connacht", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -747,7 +747,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Munster", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Munster", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Munster", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -767,7 +767,7 @@ Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 2);
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Duchy of Normandy", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Normandy", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Normandy", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Unit Spawn Stage", at most, 0);
 	Deaths("Current Player", "Manual Levy Switch", at most, 0);
@@ -1235,7 +1235,7 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Mobilization Stage", Exactly, 1);
-	Bring("Current Player", "Duchy", "Anywhere", At most, 0);
+	Bring("Current Player", "Duchy Unit", "Anywhere", At most, 0);
 	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At least, 1);
 
 Actions:
@@ -1254,7 +1254,7 @@ Conditions:
 Actions:
 	Move Location("Current Player", "Duchy Demobilization Tracker", "Anywhere", "County Loc Universal");
 	Remove Unit At Location("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal");
-	Give Units to Player("Player 12", "Current Player", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Duchy Unit", 1, "County Loc Universal");
 	Preserve Trigger();
 	Comment("Return Duchies to Player");
 }

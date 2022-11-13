@@ -29,7 +29,7 @@ Conditions:
 	Bring("All Players", "Protoss Arbiter Tribunal", "County Loc Universal", At most, 0);
 	Bring("All Players", "Protoss Robotics Support Bay", "County Loc Universal", At most, 0);
 	Bring("All Players", "HolyWar", "County Loc Universal", At most, 0);
-	Bring("Current Player", "Duchy", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", At most, 0);
 	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 1);
 
 Actions:
@@ -48,8 +48,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Bedford", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Bedford", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Bedford", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -69,8 +69,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Cornwall", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Cornwall", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Cornwall", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -90,8 +90,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Wales", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Wales", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Wales", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -111,8 +111,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Lancaster", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Lancaster", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lancaster", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -132,8 +132,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Norfolk", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Norfolk", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Norfolk", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -153,8 +153,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Northumberland", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Northumberland", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Northumberland", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -174,8 +174,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Lothian", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -195,8 +195,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Albany", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Albany", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Albany", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -216,8 +216,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Galloway", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Galloway", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Galloway", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -237,8 +237,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Hebrides", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Hebrides", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Hebrides", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 
 Actions:
@@ -259,8 +259,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Morway", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Morway", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Morway", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -280,8 +280,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Ulster", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Ulster", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Ulster", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -301,8 +301,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Connacht", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Connacht", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Connacht", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -322,8 +322,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Munster", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Munster", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Munster", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
@@ -343,8 +343,8 @@ Conditions:
 	Deaths("Current Player", "Duchy Index ID", Exactly, 0);
 	Bring("Current Player", "Protoss Carrier", "Duchy of Normandy", Exactly, 1);
 	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
-	Bring("Current Player", "Duchy", "Duchy of Normandy", Exactly, 1);
-	Bring("Current Player", "Duchy", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Normandy", Exactly, 1);
+	Bring("Current Player", "Duchy Unit", "County Loc Universal", Exactly, 1);
 
 Actions:
 	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);

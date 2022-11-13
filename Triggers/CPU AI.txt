@@ -4,7 +4,7 @@ Trigger("Player 8", "\x006Kings"){
 Conditions:
 	Commands the Most At("Men", "Empire of Britannia");
 	Switch("1 vs Comp", set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 
 Actions:
 	Order("Player 8", "Men", "Empire of Britannia", "Duchy of Northumberland", attack);
@@ -20,7 +20,7 @@ Trigger("Player 8", "\x006Kings"){
 Conditions:
 	Command the Least At("Men", "Empire of Britannia");
 	Switch("1 vs Comp", set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 
 Actions:
 	Order("Player 8", "Men", "Empire of Britannia", "Duchy of Lothian", move);

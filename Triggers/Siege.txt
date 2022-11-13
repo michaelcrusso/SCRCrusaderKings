@@ -2,17 +2,17 @@
 
 Trigger("Player 8"){
 Conditions:
-	Deaths("Foes", "Diplomacy", At least, 2);
+	Deaths("Foes", "Diplomacy Unit", At least, 2);
 	Deaths("Foes", "Warp Gate", At least, 2);
 	Switch("Lothian", not set);
-	Bring("Foes", "Duchy", "Empire of Britannia", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Duchy Unit", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("All Players", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
-	Move Location("Current Player", "Duchy", "Duchy of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Duchy Unit", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Foes", "Siege Timer", 1, "Buildings Buffer 1", 4);
 	Move Unit("Foes", "Siege Timer", All, "Buildings Buffer 1", "County Loc Universal");
 	Set Switch("Lothian", set);
@@ -24,16 +24,16 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", At most, 0);
 	Switch("Lothian", not set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
-	Move Location("Current Player", "Duchy", "Duchy of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Duchy Unit", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Player 8", "Siege Timer", 1, "Buildings Buffer 1", 4);
 	Move Unit("Player 8", "Siege Timer", All, "Buildings Buffer 1", "County Loc Universal");
 	Set Switch("Lothian", set);
@@ -47,10 +47,10 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", At least, 1);
 	Switch("Lothian", set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At least, 1);
 	Bring("Current Player", "Men", "Duchy of Lothian", At least, 8);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
@@ -69,10 +69,10 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Deaths("Foes", "Diplomacy", At least, 2);
+	Deaths("Foes", "Diplomacy Unit", At least, 2);
 	Deaths("Foes", "Siege Calculations (Detect Player)", At least, 1);
 	Switch("Lothian", set);
-	Bring("Foes", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At least, 1);
 	Bring("Current Player", "Men", "Duchy of Lothian", At least, 8);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
@@ -88,10 +88,10 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", At least, 1);
 	Switch("Lothian", set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At least, 1);
 	Bring("Current Player", "Men", "Duchy of Lothian", At most, 7);
 	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
@@ -110,10 +110,10 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Deaths("Foes", "Diplomacy", At least, 2);
+	Deaths("Foes", "Diplomacy Unit", At least, 2);
 	Deaths("Foes", "Siege Calculations (Detect Player)", At least, 1);
 	Switch("Lothian", set);
-	Bring("Foes", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At least, 1);
 	Bring("Current Player", "Men", "Duchy of Lothian", At most, 7);
 	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
@@ -129,19 +129,19 @@ Actions:
 
 Trigger("Player 8","\x006Kings"){
 Conditions:
-	Deaths("Foes", "Diplomacy", At least, 2);
+	Deaths("Foes", "Diplomacy Unit", At least, 2);
 	Deaths("Foes", "Warp Gate", At least, 2);
 	Switch("Lothian", set);
-	Bring("Foes", "Duchy", "Empire of Britannia", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Duchy Unit", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Foes", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
-	Move Location("Player 8", "Duchy", "Duchy of Lothian", "County Loc Universal");
+	Move Location("Player 8", "Duchy Unit", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Player 8", "Explosion Effect", 1, "County Loc Universal", 2);
 	Kill Unit At Location("Player 8", "Explosion Effect", All, "County Loc Universal");
-	Give Units to Player("Player 8", "Foes", "Duchy", All, "Duchy of Lothian");
+	Give Units to Player("Player 8", "Foes", "Duchy Unit", All, "Duchy of Lothian");
 	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
 	Set Deaths("Player 5", "Int:13446", Add, 1342177280);
 	Set Switch("Lothian", clear);
@@ -154,18 +154,18 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", Exactly, 1);
 	Switch("Lothian", set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Player 1", "Men", "Duchy of Lothian", At least, 8);
 	Bring("Foes", "Men", "Diplo 1", At least, 1);
 
 Actions:
-	Move Location("Current Player", "Duchy", "Duchy of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Duchy Unit", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Current Player", "Explosion Effect", 1, "County Loc Universal", 2);
-	Give Units to Player("Current Player", "Player 1", "Duchy", 1, "Duchy of Lothian");
+	Give Units to Player("Current Player", "Player 1", "Duchy Unit", 1, "Duchy of Lothian");
 	Set Deaths("Current Player", "Siege Calculations (Detect Player)", Add, 1);
 	Display Text Message(Always Display, "Siege Victory, detect loser");
 	Preserve Trigger();
@@ -176,13 +176,13 @@ Actions:
 
 Trigger("Player 1"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", Exactly, 2);
 	Memory(161323, At Least, 11581440);
 	Memory(161356, At Most, 167772159);
 	Switch("Lothian", set);
 	Bring("Current Player", "Explosion Effect", "Duchy of Lothian", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At most, 0);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
@@ -203,13 +203,13 @@ Actions:
 
 Trigger("Player 1"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", Exactly, 2);
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Least, 167772160);
 	Switch("Lothian", set);
 	Bring("Current Player", "Explosion Effect", "Duchy of Lothian", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At most, 0);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
@@ -227,13 +227,13 @@ Actions:
 
 Trigger("Player 1"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", Exactly, 2);
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Most, 167772159);
 	Switch("Lothian", set);
 	Bring("Current Player", "Explosion Effect", "Duchy of Lothian", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At most, 0);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
@@ -253,18 +253,18 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", Exactly, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
 	Bring("Foes", "Men", "Diplo 2", At least, 1);
 	Switch("Lothian", set);
 
 Actions:
-	Move Location("Current Player", "Duchy", "Duchy of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Duchy Unit", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Current Player", "Explosion Effect", 1, "County Loc Universal", 2);
-	Give Units to Player("Current Player", "Player 2", "Duchy", 1, "Duchy of Lothian");
+	Give Units to Player("Current Player", "Player 2", "Duchy Unit", 1, "Duchy of Lothian");
 	Set Deaths("Current Player", "Siege Calculations (Detect Player)", Add, 1);
 	Display Text Message(Always Display, "Siege Victory, detect loser");
 	Preserve Trigger();
@@ -275,10 +275,10 @@ Actions:
 
 Trigger("Player 2"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", Exactly, 2);
 	Bring("Current Player", "Explosion Effect", "Duchy of Lothian", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At most, 0);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 	Memory(161323, At Least, 11581440);
@@ -301,10 +301,10 @@ Actions:
 
 Trigger("Player 2"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", Exactly, 2);
 	Bring("Current Player", "Explosion Effect", "Duchy of Lothian", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At most, 0);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 	Memory(161323, At Most, 11581439);
@@ -325,10 +325,10 @@ Actions:
 
 Trigger("Player 2"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Deaths("Current Player", "Siege Calculations (Detect Player)", Exactly, 2);
 	Bring("Current Player", "Explosion Effect", "Duchy of Lothian", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At most, 0);
 	Bring("Player 8", "Siege Timer", "Duchy of Lothian", At most, 0);
 	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 	Memory(161323, At Most, 11581439);
@@ -352,12 +352,12 @@ Actions:
 
 Trigger("Player 1"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Least, 167772160);
 	Memory(161356, At Most, 335544319);
 	Switch("Lothian", not set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
 
 Actions:
@@ -372,12 +372,12 @@ Actions:
 
 Trigger("Player 2"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Least, 335544320);
 	Memory(161356, At Most, 503316479);
 	Switch("Lothian", not set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
 
 Actions:
@@ -392,12 +392,12 @@ Actions:
 
 Trigger("Player 3"){
 Conditions:
-	Deaths("Current Player", "Diplomacy", At least, 2);
+	Deaths("Current Player", "Diplomacy Unit", At least, 2);
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Least, 503316480);
 	Memory(161356, At Most, 671088639);
 	Switch("Lothian", not set);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
 
 Actions:

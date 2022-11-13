@@ -145,6 +145,17 @@ Actions:
 
 //<Set board and diplo menu//>
 
+Trigger("Player 8"){
+Conditions:
+	Always();
+
+Actions:
+	MemoryAddr(0x0057f1dc, Set To, 1);
+	Comment("Add parallax star effect onto null tiles. Purposeless, but pretty.");
+}
+
+//-----------------------------------------------------------------//
+
 Trigger("All Players"){
 Conditions:
 	Switch("Start", not set);
@@ -364,13 +375,13 @@ Actions:
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Normandy");
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Northumberland");
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Norfolk");
-	Set Doodad State("All Players", "Duchy", "Duchy of Bedford", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Cornwall", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Wales", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Norfolk", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Lancaster", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Northumberland", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Normandy", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Bedford", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Cornwall", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Wales", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Norfolk", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Lancaster", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Northumberland", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Normandy", enabled);
 	Set Deaths("Current Player", "Religion", Set To, 3);
 	Set Deaths("Current Player", "Income", Set To, 27);
 	Set Deaths("Current Player", "Permanent Manpower", Set To, 48);
@@ -403,11 +414,11 @@ Actions:
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Albany");
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lothian");
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Hebrides");
-	Set Doodad State("Current Player", "Duchy", "Duchy of Galloway", enabled);
-	Set Doodad State("Current Player", "Duchy", "Duchy of Albany", enabled);
-	Set Doodad State("Current Player", "Duchy", "Duchy of Lothian", enabled);
-	Set Doodad State("Current Player", "Duchy", "Duchy of Morway", enabled);
-	Set Doodad State("Current Player", "Duchy", "Duchy of Hebrides", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Galloway", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Albany", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Lothian", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Morway", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Hebrides", enabled);
 	Set Deaths("Current Player", "Religion", Set To, 1);
 	Set Deaths("Current Player", "Income", Set To, 21);
 	Set Deaths("Current Player", "Permanent Manpower", Set To, 38);
@@ -474,13 +485,13 @@ Actions:
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Normandy");
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Northumberland");
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Norfolk");
-	Set Doodad State("All Players", "Duchy", "Duchy of Bedford", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Cornwall", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Wales", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Norfolk", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Lancaster", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Northumberland", enabled);
-	Set Doodad State("All Players", "Duchy", "Duchy of Normandy", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Bedford", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Cornwall", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Wales", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Norfolk", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Lancaster", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Northumberland", enabled);
+	Set Doodad State("All Players", "Duchy Unit", "Duchy of Normandy", enabled);
 	Set Deaths("Current Player", "Religion", Set To, 3);
 	Set Deaths("Current Player", "Income", Set To, 27);
 	Set Deaths("Current Player", "Permanent Manpower", Set To, 48);
@@ -512,11 +523,11 @@ Actions:
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Albany");
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lothian");
 	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Hebrides");
-	Set Doodad State("Current Player", "Duchy", "Duchy of Galloway", enabled);
-	Set Doodad State("Current Player", "Duchy", "Duchy of Albany", enabled);
-	Set Doodad State("Current Player", "Duchy", "Duchy of Lothian", enabled);
-	Set Doodad State("Current Player", "Duchy", "Duchy of Morway", enabled);
-	Set Doodad State("Current Player", "Duchy", "Duchy of Hebrides", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Galloway", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Albany", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Lothian", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Morway", enabled);
+	Set Doodad State("Current Player", "Duchy Unit", "Duchy of Hebrides", enabled);
 	Set Deaths("Current Player", "Religion", Set To, 1);
 	Set Deaths("Current Player", "Income", Set To, 21);
 	Set Deaths("Current Player", "Permanent Manpower", Set To, 38);

@@ -1230,3 +1230,613 @@ Actions:
 	Comment("Insufficient manpower, skip cavalry spawn");
 }
 
+//<Demobilize levies//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 1);
+	Bring("Current Player", "Duchy", "Anywhere", At most, 0);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 3);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 3);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Duchy Demobilization Tracker", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Duchy Demobilization Tracker", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Duchy", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 3);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 4);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY1 Menu", Exactly, 0);
+	Deaths("Current Player", "Mobilization Stage", At least, 1);
+	Deaths("Current Player", "Mobilization Stage", At most, 59);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY1 Menu");
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 60);
+	Display Text Message(Always Display, "\x01f--------------------------\r\n\x011Sending levies home...\r\n\x01f--------------------------");
+	Preserve Trigger();
+	Comment("Begin demobilization");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY2 Menu", Exactly, 0);
+	Deaths("Current Player", "Mobilization Stage", At least, 1);
+	Deaths("Current Player", "Mobilization Stage", At most, 59);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY2 Menu");
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 60);
+	Display Text Message(Always Display, "\x01f--------------------------\r\n\x011Sending levies home...\r\n\x01f--------------------------");
+	Preserve Trigger();
+	Comment("Begin demobilization");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY1 Menu", Exactly, 0);
+	Deaths("Current Player", "Mobilization Stage", At least, 60);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY1 Menu");
+	Display Text Message(Always Display, "\x01f--------------------------\r\n\x011Your levies have already been ordered home...\r\n\x01f--------------------------");
+	Preserve Trigger();
+	Comment("Begin demobilization error");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY2 Menu", Exactly, 0);
+	Deaths("Current Player", "Mobilization Stage", At least, 60);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY2 Menu");
+	Display Text Message(Always Display, "\x01f--------------------------\r\n\x011Your levies have already been ordered home...\r\n\x01f--------------------------");
+	Preserve Trigger();
+	Comment("Begin demobilization error");
+}
+
+//-----------------------------------------------------------------//
+
+//<Demobilize units removal//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 60);
+	Bring("Current Player", "Terran Ghost", "Anywhere", At least, 1);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Ghost", "Anywhere", "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Display Text Message(Always Display, "Move location to ghost if payment not occuring");
+	Preserve Trigger();
+	Comment("Remove Ghosts");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 61);
+	Bring("Current Player", "Terran Ghost", "RemoveUnitLoc", Exactly, 1);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Ghost", 1, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 1);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 1 ghost, no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove Ghosts");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 61);
+	Bring("Current Player", "Terran Ghost", "RemoveUnitLoc", Exactly, 2);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Ghost", 2, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 2);
+	Set Deaths("Current Player", "Effective Manpower", Add, 2);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 2 ghost, no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove Ghosts");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 61);
+	Bring("Current Player", "Terran Ghost", "RemoveUnitLoc", Exactly, 3);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Ghost", 3, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 3);
+	Set Deaths("Current Player", "Effective Manpower", Add, 3);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 3 ghost, no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove Ghosts");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 61);
+	Bring("Current Player", "Terran Ghost", "RemoveUnitLoc", Exactly, 4);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Ghost", 4, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 4);
+	Set Deaths("Current Player", "Effective Manpower", Add, 4);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 4 ghost, no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove Ghosts");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 61);
+	Bring("Current Player", "Terran Ghost", "RemoveUnitLoc", At least, 5);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Ghost", 5, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 5);
+	Set Deaths("Current Player", "Effective Manpower", Add, 5);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 5 ghost, no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove Ghosts");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 60);
+	Bring("Current Player", "Duchy Demobilization Tracker", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Ghost", "Anywhere", At most, 0);	
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 62);
+	Display Text Message(Always Display, "Removed all ghosts");
+	Preserve Trigger();
+	Comment("Removed ghosts, move on to remove zerglings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 62);
+	Bring("Current Player", "Zerg Zergling", "Anywhere", At least, 1);
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);	
+
+Actions:
+	Move Location("Current Player", "Zerg Zergling", "Anywhere", "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Display Text Message(Always Display, "Move location to zergling if payment not occuring");
+	Preserve Trigger();
+	Comment("Move location to zergling if payment not occuring");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 63);
+	Bring("Current Player", "Zerg Zergling", "RemoveUnitLoc", Exactly, 1);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);	
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Zergling", 1, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 1);
+	Set Deaths("Current Player", "Effective Manpower", Add, 1);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 1 zergling");
+	Preserve Trigger();
+	Comment("Remove 1 zerglings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 63);
+	Bring("Current Player", "Zerg Zergling", "RemoveUnitLoc", Exactly, 2);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);	
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Zergling", 2, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 2);
+	Set Deaths("Current Player", "Effective Manpower", Add, 2);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 2 zerglings");
+	Preserve Trigger();
+	Comment("Remove 2 zerglings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 63);
+	Bring("Current Player", "Zerg Zergling", "RemoveUnitLoc", Exactly, 3);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);	
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Zergling", 3, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 3);
+	Set Deaths("Current Player", "Effective Manpower", Add, 3);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 3 zerglings");
+	Preserve Trigger();
+	Comment("Remove 3 zerglings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 63);
+	Bring("Current Player", "Zerg Zergling", "RemoveUnitLoc", Exactly, 4);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);	
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Zergling", 4, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 4);
+	Set Deaths("Current Player", "Effective Manpower", Add, 4);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 4 zerglings");
+	Preserve Trigger();
+	Comment("Remove 4 zerglings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 63);
+	Bring("Current Player", "Zerg Zergling", "RemoveUnitLoc", At least, 5);
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);	
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Zergling", 5, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 5);
+	Set Deaths("Current Player", "Effective Manpower", Add, 5);
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Display Text Message(Always Display, "Remove 5 zerglings");
+	Preserve Trigger();
+	Comment("Remove 5 zerglings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 62);
+	Bring("Current Player", "Zerg Zergling", "Anywhere", At most, 0);	
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 64);
+	Display Text Message(Always Display, "Removed all zerglings");
+	Preserve Trigger();
+	Comment("Removed zerglings, move on to remove zealots");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 64);
+	Bring("Current Player", "Protoss Zealot", "Anywhere", At least, 1);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Move Location("Current Player", "Protoss Zealot", "Anywhere", "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Display Text Message(Always Display, "Move location to zealot if payment not occuring");
+	Preserve Trigger();
+	Comment("Move location to zealot if payment not occuring");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 65);
+	Bring("Current Player", "Protoss Zealot", "RemoveUnitLoc", Exactly, 1);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Zealot", 1, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 2);
+	Set Deaths("Current Player", "Effective Manpower", Add, 2);
+	Display Text Message(Always Display, "Removed 1 zlot");
+	Preserve Trigger();
+	Comment("Remove 1 Zealots if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 65);
+	Bring("Current Player", "Protoss Zealot", "RemoveUnitLoc", Exactly, 2);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Zealot", 2, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 4);
+	Set Deaths("Current Player", "Effective Manpower", Add, 4);
+	Display Text Message(Always Display, "Removed 2 zlot");
+	Preserve Trigger();
+	Comment("Remove 2 Zealots if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 65);
+	Bring("Current Player", "Protoss Zealot", "RemoveUnitLoc", Exactly, 3);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Zealot", 3, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 6);
+	Set Deaths("Current Player", "Effective Manpower", Add, 6);
+	Display Text Message(Always Display, "Removed 3 zlot");
+	Preserve Trigger();
+	Comment("Remove 3 Zealots if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 65);
+	Bring("Current Player", "Protoss Zealot", "RemoveUnitLoc", Exactly, 4);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Zealot", 4, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 8);
+	Set Deaths("Current Player", "Effective Manpower", Add, 8);
+	Display Text Message(Always Display, "Removed 4 zlot");
+	Preserve Trigger();
+	Comment("Remove 4 Zealots if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 65);
+	Bring("Current Player", "Protoss Zealot", "RemoveUnitLoc", At least, 5);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Zealot", 5, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 10);
+	Set Deaths("Current Player", "Effective Manpower", Add, 10);
+	Display Text Message(Always Display, "Removed 5 zlot");
+	Preserve Trigger();
+	Comment("Remove 5 Zealots if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 64);
+	Bring("Current Player", "Protoss Zealot", "Anywhere", At most, 0);	
+
+Actions:
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 66);
+	Display Text Message(Always Display, "Removed all zlots");
+	Preserve Trigger();
+	Comment("Removed zealots, move on to remove firebats");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 66);
+	Bring("Current Player", "Terran Firebat", "Anywhere", At least, 1);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Firebat", "Anywhere", "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Add, 1);
+	Display Text Message(Always Display, "Move location to firebat if payment not occurring");
+	Preserve Trigger();
+	Comment("Move location to firebat if payment not occurring");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 67);
+	Bring("Current Player", "Terran Firebat", "RemoveUnitLoc", Exactly, 1);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Firebat", 1, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 2);
+	Set Deaths("Current Player", "Effective Manpower", Add, 2);
+	Display Text Message(Always Display, "Remove 1 firebat if no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove 1 firebat if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 67);
+	Bring("Current Player", "Terran Firebat", "RemoveUnitLoc", Exactly, 2);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Firebat", 2, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 4);
+	Set Deaths("Current Player", "Effective Manpower", Add, 4);
+	Display Text Message(Always Display, "Remove 2 firebat if no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove 2 firebat if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 67);
+	Bring("Current Player", "Terran Firebat", "RemoveUnitLoc", Exactly, 3);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Firebat", 3, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 6);
+	Set Deaths("Current Player", "Effective Manpower", Add, 6);
+	Display Text Message(Always Display, "Remove 3 firebat if no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove 3 firebat if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 67);
+	Bring("Current Player", "Terran Firebat", "RemoveUnitLoc", Exactly, 4);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Firebat", 4, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 8);
+	Set Deaths("Current Player", "Effective Manpower", Add, 8);
+	Display Text Message(Always Display, "Remove 4 firebat if no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove 4 firebat if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 67);
+	Bring("Current Player", "Terran Firebat", "RemoveUnitLoc", At least, 5);	
+	Bring("Foes", "Men", "RemoveUnitLoc", At most, 0);	
+	Deaths("Current Player", "Pay Resources Switch", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Terran Firebat", 5, "RemoveUnitLoc");
+	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
+	Set Deaths("Current Player", "Raised Army Size", Subtract, 10);
+	Set Deaths("Current Player", "Effective Manpower", Add, 10);
+	Display Text Message(Always Display, "Remove 5 firebat if no enemies nearby");
+	Preserve Trigger();
+	Comment("Remove 5 firebat if no enemies nearby");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", Exactly, 66);
+	Bring("Current Player", "Terran Firebat", "Anywhere", At most, 0);	
+
+Actions:
+	Set Deaths("Current Player", "Raised Army Size", Set to, 0);
+	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
+	Display Text Message(Always Display, "\x01f--------------------------\r\n\x011Levies sent home.\r\n\x01f--------------------------");
+	Preserve Trigger();
+	Comment("Levy Complete!");
+}
+

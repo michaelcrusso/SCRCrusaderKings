@@ -468,7 +468,7 @@ Actions:
 	Set Deaths("Current Player", "Raised Army Size", Add, 5);
 	Set Deaths("Current Player", "Effective Manpower", Subtract, 5);
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
@@ -525,7 +525,7 @@ Actions:
 	Set Deaths("Current Player", "Raised Army Size", Add, 2);
 	Set Deaths("Current Player", "Effective Manpower", Subtract, 2);
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
@@ -555,7 +555,7 @@ Actions:
 	Set Deaths("Current Player", "Effective Manpower", Subtract, 5);
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
@@ -616,7 +616,7 @@ Actions:
 	Set Deaths("Current Player", "Effective Manpower", Subtract, 2);
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
@@ -635,7 +635,7 @@ Conditions:
 	Memory(160987, At Most, 9021439);
 
 Actions:
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 0);
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
@@ -655,7 +655,7 @@ Conditions:
 	Deaths("Current Player", "Effective Manpower", At most, 4);
 
 Actions:
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Mobilization Stage", Subtract, 1);
 	Preserve Trigger();
 	Comment("Insufficient manpower, skip base spawn");
@@ -844,7 +844,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "Duchy of Morway");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "Duchy of Morway");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -870,7 +870,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Duchy", 1, "Duchy of Morway");
+	Give Units to Player("Current Player", "Player 12", "Duchy Unit", 1, "Duchy of Morway");
 	Set Deaths("Current Player", "Unit Spawn Stage", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -959,7 +959,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 0);
 	Set Deaths("Current Player", "Mobilization Stage", Set to, 0);
 	Set Deaths("Current Player", "Manual Levy Switch", Set to, 0);
-	Give Units to Player("Player 12", "Current Player", "Duchy", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Duchy Unit", 1, "County Loc Universal");
 	Give Units to Player("Current Player", "Player 12", "Raise Local Levy", 1, "Duchy of Morway");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();

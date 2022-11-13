@@ -1,0 +1,191 @@
+//<Diplomacy Menu//>
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "HolyWar", "Diplo", At least, 1);
+	Bring("Current Player", "Warp Gate", "Diplo", At most, 0);
+	Bring("All Players", "Warp Gate", "Diplo 1", At least, 1);
+	Switch("Start", set);
+	Switch("1 vs Comp", not set);
+
+Actions:
+	Move Location("Current Player", "HolyWar", "Diplo", "Diplo 1");
+	Remove Unit At Location("Current Player", "HolyWar", 1, "Diplo 1");
+	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "Diplo 1");
+	Center View("Diplo 1");
+	Set Alliance Status("Player 8", Enemy);
+	Set Switch("1 vs Comp", set);
+	Set Deaths("Player 1", "Diplomacy", Set to, 3);
+	Set Deaths("Player 1", "Warp Gate", Set to, 3);
+	Play WAV("staredit\\wav\\wardeclared.ogg", 0);
+	Play WAV("staredit\\wav\\warhorn.ogg", 0);
+	Display Text Message(Always Display, "PLAYER 1 has declared a HOLY WAR for Scotland!");
+	Preserve Trigger();
+	Comment("Declare war on Scotland");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "HolyWar", "Diplo", At least, 1);
+	Bring("All Players", "Buildings", "Diplo 1", At most, 0);
+	Switch("Start", set);
+
+Actions:
+	Move Location("Current Player", "HolyWar", "Diplo", "Diplo 1");
+	Remove Unit At Location("Current Player", "HolyWar", 1, "Diplo 1");
+	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "Diplo 1");
+	Display Text Message(Always Display, "You have not selected a target country!");
+	Preserve Trigger();
+	Comment("No country targeted Player 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Current Player", "Mobilization Stage", At most, 0);
+	Deaths("Foes", "Warp Gate", Exactly, 3);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
+
+Actions:
+	Create Unit with Properties("Player 8", "Protoss Zealot", 6, "Buffer Zone", 1);
+	Create Unit with Properties("Player 8", "Zerg Zergling", 12, "Buffer Zone", 1);
+	Create Unit with Properties("Player 8", "Terran Ghost", 10, "Buffer Zone", 1);
+	Move Unit("Player 8", "Men", All, "Buffer Zone", "Duchy of Morway");
+	Set Invincibility("Player 8", "Men", "Duchy of Morway", disabled);
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Comment("Spawn units in Scotland");
+	Preserve Trigger();
+}
+
+//<War/alliance status//>
+
+Trigger("Player 8"){
+Conditions:
+	Switch("1 vs Comp", set);
+
+Actions:
+	Set Alliance Status("Player 1", Enemy);
+	Comment("Computer declares war on Player");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Switch("2 vs Comp", set);
+
+Actions:
+	Set Alliance Status("Player 2", Enemy);
+	Comment("Computer declares war on Player");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Switch("3 vs Comp", set);
+
+Actions:
+	Set Alliance Status("Player 3", Enemy);
+	Comment("Computer declares war on Player");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Switch("4 vs Comp", set);
+
+Actions:
+	Set Alliance Status("Player 4", Enemy);
+	Comment("Computer declares war on Player");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Switch("5 vs Comp", set);
+
+Actions:
+	Set Alliance Status("Player 5", Enemy);
+	Comment("Computer declares war on Player");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Switch("6 vs Comp", set);
+
+Actions:
+	Set Alliance Status("Player 6", Enemy);
+	Comment("Computer declares war on Player");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Switch("7 vs Comp", set);
+
+Actions:
+	Set Alliance Status("Player 7", Enemy);
+	Comment("Computer declares war on Player");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("1 vs 2", set);
+
+Actions:
+	Set Alliance Status("Player 2", Enemy);
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("1 vs 2", set);
+
+Actions:
+	Set Alliance Status("Player 1", Enemy);
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("2 vs 1", set);
+
+Actions:
+	Set Alliance Status("Player 2", Enemy);
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("2 vs 1", set);
+
+Actions:
+	Set Alliance Status("Player 1", Enemy);
+	Preserve Trigger();
+}

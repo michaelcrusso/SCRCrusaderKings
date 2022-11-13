@@ -16,7 +16,7 @@ Actions:
 	Center View("Diplo 1");
 	Set Alliance Status("Player 8", Enemy);
 	Set Switch("1 vs Comp", set);
-	Set Deaths("Player 1", "Diplomacy", Set to, 3);
+	Set Deaths("Player 1", "Diplomacy Unit", Set to, 3);
 	Set Deaths("Player 1", "Warp Gate", Set to, 3);
 	Play WAV("staredit\\wav\\wardeclared.ogg", 0);
 	Play WAV("staredit\\wav\\warhorn.ogg", 0);
@@ -49,7 +49,7 @@ Trigger("Player 8"){
 Conditions:
 	Deaths("Current Player", "Mobilization Stage", At most, 0);
 	Deaths("Foes", "Warp Gate", Exactly, 3);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Duchy Unit", "Duchy of Lothian", At least, 1);
 
 Actions:
 	Create Unit with Properties("Player 8", "Protoss Zealot", 6, "Buffer Zone", 1);

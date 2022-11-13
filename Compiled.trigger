@@ -4,10 +4,10 @@ Trigger("Player 8", "\x006Kings"){
 Conditions:
 	Commands the Most At("Men", "Empire of Britannia");
 	Switch("1 vs Comp", set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
 
 Actions:
-	Order("Player 8", "Men", "Empire of Britannia", "Protoss Cybernetics Core of Northumberland", attack);
+	Order("Player 8", "Men", "Empire of Britannia", "Duchy of Northumberland", attack);
 	Wait(3000);
 	Display Text Message(Always Display, "Aggressive AI");
 	Comment("Aggressive AI");
@@ -20,16 +20,16 @@ Trigger("Player 8", "\x006Kings"){
 Conditions:
 	Command the Least At("Men", "Empire of Britannia");
 	Switch("1 vs Comp", set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
 
 Actions:
-	Order("Player 8", "Men", "Empire of Britannia", "Protoss Cybernetics Core of Lothian", move);
+	Order("Player 8", "Men", "Empire of Britannia", "Duchy of Lothian", move);
 	Wait(3000);
 	Display Text Message(Always Display, "Defensive AI");
 	Comment("Defensive AI");
 	Preserve Trigger();
 }
-//<Protoss Forge Menu//>
+//<Diplomacy Menu//>
 
 Trigger("\x006Kings"){
 Conditions:
@@ -80,14 +80,14 @@ Trigger("Player 8"){
 Conditions:
 	Deaths("Current Player", "Flag", At most, 0);
 	Deaths("Foes", "Warp Gate", Exactly, 3);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
 
 Actions:
 	Create Unit with Properties("Player 8", "Protoss Zealot", 6, "Buffer Zone", 1);
 	Create Unit with Properties("Player 8", "Zerg Zergling", 12, "Buffer Zone", 1);
 	Create Unit with Properties("Player 8", "Terran Ghost", 10, "Buffer Zone", 1);
-	Move Unit("Player 8", "Men", All, "Buffer Zone", "Protoss Cybernetics Core of Morway");
-	Set Invincibility("Player 8", "Men", "Protoss Cybernetics Core of Morway", disabled);
+	Move Unit("Player 8", "Men", All, "Buffer Zone", "Duchy of Morway");
+	Set Invincibility("Player 8", "Men", "Duchy of Morway", disabled);
 	Set Deaths("Current Player", "Flag", Add, 1);
 	Comment("Spawn units in Scotland");
 	Preserve Trigger();
@@ -220,6 +220,7 @@ Actions:
 	Set Alliance Status("Player 1", Enemy);
 	Preserve Trigger();
 }
+
 //<Protoss Photon Cannon//>
 
 Trigger("\x006Kings"){
@@ -996,23 +997,23 @@ Actions:
 	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
 	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
 	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
-	Give Units to Player("Player 8", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Protoss Cybernetics Core of Bedford");
+	Give Units to Player("Player 8", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Duchy of Bedford");
 	Give Units to Player("Player 12", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Diplo");
 	Move Location("Current Player", "Norad II (Crashed Battlecruiser)", "Anywhere", "County Loc Universal");
 	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Bedford");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Lancaster");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Cornwall");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Normandy");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Northumberland");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Norfolk");
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Bedford", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Cornwall", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Wales", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Norfolk", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lancaster", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Northumberland", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Normandy", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Bedford");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lancaster");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cornwall");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Normandy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Northumberland");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Norfolk");
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Bedford", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Cornwall", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Wales", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Norfolk", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Lancaster", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Northumberland", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Normandy", enabled);
 	Set Deaths("Current Player", "Protoss Marker", Set To, 3);
 	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 27);
 	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 48);
@@ -1036,20 +1037,20 @@ Actions:
 	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
 	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
 	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
-	Give Units to Player("Player 8", "Current Player", "Warp Gate", All, "Protoss Cybernetics Core of Morway");
+	Give Units to Player("Player 8", "Current Player", "Warp Gate", All, "Duchy of Morway");
 	Give Units to Player("Player 12", "Current Player", "Warp Gate", All, "Diplo");
 	Move Location("Current Player", "Warp Gate", "Anywhere", "County Loc Universal");
 	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Morway");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Galloway");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Albany");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Lothian");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Hebrides");
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Galloway", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Albany", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Morway", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Hebrides", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Morway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Galloway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Albany");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lothian");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Hebrides");
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Galloway", enabled);
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Albany", enabled);
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", enabled);
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Morway", enabled);
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Hebrides", enabled);
 	Set Deaths("Current Player", "Protoss Marker", Set To, 1);
 	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 21);
 	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 38);
@@ -1073,17 +1074,17 @@ Actions:
 	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
 	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
 	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
-	Give Units to Player("Player 8", "Current Player", "Stasis Cell/Prison", All, "Protoss Cybernetics Core of Orleans");
+	Give Units to Player("Player 8", "Current Player", "Stasis Cell/Prison", All, "Duchy of Orleans");
 	Give Units to Player("Player 12", "Current Player", "Stasis Cell/Prison", All, "Diplo");
 	Move Location("Current Player", "Stasis Cell/Prison", "Anywhere", "County Loc Universal");
 	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Anjou");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Orleans");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Gascogne");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Toulouse");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Auvergne");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Burgundy");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Flanders");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Anjou");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Orleans");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Gascogne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Toulouse");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Auvergne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Burgundy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Flanders");
 	Set Deaths("Current Player", "Protoss Marker", Set To, 1);
 	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 31);
 	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 65);
@@ -1110,19 +1111,19 @@ Actions:
 	Give Units to Player("Player 12", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Diplo");
 	Move Location("Current Player", "Norad II (Crashed Battlecruiser)", "Anywhere", "County Loc Universal");
 	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Bedford");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Lancaster");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Cornwall");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Normandy");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Northumberland");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Norfolk");
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Bedford", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Cornwall", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Wales", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Norfolk", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lancaster", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Northumberland", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Normandy", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Bedford");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lancaster");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cornwall");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Normandy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Northumberland");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Norfolk");
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Bedford", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Cornwall", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Wales", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Norfolk", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Lancaster", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Northumberland", enabled);
+	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Normandy", enabled);
 	Set Deaths("Current Player", "Protoss Marker", Set To, 3);
 	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 27);
 	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 48);
@@ -1149,16 +1150,16 @@ Actions:
 	Give Units to Player("Player 12", "Current Player", "Warp Gate", All, "Diplo");
 	Move Location("Current Player", "Warp Gate", "Anywhere", "County Loc Universal");
 	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Morway");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Galloway");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Albany");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Lothian");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Hebrides");
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Galloway", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Albany", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Morway", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Hebrides", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Morway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Galloway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Albany");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lothian");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Hebrides");
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Galloway", enabled);
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Albany", enabled);
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", enabled);
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Morway", enabled);
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Hebrides", enabled);
 	Set Deaths("Current Player", "Protoss Marker", Set To, 1);
 	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 21);
 	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 38);
@@ -1185,14 +1186,14 @@ Actions:
 	Give Units to Player("Player 12", "Current Player", "Stasis Cell/Prison", All, "Diplo");
 	Move Location("Current Player", "Stasis Cell/Prison", "Anywhere", "County Loc Universal");
 	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Brittany");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Anjou");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Orleans");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Gascogne");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Toulouse");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Auvergne");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Burgundy");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Protoss Cybernetics Core of Flanders");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Brittany");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Anjou");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Orleans");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Gascogne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Toulouse");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Auvergne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Burgundy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Flanders");
 	Set Deaths("Current Player", "Protoss Marker", Set To, 1);
 	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 31);
 	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 65);
@@ -1211,7 +1212,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Orleans");
+	Minimap Ping("Duchy of Orleans");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of France\r\n\x019Capital: \x00fParis\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x01012\r\n\x019Crown Strength: \x006Low\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1228,7 +1229,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Bedford");
+	Minimap Ping("Duchy of Bedford");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of England\r\n\x019Capital: \x00fMiddlesex\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x0169\r\n\x019Crown Strength: \x011Medium\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1245,7 +1246,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Albany");
+	Minimap Ping("Duchy of Albany");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of Scotland\r\n\x019Capital: \x00fScone\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0116\r\n\x019Crown Strength: \x011Medium\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1262,7 +1263,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Orleans");
+	Minimap Ping("Duchy of Orleans");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of France\r\n\x019Capital: \x00fParis\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x01012\r\n\x019Crown Strength: \x006Low\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1279,7 +1280,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Bedford");
+	Minimap Ping("Duchy of Bedford");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of England\r\n\x019Capital: \x00fMiddlesex\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x0169\r\n\x019Crown Strength: \x011Medium\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1296,7 +1297,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Albany");
+	Minimap Ping("Duchy of Albany");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of Scotland\r\n\x019Capital: \x00fScone\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0116\r\n\x019Crown Strength: \x011Medium\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1313,7 +1314,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Orleans");
+	Minimap Ping("Duchy of Orleans");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of France\r\n\x019Capital: \x00fParis\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x01012\r\n\x019Crown Strength: \x006Low\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1330,7 +1331,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Bedford");
+	Minimap Ping("Duchy of Bedford");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of England\r\n\x019Capital: \x00fMiddlesex\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x0169\r\n\x019Crown Strength: \x011Medium\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1347,7 +1348,7 @@ Conditions:
 	Switch("Start", not set);
 
 Actions:
-	Minimap Ping("Protoss Cybernetics Core of Albany");
+	Minimap Ping("Duchy of Albany");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of Scotland\r\n\x019Capital: \x00fScone\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0116\r\n\x019Crown Strength: \x011Medium\r\n\x019Protoss Marker: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
 	Wait(1500);
 	Preserve Trigger();
@@ -1362,7 +1363,7 @@ Conditions:
 Actions:
 	Move Location("Current Player", "Terran SCV", "Anywhere", "County Loc Universal");
 	Preserve Trigger();
-	Comment("Disable Protoss Cybernetics Core Levies");
+	Comment("Disable Duchy Levies");
 }
 
 //-----------------------------------------------------------------//
@@ -1376,7 +1377,7 @@ Actions:
 	Give Units to Player("Current Player", "Player 12", "Terran SCV", 1, "County Loc Universal");
 	Display Text Message(Always Display, "\x01f------------------------------------------------------------\r\n\x011Levies in this holding have been disabled.\r\n\x01f------------------------------------------------------------");
 	Preserve Trigger();
-	Comment("Protoss Cybernetics Core Levy Disabled");
+	Comment("Duchy Levy Disabled");
 }
 
 //-----------------------------------------------------------------//
@@ -1391,7 +1392,7 @@ Actions:
 	Remove Unit At Location("Current Player", "Terran SCV", 1, "County Loc Universal");
 	Display Text Message(Always Display, "\x01f----------------------------------------------------------------------\r\n\x011You have already disabled levies in this holding.\r\n\x01f----------------------------------------------------------------------");
 	Preserve Trigger();
-	Comment("Protoss Cybernetics Core Levy Already Disabled");
+	Comment("Duchy Levy Already Disabled");
 }
 
 //-----------------------------------------------------------------//
@@ -1418,7 +1419,7 @@ Actions:
 	Remove Unit At Location("Player 12", "Terran SCV", 1, "County Loc Universal");
 	Display Text Message(Always Display, "\x01f-----------------------------------------------\r\n\x011Levies re-enabled in this holding.\r\n\x01f-----------------------------------------------");
 	Preserve Trigger();
-	Comment("Protoss Cybernetics Core Levy Re-Enabled");
+	Comment("Duchy Levy Re-Enabled");
 }
 
 //-----------------------------------------------------------------//
@@ -1432,7 +1433,7 @@ Actions:
 	Remove Unit At Location("Current Player", "Zerg Larva", 1, "County Loc Universal");
 	Display Text Message(Always Display, "\x01f---------------------------------------------------------------------\r\n\x011You have already enabled levies in this holding.\r\n\x01f---------------------------------------------------------------------");
 	Preserve Trigger();
-	Comment("Protoss Cybernetics Core Levy Already Disabled");
+	Comment("Duchy Levy Already Disabled");
 }
 
 //<Mobilize levies init//>
@@ -1481,11 +1482,11 @@ Conditions:
 
 Actions:
 	Move Location("Current Player", "Protoss Cybernetics Core", "Anywhere", "County Loc Universal");
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Set Deaths("Current Player", "Flag", Add, 1);
-	Display Text Message(Always Display, "Go to Protoss Cybernetics Core Detect");
+	Display Text Message(Always Display, "Go to Duchy Detect");
 	Preserve Trigger();
-	Comment("Select New Protoss Cybernetics Core, go to Detect trigger");
+	Comment("Select New Duchy, go to Detect trigger");
 }
 
 //-----------------------------------------------------------------//
@@ -1518,7 +1519,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Set Deaths("Current Player", "Zerg Beacon", Add, 2);
@@ -1539,7 +1540,7 @@ Conditions:
 	Deaths("Current Player", "Mineral Field (Type 1)", At most, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Display Text Message(Always Display, "Insufficient manpower, skip town spawn");
@@ -1557,7 +1558,7 @@ Conditions:
 	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
 
 Actions:
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Display Text Message(Always Display, "Spawn units disabled, cycle to new town");
@@ -1575,7 +1576,7 @@ Conditions:
 	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
 
 Actions:
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Display Text Message(Always Display, "Levy already raised, cycle to new Town");
@@ -1589,7 +1590,7 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 4);
 	Bring("Current Player", "Protoss Photon Cannon", "Anywhere", At most, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At least, 1);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
 
 Actions:
 	Set Deaths("Current Player", "Flag", Set to, 6);
@@ -1603,11 +1604,11 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 6);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At least, 1);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
 
 Actions:
-	Move Location("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", "County Loc Universal");
-	Remove Unit At Location("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal");
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
 	Give Units to Player("Player 12", "Current Player", "Protoss Photon Cannon", 1, "County Loc Universal");
 	Display Text Message(Always Display, "Return town P12 -> player");
 	Preserve Trigger();
@@ -1619,7 +1620,7 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 6);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
 
 Actions:
 	Set Deaths("Current Player", "Flag", Set to, 7);
@@ -1658,7 +1659,7 @@ Actions:
 	Create Unit("Current Player", "Protoss Zealot", 1, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Set Deaths("Current Player", "Zerg Beacon", Add, 3);
@@ -1679,7 +1680,7 @@ Conditions:
 	Deaths("Current Player", "Mineral Field (Type 1)", At most, 2);
 
 Actions:
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Display Text Message(Always Display, "Insufficient manpower, skip castle spawn");
@@ -1697,7 +1698,7 @@ Conditions:
 	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
 
 Actions:
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Display Text Message(Always Display, "Spawn units disabled, cycle to new castle");
@@ -1714,7 +1715,7 @@ Conditions:
 	Bring("Player 12", "Hyperion (Battlecruiser)", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Display Text Message(Always Display, "Castle occupied [?] cycle to new castle");
@@ -1732,7 +1733,7 @@ Conditions:
 	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
 
 Actions:
-	Create Unit with Properties("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal", 2);
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
 	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Display Text Message(Always Display, "Levy already raised, cycle to new castle");
@@ -1746,7 +1747,7 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 7);
 	Bring("Current Player", "Terran Missile Turret", "Anywhere", At most, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At least, 1);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
 
 Actions:
 	Set Deaths("Current Player", "Flag", Set to, 9);
@@ -1760,11 +1761,11 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 9);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At least, 1);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
 
 Actions:
-	Move Location("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", "County Loc Universal");
-	Remove Unit At Location("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal");
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
 	Give Units to Player("Player 12", "Current Player", "Terran Missile Turret", 1, "County Loc Universal");
 	Display Text Message(Always Display, "Return castle, P12 -> player");
 	Preserve Trigger();
@@ -1776,7 +1777,7 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 9);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
 
 Actions:
 	Set Deaths("Current Player", "Flag", Set to, 10);
@@ -1790,7 +1791,7 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 10);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
 
 Actions:
 	Set Deaths("Current Player", "Flag", Set to, 11);
@@ -1812,9 +1813,9 @@ Conditions:
 Actions:
 	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Flag", Subtract, 1);
-	Display Text Message(Always Display, "Spawn units disabled, cycle to new Protoss Cybernetics Core");
+	Display Text Message(Always Display, "Spawn units disabled, cycle to new Duchy");
 	Preserve Trigger();
-	Comment("Spawn Units Disabled, Cycle to New Protoss Cybernetics Core");
+	Comment("Spawn Units Disabled, Cycle to New Duchy");
 }
 
 //-----------------------------------------------------------------//
@@ -1832,7 +1833,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Subtract, 1);
 	Display Text Message(Always Display, "Levy already raised, cycle to new duchy");
 	Preserve Trigger();
-	Comment("Levy Already Raised, Cycle to New Protoss Cybernetics Core");
+	Comment("Levy Already Raised, Cycle to New Duchy");
 }
 
 //-----------------------------------------------------------------//
@@ -1841,8 +1842,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Bedford", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Bedford", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Bedford", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Bedford", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -1861,8 +1862,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Cornwall", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Cornwall", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Cornwall", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Cornwall", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -1881,8 +1882,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Wales", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Wales", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Wales", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Wales", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -1901,8 +1902,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Lancaster", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lancaster", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Lancaster", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -1921,8 +1922,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Norfolk", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Norfolk", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Norfolk", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Norfolk", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -1941,8 +1942,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Northumberland", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Northumberland", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Northumberland", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Northumberland", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -1961,8 +1962,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Lothian", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Lothian", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -1981,8 +1982,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Albany", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Albany", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Albany", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Albany", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -2001,8 +2002,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Galloway", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Galloway", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Galloway", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Galloway", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -2021,8 +2022,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Hebrides", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Hebrides", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Hebrides", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Hebrides", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -2041,8 +2042,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Morway", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Morway", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Morway", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Morway", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -2061,8 +2062,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Ulster", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Ulster", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Ulster", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Ulster", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -2081,8 +2082,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Connacht", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Connacht", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Connacht", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Connacht", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -2101,8 +2102,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Munster", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Munster", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Munster", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Munster", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -2121,8 +2122,8 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Protoss Cybernetics Core of Normandy", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Normandy", Exactly, 1);
+	Bring("Current Player", "Terran Science Vessel", "Duchy of Normandy", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Normandy", Exactly, 1);
 	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
 	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
 	Deaths("Current Player", "Scanner Sweep", at most, 0);
@@ -2288,7 +2289,7 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 8);
 	Preserve Trigger();
-	Comment("Finish spawn cascade, move back to Protoss Cybernetics Core");
+	Comment("Finish spawn cascade, move back to Duchy");
 }
 
 //-----------------------------------------------------------------//
@@ -2441,7 +2442,7 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 6);
 	Preserve Trigger();
-	Comment("Finish spawn cascade, move back to Protoss Cybernetics Core");
+	Comment("Finish spawn cascade, move back to Duchy");
 }
 
 //-----------------------------------------------------------------//
@@ -2591,7 +2592,7 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "Anywhere", At most, 0);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At least, 1);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
 
 Actions:
 	Set Deaths("Current Player", "Flag", Set to, 3);
@@ -2604,11 +2605,11 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 3);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At least, 1);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
 
 Actions:
-	Move Location("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", "County Loc Universal");
-	Remove Unit At Location("Current Player", "Protoss Cybernetics Core Demobilization Tracker", 1, "County Loc Universal");
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
 	Preserve Trigger();
 	Comment("Return Duchies to Player");
@@ -2619,7 +2620,7 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 3);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
 
 Actions:
 	Set Deaths("Current Player", "Flag", Set to, 4);
@@ -2809,7 +2810,7 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Flag", Exactly, 60);
-	Bring("Current Player", "Protoss Cybernetics Core Demobilization Tracker", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
 	Bring("Current Player", "Terran Ghost", "Anywhere", At most, 0);	
 
 Actions:
@@ -3195,7 +3196,7 @@ Actions:
 	Comment("Levy Complete!");
 }
 
-//<Player sieges CPU Protoss Cybernetics Core, Activate Siege – Doubled triggers?//>
+//<Player sieges CPU Duchy, Activate Siege – Doubled triggers?//>
 
 Trigger("Player 8"){
 Conditions:
@@ -3203,13 +3204,13 @@ Conditions:
 	Deaths("Foes", "Warp Gate", At least, 2);
 	Switch("Lothian", not set);
 	Bring("Foes", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("All Players", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Current Player", "Men", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
-	Move Location("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Foes", "Terran Starport", 1, "Buildings Buffer 1", 4);
 	Move Unit("Foes", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
 	Set Switch("Lothian", set);
@@ -3224,20 +3225,20 @@ Conditions:
 	Deaths("Current Player", "Protoss Forge", At least, 2);
 	Deaths("Current Player", "Tank Turret type   2", At most, 0);
 	Switch("Lothian", not set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Current Player", "Men", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
-	Move Location("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
 	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
 	Set Switch("Lothian", set);
 	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
-	Display Text Message(Always Display, "Initiate Siege of Protoss Cybernetics Core");
+	Display Text Message(Always Display, "Initiate Siege of Duchy");
 	Preserve Trigger();
-	Comment("Player sieges Player Protoss Cybernetics Core");
+	Comment("Player sieges Player Duchy");
 }
 
 //-----------------------------------------------------------------//
@@ -3247,17 +3248,17 @@ Conditions:
 	Deaths("Current Player", "Protoss Forge", At least, 2);
 	Deaths("Current Player", "Tank Turret type   2", At least, 1);
 	Switch("Lothian", set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Men", "Duchy of Lothian", At least, 8);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
-	Remove Unit At Location("Player 8", "Terran Starport", 1, "Protoss Cybernetics Core of Lothian");
+	Remove Unit At Location("Player 8", "Terran Starport", 1, "Duchy of Lothian");
 	Set Switch("Lothian", clear);
 	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
 	Display Text Message(Always Display, "We have interrupted the enemy's siege of Lothian!");
-	Minimap Ping("Protoss Cybernetics Core of Lothian");
+	Minimap Ping("Duchy of Lothian");
 	Preserve Trigger();
 	Comment("Player interrupts siege, notify defender");
 }
@@ -3269,14 +3270,14 @@ Conditions:
 	Deaths("Foes", "Protoss Forge", At least, 2);
 	Deaths("Foes", "Tank Turret type   2", At least, 1);
 	Switch("Lothian", set);
-	Bring("Foes", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Foes", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Men", "Duchy of Lothian", At least, 8);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
 	Display Text Message(Always Display, "We have interrupted the enemy's siege!");
-	Minimap Ping("Protoss Cybernetics Core of Lothian");
+	Minimap Ping("Duchy of Lothian");
 	Preserve Trigger();
 	Comment("Player interrupts siege, notify attacker");
 }
@@ -3288,17 +3289,17 @@ Conditions:
 	Deaths("Current Player", "Protoss Forge", At least, 2);
 	Deaths("Current Player", "Tank Turret type   2", At least, 1);
 	Switch("Lothian", set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Men", "Protoss Cybernetics Core of Lothian", At most, 7);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At most, 7);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 7);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
 
 Actions:
-	Remove Unit At Location("Player 8", "Terran Starport", 1, "Protoss Cybernetics Core of Lothian");
+	Remove Unit At Location("Player 8", "Terran Starport", 1, "Duchy of Lothian");
 	Set Switch("Lothian", clear);
 	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
 	Display Text Message(Always Display, "The enemy has abandoned the siege of Lothian!");
-	Minimap Ping("Protoss Cybernetics Core of Lothian");
+	Minimap Ping("Duchy of Lothian");
 	Preserve Trigger();
 	Comment("Force 1 player abandons siege, notify defender");
 }
@@ -3310,19 +3311,19 @@ Conditions:
 	Deaths("Foes", "Protoss Forge", At least, 2);
 	Deaths("Foes", "Tank Turret type   2", At least, 1);
 	Switch("Lothian", set);
-	Bring("Foes", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Men", "Protoss Cybernetics Core of Lothian", At most, 7);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At most, 7);
+	Bring("Foes", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 7);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
 
 Actions:
 	Display Text Message(Always Display, "We have abandoned the siege of Lothian due to insufficient forces!");
-	Minimap Ping("Protoss Cybernetics Core of Lothian");
+	Minimap Ping("Duchy of Lothian");
 	Preserve Trigger();
 	Comment("Force 1 player abandons siege, notify attacker");
 }
 
-//<Player wins siege of CPU Protoss Cybernetics Core, calculate health//>
+//<Player wins siege of CPU Duchy, calculate health//>
 
 Trigger("Player 8","\x006Kings"){
 Conditions:
@@ -3330,15 +3331,15 @@ Conditions:
 	Deaths("Foes", "Warp Gate", At least, 2);
 	Switch("Lothian", set);
 	Bring("Foes", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Foes", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
-	Move Location("Player 8", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", "County Loc Universal");
+	Move Location("Player 8", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Player 8", "Terran Battlecruiser", 1, "County Loc Universal", 2);
 	Kill Unit At Location("Player 8", "Terran Battlecruiser", All, "County Loc Universal");
-	Give Units to Player("Player 8", "Foes", "Protoss Cybernetics Core", All, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Player 8", "Foes", "Protoss Cybernetics Core", All, "Duchy of Lothian");
 	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
 	Set Deaths("Player 5", "Int:13446", Add, 1342177280);
 	Set Switch("Lothian", clear);
@@ -3354,15 +3355,15 @@ Conditions:
 	Deaths("Current Player", "Protoss Forge", At least, 2);
 	Deaths("Current Player", "Tank Turret type   2", Exactly, 1);
 	Switch("Lothian", set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Player 1", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 1", "Men", "Duchy of Lothian", At least, 8);
 	Bring("Foes", "Men", "Diplo 1", At least, 1);
 
 Actions:
-	Move Location("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Current Player", "Terran Battlecruiser", 1, "County Loc Universal", 2);
-	Give Units to Player("Current Player", "Player 1", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Current Player", "Player 1", "Protoss Cybernetics Core", 1, "Duchy of Lothian");
 	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
 	Display Text Message(Always Display, "Siege Victory, detect loser");
 	Preserve Trigger();
@@ -3378,10 +3379,10 @@ Conditions:
 	Memory(161323, At Least, 11581440);
 	Memory(161356, At Most, 167772159);
 	Switch("Lothian", set);
-	Bring("Current Player", "Terran Battlecruiser", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
 	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
@@ -3392,7 +3393,7 @@ Actions:
 	Set Switch("Lothian", clear);
 	Display Text Message(Always Display, "Siege finished");
 	Preserve Trigger();
-	Comment("Player calculations: Player took Player 1 Protoss Cybernetics Core. HP at least 45240, kills at most 9. +10 kills -20000 HP and reset");
+	Comment("Player calculations: Player took Player 1 Duchy. HP at least 45240, kills at most 9. +10 kills -20000 HP and reset");
 	
 }
 
@@ -3405,10 +3406,10 @@ Conditions:
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Least, 167772160);
 	Switch("Lothian", set);
-	Bring("Current Player", "Terran Battlecruiser", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
 	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
@@ -3417,7 +3418,7 @@ Actions:
 	Set Switch("Lothian", clear);
 	Display Text Message(Always Display, "Siege finished");
 	Preserve Trigger();
-	Comment("Player calculations: Player took Player 1 Protoss Cybernetics Core. HP at most 45239 (already sieged), kills at least 10. No change in HP or Kills");
+	Comment("Player calculations: Player took Player 1 Duchy. HP at most 45239 (already sieged), kills at least 10. No change in HP or Kills");
 }
 
 //-----------------------------------------------------------------//
@@ -3429,10 +3430,10 @@ Conditions:
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Most, 167772159);
 	Switch("Lothian", set);
-	Bring("Current Player", "Terran Battlecruiser", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 
 Actions:
 	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
@@ -3443,7 +3444,7 @@ Actions:
 	Set Switch("Lothian", clear);
 	Display Text Message(Always Display, "Siege finished");
 	Preserve Trigger();
-	Comment("Player calculations: Player took Player 1 Protoss Cybernetics Core. HP at most 45239, kills at most 9 (?). -10000 HP +10 kills");
+	Comment("Player calculations: Player took Player 1 Duchy. HP at most 45239, kills at most 9 (?). -10000 HP +10 kills");
 }
 
 //<Player 2 wins siege of player duchy//>
@@ -3452,32 +3453,32 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Protoss Forge", At least, 2);
 	Deaths("Current Player", "Tank Turret type   2", Exactly, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Player 2", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
 	Bring("Foes", "Men", "Diplo 2", At least, 1);
 	Switch("Lothian", set);
 
 Actions:
-	Move Location("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Current Player", "Terran Battlecruiser", 1, "County Loc Universal", 2);
-	Give Units to Player("Current Player", "Player 2", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Current Player", "Player 2", "Protoss Cybernetics Core", 1, "Duchy of Lothian");
 	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
 	Display Text Message(Always Display, "Siege Victory, detect loser");
 	Preserve Trigger();
 	Comment("Player 2 wins siege of Player duchy, move to player calculations");
 }
 
-//<Protoss Cybernetics Core conquered calculations//>
+//<Duchy conquered calculations//>
 
 Trigger("Player 2"){
 Conditions:
 	Deaths("Current Player", "Protoss Forge", At least, 2);
 	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
-	Bring("Current Player", "Terran Battlecruiser", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 	Memory(161323, At Least, 11581440);
 	Memory(161356, At Most, 167772159);
 	Switch("Lothian", set);
@@ -3491,7 +3492,7 @@ Actions:
 	Set Switch("Lothian", clear);
 	Display Text Message(Always Display, "Siege finished");
 	Preserve Trigger();
-	Comment("Player calculations: Player took Player 2 Protoss Cybernetics Core. HP at least 45240, kills at most 9. +20 kills -20000 HP and reset");
+	Comment("Player calculations: Player took Player 2 Duchy. HP at least 45240, kills at most 9. +20 kills -20000 HP and reset");
 }
 
 //-----------------------------------------------------------------//
@@ -3500,10 +3501,10 @@ Trigger("Player 2"){
 Conditions:
 	Deaths("Current Player", "Protoss Forge", At least, 2);
 	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
-	Bring("Current Player", "Terran Battlecruiser", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Least, 167772160);
 	Switch("Lothian", set);
@@ -3515,7 +3516,7 @@ Actions:
 	Set Switch("Lothian", clear);
 	Display Text Message(Always Display, "Siege finished");
 	Preserve Trigger();
-	Comment("Player calculations: Player took Player 2 Protoss Cybernetics Core. HP at most 45239, kills at least 10. No change in HP or Kills");
+	Comment("Player calculations: Player took Player 2 Duchy. HP at most 45239, kills at least 10. No change in HP or Kills");
 }
 
 //-----------------------------------------------------------------//
@@ -3524,10 +3525,10 @@ Trigger("Player 2"){
 Conditions:
 	Deaths("Current Player", "Protoss Forge", At least, 2);
 	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
-	Bring("Current Player", "Terran Battlecruiser", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Player 8", "Terran Starport", "Protoss Cybernetics Core of Lothian", At most, 0);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At least, 8);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
 	Memory(161323, At Most, 11581439);
 	Memory(161356, At Most, 167772159);
 	Switch("Lothian", set);
@@ -3541,11 +3542,11 @@ Actions:
 	Set Switch("Lothian", clear);
 	Display Text Message(Always Display, "Siege finished");
 	Preserve Trigger();
-	Comment("Player calculations: Player took Player 2 Protoss Cybernetics Core. HP at most 45239, kills at most 9. -10000 HP +20 kills");
+	Comment("Player calculations: Player took Player 2 Duchy. HP at most 45239, kills at most 9. -10000 HP +20 kills");
 }
 
 
-//<Protoss Cybernetics Core reconquered//>
+//<Duchy reconquered//>
 
 Trigger("Player 1"){
 Conditions:
@@ -3554,15 +3555,15 @@ Conditions:
 	Memory(161356, At Least, 167772160);
 	Memory(161356, At Most, 335544319);
 	Switch("Lothian", not set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At most, 7);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
 
 Actions:
 	Set Deaths("Player 8", "Int:13443", Add, 2560000);
 	Set Deaths("Player 5", "Int:13446", Subtract, 167772160);
-	Display Text Message(Always Display, "Protoss Cybernetics Core reconquered!");
+	Display Text Message(Always Display, "Duchy reconquered!");
 	Preserve Trigger();
-	Comment("Player calculations: Player 1 conquered Protoss Cybernetics Core. Original owner Player 1. Restore HP to Devastated (+10000)");
+	Comment("Player calculations: Player 1 conquered Duchy. Original owner Player 1. Restore HP to Devastated (+10000)");
 }
 
 //-----------------------------------------------------------------//
@@ -3574,15 +3575,15 @@ Conditions:
 	Memory(161356, At Least, 335544320);
 	Memory(161356, At Most, 503316479);
 	Switch("Lothian", not set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At most, 7);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
 
 Actions:
 	Set Deaths("Player 8", "Int:13443", Add, 2560000);
 	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
-	Display Text Message(Always Display, "Protoss Cybernetics Core reconquered!");
+	Display Text Message(Always Display, "Duchy reconquered!");
 	Preserve Trigger();
-	Comment("Player calculations: Player 2 conquered Protoss Cybernetics Core. Original owner Player 2. Restore HP to Devastated (+10000)");
+	Comment("Player calculations: Player 2 conquered Duchy. Original owner Player 2. Restore HP to Devastated (+10000)");
 }
 
 //-----------------------------------------------------------------//
@@ -3594,15 +3595,15 @@ Conditions:
 	Memory(161356, At Least, 503316480);
 	Memory(161356, At Most, 671088639);
 	Switch("Lothian", not set);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", At least, 1);
-	Bring("Foes", "Men", "Protoss Cybernetics Core of Lothian", At most, 7);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
 
 Actions:
 	Set Deaths("Player 8", "Int:13443", Add, 2560000);
 	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
-	Display Text Message(Always Display, "Protoss Cybernetics Core reconquered!");
+	Display Text Message(Always Display, "Duchy reconquered!");
 	Preserve Trigger();
-	Comment("Player calculations: Player 3 conquered Protoss Cybernetics Core. Original owner Player 3. Restore HP to Devastated (+10000)");
+	Comment("Player calculations: Player 3 conquered Duchy. Original owner Player 3. Restore HP to Devastated (+10000)");
 }
 
 //<Timers//>
@@ -3836,7 +3837,7 @@ Conditions:
 
 Actions:
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
-	Display Text Message(Always Display, "\x011You must construct a pylon directly adjacent a County or Protoss Cybernetics Core...");
+	Display Text Message(Always Display, "\x011You must construct a pylon directly adjacent a County or Duchy...");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Preserve Trigger();
 	Comment("County Detect Failure #2, Reset DEFUNCT?");
@@ -3848,17 +3849,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Bedford", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Bedford", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Bedford", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Bedford", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 1);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Bedford");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Bedford");
 	Preserve Trigger();
 	Comment("Set index ID 1 Bedford, move to duchy upgrade");
 }
@@ -3869,17 +3870,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Cornwall", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Cornwall", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Cornwall", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Cornwall", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 2);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Cornwall");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Cornwall");
 	Preserve Trigger();
 	Comment("Set index ID 2 Cornwall, move to duchy upgrade");
 }
@@ -3890,17 +3891,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Wales", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Wales", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Wales", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Wales", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 3);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Wales");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Wales");
 	Preserve Trigger();
 	Comment("Set index ID 3 Wales, move to duchy upgrade");
 }
@@ -3911,17 +3912,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Lancaster", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lancaster", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Lancaster", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 4);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Lancaster");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Lancaster");
 	Preserve Trigger();
 	Comment("Set index ID 4 Lancaster, move to duchy upgrade");
 }
@@ -3932,17 +3933,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Norfolk", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Norfolk", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Norfolk", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Norfolk", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 5);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Norfolk");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Norfolk");
 	Preserve Trigger();
 	Comment("Set index ID 5 Norfolk, move to duchy upgrade");
 }
@@ -3953,17 +3954,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Northumberland", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Northumberland", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Northumberland", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Northumberland", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 6);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Northumberland");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Northumberland");
 	Preserve Trigger();
 	Comment("Set index ID 6 Northumberland, move to duchy upgrade");
 }
@@ -3974,17 +3975,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Lothian", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Lothian", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Lothian", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 7);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Lothian");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Lothian");
 	Preserve Trigger();
 	Comment("Set index ID 7 Lothian, move to duchy upgrade");
 }
@@ -3995,17 +3996,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Albany", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Albany", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Albany", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Albany", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 8);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Albany");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Albany");
 	Preserve Trigger();
 	Comment("Set index ID 8 Albany, move to duchy upgrade");
 }
@@ -4016,17 +4017,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Galloway", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Galloway", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Galloway", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Galloway", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 9);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Galloway");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Galloway");
 	Preserve Trigger();
 	Comment("Set index ID 9 Galloway, move to duchy upgrade");
 }
@@ -4037,18 +4038,18 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Hebrides", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Hebrides", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Hebrides", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Hebrides", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 10);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Hebrides");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Hebrides");
 	Preserve Trigger();
 	Comment("Set index ID 10 Hebrides, move to duchy upgrade");
 }
@@ -4059,17 +4060,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Morway", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Morway", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Morway", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Morway", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 11);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Morway");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Morway");
 	Preserve Trigger();
 	Comment("Set index ID 11 Morway, move to duchy upgrade");
 }
@@ -4080,17 +4081,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Ulster", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Ulster", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Ulster", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Ulster", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 12);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Ulster");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Ulster");
 	Preserve Trigger();
 	Comment("Set index ID 12 Ulster, move to duchy upgrade");
 }
@@ -4101,17 +4102,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Connacht", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Connacht", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Connacht", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Connacht", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 13);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Connacht");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Connacht");
 	Preserve Trigger();
 	Comment("Set index ID 13 Connacht, move to duchy upgrade");
 }
@@ -4122,17 +4123,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Munster", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Munster", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Munster", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Munster", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 14);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Munster");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Munster");
 	Preserve Trigger();
 	Comment("Set index ID 14 Munster, move to duchy upgrade");
 }
@@ -4143,17 +4144,17 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
 	Deaths("Current Player", "Data Disc", Exactly, 0);
-	Bring("Current Player", "Protoss Carrier", "Protoss Cybernetics Core of Normandy", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Protoss Cybernetics Core", "Protoss Cybernetics Core of Normandy", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Normandy", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Normandy", Exactly, 1);
 	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
 
 Actions:
-	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Upgrades", 2);
-	Center View("Protoss Cybernetics Core Upgrades");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Duchy Upgrades", 2);
+	Center View("Duchy Upgrades");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Set Deaths("Current Player", "Data Disc", Set to, 15);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade Initiated, Index Normandy");
+	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Normandy");
 	Preserve Trigger();
 	Comment("Set index ID 15 Normandy, move to duchy upgrade");
 }
@@ -4165,9 +4166,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Militia INFO, Base");
@@ -4183,9 +4184,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Militia INFO, Level 2");
@@ -4201,9 +4202,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Militia INFO, Level 3");
@@ -4219,9 +4220,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 3);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Militia INFO, Level 4");
@@ -4237,9 +4238,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 4);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Militia INFO, Level 5");
@@ -4255,9 +4256,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Castle INFO, Base");
@@ -4273,9 +4274,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Castle INFO, Level 2");
@@ -4291,9 +4292,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Castle INFO, Level 3");
@@ -4309,9 +4310,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 3);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Castle INFO, Level 4");
@@ -4327,9 +4328,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Barracks INFO, Base");
@@ -4345,9 +4346,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Barracks INFO, Level 2");
@@ -4363,9 +4364,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Barracks INFO, Level 3");
@@ -4381,9 +4382,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 3);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Barracks INFO, Level 4");
@@ -4399,9 +4400,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 4);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Barracks INFO, Level 5");
@@ -4417,9 +4418,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Stables INFO, base");
@@ -4435,9 +4436,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Stables INFO, Level 2");
@@ -4453,9 +4454,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Stables INFO, Level 3");
@@ -4471,9 +4472,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 3);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Stables INFO, Level 4");
@@ -4488,9 +4489,9 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Cancel INFO");
@@ -4506,15 +4507,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Militia Hall UPGRADED to Level 2!");
@@ -4533,15 +4534,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4556,15 +4557,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Militia Hall UPGRADED to Level 3!");
@@ -4583,15 +4584,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4606,15 +4607,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Militia Hall UPGRADED to Level 4!");
@@ -4633,15 +4634,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4656,15 +4657,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 3);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Militia Hall UPGRADED to Level 5!");
@@ -4683,15 +4684,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 3);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4706,12 +4707,12 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Shield Battery", Exactly, 4);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
-	Move Unit("Current Player", "Men", All, "Protoss Cybernetics Core Left", "Protoss Cybernetics Core Information");
+	Move Unit("Current Player", "Men", All, "Duchy Left", "Duchy Information");
 	Display Text Message(Always Display, "Militia Training Grounds is already at maximum level");
 	Preserve Trigger();
 	Comment("Militia Training Grounds Max Level");
@@ -4724,15 +4725,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Castle UPGRADED to Level 2!");
@@ -4749,15 +4750,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Castle upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4772,15 +4773,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Castle UPGRADED to Level 2!");
@@ -4797,15 +4798,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Castle upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4820,15 +4821,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Castle UPGRADED to Level 2!");
@@ -4845,15 +4846,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Bunker", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Castle upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4868,15 +4869,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Guard Barracks UPGRADED to Level 2!");
@@ -4895,15 +4896,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Guard Barracks upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4918,15 +4919,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Guard Barracks UPGRADED to Level 3!");
@@ -4945,15 +4946,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Guard Barracks upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -4968,15 +4969,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Guard Barracks UPGRADED to Level 4!");
@@ -4995,15 +4996,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Guard Barracks upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -5018,15 +5019,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 3);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Guard Barracks UPGRADED to Level 5!");
@@ -5045,15 +5046,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 3);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Left");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Left");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Guard Barracks upgrade failed, insufficient resources");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -5068,12 +5069,12 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Terran Armory", Exactly, 4);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Left", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Left", Exactly, 1);
 
 Actions:
-	Move Unit("Current Player", "Men", All, "Protoss Cybernetics Core Left", "Protoss Cybernetics Core Information");
+	Move Unit("Current Player", "Men", All, "Duchy Left", "Duchy Information");
 	Display Text Message(Always Display, "Guard Barracks is already at maximum level");
 	Preserve Trigger();
 	Comment("Guard Barracks Max Level");
@@ -5086,15 +5087,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Right");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Stables UPGRADED to Level 2!");
@@ -5111,15 +5112,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Right");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Stables UPGRADE failed, insufficient resources!");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -5134,15 +5135,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Right");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Stables UPGRADED to Level 3!");
@@ -5159,15 +5160,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Right");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Stables UPGRADE failed, insufficient resources!");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -5182,15 +5183,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 	Accumulate("Current Player", At least, 1, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Right");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Set Resources("Current Player", Subtract, 0, ore);
 	Display Text Message(Always Display, "Stables UPGRADED to Level 3!");
@@ -5207,15 +5208,15 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
 	Deaths("Current Player", "Protoss Robotics Facility", Exactly, 2);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Bottom Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Bottom Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 	Accumulate("Current Player", At most, 0, ore);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Right");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
 	Display Text Message(Always Display, "Stables UPGRADE failed, insufficient resources!");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
@@ -5229,16 +5230,16 @@ Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", At least, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Center", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 0);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Center", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Move Location("Current Player", "Protoss Carrier", "Anywhere", "CenterView");
 	Center View("CenterView");
-	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Protoss Cybernetics Core Right");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Duchy Right");
 	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "CenterView");
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrade cancelled");
+	Display Text Message(Always Display, "Duchy Upgrade cancelled");
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Preserve Trigger();
 	Comment("Cancel Upgrade");
@@ -5316,9 +5317,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 1);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -5335,9 +5336,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 1);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -5354,9 +5355,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 1);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -5373,9 +5374,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 1);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -5462,9 +5463,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<1 Bedford Spawns//>
@@ -5492,7 +5493,7 @@ Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Subtract, 1);
-	Display Text Message(Always Display, "Spawn base duchy units if solvent");
+	Display Text Message(Always Display, "## Spawn base duchy units if solvent");
 	Preserve Trigger();
 	Comment("Auto-Spawn duchy base units if solvent");
 }
@@ -5524,7 +5525,7 @@ Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Subtract, 1);
-	Display Text Message(Always Display, "Spawn base duchy units if bankrupt");
+	Display Text Message(Always Display, "## Spawn base duchy units if bankrupt");
 	Preserve Trigger();
 	Comment("Auto-Spawn duchy base units if bankrupt");
 }
@@ -5554,8 +5555,8 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Bedford");
-	Display Text Message(Always Display, "Manual spawn base duchy units if solvent");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Bedford");
+	Display Text Message(Always Display, "## Manual spawn base duchy units if solvent");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -5587,8 +5588,8 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Bedford");
-	Display Text Message(Always Display, "Manual spawn base duchy units if bankrupt");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Bedford");
+	Display Text Message(Always Display, "## Manual spawn base duchy units if bankrupt");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -5616,7 +5617,7 @@ Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Subtract, 1);
-	Display Text Message(Always Display, "Spawn base duchy units if solvent (devastated)");
+	Display Text Message(Always Display, "## Spawn base duchy units if solvent (devastated)");
 	Preserve Trigger();
 	Comment("Auto-Spawn duchy base units if HP is exactly 35240 (Devastated) if solvent");
 }
@@ -5647,7 +5648,7 @@ Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Subtract, 1);
-	Display Text Message(Always Display, "Spawn base duchy units if bankrupt (devastated)");
+	Display Text Message(Always Display, "## Spawn base duchy units if bankrupt (devastated)");
 	Preserve Trigger();
 	Comment("Auto-Spawn duchy base units if HP is exactly 35240 (Devastated) if bankrupt");
 }
@@ -5679,8 +5680,8 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Bedford");
-	Display Text Message(Always Display, "Manual spawn base duchy units if bankrupt (devastated)");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Bedford");
+	Display Text Message(Always Display, "## Manual spawn base duchy units if bankrupt (devastated)");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if HP is exactly 35240 (Devastated) if bankrupt");
 }
@@ -5701,7 +5702,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Move Location("Current Player", "Tom Kazansky (Wraith)", "Protoss Cybernetics Core of Bedford", "County Loc Universal");
+	Move Location("Current Player", "Tom Kazansky (Wraith)", "Duchy of Bedford", "County Loc Universal");
 	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
 	Display Text Message(Always Display, "You cannot raise levies in an occupied holding!");
 	Preserve Trigger();
@@ -5758,7 +5759,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 2);
-	Display Text Message(Always Display, "Upgrades detected, initiate arithmetic");
+	Display Text Message(Always Display, "## Upgrades detected, initiate arithmetic");
 	Preserve Trigger();
 	Comment("If upgrades are detected, initiate arithmetic");
 }
@@ -5776,7 +5777,7 @@ Actions:
 	Set Deaths("Player 8", "Int:1585", Subtract, 25600);
 	Set Deaths("Current Player", "Protoss Unused type   1", Add, 100);
 	Set Deaths("Current Player", "Zerg Marker", Add, 100);
-	Display Text Message(Always Display, "Add stable spawn level +1");
+	Display Text Message(Always Display, "## Add stable spawn level +1");
 	Preserve Trigger();
 	Comment("Arithmetic enabled, if HP is at least 45340, detect stables");
 }
@@ -5794,7 +5795,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 4);
-	Display Text Message(Always Display, "No stables detected, move to barracks");
+	Display Text Message(Always Display, "## No stables detected, move to barracks");
 	Preserve Trigger();
 	Comment("No stables detected, if HP is already at least 45241 and at most 45284, skip stables");
 }
@@ -5811,7 +5812,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 3);
-	Display Text Message(Always Display, "Spawn cavalry");
+	Display Text Message(Always Display, "## Spawn cavalry");
 	Preserve Trigger();
 	Comment("Stables arithmetic finished, if HP is at most 45284, move to cavalry spawn");
 }
@@ -5829,7 +5830,7 @@ Actions:
 	Set Deaths("Player 8", "Int:1585", Subtract, 2560);
 	Set Deaths("Current Player", "Protoss Unused type   1", Add, 10);
 	Set Deaths("Current Player", "Zerg Marker", Add, 10);
-	Display Text Message(Always Display, "Add barracks spawn level +1");
+	Display Text Message(Always Display, "## Add barracks spawn level +1");
 	Preserve Trigger();
 	Comment("Arithmetic enabled, if HP is at least 45250, detect barracks");
 }
@@ -5846,7 +5847,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 6);
-	Display Text Message(Always Display, "No barracks detected, move to militia hall");
+	Display Text Message(Always Display, "## No barracks detected, move to militia hall");
 	Preserve Trigger();
 	Comment("No barracks detected, if HP is already at most 45244, skip barracks");
 }
@@ -5863,7 +5864,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 5);
-	Display Text Message(Always Display, "Spawn barracks");
+	Display Text Message(Always Display, "## Spawn barracks");
 	Preserve Trigger();
 	Comment("Barracks arithmetic finished, if HP is at most 45244, move to barracks spawn");
 }
@@ -5881,7 +5882,7 @@ Actions:
 	Set Deaths("Player 8", "Int:1585", Subtract, 256);
 	Set Deaths("Current Player", "Protoss Unused type   1", Add, 1);
 	Set Deaths("Current Player", "Zerg Marker", Add, 1);
-	Display Text Message(Always Display, "Add militia spawn level +1");
+	Display Text Message(Always Display, "## Add militia spawn level +1");
 	Preserve Trigger();
 	Comment("Arithmetic enabled, if HP is at least 45241, detect militia hall");
 }
@@ -5898,7 +5899,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 7);
-	Display Text Message(Always Display, "Spawn militia");
+	Display Text Message(Always Display, "## Spawn militia");
 	Preserve Trigger();
 	Comment("Militia arithmetic finished, if HP is at most 45240, move to end");
 }
@@ -5916,7 +5917,7 @@ Conditions:
 
 Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 8);
-	Display Text Message(Always Display, "No militia detected, skip to end");
+	Display Text Message(Always Display, "## No militia detected, skip to end");
 	Preserve Trigger();
 	Comment("No militia hall detected, if HP is already at most 45240, skip militia hall");
 }
@@ -5939,8 +5940,9 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Bedford");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Bedford");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
+	Display Text Message(Always Display, "## Finish spawn, restore Duchy HP solvent");
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
 }
@@ -5965,8 +5967,9 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Bedford");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Bedford");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
+	Display Text Message(Always Display, "## Finishing spawn, restore Duchy HP bankrupt");
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
 }
@@ -5983,6 +5986,7 @@ Conditions:
 Actions:
 	Set Deaths("Player 8", "Int:1585", Add, 25600);
 	Set Deaths("Current Player", "Zerg Marker", Subtract, 100);
+	Display Text Message(Always Display, "## Restore Duchy HP x100");
 	Preserve Trigger();
 	Comment("Return HP to unit x100");
 }
@@ -6000,6 +6004,7 @@ Conditions:
 Actions:
 	Set Deaths("Player 8", "Int:1585", Add, 2560);
 	Set Deaths("Current Player", "Zerg Marker", Subtract, 10);
+	Display Text Message(Always Display, "## Restore Duchy HP x10");
 	Preserve Trigger();
 	Comment("Return HP to unit x10");
 }
@@ -6017,6 +6022,7 @@ Conditions:
 Actions:
 	Set Deaths("Player 8", "Int:1585", Add, 256);
 	Set Deaths("Current Player", "Zerg Marker", Subtract, 1);
+	Display Text Message(Always Display, "## Restore Duchy HP x1");
 	Preserve Trigger();
 	Comment("Return HP to unit x1");
 }
@@ -6035,6 +6041,7 @@ Actions:
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Display Text Message(Always Display, "## Finish Restore Duchy, go to next duchy");
 	Preserve Trigger();
 	Comment("Finish HP return, go to next duchy");
 }
@@ -6055,7 +6062,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Bedford");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Bedford");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -6136,9 +6143,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 10);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -6155,9 +6162,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 10);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -6174,9 +6181,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 10);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -6193,9 +6200,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 10);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -6282,9 +6289,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<10 Hebrides Spawns//>
@@ -6340,7 +6347,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Hebrides");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Hebrides");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -6429,7 +6436,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Hebrides");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Hebrides");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -6683,7 +6690,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Hebrides");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Hebrides");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -6709,7 +6716,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Hebrides");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Hebrides");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -6799,7 +6806,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Hebrides");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Hebrides");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -6881,9 +6888,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 11);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -6900,9 +6907,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 11);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -6919,9 +6926,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 11);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -6938,9 +6945,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 11);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -7027,9 +7034,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 
@@ -7106,9 +7113,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 14);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -7125,9 +7132,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 14);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -7144,9 +7151,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 14);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -7163,9 +7170,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 14);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -7252,9 +7259,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<11 Morway Spawns//>
@@ -7310,7 +7317,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Morway");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Morway");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -7399,7 +7406,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Morway");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Morway");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -7653,7 +7660,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Morway");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Morway");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -7679,7 +7686,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Morway");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Morway");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -7769,7 +7776,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Morway");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Morway");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -7851,9 +7858,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 15);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -7870,9 +7877,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 15);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -7889,9 +7896,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 15);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -7908,9 +7915,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 15);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -7997,9 +8004,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<15 Normandy Spawns//>
@@ -8056,7 +8063,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Normandy");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Normandy");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -8145,7 +8152,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Normandy");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Normandy");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -8399,7 +8406,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Normandy");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Normandy");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -8425,7 +8432,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Normandy");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Normandy");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -8515,7 +8522,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Normandy");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Normandy");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -8595,9 +8602,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 2);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -8614,9 +8621,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 2);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -8633,9 +8640,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 2);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -8652,9 +8659,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 2);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -8741,9 +8748,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<2 Cornwall Spawns//>
@@ -8800,7 +8807,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Cornwall");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Cornwall");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -8889,7 +8896,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Cornwall");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Cornwall");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -9143,7 +9150,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Cornwall");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Cornwall");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -9169,7 +9176,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Cornwall");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Cornwall");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -9259,7 +9266,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Cornwall");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Cornwall");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -9341,9 +9348,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 4);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -9360,9 +9367,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 4);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -9379,9 +9386,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 4);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -9398,9 +9405,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 4);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -9487,9 +9494,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<4 Lancaster Spawns//>
@@ -9545,7 +9552,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Lancaster");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Lancaster");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -9634,7 +9641,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Lancaster");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Lancaster");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -9888,7 +9895,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Lancaster");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Lancaster");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -9914,7 +9921,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Lancaster");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Lancaster");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -10004,7 +10011,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Lancaster");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Lancaster");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -10086,9 +10093,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 5);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -10105,9 +10112,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 5);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -10124,9 +10131,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 5);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -10143,9 +10150,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 5);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -10232,9 +10239,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<5 Norfolk Spawns//>
@@ -10290,7 +10297,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Norfolk");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Norfolk");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -10379,7 +10386,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Norfolk");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Norfolk");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -10633,7 +10640,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Norfolk");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Norfolk");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -10659,7 +10666,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Norfolk");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Norfolk");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -10749,7 +10756,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Norfolk");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Norfolk");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -10831,9 +10838,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 6);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -10850,9 +10857,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 6);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -10869,9 +10876,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 6);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -10888,9 +10895,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 6);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -10977,9 +10984,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<6 Northumberland Spawns//>
@@ -11035,7 +11042,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Northumberland");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Northumberland");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -11124,7 +11131,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Northumberland");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Northumberland");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -11378,7 +11385,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Northumberland");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Northumberland");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -11404,7 +11411,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Northumberland");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Northumberland");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -11494,7 +11501,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Northumberland");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Northumberland");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -11576,9 +11583,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 7);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -11595,9 +11602,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 7);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -11614,9 +11621,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 7);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -11633,9 +11640,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 7);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -11722,9 +11729,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<7 Lothian Spawns//>
@@ -11811,7 +11818,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Lothian");
 	Display Text Message(Always Display, "Manual-Spawn duchy base units if solvent");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
@@ -11901,7 +11908,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Lothian");
 	Display Text Message(Always Display, "Manual-Spawn duchy base units if devastated + bankrupt");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if HP is exactly 35240 (Devastated) if bankrupt");
@@ -11934,7 +11941,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Lothian");
 	Display Text Message(Always Display, "Manual-Spawn duchy base units if bankrupt");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
@@ -11952,7 +11959,7 @@ Conditions:
 	Deaths("Current Player", "Scanner Sweep", At least, 1);
 
 Actions:
-	Move Location("Current Player", "Tom Kazansky (Wraith)", "Protoss Cybernetics Core of Lothian", "County Loc Universal");
+	Move Location("Current Player", "Tom Kazansky (Wraith)", "Duchy of Lothian", "County Loc Universal");
 	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
@@ -12184,7 +12191,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Lothian");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -12210,7 +12217,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Lothian");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -12300,7 +12307,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Lothian");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Lothian");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -12382,9 +12389,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 8);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -12401,9 +12408,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 8);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -12420,9 +12427,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 8);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -12439,9 +12446,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 8);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -12528,9 +12535,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<8 Albany Spawns//>
@@ -12586,7 +12593,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Albany");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Albany");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -12675,7 +12682,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Albany");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Albany");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -12929,7 +12936,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Albany");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Albany");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -12955,7 +12962,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Albany");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Albany");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -13045,7 +13052,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Albany");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Albany");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
@@ -13127,9 +13134,9 @@ Conditions:
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
 	Deaths("Current Player", "Data Disc", Exactly, 9);
 	Memory(19060, At Most, 16777215);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Base");
@@ -13146,9 +13153,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 9);
 	Memory(19060, At Least, 16777216);
 	Memory(19060, At Most, 33554431);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 2");
@@ -13165,9 +13172,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 9);
 	Memory(19060, At Least, 33554432);
 	Memory(19060, At Most, 50331647);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 3");
@@ -13184,9 +13191,9 @@ Conditions:
 	Deaths("Current Player", "Data Disc", Exactly, 9);
 	Memory(19060, At Least, 50331648);
 	Memory(19060, At Most, 67108863);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Top Row", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Information", Exactly, 1);
-	Bring("Current Player", "Devouring One (Zergling)", "Protoss Cybernetics Core Right", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Top Row", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Information", Exactly, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Duchy Right", Exactly, 1);
 
 Actions:
 	Display Text Message(Always Display, "Town INFO, Level 4");
@@ -13273,9 +13280,9 @@ Conditions:
 Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
-	Display Text Message(Always Display, "Protoss Cybernetics Core Upgrades finished and reset");
+	Display Text Message(Always Display, "Duchy Upgrades finished and reset");
 	Preserve Trigger();
-	Comment("Clear Protoss Cybernetics Core upgrade after returning HP");
+	Comment("Clear Duchy upgrade after returning HP");
 }
 
 //<9 Galloway Spawns//>
@@ -13331,7 +13338,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Galloway");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Galloway");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if solvent");
 }
@@ -13420,7 +13427,7 @@ Actions:
 	Set Deaths("Current Player", "Data Disc", Set to, 0);
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Galloway");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Galloway");
 	Preserve Trigger();
 	Comment("Manual-Spawn duchy base units if bankrupt");
 }
@@ -13674,7 +13681,7 @@ Actions:
 	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Galloway");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Galloway");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if solvent and HP is returned to 45240, move units and return HP");
@@ -13700,7 +13707,7 @@ Actions:
 	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
 	Modify Unit Hit Points("Current Player", "Men", 50, 0, "Buffer Zone");
 	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Protoss Cybernetics Core of Galloway");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Galloway");
 	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
 	Preserve Trigger();
 	Comment("Finished arithmetic, if bankrupt and HP is returned to 45240, move units and return HP");
@@ -13790,7 +13797,7 @@ Actions:
 	Set Deaths("Current Player", "Flag", Set to, 0);
 	Set Deaths("Current Player", "Scanner Sweep", Set to, 0);
 	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
-	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Protoss Cybernetics Core of Galloway");
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "Duchy of Galloway");
 	Display Text Message(Always Display, "\x01f-----------------------------\r\n\x011Ducal levy raised!\r\n\x01f-----------------------------");
 	Preserve Trigger();
 	Comment("Finish HP return for manual levy");
