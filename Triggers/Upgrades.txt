@@ -40,7 +40,7 @@ Actions:
 	Comment("County Detect Failure #2, Reset DEFUNCT?");
 }
 
-//-----------------------------------------------------------------//
+//<Set Index IDs//>
 
 Trigger("\x006Kings"){
 Conditions:
@@ -58,7 +58,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 1);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Bedford");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 1 Bedford, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -79,7 +79,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 2);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Cornwall");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 2 Cornwall, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -100,7 +100,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 3);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Wales");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 3 Wales, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -121,7 +121,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 4);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Lancaster");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 4 Lancaster, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -142,7 +142,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 5);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Norfolk");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 5 Norfolk, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -163,7 +163,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 6);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Northumberland");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 6 Northumberland, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -184,7 +184,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 7);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Lothian");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 7 Lothian, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -205,7 +205,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 8);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Albany");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 8 Albany, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -226,7 +226,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 9);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Galloway");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 9 Galloway, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -248,7 +248,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 10);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Hebrides");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 10 Hebrides, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -269,7 +269,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 11);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Morway");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 11 Morway, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -290,7 +290,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 12);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Ulster");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 12 Ulster, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -311,7 +311,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 13);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Connacht");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 13 Connacht, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -332,7 +332,7 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 14);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Munster");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 14 Munster, move to duchy upgrade");
 }
 
 //-----------------------------------------------------------------//
@@ -353,10 +353,10 @@ Actions:
 	Set Deaths("Current Player", "Duchy Index ID", Set to, 15);
 	Display Text Message(Always Display, "Duchy Upgrade Initiated, Index Normandy");
 	Preserve Trigger();
-	Comment("Set index ID, move to duchy upgrade");
+	Comment("Set index ID 15 Normandy, move to duchy upgrade");
 }
 
-//-----------------------------------------------------------------//
+//<Display Upgrade Info//>
 
 Trigger("\x006Kings"){
 Conditions:
@@ -697,7 +697,7 @@ Actions:
 	Comment("Cancel Upgrade INFO");
 }
 
-//-----------------------------------------------------------------//
+//<Upgrade holding success/fail//>
 
 Trigger("\x006Kings"){
 Conditions:
@@ -1421,7 +1421,7 @@ Actions:
 	Comment("Stables Upgrade LVL4 Failure");
 }
 
-//-----------------------------------------------------------------//
+//<Cancel holding upgrade//>
 
 Trigger("\x006Kings"){
 Conditions:

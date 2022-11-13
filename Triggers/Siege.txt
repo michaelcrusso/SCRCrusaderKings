@@ -141,7 +141,7 @@ Actions:
 	Move Location("Player 8", "Duchy", "Duchy of Lothian", "County Loc Universal");
 	Create Unit with Properties("Player 8", "Explosion Effect", 1, "County Loc Universal", 2);
 	Kill Unit At Location("Player 8", "Explosion Effect", All, "County Loc Universal");
-	Give Units to Player("Player 8", "Player 1", "Duchy", All, "Duchy of Lothian");
+	Give Units to Player("Player 8", "Foes", "Duchy", All, "Duchy of Lothian");
 	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
 	Set Deaths("Player 5", "Int:13446", Add, 1342177280);
 	Set Switch("Lothian", clear);
@@ -150,31 +150,7 @@ Actions:
 	Comment("Player wins siege of CPU duchy, +80 kill count, -20000 HP");
 }
 
-//-----------------------------------------------------------------//
-
-Trigger("Player 8","Player 2"){
-Conditions:
-	Deaths("Player 2", "Diplomacy", At least, 2);
-	Deaths("Player 2", "Warp Gate", At least, 2);
-	Switch("Lothian", set);
-	Bring("Player 2", "Duchy", "Empire of Britannia", At least, 1);
-	Bring("Current Player", "Duchy", "Duchy of Lothian", At least, 1);
-	Bring("All Players", "Siege Timer", "Duchy of Lothian", At most, 0);
-	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
-
-Actions:
-	Move Location("Player 8", "Duchy", "Duchy of Lothian", "County Loc Universal");
-	Create Unit with Properties("Player 8", "Explosion Effect", 1, "County Loc Universal", 2);
-	Kill Unit At Location("Player 8", "Explosion Effect", All, "County Loc Universal");
-	Give Units to Player("Player 8", "Player 2", "Duchy", All, "Duchy of Lothian");
-	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
-	Set Deaths("Player 5", "Int:13446", Add, 1342177280);
-	Set Switch("Lothian", clear);
-	Display Text Message(Always Display, "Lothian has succumbed to siege!");
-	Preserve Trigger();
-	Comment("Player 2 wins siege of CPU duchy, +80 kill count, -20000 HP");
-}
-//-----------------------------------------------------------------//
+//<Player 1 wins siege of player duchy//>
 
 Trigger("\x006Kings"){
 Conditions:
@@ -196,7 +172,7 @@ Actions:
 	Comment("Player 1 wins siege of Player duchy, move to ownership calculations");
 }
 
-//-----------------------------------------------------------------//
+//<Player 1 loses siege of Player 1 duchy//>
 
 Trigger("Player 1"){
 Conditions:
@@ -244,7 +220,7 @@ Actions:
 	Set Switch("Lothian", clear);
 	Display Text Message(Always Display, "Siege finished");
 	Preserve Trigger();
-	Comment("Player calculations: Player took Player 1 Duchy. HP at most 45239, kills at least 10. No change in HP or Kills");
+	Comment("Player calculations: Player took Player 1 Duchy. HP at most 45239 (already sieged), kills at least 10. No change in HP or Kills");
 }
 
 //-----------------------------------------------------------------//
@@ -270,10 +246,11 @@ Actions:
 	Set Switch("Lothian", clear);
 	Display Text Message(Always Display, "Siege finished");
 	Preserve Trigger();
-	Comment("Player calculations: Player took Player 1 Duchy. HP at most 45239, kills at most 9. -10000 HP +10 kills");
+	Comment("Player calculations: Player took Player 1 Duchy. HP at most 45239, kills at most 9 (?). -10000 HP +10 kills");
 }
 
-//-----------------------------------------------------------------//
+//<Player 2 wins siege of player duchy//>
+
 Trigger("\x006Kings"){
 Conditions:
 	Deaths("Current Player", "Diplomacy", At least, 2);
@@ -369,6 +346,7 @@ Actions:
 	Preserve Trigger();
 	Comment("Player calculations: Player took Player 2 Duchy. HP at most 45239, kills at most 9. -10000 HP +20 kills");
 }
+
 
 //<Duchy reconquered//>
 
