@@ -1,0 +1,7 @@
+52000 * .87
+45240
+
+4		5-9			2-6			4-8				0-4
+unused	unused	stables		barracks		militia hall
+
+Base: 45240

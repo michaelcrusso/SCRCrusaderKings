@@ -1,0 +1,19 @@
+Change text of nations after Start //
+
+Pause nation info text when in diplomacy action menu //
+
+Find a way other than HP or Kills to determine whether a Duchy is a vassal or not. Disabling the building might be the most obvious way.
+
+auto-spawn duchy triggers for devastated should be changed to 35240-39795
+
+make a trigger for failed nation selection
+
+Raising troops from Devastated Duchy works, but Wraith doesn't go away
+
+use Player 9 flags for Islamic computer
+
+Manual castle levy goes to Duchy Detect. Reserve duchy detect trigger for proven Duchy. Broken for all players.
+
+make triggers for town siege. put "restore" triggers for them and castles.
+
+add income after sieges in triggers. 50%

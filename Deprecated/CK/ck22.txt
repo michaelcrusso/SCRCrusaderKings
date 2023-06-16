@@ -1,0 +1,13 @@
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "Anywhere", At least, 1);
+	Deaths("Current Player", "Flag", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Tom Kazansky (Wraith)", "Anywhere", "County Loc Universal");
+	Display Text Message(Always Display, "\x011You have already raised all of your levies!");
+	Preserve Trigger();
+	Comment("Reject if levies already raised");
+}
+
+//-----------------------------------------------------------------//

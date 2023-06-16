@@ -1,0 +1,203 @@
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 1", "Protoss Forge", At least, 2);
+	Deaths("Player 1", "Warp Gate", At least, 2);
+	Switch("Lothian", not set);
+	Bring("Player 1", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 1", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 1 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 2", "Protoss Forge", At least, 2);
+	Deaths("Player 2", "Warp Gate", At least, 2);
+	Switch("Lothian", not set);
+	Bring("Player 2", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 2 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 3", "Protoss Forge", At least, 2);
+	Deaths("Player 3", "Warp Gate", At least, 2);
+	Switch("Lothian", not set);
+	Bring("Player 3", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 3", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 3 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 4", "Protoss Forge", At least, 2);
+	Deaths("Player 4", "Warp Gate", At least, 2);
+	Switch("Lothian", not set);
+	Bring("Player 4", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 4", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 4 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 5", "Protoss Forge", At least, 2);
+	Deaths("Player 5", "Warp Gate", At least, 2);
+	Switch("Lothian", not set);
+	Bring("Player 5", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 5", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 5 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 6", "Protoss Forge", At least, 2);
+	Deaths("Player 6", "Warp Gate", At least, 2);
+	Switch("Lothian", not set);
+	Bring("Player 6", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 6", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 6 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 7", "Protoss Forge", At least, 2);
+	Deaths("Player 7", "Warp Gate", At least, 2);
+	Switch("Lothian", not set);
+	Bring("Player 7", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 7", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 7 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8","Player 1"){
+Conditions:
+	Deaths("Player 1", "Protoss Forge", At least, 2);
+	Deaths("Player 1", "Warp Gate", At least, 2);
+	Switch("Lothian", set);
+	Bring("Player 1", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 1", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Player 8", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Battlecruiser", 1, "County Loc Universal", 2);
+	Kill Unit At Location("Player 8", "Terran Battlecruiser", All, "County Loc Universal");
+	Give Units to Player("Player 8", "Player 1", "Protoss Cybernetics Core", All, "Duchy of Lothian");
+	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
+	Set Deaths("Player 5", "Int:13446", Add, 1342177280);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Lothian has succumbed to siege!");
+	Preserve Trigger();
+	Comment("Player 1 wins siege of CPU duchy, +80 kill count, -20000 HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8","Player 2"){
+Conditions:
+	Deaths("Player 2", "Protoss Forge", At least, 2);
+	Deaths("Player 2", "Warp Gate", At least, 2);
+	Switch("Lothian", set);
+	Bring("Player 2", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Player 8", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Battlecruiser", 1, "County Loc Universal", 2);
+	Kill Unit At Location("Player 8", "Terran Battlecruiser", All, "County Loc Universal");
+	Give Units to Player("Player 8", "Player 2", "Protoss Cybernetics Core", All, "Duchy of Lothian");
+	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
+	Set Deaths("Player 5", "Int:13446", Add, 1342177280);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Lothian has succumbed to siege!");
+	Preserve Trigger();
+	Comment("Player 2 wins siege of CPU duchy, +80 kill count, -20000 HP");
+}
+
+//-----------------------------------------------------------------//

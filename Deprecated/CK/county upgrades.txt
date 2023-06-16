@@ -1,0 +1,12 @@
+Gateway: Level 2 Town
+Nexus: Level 3 Town
+Fleet Beacon: Level 4 Town
+Observatory: Level 5 (?) Town
+
+Citadel of Adun: Level 2 Castle
+Arbiter Tribunal: Level 3 Castle
+Robotics Support Bay: Level 4 Castle
+Templar Archives: Level 5 (?) Castle
+
+GRP 660 - Castle?
+GRP 851/894/892/890/885/883 - House

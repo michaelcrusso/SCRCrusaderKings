@@ -1,0 +1,116 @@
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Select New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 0);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 0);
+	Bring("Player 12", "Protoss Robotics Facility", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran Supply Depot", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran Armory", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 5);
+
+Actions:
+	Create Unit("Current Player", "Protoss Zealot", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 5);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Subtract, 5);
+	Preserve Trigger();
+	Comment("Spawn Units, Cycle to New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New County");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 3);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 3);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 3);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 4);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//

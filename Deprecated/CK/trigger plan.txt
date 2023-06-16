@@ -1,0 +1,90 @@
+## initial trigger, 
+
+province counter is at 0
+player brings 0 cyber core to 0
+
+add 1 to province counter
+
+etc
+
+## set countyloc on cybercore to detect player 12's units
+
+##initialize trigger
+
+if mobilization (flag) is exactly 2
+if province counter (data disc) is at 0
+if player brings cybernetics core to 0
+if spawn units is at most 0 (0-5)
+if hp is at most 49000
+
+add 1000 hp
+add 1000 deaths
+
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Data Disc", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", Exactly, 1);
+	Bring("Player 12", "Men", "CountyLocUniversal", Exactly, 0);
+	Deaths("Current Player", "Protoss Unused Type 2", at most, 0);
+	Memory(19027, At Most, 12544255);
+
+
+	Set Deaths("Current Player", "Int:1585", Add, 256000);
+	Set Deaths("Current Player", "Protoss Unused Type 2", Add, 1000);
+	Preserve Trigger();
+
+## make trigger to skip holding if player 12 men are detected
+
+## set stage 2
+
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Data Disc", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", Exactly, 1);
+	Deaths("Current Player", "Protoss Unused Type 2", at most, 0);
+	Memory(19027, At Least, 12544000);
+
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", "County Loc Universal");
+	Set Deaths("Current Player", "Protoss Unused Type 1", Add, 1);
+	Preserve Trigger();
+
+if province counter (data disc) is at 0
+if player brings cybernetics core to 0
+if mobilization (flag) is exactly 2
+if spawn units is at 0 (0-5)
+if hp is at least 49000
+
+move location to cyber core at 0
+set spawn units set to 1 (spawn cavalry)
+
+
+
+
+
+
+
+
+
+spawn triggers:
+
+if spawn units set to 1
+if deaths are 4000
+
+spawn cavalry
+add 4000 deaths to buffer (nexus)
+set deaths to 0
+set spawn units to 2
+
+base unit is 45240
+trigger adds 4000 hp and 4000 to death counter, in 1000 increments, until "at least 49000"
+depending on how many death counters, spawn units. (inverse -- 0 deaths is max level)
+
+then add 400 in 100 increments
+spawn
+
+then add 40
+spawn
+
+then add 4
+spawn
+
+-----------
+

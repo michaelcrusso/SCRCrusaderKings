@@ -1,0 +1,178 @@
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 20);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 20);
+	Set Resources("Current Player", Add, 20, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 20);
+	Display Text Message(Always Display, "Paying 20");
+	Preserve Trigger();
+	Comment("Accelerated, Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 10);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 10);
+	Set Resources("Current Player", Add, 10, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Display Text Message(Always Display, "Paying 10");
+	Preserve Trigger();
+	Comment("Accelerated, Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 5);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 5);
+	Set Resources("Current Player", Add, 5, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Display Text Message(Always Display, "Paying 5");
+	Preserve Trigger();
+	Comment("Accelerated, Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 1);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 1);
+	Set Resources("Current Player", Add, 1, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Display Text Message(Always Display, "Paying 1");
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 20);
+	Accumulate("Current Player", At least, 20, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 20);
+	Set Resources("Current Player", Subtract, 20, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 20);
+	Display Text Message(Always Display, "Paying debt 10");
+	Preserve Trigger();
+	Comment("Accelerated, Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 10);
+	Accumulate("Current Player", At least, 10, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 10);
+	Set Resources("Current Player", Subtract, 10, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Display Text Message(Always Display, "Paying debt 10");
+	Preserve Trigger();
+	Comment("Accelerated, Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 5);
+	Accumulate("Current Player", At least, 5, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 5);
+	Set Resources("Current Player", Subtract, 5, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Display Text Message(Always Display, "Paying debt 5");
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 1);
+	Accumulate("Current Player", At least, 1, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 1);
+	Set Resources("Current Player", Subtract, 1, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Display Text Message(Always Display, "Paying debt 1");
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", Exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Add, 1);
+	Display Text Message(Always Display, "Restoring Income Level from Buffer");
+	Play WAV("staredit\\wav\\money_in2.ogg", 0);
+	Preserve Trigger();
+	Comment("When county development hits zero, restore counties from buffer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 2);
+	Deaths("Current Player", "Protoss Nexus", at least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 1);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 1);
+	Preserve Trigger();
+	Comment("Restore counties from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 2);
+	Deaths("Current Player", "Protoss Nexus", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Set to, 3);
+	Display Text Message(Always Display, "Income level Restored, go Expenses");
+	Preserve Trigger();
+	Comment("Move on to expenses");
+}
+
+//-----------------------------------------------------------------//

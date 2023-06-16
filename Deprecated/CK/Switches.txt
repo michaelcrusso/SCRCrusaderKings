@@ -1,0 +1,18 @@
+Nexus			Temporary Buffer (For keeping track of Counties and Duchies)
+Gateway			Pay Resources Switch (0 Inactive, 1 Active)
+Forge			Diplomacy (1 = revolt, 2 = war, 3 = holy war defensive, 4 = crusade offensive)
+			At War With
+Kakaru (Twilight)	County/Duchy Upgrade Switch. 1 is Set Detect
+Data Disc		County Info (Defunct)
+Flag			Mobilization
+Zerg Beacon		Raised Army Size (for expenses calculation)
+Mineral Chunk (Type 1)	Permanent Manpower
+Mineral Field (Type 1)	Effective Manpower
+Mineral Chunk (Type 2)	Manpower Regen
+			Warscore
+Ragnasaur (Ash World)	General Timer
+Scantid (Desert)	Music
+Floor Gun Trap		General Notifications
+
+
+1.857 life = 1 seconds on Fastest

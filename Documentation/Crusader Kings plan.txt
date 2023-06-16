@@ -1,0 +1,110 @@
+High Priority:
+
+[] Fix duchy sieges, with more emphasis on PvE. Consider adding a Stage 2 trigger after a successful siege that will detect which player won the siege, and then add the corresponding number of kills to the Duchy to keep track of its original owner.
+[] Re-enable Doodad State for occupied duchies.
+[] Script sieges for Towns and Castles
+[] Add penalty to demobilize units in combat/near enemies. 50% chance of not returning manpower.
+[] Add Warscore counter + ticking warscore counters. Display warscore at bottom. Also use unit deaths as flag for attacker/defender for different wars (War 1, War 2, War 3, 0 = attacker, 1 = defender, 3 = participant).
+[] Add verbose text to siege/demobilize triggers.
+
+Medium Priority:
+
+[X] Add penalty to unit spawns while in debt
+[] Use "low morale" units for spawns while in debt.
+[] Place "at war with" unit over CPU/Player diplo flags to mark war status. Use the actual zerg units, but make them flying units that can't move and can stack infinitely, with blue fire aesthetic.
+[] Find some way to cap manpower
+[] Add penalty/unit removal for debt
+[] Add attrition trigger (25% chance every 6 seconds?)
+[] Space out income triggers. Accelerate arithmetic.
+[] Include buttons on Duchies for "Demand in wargoal" for when a duchy is occupied, disabled when it's not.
+[] Remove buttons from Starport. Add "assault" button. Change unit AI behaviors.
+
+Low Priority
+
+[] Add an "Information" button on duchies and baronies
+[] Rig together some basic white peace/conquest to end war
+[] Add Major siege event triggers (successful sally, disease in the camp, water shortage)
+[] Add button to building to set spawn rally point/use switch to indicate whether spawns occur at rally or at building location.
+[] Fix music triggers?
+[] Triggers for disloyal vassals (Blue fire unit over Duchy, gives -50% troops, subtracts 1 from income).
+[] Vassal interaction buttons on duchy (raise relations, send gift, imprison, etc).
+[] Make diplo unit location centering more elegant
+[] Diplo flag could use decimal places to store country information; e.g. If at war with 1234, at war with players 1, 2, 3, 4.
+[] Use set invincibility for upgrade triggers. Make SCV and other units invisible.
+[] Fix reenable levy spawn.
+[] Increase density in Italy. Split Apulia and Calabria in half.
+
+Spanish Kingdoms:
+
+Galicia
+Porto
+Castille
+Toledo
+Badajoz
+Navarra
+
+Byzantine Empire:
+
+Wallacha
+Thrace
+Rashka
+Epirus
+Thessaloniki
+Achea
+Asia Minor
+Cibyrrhaeot
+Charsianon
+Nikea
+Armeniakon
+Anatolia
+Trebizond
+Coloneia
+Armenia
+
+Kingdom of Croatia:
+
+Dalmatia
+Slavonia
+
+Kingdom of Hungary:
+
+Pest
+Nyitria
+Transsylvania
+Esztercom
+
+Kingdom of Poland
+
+Kuyavla
+Mazovia
+Silesia
+
+Kingdom of Sweden:
+
+Bergslagen
+Uppland
+Smaland
+
+Kingdom of Norway:
+
+Trondelag
+Vestlandet
+Ostlandet
+
+Kingdom of Denmark:
+
+Skane
+SJaelland
+Slesvig
+
+Pechenegs
+
+Wallachia
+Moldau
+
+Ireland:
+
+Munster
+Connacht
+Ulster
+

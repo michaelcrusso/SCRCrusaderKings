@@ -1,0 +1,34 @@
+[Base Spawn Duchy:]
+2 Zerglings
+1 Archer
+1 Pikeman
+
+	Militia Hall:	+1 Z+A  / +2 Z+A	/ +3 Z+A	/ +4 Z/A
+	Barracks:	+1 P	/ +1 P+HI	/ +2 HI		/ +3 HI +1 P
+	Stables:	+1 LC	/ +1 LC		/ +2 LC +1 HC	/ +2 LC +2 HC
+
+[Base Spawn Castle:]
+1 Zergling
+1 Archer
+1 Heavy Infantry
+
+	Levels:	+1 Z+A+HI	/ +1 Z+A +2 HI	/ +2 HI+P +1 A
+
+[Base Spawn Town:]
+1 Zergling
+1 Archer
+
+	Levels:	+1 Z+A		/ +2 Z+A	/ +2 Z+A +1 P
+
+
+
+
+Light Infantry
+Archers
+Light Cavalry
+
+Heavy Infantry
+Pikemen
+
+Heavy Cavalry
+Horse Archers

@@ -1,0 +1,220 @@
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Set to, 0);
+	Display Text Message(Always Display, "Skip Expense, no armies raised");
+	Preserve Trigger();
+	Comment("Levies not raised, skip expenses and reset timer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 20);
+	Accumulate("Current Player", At least, 20, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 20);
+	Set Resources("Current Player", Subtract, 20, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 20);
+	Display Text Message(Always Display, "Expense, Subtract 20 ore");
+	Preserve Trigger();
+	Comment("Accelerated x20, Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 10);
+	Accumulate("Current Player", At least, 10, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 10);
+	Set Resources("Current Player", Subtract, 10, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Display Text Message(Always Display, "Expense, Subtract 10 ore");
+	Preserve Trigger();
+	Comment("Accelerated x10, Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 5);
+	Accumulate("Current Player", At least, 5, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 5);
+	Set Resources("Current Player", Subtract, 5, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Display Text Message(Always Display, "Expense, Subtract 5 ore");
+	Preserve Trigger();
+	Comment("Accelerated x5, Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Set Resources("Current Player", Subtract, 1, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Display Text Message(Always Display, "Expense, Subtract 1 ore");
+	Preserve Trigger();
+	Comment("Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 20);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 20);
+	Set Resources("Current Player", Add, 20, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 20);
+	Display Text Message(Always Display, "Expense, Add 20 debt");
+	Preserve Trigger();
+	Comment("Accelerated x20, Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 10);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 10);
+	Set Resources("Current Player", Add, 10, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Display Text Message(Always Display, "Expense, Add 10 debt");
+	Preserve Trigger();
+	Comment("Accelerated x10, Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 5);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 5);
+	Set Resources("Current Player", Add, 5, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Display Text Message(Always Display, "Expense, Add 1 debt");
+	Preserve Trigger();
+	Comment("Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Set Resources("Current Player", Add, 1, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Display Text Message(Always Display, "Expense, Add 1 debt");
+	Preserve Trigger();
+	Comment("Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", Exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Add, 1);
+	Display Text Message(Always Display, "Restore Raised Army to Buffer");
+	Preserve Trigger();
+	Comment("When army size hits zero, restore army size from buffer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", at least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 1);
+	Preserve Trigger();
+	Comment("Restore army size from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", at least, 10);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 10);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated, Restore army size from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", at most, 9);
+	Deaths("Current Player", "Protoss Nexus", at least, 5);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 5);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 5);
+	Preserve Trigger();
+	Comment("Accelerated, Restore army size from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Set to, 0);
+	Display Text Message(Always Display, "Raised Army restored to Buffer");
+	Preserve Trigger();
+	Comment("Reset timer");
+}
+
+//-----------------------------------------------------------------//

@@ -1,0 +1,88 @@
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", At most, 0);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
+	Display Text Message(Always Display, "Initiate Siege of Duchy");
+	Preserve Trigger();
+	Comment("Force 1 Player sieges Player Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", At most, 0);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Terran Missile Turret", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Terran Missile Turret", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
+	Display Text Message(Always Display, "Initiate Siege of Castle");
+	Preserve Trigger();
+	Comment("Force 1 Player sieges Player Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", At least, 1);
+	Switch("Lothian", set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Men", "Duchy of Lothian", At least, 8);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Remove Unit At Location("Player 8", "Terran Starport", 1, "Duchy of Lothian");
+	Set Switch("Lothian", clear);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Display Text Message(Always Display, "Siege Interrupted!");
+	Preserve Trigger();
+	Comment("Force 1 player interrupts siege");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", At least, 1);
+	Switch("Lothian", set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 7);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+
+Actions:
+	Remove Unit At Location("Player 8", "Terran Starport", 1, "Duchy of Lothian");
+	Set Switch("Lothian", clear);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Display Text Message(Always Display, "The siege of Lothian has been abandoned due to insufficient forces!");
+	Preserve Trigger();
+	Comment("Force 1 player abandons siege");
+}
+
+//-----------------------------------------------------------------//

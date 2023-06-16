@@ -166,7 +166,29 @@ END
 
 &beforeTriggerExec&
 Type:0,False,False,False
+ElementsCount:1
+Type:10,False,False,False
+AllUnitஐ1ஐ10
+ElementsCount:1
+Type:14,False,False,False
+ElementsCount:1
+Type:1,False,False,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:CUnitData
+ptrஐ44ஐ0ஐ164
 ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:0
+END
+END
+END
+END
 END
 
 &afterTriggerExec&

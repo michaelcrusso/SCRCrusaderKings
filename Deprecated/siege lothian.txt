@@ -1,0 +1,604 @@
+Trigger("Player 1"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 167772160);
+	Memory(161356, At Most, 335544319);
+	Switch("Lothian", not set);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 167772160);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 1 conquered Duchy. Original owner Player 1. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 335544320);
+	Memory(161356, At Most, 503316479);
+	Switch("Lothian", not set);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 2 conquered Duchy. Original owner Player 2. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 3"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 503316480);
+	Memory(161356, At Most, 671088639);
+	Switch("Lothian", not set);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 3 conquered Duchy. Original owner Player 3. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 4"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 671088640);
+	Memory(161356, At Most, 838860799);
+	Switch("Lothian", not set);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 4 conquered Duchy. Original owner Player 4. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 5"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 838860800);
+	Memory(161356, At Most, 1006632959);
+	Switch("Lothian", not set);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 5 conquered Duchy. Original owner Player 5. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 6"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 1006632960);
+	Memory(161356, At Most, 1174405119);
+	Switch("Lothian", not set);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 6 conquered Duchy. Original owner Player 6. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 7"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 1174405120);
+	Memory(161356, At Most, 1342177279);
+	Switch("Lothian", not set);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 7 conquered Duchy. Original owner Player 7. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 1", "Protoss Forge", At least, 2);
+	Deaths("Player 1", "Warp Gate", At least, 2);
+	Bring("Player 1", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 1", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", not set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 1 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 2", "Protoss Forge", At least, 2);
+	Deaths("Player 2", "Warp Gate", At least, 2);
+	Bring("Player 2", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", not set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 2 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 3", "Protoss Forge", At least, 2);
+	Deaths("Player 3", "Warp Gate", At least, 2);
+	Bring("Player 3", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 3", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", not set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 3 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 4", "Protoss Forge", At least, 2);
+	Deaths("Player 4", "Warp Gate", At least, 2);
+	Bring("Player 4", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 4", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", not set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 4 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 5", "Protoss Forge", At least, 2);
+	Deaths("Player 5", "Warp Gate", At least, 2);
+	Bring("Player 5", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 5", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", not set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 5 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 6", "Protoss Forge", At least, 2);
+	Deaths("Player 6", "Warp Gate", At least, 2);
+	Bring("Player 6", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 6", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", not set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 6 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 7", "Protoss Forge", At least, 2);
+	Deaths("Player 7", "Warp Gate", At least, 2);
+	Bring("Player 7", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Player 7", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", not set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Preserve Trigger();
+	Comment("Player 7 sieges CPU duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8","Player 1"){
+Conditions:
+	Deaths("Player 1", "Protoss Forge", At least, 2);
+	Deaths("Player 1", "Warp Gate", At least, 2);
+	Bring("Player 1", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 1", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", set);
+
+Actions:
+	Move Location("Player 8", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Battlecruiser", 1, "County Loc Universal", 2);
+	Kill Unit At Location("Player 8", "Terran Battlecruiser", All, "County Loc Universal");
+	Give Units to Player("Player 8", "Player 1", "Protoss Cybernetics Core", All, "Duchy of Lothian");
+	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
+	Set Deaths("Player 5", "Int:13446", Add, 1342177280);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Lothian has succumbed to siege!");
+	Preserve Trigger();
+	Comment("Player 1 wins siege of CPU duchy, +80 kill count, -20000 HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8","Player 2"){
+Conditions:
+	Deaths("Player 2", "Protoss Forge", At least, 2);
+	Deaths("Player 2", "Warp Gate", At least, 2);
+	Bring("Player 2", "Protoss Cybernetics Core", "Empire of Britannia", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", set);
+
+Actions:
+	Move Location("Player 8", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Battlecruiser", 1, "County Loc Universal", 2);
+	Kill Unit At Location("Player 8", "Terran Battlecruiser", All, "County Loc Universal");
+	Give Units to Player("Player 8", "Player 2", "Protoss Cybernetics Core", All, "Duchy of Lothian");
+	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
+	Set Deaths("Player 5", "Int:13446", Add, 1342177280);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Lothian has succumbed to siege!");
+	Preserve Trigger();
+	Comment("Player 2 wins siege of CPU duchy, +80 kill count, -20000 HP");
+}
+
+//-----------------------------------------------------------------//
+
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", At most, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", not set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 8", "Terran Starport", All, "Buildings Buffer 1", "County Loc Universal");
+	Set Switch("Lothian", set);
+	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
+	Display Text Message(Always Display, "Initiate Siege");
+	Preserve Trigger();
+	Comment("Force 1 Player sieges Player Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Men", "Duchy of Lothian", At least, 8);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Switch("Lothian", set);
+
+Actions:
+	Remove Unit At Location("Player 8", "Terran Starport", 1, "Duchy of Lothian");
+	Set Switch("Lothian", clear);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Display Text Message(Always Display, "Siege Interrupted!");
+	Preserve Trigger();
+	Comment("Force 1 player interrupts siege");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Men", "Duchy of Lothian", At most, 7);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+	Switch("Lothian", set);
+
+Actions:
+	Remove Unit At Location("Player 8", "Terran Starport", 1, "Duchy of Lothian");
+	Set Switch("Lothian", clear);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Display Text Message(Always Display, "The siege of Lothian has been abandoned due to insufficient forces!");
+	Preserve Trigger();
+	Comment("Force 1 player abandons siege");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 1", "Men", "Duchy of Lothian", At least, 8);
+	Bring("Foes", "Men", "Diplo 1", At least, 1);
+	Switch("Lothian", set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Battlecruiser", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 1", "Protoss Cybernetics Core", 1, "Duchy of Lothian");
+	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
+	Display Text Message(Always Display, "Siege Victory, detect loser");
+	Preserve Trigger();
+	Comment("Player 1 wins siege of Player duchy, move to ownership calculations");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Least, 11581440);
+	Memory(161356, At Most, 167772159);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
+	Set Deaths("Player 5", "Int:13446", Add, 167772160);
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 1 Duchy. HP at least 45240, kills at most 9. +10 kills -20000 HP and reset");
+	
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 167772160);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 1 Duchy. HP at most 45239, kills at least 10. No change in HP or Kills");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Most, 167772159);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Player 8", "Int:13443", Subtract, 2560000);
+	Set Deaths("Player 5", "Int:13446", Add, 167772160);
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 1 Duchy. HP at most 45239, kills at most 9. -10000 HP +10 kills");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
+	Bring("Foes", "Men", "Diplo 2", At least, 1);
+	Switch("Lothian", set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Battlecruiser", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 2", "Protoss Cybernetics Core", 1, "Duchy of Lothian");
+	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
+	Display Text Message(Always Display, "Siege Victory, detect loser");
+	Preserve Trigger();
+	Comment("Player 2 wins siege of Player duchy, move to player calculations");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Least, 11581440);
+	Memory(161356, At Most, 167772159);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
+	Set Deaths("Player 5", "Int:13446", Add, 335544320);
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 2 Duchy. HP at least 45240, kills at most 9. +20 kills -20000 HP and reset");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 167772160);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 2 Duchy. HP at most 45239, kills at least 10. No change in HP or Kills");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Most, 167772159);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Player 8", "Int:13443", Subtract, 2560000);
+	Set Deaths("Player 5", "Int:13446", Add, 335544320);
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 2 Duchy. HP at most 45239, kills at most 9. -10000 HP +20 kills");
+}
+
+//-----------------------------------------------------------------//
+

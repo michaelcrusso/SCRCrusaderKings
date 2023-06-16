@@ -1,0 +1,110 @@
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 4);
+	Bring("Current Player", "Protoss Photon Cannon", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Protoss Photon Cannon", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Select New Town");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 5);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New County");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 5);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New County");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 5);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 2);
+	Preserve Trigger();
+	Comment("Spawn Units, Cycle to New Town");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 4);
+	Bring("Current Player", "Protoss Photon Cannon", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 6);
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 6);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 6);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 7);
+	Preserve Trigger();
+	Comment("Town Levy Complete, Go to Castles");
+}
+
+//-----------------------------------------------------------------//

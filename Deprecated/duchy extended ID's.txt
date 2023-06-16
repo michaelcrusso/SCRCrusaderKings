@@ -1,0 +1,22 @@
+shift manpower detection and stop/levy triggers into the individual duchy triggers
+
+1:	19027
+	Int:1585
+
+2	161743
+	Int:13478
+
+3	161659
+	Int:13471
+
+4	161575
+	Int:13464
+
+5	161491
+	Int:13457
+
+6	161407
+	Int:13450
+	
+15	160651
+	Int:13387

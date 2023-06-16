@@ -1,0 +1,3 @@
+Gear death doesn't transfer ownership. Caught in remove health loop when sieging Lothian.
+
+Spawn cavalry explodes after upgrading barracks, ruins spawn.

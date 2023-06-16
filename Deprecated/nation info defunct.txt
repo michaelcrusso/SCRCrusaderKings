@@ -1,0 +1,144 @@
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose England/Denmark", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Sjaelland");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Denmark\r\n\x019Capital: \x00fRoskilde\r\n\x019Duchies: \x0063\r\n\x019Starting Counties: \x0116 \x016(9)\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Denmark Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose France/Sicily", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Apulia");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Sicily\r\n\x019Capital: \x00fNaples\r\n\x019Duchies: \x0062\r\n\x019Starting Counties: \x0063\r\n\x019Crown Strength: \x010High\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Sicily Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Norway/Sweden", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Vestlandet");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Norway\r\n\x019Capital: \x00fBergen\r\n\x019Duchies: \x0114\r\n\x019Starting Counties: \x0115\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x006Kingdom of England\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Norway Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Norway/Sweden", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Uppland");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Sweden\r\n\x019Capital: \x00fBergen\r\n\x019Duchies: \x0063\r\n\x019Starting Counties: \x0114\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Sweden Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Spain/Poland", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Castille");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Spanish Kingdoms\r\n\x019Capital: \x00fBurgos\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0167\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Spain Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Spain/Poland", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Silesia");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Poland\r\n\x019Capital: \x00fGniezno\r\n\x019Duchies: \x0063\r\n\x019Starting Counties: \x0164 (5)\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Poland Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Byzantium/Cumania", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Thrace");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x010The Byzantine Empire\r\n\x019Capital: \x00fConstantinople\r\n\x019Duchies: \x01015\r\n\x019Starting Counties: \x0117\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x01bOrthodox Christianity\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Byzantium Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Byzantium/Cumania", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Sarkel");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01dCumanian Nomads\r\n\x019Capital: \x011None\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0169\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x01ePaganism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Cumania Info, 1066");
+}
+
+//-----------------------------------------------------------------//

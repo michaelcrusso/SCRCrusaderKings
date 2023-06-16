@@ -1,0 +1,65 @@
+[ ] Work on war option
+
+I realize now that thanks to the fact that each player "owns" their counties, I don't need to trigger them on a per-Duchy basis anymore. They can now be universal triggers. However, I should ensure that "construct new county" triggers are on a duchy-by-duchy basis.
+Copy County Construction triggers for the rest of Brittania.
+
+If SCV exists at duchy, make triggers for all duchies that disable spawns for counties as well.
+
+[X] Fix county dev trigger to only fire per-duchy. Current trigger allows development outside Bedford.
+
+[X] Debuff native Duchy income. Make development more expensive.
+
+[X] Replace text year selection with terrain or sprites.
+
+[X] Fine-tune development trigger.
+It's broken. Make sure county location is only big enough to detect a building exactly adjacent to pylon. If Pylon fails to develop anything, cancel it.
+
+[X] Optimize payment system
+Use photon cannon death counter as a way to track player's total development. Same with Duchy. Subtraction system (-1 death, +1 mineral, then reset) seems like the easiest way to do it. Remove the million individual triggers for income.
+
+[X] Replace civilians with Zergling
+
+[ ] Court diplomat displays duchy info (allegiance, nation, etc).
+
+[ ] Duchy development. Think of a way to keep track of player's Duchy upgrades. 
+Maybe every payment cycle, run calcs and detect holdings in player territory. Only run it for one player at a time.
+
+[ ] Make pylon take a long time to build. Destroy extra pylons (only allow trigger to fire if number of pylons is exactly 1).
+
+[X] In menu area, put a little ledger for players to keep track of county development level colors.
+
+[ ] Make development more expensive. Make income lower.
+
+[ ] Diplomacy area
+Use a universal unit. When you bring it to another player's zone, teleport their unit and give them different options to choose from. War, marriage, defensive pact, alliance.
+War demands would be cool. Either demand a county, or demand a Duchy, demand money, support a claimant to the throne, Pagan invasion, or fight for Prestige.
+
+[ ] Work on liege levies
+Make it simple; change duchy to neutral, and then change back to player. Only allow one player to raise levies at any given time. Look in CK2's sounds for a raise levy sound.
+
+[ ] Duchy upgrades
+
+[ ] Make unflyable area in corner to immobilize air units.
+
+[ ] Floating burning building indicates state of siege. Make it invincible and burn to death/explosion with timer. When it disappears, the siege is complete.
+
+[ ] Vassal support
+Maybe input some mechanism of vassal support that allows you to raise crown laws. Vassals will be upset if you raise soldiers for too long, lose wars, or take too many casualties. They will also have permanent debuffs with higher crown laws that will make them more likely to revolt.
+
+[ ] Vassal revolts
+Make diplomacy map area. Vassal revolts will typically just demand retracting a crown law.
+
+[ ] Rulers?
+Maybe each Kingdom will get a hero. The death of a hero, either from old age or battle, will produce a new one (random chance at "regency", debuffed hero unit) and debuffs to vassal support. 
+
+[ ] Royal Demesne and Vassals
+Each Duchy will have an air unit (immobilized) indicating whether it is a demesne or vassal territory. The more vassals, the more they will expect lower Crown authority?
+
+[ ] Have a ledger area.
+Display income, manpower, current cash, etc.
+
+Put words above each area to denote what they do.
+
+[ ] CPU will go to war with players?
+
+[ ] Shattered worlds duchy mode?

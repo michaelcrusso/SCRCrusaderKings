@@ -1,0 +1,53 @@
+initialization trigger sets total manpower AND effective manpower
+regen functions also in peacetime
+
+full mobilization zeroes out effective manpower
+demobilization removes units one by one and returns them to effective manpower pool
+
+england: 6 counties, 2 castles, 6 duchies
+	2	3	5
+
+france: 11 counties, 1 castle, 8 duchies
+	2		3	5
+
+scotland: 5 counties, 1 castle, 5 duchies
+	2		3	5
+
+-------------------------------
+
+consider using binary counter for manpower regen?
+
+-------------------------------
+
+Levy triggers:
+
+deaths: 2
+if player owns at least 1 town LVL1
+if player owns at least 1 town lvl 1-2-3-4 etc
+
+then
+
+-do trigger-
+
++
+
+deaths: 2
+if player owns at most 0 town lvl 1
+if player owns at least 1 town lvl 2
+
+etc
+
+//
+
+if player owns at least 1 town lvl 1
+if player owns at most 0 town lvl 1-2-3-4-
+
+then
+
+skip straight to next holding type
+
+--------------------------------------
+
+return units that have fought to player's reserve pools?
+
+if at war and re-raising levies, have random chance of injuring units?

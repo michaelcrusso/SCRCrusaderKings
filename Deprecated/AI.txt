@@ -1,0 +1,40 @@
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Foes", "Zerg Nydus Canal", Exactly, 2);
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Warp Gate", "Anywhere", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Protoss Cybernetics Core", "Duchy of Northumberland", At least, 1);
+	Bring("Foes", "Men", "Empire of Britannia", At least, 6);
+	Commands the Most At("Men", "Empire of Britannia");
+
+Actions:
+	Order("Current Player", "Men", "Duchy of Morway", "Duchy of Northumberland", patrol);
+	Run AI Script At Location("VluA", "Duchy of Northumberland");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Comment("If computer outnumbers player, attack");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Foes", "Zerg Nydus Canal", Exactly, 2);
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Warp Gate", "Anywhere", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Protoss Cybernetics Core", "Duchy of Northumberland", At least, 1);
+	Bring("Foes", "Men", "Empire of Britannia", At least, 6);
+	Command the Least At("Men", "Empire of Britannia");
+
+Actions:
+	Order("Current Player", "Men", "Duchy of Morway", "Duchy of Lothian", patrol);
+	Run AI Script At Location("VluA", "Duchy of Lothian");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Comment("If player outnumbers computer, defend");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//

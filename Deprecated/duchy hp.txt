@@ -1,0 +1,5 @@
+25240 captured min
+29795 captured max
+
+35240 devastated min
+39795 devastated max

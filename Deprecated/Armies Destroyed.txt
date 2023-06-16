@@ -1,0 +1,15 @@
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", At least, 11);
+	Deaths("Current Player", "Flag", At most, 59);
+	Bring("Current Player", "Men", "Map", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 0);
+	Display Text Message(Always Display, "\x01f---------------------\r\n\x011Our armies have been destroyed!\r\n\x01f---------------------");
+	Preserve Trigger();
+	Comment("Armies destroyed");
+}
+
+//-----------------------------------------------------------------//

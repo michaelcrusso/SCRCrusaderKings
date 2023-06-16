@@ -1,0 +1,126 @@
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 7);
+	Bring("Current Player", "Terran Missile Turret", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Missile Turret", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Select New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 3);
+
+Actions:
+	Create Unit("Current Player", "Protoss Zealot", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 3);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Subtract, 3);
+	Preserve Trigger();
+	Comment("Spawn Units, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 7);
+	Bring("Current Player", "Terran Missile Turret", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 9);
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 9);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Terran Missile Turret", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 9);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 10);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 10);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 11);
+	Display Text Message(Always Display, "\x011Levies raised!");
+	Preserve Trigger();
+	Comment("Levy Complete!");
+}
+
+//-----------------------------------------------------------------//

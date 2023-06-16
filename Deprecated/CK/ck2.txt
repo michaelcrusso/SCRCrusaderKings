@@ -1,0 +1,1 @@
+If player suffers death of unit, remove that number of deaths from army size, set deaths to zero, preserve trigger. Use this to both keep score of how a player is doing in war, and also whether or not they can raise their full army. Might need to use a seperate counter as a buffer. "War counter"? There's no other time when this would be needed.

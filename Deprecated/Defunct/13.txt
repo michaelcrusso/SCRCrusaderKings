@@ -1,0 +1,280 @@
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 1);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Memory(160819, At Least, 11581440);
+	Memory(160819, At Most, 11581695);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 5);
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Set Deaths("Current Player", "Zerg Beacon", Add, 5);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Subtract, 5);
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 0);
+	Set Deaths("Current Player", "Data Disc", Set to, 0);
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn duchy base units");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 1);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Memory(160819, At Least, 11581696);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 2);
+	Preserve Trigger();
+	Comment("If upgrades are detected, initiate arithmetic");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 2);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Memory(160819, At Least, 11607040);
+
+Actions:
+	Set Deaths("Player 8", "Int:13401", Subtract, 25600);
+	Set Deaths("Current Player", "Protoss Unused type   1", Add, 100);
+	Set Deaths("Current Player", "Zerg Marker", Add, 100);
+	Preserve Trigger();
+	Comment("Arithmetic enabled, if HP is at least 45340, detect stables");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 2);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Protoss Unused type   1", At most, 0);
+	Memory(160819, At Least, 11581696);
+	Memory(160819, At Most, 11592704);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 4);
+	Preserve Trigger();
+	Comment("No stables detected, if HP is already at least 45241 and at most 45284, skip stables");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 2);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Protoss Unused type   1", At least, 100);
+	Memory(160819, At Most, 11592704);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 3);
+	Preserve Trigger();
+	Comment("Stables arithmetic finished, if HP is at most 45284, move to cavalry spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 4);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Memory(160819, At Least, 11584000);
+
+Actions:
+	Set Deaths("Player 8", "Int:13401", Subtract, 2560);
+	Set Deaths("Current Player", "Protoss Unused type   1", Add, 10);
+	Set Deaths("Current Player", "Zerg Marker", Add, 10);
+	Preserve Trigger();
+	Comment("Arithmetic enabled, if HP is at least 45250, detect barracks");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 4);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Protoss Unused type   1", At most, 0);
+	Memory(160819, At Most, 11582464);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 6);
+	Preserve Trigger();
+	Comment("No barracks detected, if HP is already at most 45244, skip barracks");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 4);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Protoss Unused type   1", At least, 10);
+	Memory(160819, At Most, 11582719);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 5);
+	Preserve Trigger();
+	Comment("Barracks arithmetic finished, if HP is at most 45244, move to barracks spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 6);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Memory(160819, At Least, 11581696);
+
+Actions:
+	Set Deaths("Player 8", "Int:13401", Subtract, 256);
+	Set Deaths("Current Player", "Protoss Unused type   1", Add, 1);
+	Set Deaths("Current Player", "Zerg Marker", Add, 1);
+	Preserve Trigger();
+	Comment("Arithmetic enabled, if HP is at least 45241, detect militia hall");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 6);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Protoss Unused type   1", At most, 0);
+	Memory(160819, At Least, 11581440);
+	Memory(160819, At Most, 11581695);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 8);
+	Preserve Trigger();
+	Comment("No militia hall detected, if HP is already at most 45240, skip militia hall");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 6);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Protoss Unused type   1", At least, 1);
+	Memory(160819, At Most, 11581695);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 7);
+	Preserve Trigger();
+	Comment("Militia arithmetic finished, if HP is at most 45240, move to militia hall spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 8);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Protoss Unused type   1", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+	Memory(160819, At Least, 11581440);
+	Memory(160819, At Most, 11581695);
+
+Actions:
+	Create Unit("Current Player", "Terran Firebat", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "Duchy of Northumberland");
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 9);
+	Preserve Trigger();
+	Comment("Finished arithmetic, if HP is returned to 45240, move units and return HP");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 9);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Zerg Marker", At least, 100);
+
+Actions:
+	Set Deaths("Player 8", "Int:13401", Add, 25600);
+	Set Deaths("Current Player", "Zerg Marker", Subtract, 100);
+	Preserve Trigger();
+	Comment("Return HP to unit x100");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 9);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Zerg Marker", At least, 10);
+	Deaths("Current Player", "Zerg Marker", At most, 99);
+
+Actions:
+	Set Deaths("Player 8", "Int:13401", Add, 2560);
+	Set Deaths("Current Player", "Zerg Marker", Subtract, 10);
+	Preserve Trigger();
+	Comment("Return HP to unit x10");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 9);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Zerg Marker", At least, 1);
+	Deaths("Current Player", "Zerg Marker", At most, 9);
+
+Actions:
+	Set Deaths("Player 8", "Int:13401", Add, 256);
+	Set Deaths("Current Player", "Zerg Marker", Subtract, 1);
+	Preserve Trigger();
+	Comment("Return HP to unit x1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Protoss Unused type   2", Exactly, 9);
+	Deaths("Current Player", "Data Disc", Exactly, 13);
+	Deaths("Current Player", "Zerg Marker", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Set to, 0);
+	Set Deaths("Current Player", "Data Disc", Set to, 0);
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Finish HP return, go to next duchy");
+}
+
+//-----------------------------------------------------------------//

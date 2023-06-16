@@ -1,0 +1,97 @@
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 2", "Men", "Duchy of Lothian", At least, 8);
+	Bring("Foes", "Men", "Diplo 2", At least, 1);
+	Switch("Lothian", set);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Battlecruiser", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 2", "Protoss Cybernetics Core", 1, "Duchy of Lothian");
+	Set Deaths("Current Player", "Tank Turret type   2", Add, 1);
+	Display Text Message(Always Display, "Siege Victory, detect loser");
+	Preserve Trigger();
+	Comment("Player 2 wins siege of Player duchy, move to player calculations");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Least, 11581440);
+	Memory(161356, At Most, 167772159);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Player 8", "Int:13443", Subtract, 5120000);
+	Set Deaths("Player 5", "Int:13446", Add, 335544320);
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 2 Duchy. HP at least 45240, kills at most 9. +20 kills -20000 HP and reset");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 167772160);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 2 Duchy. HP at most 45239, kills at least 10. No change in HP or Kills");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Deaths("Current Player", "Tank Turret type   2", Exactly, 2);
+	Bring("Current Player", "Terran Battlecruiser", "Duchy of Lothian", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At most, 0);
+	Bring("Player 8", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Foes", "Men", "Duchy of Lothian", At least, 8);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Most, 167772159);
+	Switch("Lothian", set);
+
+Actions:
+	Kill Unit At Location("Current Player", "Terran Battlecruiser", All, "County Loc Universal");
+	Set Deaths("Player 8", "Int:13443", Subtract, 2560000);
+	Set Deaths("Player 5", "Int:13446", Add, 335544320);
+	Set Deaths("Current Player", "Terran Battlecruiser", Set to, 0);
+	Set Deaths("Current Player", "Tank Turret type   2", Set to, 0);
+	Set Switch("Lothian", clear);
+	Display Text Message(Always Display, "Siege finished");
+	Preserve Trigger();
+	Comment("Player calculations: Player took Player 2 Duchy. HP at most 45239, kills at most 9. -10000 HP +20 kills");
+}
+
+//-----------------------------------------------------------------//

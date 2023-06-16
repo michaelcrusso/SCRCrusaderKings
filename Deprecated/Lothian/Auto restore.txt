@@ -1,0 +1,139 @@
+Trigger("Player 1"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 167772160);
+	Memory(161356, At Most, 335544319);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 167772160);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 1 conquered Duchy. Original owner Player 1. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 335544320);
+	Memory(161356, At Most, 503316479);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 2 conquered Duchy. Original owner Player 2. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 3"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 503316480);
+	Memory(161356, At Most, 671088639);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 3 conquered Duchy. Original owner Player 3. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 4"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 671088640);
+	Memory(161356, At Most, 838860799);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 4 conquered Duchy. Original owner Player 4. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 5"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 838860800);
+	Memory(161356, At Most, 1006632959);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 5 conquered Duchy. Original owner Player 5. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 6"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 1006632960);
+	Memory(161356, At Most, 1174405119);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 6 conquered Duchy. Original owner Player 6. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 7"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 2);
+	Memory(161323, At Most, 11581439);
+	Memory(161356, At Least, 1174405120);
+	Memory(161356, At Most, 1342177279);
+	Switch("Lothian", not set);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Duchy of Lothian", At most, 7);
+
+Actions:
+	Set Deaths("Player 8", "Int:13443", Add, 2560000);
+	Set Deaths("Player 5", "Int:13446", Subtract, 335544320);
+	Display Text Message(Always Display, "Duchy reconquered!");
+	Preserve Trigger();
+	Comment("Player calculations: Player 7 conquered Duchy. Original owner Player 7. Restore HP to Devastated (+10000)");
+}
+
+//-----------------------------------------------------------------//

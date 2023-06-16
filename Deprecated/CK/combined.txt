@@ -1,0 +1,3688 @@
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "Anywhere", At least, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Bedford", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Bedford", At least, 1);
+	Bring("Current Player", "Protoss Carrier", "County Low Ground", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Construct County", 2);
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 2);
+	Display Text Message(Always Display, "\x011Please select the type of holding to construct.");
+	Preserve Trigger();
+	Comment("Construct New County Check");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "Anywhere", At least, 1);
+	Bring("Current Player", "Protoss Carrier", "Duchy of Bedford", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Bedford", At most, 0);
+	Bring("Current Player", "Protoss Carrier", "County Low Ground", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 0);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011You cannot construct a new holding in another Lord's realm.");
+	Preserve Trigger();
+	Comment("Construct New County Fail");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "Anywhere", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
+
+Actions:
+	Center View("Construct County");
+	Preserve Trigger();
+	Comment("Center View on County Selection Area");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "Anywhere", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Construct Town", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Construct County", At most, 0);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Construct Town");
+	Create Unit with Properties("Current Player", "Protoss Photon Cannon", 1, "County Loc Universal", 2);
+	Center View("County Loc Universal");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 2);
+	Display Text Message(Always Display, "\x011New town constructed!");
+	Preserve Trigger();
+	Comment("Construct New Town");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "Anywhere", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Construct Castle", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Construct County", At most, 0);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 2);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Construct Castle");
+	Create Unit with Properties("Current Player", "Terran Missile Turret", 1, "County Loc Universal", 2);
+	Center View("County Loc Universal");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 1);
+	Display Text Message(Always Display, "\x011New Castle constructed!");
+	Preserve Trigger();
+	Comment("Construct New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Move Location("Current Player", "Protoss Photon Cannon", "County Loc Universal", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Gateway", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 2);
+	Display Text Message(Always Display, "\x011County holding improved...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("LVL 1 Town Detect Success, Upgrade Town to LVL2");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Gateway", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Move Location("Current Player", "Protoss Gateway", "County Loc Universal", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Gateway", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Nexus", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 2);
+	Display Text Message(Always Display, "\x011County holding improved...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("LVL 2 Town Detect Success, Upgrade Town Bedford to LVL3");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Nexus", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Move Location("Current Player", "Protoss Nexus", "County Loc Universal", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Nexus", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Fleet Beacon", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 3);
+	Display Text Message(Always Display, "\x011County holding improved...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("LVL 3 Town Detect Success, Upgrade Town Bedford to LVL4");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Fleet Beacon", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Move Location("Current Player", "Protoss Fleet Beacon", "County Loc Universal", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Fleet Beacon", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Observatory", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 4);
+	Display Text Message(Always Display, "\x011County holding improved...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("LVL 4 Town Detect Success, Upgrade Town Bedford to LVL5");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Observatory", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011This holding cannot be improved any further...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("Max Town, Reject Upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Move Location("Current Player", "Terran Missile Turret", "County Loc Universal", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Missile Turret", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Citadel of Adun", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 1);
+	Display Text Message(Always Display, "\x011County holding improved...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("LVL 1 Castle Detect Success, Upgrade Castle Bedford to LVL2");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Citadel of Adun", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Move Location("Current Player", "Protoss Citadel of Adun", "County Loc Universal", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Citadel of Adun", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Arbiter Tribunal", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 1);
+	Display Text Message(Always Display, "\x011County holding improved...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("LVL 2 Castle Detect Success, Upgrade Castle Bedford to LVL3");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Arbiter Tribunal", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Move Location("Current Player", "Protoss Arbiter Tribunal", "County Loc Universal", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Arbiter Tribunal", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Robotics Support Bay", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 1);
+	Display Text Message(Always Display, "\x011County holding improved...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("LVL 3 Castle Detect Success, Upgrade Castle Bedford to LVL4");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Robotics Support Bay", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Move Location("Current Player", "Protoss Robotics Support Bay", "County Loc Universal", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Robotics Support Bay", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Templar Archives", 1, "County Loc Universal", 2);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 1);
+	Display Text Message(Always Display, "\x011County holding improved...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("LVL 4 Castle Detect Success, Upgrade Castle Bedford to LVL5");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Loc Universal", Exactly, 1);
+	Bring("Current Player", "Protoss Templar Archives", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011This holding cannot be improved any further...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("Max Castle, Reject Upgrade");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Photon Cannon", "County Loc Universal", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Cybernetics Core", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011You cannot Upgrade another King's holdings...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("County Holding is not Owned #1, Reset");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Photon Cannon", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Cybernetics Core", "County Loc Universal", At least, 1);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011You cannot Upgrade another King's demesne...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("Duchy is not Owned #2, Reset");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "Anywhere", Exactly, 1);
+	Bring("Current Player", "Protoss Carrier", "County Low Ground", At most, 0);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 0);
+
+Actions:
+	Move Location("Current Player", "Protoss Carrier", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
+	Preserve Trigger();
+	Comment("Initialize County Upgrade #1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Protoss Carrier", "County Low Ground", At most, 0);
+	Bring("All Players", "Protoss Photon Cannon", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Gateway", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Nexus", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Fleet Beacon", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Observatory", "County Loc Universal", At most, 0);
+	Bring("All Players", "Terran Missile Turret", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Citadel of Adun", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Arbiter Tribunal", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Robotics Support Bay", "County Loc Universal", At most, 0);
+	Bring("All Players", "Protoss Templar Archives", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Protoss Carrier", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011You must construct a pylon directly adjacent a County or Duchy...");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("County Detect Failure #2, Reset");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose HRE/Scotland", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Bring("Current Player", "Men", "Diplomacy", At most, 0);
+	Switch("Start", set);
+	Bring("Current Player", "Warp Gate", "Anywhere", At most, 0);
+
+Actions:
+	Move Unit("Current Player", "Devouring One (Zergling)", All, "Anywhere", "Detect Civs");
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Diplomacy", 2);
+	Center View("Diplomacy");
+	Display Text Message(Always Display, "\r\n\x006Select Diplomatic Action");
+	Comment("Diplomacy Scotland");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Diplomacy", At least, 1);
+	Switch("Start", set);
+
+Actions:
+	Minimap Ping("Diplomacy");
+	Wait(1500);
+	Comment("Diplomatic Action Notifier");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Player 1", "Zerg Nydus Canal", Exactly, 2);
+	Deaths("Current Player", "Flag", At most, 0);
+	Switch("Start", set);
+	Bring("Current Player", "Warp Gate", "Anywhere", At least, 1);
+
+Actions:
+	Set Alliance Status("Player 1", Enemy);
+	Set Deaths("Current Player", "Flag", Set to, 1);
+	Comment("Computer declares war on Player");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Foes", "Zerg Nydus Canal", Exactly, 2);
+	Deaths("Current Player", "Flag", Exactly, 1);
+	Bring("Current Player", "Warp Gate", "Anywhere", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Men", "Empire of Britannia", At least, 6);
+
+Actions:
+	Create Unit("Player 8", "Protoss Zealot", 3, "Buffer Zone");
+	Create Unit("Player 8", "Zerg Zergling", 8, "Buffer Zone");
+	Create Unit("Player 8", "Terran Ghost", 6, "Buffer Zone");
+	Give Units to Player("Player 8", "Player 9", "Men", All, "Buffer Zone");
+	Move Unit("Player 9", "Men", All, "Buffer Zone", "Duchy of Morway");
+	Give Units to Player("Player 9", "Player 8", "Men", All, "Duchy of Morway");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Comment("Spawn units in Scotland");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Foes", "Zerg Nydus Canal", Exactly, 2);
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Warp Gate", "Anywhere", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Protoss Cybernetics Core", "Duchy of Northumberland", At least, 1);
+	Bring("Foes", "Men", "Empire of Britannia", At least, 6);
+	Commands the Most At("Men", "Empire of Britannia");
+
+Actions:
+	Order("Current Player", "Men", "Duchy of Morway", "Duchy of Northumberland", patrol);
+	Run AI Script At Location("VluA", "Duchy of Northumberland");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Comment("If computer outnumbers player, attack");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Foes", "Zerg Nydus Canal", Exactly, 2);
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Warp Gate", "Anywhere", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("Foes", "Protoss Cybernetics Core", "Duchy of Northumberland", At least, 1);
+	Bring("Foes", "Men", "Empire of Britannia", At least, 6);
+	Command the Least At("Men", "Empire of Britannia");
+
+Actions:
+	Order("Current Player", "Men", "Duchy of Morway", "Duchy of Lothian", patrol);
+	Run AI Script At Location("VluA", "Duchy of Lothian");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Comment("If player outnumbers computer, defend");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Bring("Current Player", "Devouring One (Zergling)", "Diplomacy Info", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Diplo Top Row", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Diplo Left Row", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Diplomacy", At most, 0);
+	Bring("Current Player", "Warp Gate", "Anywhere", At most, 0);
+
+Actions:
+	Comment("Info War Scotland");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Bring("Current Player", "Devouring One (Zergling)", "Diplomacy Info", At most, 0);
+	Bring("Current Player", "Devouring One (Zergling)", "Diplo Top Row", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Diplo Left Row", At least, 1);
+	Bring("Current Player", "Devouring One (Zergling)", "Diplomacy", At most, 0);
+	Switch("Start", set);
+	Bring("Current Player", "Warp Gate", "Anywhere", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", 1, "Diplo Top Row");
+	Set Alliance Status("Player 8", Enemy);
+	Set Deaths("Current Player", "Protoss Forge", Set to, 2);
+	Set Deaths("Player 8", "Protoss Forge", Set to, 2);
+	Set Deaths("Current Player", "Zerg Nydus Canal", Set to, 2);
+	Comment("DOW Scotland");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Player 1", "Zerg Nydus Canal", Exactly, 2);
+	Deaths("Player 1", "Protoss Forge", Exactly, 2);
+	Switch("Start", set);
+
+Actions:
+	Play WAV("staredit\\wav\\wardeclared.ogg", 0);
+	Play WAV("staredit\\wav\\warhorn.ogg", 0);
+	Display Text Message(Always Display, "\r\n\x006Player 1 has declared WAR on the Kingdom of Scotland!");
+	Comment("War Notification");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Always();
+
+Actions:
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Preserve Trigger();
+	Comment("Hyper Trigger");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Always();
+
+Actions:
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Preserve Trigger();
+	Comment("Hyper Trigger");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Always();
+
+Actions:
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Wait(0);
+	Preserve Trigger();
+	Comment("Hyper Trigger");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 10);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 10);
+	Set Resources("Current Player", Add, 10, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated, Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at most, 9);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 5);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 5);
+	Set Resources("Current Player", Add, 5, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Preserve Trigger();
+	Comment("Accelerated, Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at most, 4);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 1);
+	Accumulate("Current Player", At most, 0, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 1);
+	Set Resources("Current Player", Add, 1, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, no debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 10);
+	Accumulate("Current Player", At least, 10, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 10);
+	Set Resources("Current Player", Subtract, 10, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated, Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at most, 9);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 5);
+	Accumulate("Current Player", At least, 5, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 5);
+	Set Resources("Current Player", Subtract, 5, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", at most, 4);
+	Deaths("Current Player", "Protoss Photon Cannon", at least, 1);
+	Accumulate("Current Player", At least, 1, gas);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Photon Cannon", Subtract, 1);
+	Set Resources("Current Player", Subtract, 1, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Preserve Trigger();
+	Comment("Convert number of counties into ore, pay debt, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", Exactly, 1);
+	Deaths("Current Player", "Protoss Photon Cannon", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Add, 1);
+	Play WAV("staredit\\wav\\money_in2.ogg", 0);
+	Preserve Trigger();
+	Comment("When county development hits zero, restore counties from buffer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 2);
+	Deaths("Current Player", "Protoss Nexus", at least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 1);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Add, 1);
+	Preserve Trigger();
+	Comment("Restore counties from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 2);
+	Deaths("Current Player", "Protoss Nexus", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Set to, 3);
+	Preserve Trigger();
+	Comment("Move on to expenses");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Set to, 0);
+	Preserve Trigger();
+	Comment("Levies not raised, skip expenses and reset timer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 10);
+	Accumulate("Current Player", At least, 10, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 10);
+	Set Resources("Current Player", Subtract, 10, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated, Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At most, 9);
+	Deaths("Current Player", "Zerg Beacon", At least, 5);
+	Accumulate("Current Player", At least, 5, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 5);
+	Set Resources("Current Player", Subtract, 5, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Preserve Trigger();
+	Comment("Accelerated, Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At most, 4);
+	Deaths("Current Player", "Zerg Beacon", At least, 1);
+	Accumulate("Current Player", At least, 1, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Set Resources("Current Player", Subtract, 1, ore);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Preserve Trigger();
+	Comment("Convert army size into ore and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At least, 10);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 10);
+	Set Resources("Current Player", Add, 10, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 10);
+	Preserve Trigger();
+	Comment("Accelerated, Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At most, 9);
+	Deaths("Current Player", "Zerg Beacon", At least, 5);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 5);
+	Set Resources("Current Player", Add, 5, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 5);
+	Preserve Trigger();
+	Comment("Accelerated, Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", At most, 4);
+	Deaths("Current Player", "Zerg Beacon", At least, 1);
+	Accumulate("Current Player", At most, 0, ore);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Set Resources("Current Player", Add, 1, gas);
+	Set Deaths("Current Player", "Protoss Nexus", Add, 1);
+	Preserve Trigger();
+	Comment("Convert army size into debt, if no cash, and add to buffer (Nexus)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", Exactly, 3);
+	Deaths("Current Player", "Zerg Beacon", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Add, 1);
+	Preserve Trigger();
+	Comment("When army size hits zero, restore army size from buffer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", at least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Nexus", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 1);
+	Preserve Trigger();
+	Comment("Restore army size from buffer until buffer hits zero");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Gateway", exactly, 4);
+	Deaths("Current Player", "Protoss Nexus", Exactly, 0);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Gateway", Set to, 0);
+	Preserve Trigger();
+	Comment("Reset timer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Terran Civilian", "Duchy of Bedford", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Data Disc", At least, 2);
+
+Actions:
+	Display Text Message(Always Display, "\x011Duchy of Bedford. Suzerain: You");
+	Set Deaths("Current Player", "Kakaru (Twilight)", Set to, 0);
+	Preserve Trigger();
+	Comment("Bedford Info");
+}
+
+//-----------------------------------------------------------------//
+Trigger("All players"){
+Conditions:
+	Always();
+
+Actions:
+	Set Switch("Choose Year", set);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All players"){
+Conditions:
+	Switch("Choose Year", set);
+
+Actions:
+	Center View("Construct County");
+	Display Text Message(Always Display, "\r\n\x006Choose Starting Year. A majority decision is required.");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Give Civs", set);
+	Bring("Current Player", "Devouring One (Zergling)", "Information", At most, 0);
+
+Actions:
+	Move Unit("Current Player", "Devouring One (Zergling)", All, "Buffer Zone", "Information");
+	Center View("Information");
+	Comment("Give Civs");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All players"){
+Conditions:
+	Switch("Start", not set);
+	Bring("All Players", "Devouring One (Zergling)", "Detect Civs", At most, 0);
+	Bring("All Players", "Devouring One (Zergling)", "Buffer Zone", At most, 0);
+	Score("Player 8", Custom, At least, 1066);
+
+Actions:
+	Set Switch("Choose", clear);
+	Set Switch("Help", set);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All players"){
+Conditions:
+	Switch("Help", set);
+	Switch("Start", not set);
+
+Actions:
+	Center View("Help On");
+	Display Text Message(Always Display, "\r\n\x006TUTORIAL\r\n\r\n\x016Please select whether or not you would like the game to display\r\n\x016help messages as you complete tasks throughout the game. \r\n\x016Up is \x006OFF\x016, down is \x006ON. \x016If you're familiar\r\n\x016with the game, you may wish to disable this.\r\n\r\n\x00f[DEFAULT ON]\r\n\r\n\r\n");
+	Wait(3000);
+	Set Switch("Start", set);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", not set);
+	Bring("\x006Kings", "Devouring One (Zergling)", "Detect Civs", At least, 1);
+	Bring("Current Player", "Warp Gate", "Anywhere", At least, 1);
+	Deaths("Current Player", "Independent Command Center", Exactly, 1);
+	Switch("Choose", set);
+
+Actions:
+	Display Text Message(Always Display, "\r\n\r\n\x016Waiting on other players...\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", not set);
+	Bring("\x006Kings", "Devouring One (Zergling)", "Detect Civs", At least, 1);
+	Bring("Current Player", "Norad II (Crashed Battlecruiser)", "Anywhere", At least, 1);
+	Deaths("Current Player", "Independent Command Center", Exactly, 1);
+	Switch("Choose", set);
+
+Actions:
+	Display Text Message(Always Display, "\r\n\r\n\x016Waiting on other players...\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1","Player 2","Player 3","Player 4","Player 5","Player 6","Player 7"){
+Conditions:
+	Switch("Start", set);
+	Deaths("Current Player", "Independent Command Center", Exactly, 1);
+
+Actions:
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x006----------\r\n\x016START!\r\n\x006----------\r\n\r\n\r\n\r\n\r\n");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Set Alliance Status("Player 12", Ally);
+	Set Alliance Status("Player 8", Ally);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Always();
+
+Actions:
+	Set Alliance Status("\x006Kings", Ally);
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Current Player", "Zerg Overlord", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 1", "Zerg Overlord", "Anywhere", "PLY1 Menu");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Current Player", "Zerg Overlord", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 2", "Zerg Overlord", "Anywhere", "PLY2 Menu");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Move Unit("All Players", "Protoss Observer", All, "County Low Ground", "Can'tMoveAir");
+	Move Unit("All Players", "Terran Science Vessel", All, "County Low Ground", "Can'tMoveAir");
+	Preserve Trigger();
+	Comment("Immobilize Air Units");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Mute Unit Speech();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All Players"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 9", "Terran Missile Turret", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 9", "Terran Missile Turret", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 9", "Terran Missile Turret", 1, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Terran Missile Turret", 1, "Buildings Buffer 1", 2);
+	Move Unit("Player 8", "Terran Missile Turret", 1, "Buildings Buffer 1", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Set board");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("All Players"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Player 9", "Protoss Photon Cannon", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Player 9", "Protoss Photon Cannon", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 9", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Protoss Photon Cannon", 1, "Buildings Buffer 1", 2);
+	Move Unit("Player 8", "Protoss Photon Cannon", 1, "Buildings Buffer 1", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Set board");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", not set);
+	Bring("Current Player", "Zerg Zergling", "Menu", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Zerg Zergling", "Menu", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Zerg Zergling", 1, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Zerg Overlord", 1, "County Loc Universal", 2);
+	Preserve Trigger();
+	Comment("Set board");
+}
+
+//-----------------------------------------------------------------//
+
+
+Trigger("Player 1","Player 2","Player 3","Player 4","Player 5","Player 6","Player 7"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Devouring One (Zergling)", "Information", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Devouring One (Zergling)", 1, "Detect Civs", 2);
+	Comment("Give Civs");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Always();
+
+Actions:
+	Move Location("Player 12", "Zerg Nydus Canal", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Zerg Nydus Canal", All, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Zerg Nydus Canal", 1, "County Loc Universal", 3);
+	Move Location("Player 12", "Mature Crysalis", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Mature Crysalis", All, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Mature Crysalis", 1, "County Loc Universal", 3);
+	Move Location("Player 12", "Zerg Creep Colony", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Zerg Creep Colony", All, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Zerg Creep Colony", 1, "County Loc Universal", 3);
+	Move Location("Player 12", "Zerg Cerebrate Daggoth", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Player 12", "Zerg Cerebrate Daggoth", All, "County Loc Universal");
+	Create Unit with Properties("Player 8", "Zerg Cerebrate Daggoth", 1, "County Loc Universal", 3);
+	Comment("Set Diplo Area");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 1);
+	Bring("\x006Kings", "Men", "Cancel", At least, 1);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1066, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Cancel");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171066...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1066 if 1 player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 2);
+	Bring("\x006Kings", "Men", "Cancel", At least, 2);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1066, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Cancel");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171066...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1066 if 2 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 3);
+	Bring("\x006Kings", "Men", "Cancel", At least, 2);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1066, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Cancel");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171066...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1066 if 3 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 4);
+	Bring("\x006Kings", "Men", "Cancel", At least, 3);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1066, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Cancel");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171066...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1066 if 4 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 5);
+	Bring("\x006Kings", "Men", "Cancel", At least, 3);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1066, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Cancel");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171066...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1066 if 5 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 6);
+	Bring("\x006Kings", "Men", "Cancel", At least, 4);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1066, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Cancel");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171066...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1066 if 6 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 7);
+	Bring("\x006Kings", "Men", "Cancel", At least, 4);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1066, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Cancel");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171066...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1066 if 6 players");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 1);
+	Bring("\x006Kings", "Men", "Construct Town", At least, 1);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1145, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Town");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171145...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1145 if 1 player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 2);
+	Bring("\x006Kings", "Men", "Construct Town", At least, 2);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1145, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Town");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171145...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1145 if 2 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 3);
+	Bring("\x006Kings", "Men", "Construct Town", At least, 2);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1145, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Town");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171145...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1145 if 3 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 4);
+	Bring("\x006Kings", "Men", "Construct Town", At least, 3);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1145, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Town");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171145...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1145 if 4 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 5);
+	Bring("\x006Kings", "Men", "Construct Town", At least, 3);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1145, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Town");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171145...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1145 if 5 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 6);
+	Bring("\x006Kings", "Men", "Construct Town", At least, 4);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1145, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Town");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171145...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1145 if 6 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 7);
+	Bring("\x006Kings", "Men", "Construct Town", At least, 4);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1145, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Town");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171145...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1145 if 6 players");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 1);
+	Bring("\x006Kings", "Men", "Construct Castle", At least, 1);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1337, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Castle");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171337...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1337 if 1 player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 2);
+	Bring("\x006Kings", "Men", "Construct Castle", At least, 2);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1337, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Castle");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171337...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1337 if 2 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 3);
+	Bring("\x006Kings", "Men", "Construct Castle", At least, 2);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1337, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Castle");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171337...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1337 if 3 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 4);
+	Bring("\x006Kings", "Men", "Construct Castle", At least, 3);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1337, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Castle");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171337...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1337 if 4 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 5);
+	Bring("\x006Kings", "Men", "Construct Castle", At least, 3);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1337, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Castle");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171337...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1337 if 5 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 6);
+	Bring("\x006Kings", "Men", "Construct Castle", At least, 4);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1337, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Castle");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171337...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1337 if 6 players");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Men", "Buffer Zone", Exactly, 7);
+	Bring("\x006Kings", "Men", "Construct Castle", At least, 4);
+	Bring("\x006Kings", "Men", "Construct County", At most, 0);
+	Switch("Choose Year", set);
+	Switch("Give Civs", not set);
+
+Actions:
+	Set Score("Player 8", Set To, 1337, Custom);
+	Set Switch("Choose Year", clear);
+	Set Switch("Choose", set);
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct Castle");
+	Remove Unit At Location("\x006Kings", "Men", All, "Construct County");
+	Set Switch("Give Civs", set);
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x00fIt is the year of our lord, \x0171337...\r\n\x011Select your Nation!\r\n\r\n\x016Move onto the grass to see nation information.\r\n\r\n\r\n");
+	Comment("Select year 1337 if 6 players");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Terran SCV", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran SCV", "Anywhere", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Disable Duchy Levies");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Terran SCV", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+
+Actions:
+	Give Units to Player("Current Player", "Player 12", "Terran SCV", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Levies in this holding have been disabled.");
+	Preserve Trigger();
+	Comment("Duchy Levy Disabled");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Terran SCV", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At least, 1);
+
+Actions:
+	Remove Unit At Location("Player 12", "Terran SCV", 1, "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran SCV", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011You have already disabled levies in this holding.");
+	Preserve Trigger();
+	Comment("Duchy Levy Already Disabled");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Zerg Drone", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Zerg Drone", "Anywhere", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Re-enable Levy Holdings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Zerg Drone", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At least, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Drone", 1, "County Loc Universal");
+	Remove Unit At Location("Player 12", "Terran SCV", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Levies re-enabled in this holding.");
+	Preserve Trigger();
+	Comment("Duchy Levy Re-Enabled");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("\x006Kings", "Zerg Drone", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Drone", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011You have already enabled levies in this holding.");
+	Preserve Trigger();
+	Comment("Duchy Levy Already Disabled");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Zealot", At least, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Zealot", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 2);
+	Preserve Trigger();
+	Comment("Zealot casualty, remove from expenses calculation");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Terran Ghost", At least, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Terran Ghost", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Preserve Trigger();
+	Comment("Ghost casualty, remove from expenses calculation");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Zerg Zergling", At least, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+
+Actions:
+	Set Deaths("Current Player", "Zerg Zergling", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Preserve Trigger();
+	Comment("Zergling casualty, remove from expenses calculation");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Floor Gun Trap", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", At most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 1)", at least, 45);
+	Deaths("Current Player", "Mineral Chunk (Type 1)", at most, 50);
+	Deaths("Current Player", "Mineral Field (Type 1)", at least, 45);
+	Deaths("Current Player", "Mineral Field (Type 1)", at most, 50);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Floor Gun Trap", Set To, 1);
+	Display Text Message(Always Display, "\x011Manpower levels restored!");
+	Preserve Trigger();
+	Comment("If effective manpower is approximately at permanent manpower, notify player");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 7);
+	Bring("Current Player", "Terran Missile Turret", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Missile Turret", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Select New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 3);
+
+Actions:
+	Create Unit("Current Player", "Protoss Zealot", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 3);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Subtract, 3);
+	Preserve Trigger();
+	Comment("Spawn Units, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At most, 2);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip spawn");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 8);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New Castle");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 7);
+	Bring("Current Player", "Terran Missile Turret", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 9);
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 9);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Terran Missile Turret", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 9);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 10);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 10);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 11);
+	Display Text Message(Always Display, "\x011Levies raised!");
+	Preserve Trigger();
+	Comment("Levy Complete!");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 1);
+	Deaths("Current Player", "Data Disc", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Select New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Data Disc", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", Exactly, 1);
+	Bring("Player 12", "Men", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
+	Memory(19027, At Most, 12544255);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 5);
+
+Actions:
+	Set Deaths("Current Player", "Int:1585", Add, 256000);
+	Set Deaths("Current Player", "Protoss Unused type   1", Add, 1000);
+	Preserve Trigger();
+	Comment("Detect duchy stables, runoff to buffer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Deaths("Current Player", "Data Disc", Exactly, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", Exactly, 1);
+	Deaths("Current Player", "Protoss Unused type   2", at most, 0);
+	Memory(19027, At Least, 12544000);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 5);
+
+Actions:
+	Set Deaths("Current Player", "Protoss Unused type   2", Add, 1);
+	Preserve Trigger();
+	Comment("Spawn Units, Cycle to New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 0);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At most, 4);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 2);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New County");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 3);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 3);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 3);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 4);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 4);
+	Bring("Current Player", "Protoss Photon Cannon", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Protoss Photon Cannon", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Select New Town");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 5);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 2);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Set Deaths("Current Player", "Zerg Beacon", Add, 2);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Subtract, 2);
+	Preserve Trigger();
+	Comment("Spawn Units, Cycle to New Town");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 5);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At most, 1);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 5);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Spawn Units Disabled, Cycle to New County");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 5);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Terran SCV", "County Loc Universal", At most, 0);
+
+Actions:
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Levy Already Raised, Cycle to New County");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 4);
+	Bring("Current Player", "Protoss Photon Cannon", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 6);
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 6);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 6);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 7);
+	Preserve Trigger();
+	Comment("Town Levy Complete, Go to Castles");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 69);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Ghost", "Anywhere", At least, 1);	
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Ghost", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Ghost", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 1);
+	Preserve Trigger();
+	Comment("Remove Ghosts");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 69);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Ghost", "Anywhere", At most, 0);	
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 70);
+	Preserve Trigger();
+	Comment("Removed ghosts, move on to remove zerglings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 70);
+	Bring("Current Player", "Zerg Zergling", "Anywhere", At least, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 1);	
+
+Actions:
+	Move Location("Current Player", "Zerg Zergling", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Zerg Zergling", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 1);
+	Preserve Trigger();
+	Comment("Remove zerglings");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 70);
+	Bring("Current Player", "Zerg Zergling", "Anywhere", At most, 0);	
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 71);
+	Preserve Trigger();
+	Comment("Removed zerglings, move on to remove zealots");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 71);
+	Bring("Current Player", "Protoss Zealot", "Anywhere", At least, 1);	
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+
+Actions:
+	Move Location("Current Player", "Protoss Zealot", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Protoss Zealot", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Zerg Beacon", Subtract, 2);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 2);
+	Preserve Trigger();
+	Comment("Remove Zealots");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 71);
+	Bring("Current Player", "Protoss Zealot", "Anywhere", At most, 0);	
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 0);
+	Display Text Message(Always Display, "\x011Levies sent home.");
+	Preserve Trigger();
+	Comment("Levy Complete!");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY1 Menu", Exactly, 0);
+	Deaths("Current Player", "Flag", At least, 1);
+	Deaths("Current Player", "Flag", At most, 59);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY1 Menu");
+	Set Deaths("Current Player", "Flag", Set to, 60);
+	Display Text Message(Always Display, "\x011Sending levies home...");
+	Preserve Trigger();
+	Comment("Begin demobilization");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY2 Menu", Exactly, 0);
+	Deaths("Current Player", "Flag", At least, 1);
+	Deaths("Current Player", "Flag", At most, 59);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY2 Menu");
+	Set Deaths("Current Player", "Flag", Set to, 60);
+	Display Text Message(Always Display, "\x011Sending levies home...");
+	Preserve Trigger();
+	Comment("Begin demobilization");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY1 Menu", Exactly, 0);
+	Deaths("Current Player", "Flag", At least, 60);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY1 Menu");
+	Display Text Message(Always Display, "\x011Your levies have already been ordered home...");
+	Preserve Trigger();
+	Comment("Begin demobilization");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY2 Menu", Exactly, 0);
+	Deaths("Current Player", "Flag", At least, 60);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY2 Menu");
+	Display Text Message(Always Display, "\x011Your levies have already been ordered home...");
+	Preserve Trigger();
+	Comment("Begin demobilization");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 60);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Begin demobilization, Duchies");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 61);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Player 12", "Tom Kazansky (Wraith)", All, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Delete Manual Levies");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 61);
+	Bring("Current Player", "Protoss Cybernetics Core", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 62);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 62);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Protoss Cybernetics Core", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 62);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 63);
+	Preserve Trigger();
+	Comment("Return Duchies to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 63);
+
+Actions:
+	Move Location("Current Player", "Protoss Photon Cannon", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Begin demobilization, Towns");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 64);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Player 12", "Tom Kazansky (Wraith)", All, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Delete Manual Levies");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 64);
+	Bring("Current Player", "Protoss Photon Cannon", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 65);
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 65);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Protoss Photon Cannon", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 65);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 66);
+	Preserve Trigger();
+	Comment("Return Towns to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 66);
+
+Actions:
+	Move Location("Current Player", "Terran Missile Turret", "Anywhere", "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Preserve Trigger();
+	Comment("Begin demobilization, Castles");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 67);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Player 12", "Tom Kazansky (Wraith)", All, "County Loc Universal");
+	Create Unit with Properties("Current Player", "Terran Science Vessel", 1, "County Loc Universal", 2);
+	Give Units to Player("Current Player", "Player 12", "Terran Missile Turret", 1, "County Loc Universal");
+	Set Deaths("Current Player", "Flag", Subtract, 1);
+	Preserve Trigger();
+	Comment("Delete Manual Levies");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 67);
+	Bring("Current Player", "Terran Missile Turret", "Anywhere", At most, 0);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 68);
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 68);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At least, 1);
+
+Actions:
+	Move Location("Current Player", "Terran Science Vessel", "Anywhere", "County Loc Universal");
+	Remove Unit At Location("Current Player", "Terran Science Vessel", 1, "County Loc Universal");
+	Give Units to Player("Player 12", "Current Player", "Terran Missile Turret", 1, "County Loc Universal");
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Flag", Exactly, 68);
+	Bring("Current Player", "Terran Science Vessel", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Flag", Set to, 69);
+	Preserve Trigger();
+	Comment("Return Castles to Player");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Protoss Unused type   2", exactly, 1);
+	Deaths("Current Player", "Protoss Unused type   1", exactly, 4000);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 4, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 4, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Detect duchy stables, runoff to buffer");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "Anywhere", At least, 1);
+	Deaths("Current Player", "Flag", Exactly, 0);
+
+Actions:
+	Move Location("Current Player", "Tom Kazansky (Wraith)", "Anywhere", "County Loc Universal");
+	Preserve Trigger();
+	Comment("If manual levy raised, detect it");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", At least, 1);
+	Bring("Current Player", "Zerg Drone", "County Loc Universal", At least, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Zerg Drone", All, "County Loc Universal");
+	Preserve Trigger();
+	Comment("If Levy disabled when manually raised, remove Disable");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 2);
+	Deaths("Current Player", "Flag", At most, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 3);
+
+Actions:
+	Create Unit("Current Player", "Protoss Zealot", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Set Deaths("Current Player", "Zerg Beacon", Add, 3);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Subtract, 3);
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011County levy raised!");
+	Preserve Trigger();
+	Comment("Castle Manual Levy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Flag", At least, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Levy already raised.");
+	Preserve Trigger();
+	Comment("Auto-levy already raised");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 2);
+	Deaths("Current Player", "Mineral Field (Type 1)", At most, 2);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Insufficient manpower!");
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At least, 1);
+	Bring("Current Player", "Terran Missile Turret", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Levy already raised.");
+	Preserve Trigger();
+	Comment("Manual levy already raised.");
+}
+
+//-----------------------------------------------------------------//
+
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 2);
+	Deaths("Current Player", "Flag", At most, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 5);
+
+Actions:
+	Create Unit("Current Player", "Protoss Zealot", 1, "Buffer Zone");
+	Create Unit("Current Player", "Zerg Zergling", 2, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Set Deaths("Current Player", "Zerg Beacon", Add, 5);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Subtract, 5);
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011County levy raised!");
+	Preserve Trigger();
+	Comment("Castle Manual Levy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Flag", At least, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Levy already raised.");
+	Preserve Trigger();
+	Comment("Auto-levy already raised");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 2);
+	Deaths("Current Player", "Mineral Field (Type 1)", At most, 4);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Insufficient manpower!");
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip spawn");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Levy already raised.");
+	Preserve Trigger();
+	Comment("Castle Manual Levy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+	Deaths("Current Player", "Flag", At most, 0);
+	Deaths("Current Player", "Mineral Field (Type 1)", At least, 2);
+
+Actions:
+	Create Unit("Current Player", "Zerg Zergling", 1, "Buffer Zone");
+	Create Unit("Current Player", "Terran Ghost", 1, "Buffer Zone");
+	Move Unit("Current Player", "Men", All, "Buffer Zone", "County Loc Universal");
+	Set Deaths("Current Player", "Zerg Beacon", Add, 2);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Subtract, 2);
+	Give Units to Player("Current Player", "Player 12", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011County levy raised!");
+	Preserve Trigger();
+	Comment("Castle Manual Levy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Flag", At least, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Levy already raised.");
+	Preserve Trigger();
+	Comment("Auto-levy already raised");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", Exactly, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At most, 0);
+	Bring("Current Player", "Protoss Cybernetics Core", "County Loc Universal", Exactly, 1);
+	Deaths("Current Player", "Protoss Gateway", At most, 1);
+	Deaths("Current Player", "Mineral Field (Type 1)", At most, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Insufficient manpower!");
+	Preserve Trigger();
+	Comment("Insufficient manpower, skip spawn");
+}
+
+//-----------------------------------------------------------------//
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Tom Kazansky (Wraith)", "County Loc Universal", At least, 1);
+	Bring("Player 12", "Tom Kazansky (Wraith)", "County Loc Universal", At least, 1);
+	Bring("Current Player", "Protoss Photon Cannon", "County Loc Universal", Exactly, 1);
+
+Actions:
+	Remove Unit At Location("Current Player", "Tom Kazansky (Wraith)", 1, "County Loc Universal");
+	Display Text Message(Always Display, "\x011Levy already raised.");
+	Preserve Trigger();
+	Comment("Castle Manual Levy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY1 Menu", Exactly, 0);
+	Deaths("Current Player", "Flag", At most, 0);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY1 Menu");
+	Display Text Message(Always Display, "\x011Calling upon our men...");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Play WAV("staredit\\wav\\levy.ogg", 0);
+	Preserve Trigger();
+	Comment("Raise Levy Initialize");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Switch("Start", set);
+	Bring("Current Player", "Zerg Overlord", "PLY2 Menu", Exactly, 0);
+	Deaths("Current Player", "Flag", At most, 0);
+
+Actions:
+	Move Unit("Current Player", "Zerg Overlord", 1, "Anywhere", "PLY2 Menu");
+	Display Text Message(Always Display, "\x011Calling upon our men...");
+	Set Deaths("Current Player", "Flag", Add, 1);
+	Play WAV("staredit\\wav\\levy.ogg", 0);
+	Preserve Trigger();
+	Comment("Raise Levy Initialize");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose England/Denmark", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Norad II (Crashed Battlecruiser)", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose England/Denmark");
+	Give Units to Player("Player 8", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Duchy of Bedford");
+	Move Location("Current Player", "Norad II (Crashed Battlecruiser)", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Bedford");
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Bedford", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lancaster");
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Lancaster", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cornwall");
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Cornwall", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Normandy");
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Normandy", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Northumberland");
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Northumberland", enabled);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Norfolk");
+	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Norfolk", enabled);
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 21);
+	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 48);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Set To, 48);
+	Set Deaths("Current Player", "Mineral Chunk (Type 2)", Set To, 5);
+	Comment("Choose England 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose HRE/Scotland", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Warp Gate", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose HRE/Scotland");
+	Give Units to Player("Player 8", "Current Player", "Warp Gate", All, "Duchy of Morway");
+	Move Location("Current Player", "Warp Gate", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Morway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Galloway");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Albany");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lothian");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of the Hebrides");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 16);
+	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 38);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Set To, 38);
+	Set Deaths("Current Player", "Mineral Chunk (Type 2)", Set To, 3);
+	Comment("Choose Scotland 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose France/Sicily", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Stasis Cell/Prison", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose France/Sicily");
+	Give Units to Player("Player 8", "Current Player", "Stasis Cell/Prison", All, "Duchy of Orleans");
+	Move Location("Current Player", "Stasis Cell/Prison", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Brittany");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Anjou");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Orleans");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Gascogne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Toulouse");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Auvergne");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Burgundy");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Flanders");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 31);
+	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 65);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Set To, 65);
+	Set Deaths("Current Player", "Mineral Chunk (Type 2)", Set To, 8);
+
+	Comment("Choose France 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose France/Sicily", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Zerg Hydralisk Den", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Any unit", All, "Choose France/Sicily");
+	Give Units to Player("Player 8", "Current Player", "Zerg Hydralisk Den", All, "Anywhere");
+	Move Location("Current Player", "Zerg Hydralisk Den", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Probe", 1, "Duchy of Capua", 2);
+	Create Unit with Properties("Current Player", "Terran Civilian", 1, "Duchy of Capua", 2);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Apulia");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Capua");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 5);
+	Comment("Choose Sicily 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose Norway/Sweden", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Power Generator", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose Norway/Sweden");
+	Give Units to Player("Player 8", "Current Player", "Power Generator", All, "Duchy of Vestlandet");
+	Move Location("Current Player", "Power Generator", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Probe", 1, "Duchy of Vestlandet", 1);
+	Create Unit with Properties("Current Player", "Terran Civilian", 1, "Duchy of Vestlandet", 1);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Trondelag");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Vestlandet");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Ostlandet");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Orkney");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 5);
+	Comment("Choose Norway 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose Norway/Sweden", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Zerg Spire", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose Norway/Sweden");
+	Give Units to Player("Player 8", "Current Player", "Zerg Spire", All, "Duchy of Uppland");
+	Move Location("Current Player", "Zerg Spire", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Probe", 1, "Duchy of Uppland", 1);
+	Create Unit with Properties("Current Player", "Terran Civilian", 1, "Duchy of Uppland", 1);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Bergslagen");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Uppland");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Smaland");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 4);
+	Comment("Choose Sweden 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose Spain/Poland", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Zerg Ultralisk Cavern", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose Norway/Sweden");
+	Give Units to Player("Player 8", "Current Player", "Zerg Ultralisk Cavern", All, "Duchy of Silesia");
+	Move Location("Current Player", "Zerg Ultralisk Cavern", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Probe", 1, "Duchy of Silesia", 1);
+	Create Unit with Properties("Current Player", "Terran Civilian", 1, "Duchy of Silesia", 1);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Mazovia");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Kuyavla");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Silesia");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 5);
+	Comment("Choose Poland 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose Spain/Poland", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Ion Cannon", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose Norway/Sweden");
+	Give Units to Player("Player 8", "Current Player", "Ion Cannon", All, "Duchy of Castille");
+	Move Location("Current Player", "Ion Cannon", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Probe", 1, "Duchy of Castille", 1);
+	Create Unit with Properties("Current Player", "Terran Civilian", 1, "Duchy of Castille", 1);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Barcelona");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Navarra");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Castille");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Galicia");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Leon");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 7);
+	Comment("Choose Spain 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose England/Denmark", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Zerg Greater Spire", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose England/Denmark");
+	Give Units to Player("Player 8", "Current Player", "Zerg Greater Spire", All, "Duchy of Sjaelland");
+	Move Location("Current Player", "Zerg Greater Spire", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Move Location("Player 9", "Protoss Photon Cannon", "Duchy of Sjaelland", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Probe", 1, "County Loc Universal", 1);
+	Create Unit with Properties("Current Player", "Terran Civilian", 1, "County Loc Universal", 1);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Sjaelland");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Skane");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Slesvig");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 9);
+	Comment("Choose Denmark 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose Byzantium/Cumania", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Xel'Naga Temple", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose Byzantium/Cumania");
+	Give Units to Player("Player 8", "Current Player", "Xel'Naga Temple", All, "Duchy of Thrace");
+	Move Location("Current Player", "Xel'Naga Temple", "Anywhere", "County Loc Universal");
+	Center View("County Loc Universal");
+	Move Location("Current Player", "Buildings", "Duchy of Thrace", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Probe", 1, "County Loc Universal", 1);
+	Create Unit with Properties("Current Player", "Terran Civilian", 1, "County Loc Universal", 1);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Thrace");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Thessaloniki");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Trebizond");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Achea");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Armenia Minor");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Armenia");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Armeniakon");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Nikaea");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Epirus");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Coloneia");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cibyrrhaeot");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cherson");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Charsianon");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Crete");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Rashka");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 7);
+	Comment("Choose Byzantium 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At most, 0);
+	Bring("Current Player", "Men", "Choose Byzantium/Cumania", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+	Switch("Choose", set);
+	Score("Player 8", Custom, Exactly, 1066);
+	Bring("\x006Kings", "Psi Disrupter", "Anywhere", At most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
+	Remove Unit At Location("Current Player", "Devouring One (Zergling)", All, "Choose Byzantium/Cumania");
+	Give Units to Player("Player 8", "Current Player", "Psi Disrupter", All, "Anywhere");
+	Center View("Duchy of Sarkel");
+	Move Location("Current Player", "Buildings", "Duchy of Sarkel", "County Loc Universal");
+	Create Unit with Properties("Current Player", "Protoss Probe", 1, "County Loc Universal", 1);
+	Create Unit with Properties("Current Player", "Terran Civilian", 1, "County Loc Universal", 1);
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Sarkel");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Itil");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cheremisa");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Pereyaslavl");
+	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Bulgar");
+	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 9);
+	Comment("Choose Cumania 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose France/Sicily", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Orleans");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of France\r\n\x019Capital: \x00fParis\r\n\x019Duchies: \x0166\r\n\x019Starting Counties: \x01012\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("France Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose England/Denmark", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Bedford");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x008The Kingdom of England\r\n\x019Capital: \x00fMiddlesex\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0116\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x01cKingdom of Norway\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("England Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose England/Denmark", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Sjaelland");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Denmark\r\n\x019Capital: \x00fRoskilde\r\n\x019Duchies: \x0063\r\n\x019Starting Counties: \x0116 \x016(9)\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Denmark Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose France/Sicily", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Apulia");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Sicily\r\n\x019Capital: \x00fNaples\r\n\x019Duchies: \x0062\r\n\x019Starting Counties: \x0063\r\n\x019Crown Strength: \x010High\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Sicily Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Norway/Sweden", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Vestlandet");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Norway\r\n\x019Capital: \x00fBergen\r\n\x019Duchies: \x0114\r\n\x019Starting Counties: \x0115\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x006Kingdom of England\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Norway Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Norway/Sweden", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Uppland");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Sweden\r\n\x019Capital: \x00fBergen\r\n\x019Duchies: \x0063\r\n\x019Starting Counties: \x0114\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Sweden Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Spain/Poland", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Castille");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Spanish Kingdoms\r\n\x019Capital: \x00fBurgos\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0167\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Spain Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Spain/Poland", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Silesia");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01cThe Kingdom of Poland\r\n\x019Capital: \x00fGniezno\r\n\x019Duchies: \x0063\r\n\x019Starting Counties: \x0164 (5)\r\n\x019Crown Strength: \x011Medium\r\n\x019Religion: \x016Catholicism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Poland Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Byzantium/Cumania", At least, 1);
+	Bring("Current Player", "Men", "Choose Top Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Thrace");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x010The Byzantine Empire\r\n\x019Capital: \x00fConstantinople\r\n\x019Duchies: \x01015\r\n\x019Starting Counties: \x0117\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x01bOrthodox Christianity\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Byzantium Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Bring("Current Player", "Men", "Information", At least, 1);
+	Bring("Current Player", "Men", "Choose Byzantium/Cumania", At least, 1);
+	Bring("Current Player", "Men", "Choose Bottom Row", At least, 1);
+	Switch("Choose", set);
+	Deaths("Current Player", "Independent Command Center", At most, 0);
+
+Actions:
+	Minimap Ping("Duchy of Sarkel");
+	Display Text Message(Always Display, "\r\n\r\n\r\n\x01dCumanian Nomads\r\n\x019Capital: \x011None\r\n\x019Duchies: \x0115\r\n\x019Starting Counties: \x0169\r\n\x019Crown Strength: \x006Low\r\n\x019Religion: \x01ePaganism\r\n\x019At War: \x00fNone\r\n\r\n");
+	Wait(1500);
+	Preserve Trigger();
+	Comment("Cumania Info, 1066");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 8"){
+Conditions:
+	Deaths("Current Player", "Protoss Forge", At least, 1);
+	Deaths("Foes", "Protoss Forge", At least, 1);
+	Bring("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", At least, 1);
+	Bring("All Players", "Terran Starport", "Duchy of Lothian", At most, 0);
+	Bring("Player 1", "Men", "Duchy of Lothian", At least, 8);
+
+Actions:
+	Move Location("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", "County Loc Universal");
+	Create Unit with Properties("Player 1", "Terran Starport", 1, "Buildings Buffer 1", 4);
+	Move Unit("Player 1", "Terran Starport", All, "Buffer Zone", "County Loc Universal");
+	Preserve Trigger();
+	Comment("Select New Duchy");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Switch("Start", set);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Timer, 12 per second");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Always();
+
+Actions:
+	Set Deaths("Current Player", "Scantid (Desert)", Subtract, 1);
+	Preserve Trigger();
+	Comment("Music timer");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 1);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 1);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 2);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 1);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 3);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 1);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 4);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 2);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 5);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 2);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 6);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 3);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 7);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 3);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 8);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 4);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 9);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 4);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("\x006Kings"){
+Conditions:
+	Deaths("Current Player", "Bengalaas (Jungle)", At most, 0);
+	Deaths("Current Player", "Protoss Gateway", at most, 0);
+	Deaths("Current Player", "Mineral Chunk (Type 2)", exactly, 10);
+	Switch("Start", set);
+
+Actions:
+	Set Deaths("Current Player", "Bengalaas (Jungle)", Set To, 120);
+	Set Deaths("Current Player", "Protoss Gateway", Set To, 1);
+	Set Deaths("Current Player", "Mineral Field (Type 1)", Add, 5);
+	Preserve Trigger();
+	Comment("If timer clears, reset to 10 seconds. Activate payment switch (Gateway) and regen manpower (min field type 1)");
+}
+
+//-----------------------------------------------------------------//
+

@@ -1,0 +1,11 @@
+Trigger("Current Player"){
+Conditions:
+
+
+Actions:
+	Set Deaths("Player 8", "Int:1585", Add, 256000);
+	Comment("Modify Unit #0's health: add 1000");
+}
+
+//-----------------------------EUDGen-----------------------------//
+
