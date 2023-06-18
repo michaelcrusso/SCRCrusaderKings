@@ -189,3 +189,4 @@ Actions:
 	Set Alliance Status("Player 1", Enemy);
 	Preserve Trigger();
 }
+

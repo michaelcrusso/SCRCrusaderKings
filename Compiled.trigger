@@ -29,6 +29,7 @@ Actions:
 	Comment("Defensive AI");
 	Preserve Trigger();
 }
+
 //<Diplomacy Menu//>
 
 Trigger("\x006Kings"){
@@ -220,6 +221,7 @@ Actions:
 	Set Alliance Status("Player 1", Enemy);
 	Preserve Trigger();
 }
+
 
 //<Protoss Photon Cannon//>
 
@@ -641,6 +643,7 @@ Actions:
 	Preserve Trigger();
 	Comment("Zergling casualty, remove from expenses calculation");
 }
+
 //<Initialization//>
 
 Trigger("All players"){
@@ -658,7 +661,6 @@ Actions:
 Trigger("All players"){
 Conditions:
 	Bring("Player 9", "Buildings", "Anywhere", At most, 0);
-	Bring("Player 12", "Zerg Larva", "Anywhere", At most, 0);
 
 Actions:
 	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x01f--------------------------\r\n\x011[Setup complete!]\r\n\x01f--------------------------\r\n\r\n\r\n\r\n\r\n");
@@ -750,6 +752,56 @@ Actions:
 
 //-----------------------------------------------------------------//
 
+Trigger("Player 1"){
+Conditions:
+	Command("Player 12", "Terran Civilian", At least, 1);
+
+Actions:
+	Give Units to Player("Player 12", "Player 1", "Terran Civilian", 1, "Diplo 1");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 2"){
+Conditions:
+	Command("Player 12", "Terran Civilian", At least, 1);
+
+Actions:
+	Give Units to Player("Player 12", "Player 2", "Terran Civilian", 1, "Diplo 2");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 3"){
+Conditions:
+	Command("Player 12", "Terran Civilian", At least, 1);
+
+Actions:
+	Give Units to Player("Player 12", "Player 3", "Terran Civilian", 1, "Diplo 3");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 4"){
+Conditions:
+	Command("Player 12", "Terran Civilian", At least, 1);
+
+Actions:
+	Give Units to Player("Player 12", "Player 4", "Terran Civilian", 1, "Diplo 4");
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 5"){
+Conditions:
+	Command("Player 12", "Terran Civilian", At least, 1);
+
+Actions:
+	Give Units to Player("Player 12", "Player 5", "Terran Civilian", 1, "Diplo 5");
+}
+
+//-----------------------------------------------------------------//
+
 Trigger("\x006Kings"){
 Conditions:
 	Switch("Start", not set);
@@ -787,6 +839,17 @@ Actions:
 }
 
 //<Set board and diplo menu//>
+
+Trigger("Player 8"){
+Conditions:
+	Always();
+
+Actions:
+	MemoryAddr(0x0057f1dc, Set To, 1);
+	Comment("Add parallax star effect onto null tiles. Purposeless, but pretty.");
+}
+
+//-----------------------------------------------------------------//
 
 Trigger("All Players"){
 Conditions:
@@ -833,33 +896,6 @@ Actions:
 	Give Units to Player("Player 8", "Player 12", "Zerg Lurker", 1, "County Loc Universal");
 	Preserve Trigger();
 	Comment("Reset Menu Lurkers");
-}
-
-//-----------------------------------------------------------------//
-
-Trigger("\x006Kings"){
-Conditions:
-	Switch("Start", not set);
-	Bring("Player 12", "Zerg Hydralisk", "Anywhere", At least, 1);
-
-Actions:
-	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
-	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
-	Create Unit with Properties("Player 1", "Zerg Larva", 1, "County Loc Universal", 2);
-	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
-	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
-	Create Unit with Properties("Player 2", "Zerg Larva", 1, "County Loc Universal", 2);
-	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
-	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
-	Create Unit with Properties("Player 3", "Zerg Larva", 1, "County Loc Universal", 2);
-	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
-	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
-	Create Unit with Properties("Player 4", "Zerg Larva", 1, "County Loc Universal", 2);
-	Move Location("Player 12", "Zerg Hydralisk", "Anywhere", "County Loc Universal");
-	Remove Unit At Location("Player 12", "Zerg Hydralisk", 1, "County Loc Universal");
-	Create Unit with Properties("Player 5", "Zerg Larva", 1, "County Loc Universal", 2);
-	Display Text Message(Always Display, "#Replace neutral hydras");
-	Comment("Reset Menu Hydras");
 }
 
 //-----------------------------------------------------------------//
@@ -911,27 +947,14 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Bring("\x006Kings", "Zerg Larva", "Diplo", At least, 1);
+	Bring("\x006Kings", "Terran Civilian", "Diplo", At least, 1);
 
 Actions:
-	Move Location("Player 1", "Zerg Larva", "Diplo", "Diplo 1");
-	Move Location("Player 2", "Zerg Larva", "Diplo", "Diplo 2");
-	Move Location("Player 3", "Zerg Larva", "Diplo", "Diplo 3");
-	Move Location("Player 4", "Zerg Larva", "Diplo", "Diplo 4");
-	Move Location("Player 5", "Zerg Larva", "Diplo", "Diplo 5");
-	Comment("Wrap location to diplo unit");
-	Preserve Trigger();
-}
-
-//-----------------------------------------------------------------//
-
-Trigger("Player 3"){
-Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo", At least, 1);
-	Bring("Current Player", "Zerg Larva", "Diplo 3", At most, 0);
-
-Actions:
-	Move Location("Current Player", "Zerg Larva", "Diplo", "Diplo 3");
+	Move Location("Player 1", "Terran Civilian", "Diplo", "Diplo 1");
+	Move Location("Player 2", "Terran Civilian", "Diplo", "Diplo 2");
+	Move Location("Player 3", "Terran Civilian", "Diplo", "Diplo 3");
+	Move Location("Player 4", "Terran Civilian", "Diplo", "Diplo 4");
+	Move Location("Player 5", "Terran Civilian", "Diplo", "Diplo 5");
 	Comment("Wrap location to diplo unit");
 	Preserve Trigger();
 }
@@ -941,8 +964,8 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Switch("Start", not set);
-	Bring("\x006Kings", "Zerg Larva", "Diplo", At least, 1);
-	Deaths("Current Player", "Independent Command Center", Exactly, 1);
+	Bring("\x006Kings", "Terran Civilian", "Diplo", At least, 1);
+	Bring("\x006Kings", "Terran Civilian", "Buffer Zone", At least, 1);
 	Switch("Choose", set);
 
 Actions:
@@ -955,38 +978,41 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Switch("Start", not set);
-	Bring("\x006Kings", "Zerg Larva", "Diplo", At most, 0);
-	Deaths("Current Player", "Independent Command Center", Exactly, 1);
+	Bring("\x006Kings", "Terran Civilian", "Diplo", At most, 0);
 	Switch("Choose", set);
 	Switch("Help", not set);
 
 Actions:
-	Set Switch("Help", set);
-	Preserve Trigger();
-}
-
-//-----------------------------------------------------------------//
-
-Trigger("Player 1","Player 2","Player 3","Player 4","Player 5","Player 6","Player 7"){
-Conditions:
-	Switch("Start", set);
-	Deaths("Current Player", "Independent Command Center", Exactly, 1);
-
-Actions:
+	Set Switch("Start", set);
 	Move Unit("Player 1", "Men", All, "Buffer Zone", "Diplo 1");
 	Move Unit("Player 2", "Men", All, "Buffer Zone", "Diplo 2");
 	Move Unit("Player 3", "Men", All, "Buffer Zone", "Diplo 3");
 	Move Unit("Player 4", "Men", All, "Buffer Zone", "Diplo 4");
 	Move Unit("Player 5", "Men", All, "Buffer Zone", "Diplo 5");
-	Remove Unit At Location("Player 8", "Men", All, "Diplo");
 	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x006----------\r\n\x016START!\r\n\x006----------\r\n\r\n\r\n\r\n\r\n");
+	Preserve Trigger();
 }
 
 //-----------------------------------------------------------------//
 
 Trigger("Player 1"){
 Conditions:
-	Bring("Current Player", "Zerg Lurker", "Diplo 1", At least, 1);
+	Masked MemoryAddr(0x0061B7C0, Exactly, 103, 0xFFFF); //-Lurker is in buildqueue at Unit Index 156
+	Bring("Player 12", "Buildings", "Diplo 1", At most, 0);
+	Switch("Choose", set);
+	Switch("Start", not set);
+	
+Actions:
+	Masked MemoryAddr(0x0061B7C0, Set To, 228, 0xFFFF); //-Clear build queue 1 and 2
+	Display Text Message(Always Display, "\r\n\r\n\r\n\r\n\x006----------\r\n\x016No Nation selected! Please move your diplomat closer to a country flag.\r\n\x006----------\r\n\r\n\r\n\r\n\r\n");
+	Preserve Trigger();
+}
+
+//-----------------------------------------------------------------//
+
+Trigger("Player 1"){
+Conditions:
+	Masked MemoryAddr(0x0061B7C0, Exactly, 103, 0xFFFF); //-Lurker is in buildqueue at Unit Index 156
 	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 1", At least, 1);
 	Deaths("Current Player", "Independent Command Center", At most, 0);
 	Switch("Choose", set);
@@ -994,8 +1020,11 @@ Conditions:
 	Bring("\x006Kings", "Norad II (Crashed Battlecruiser)", "Anywhere", At most, 0);
 
 Actions:
-	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
-	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Masked MemoryAddr(0x0058CF44, Set To, 0, 0xFF); //-Disable Stim Pack and nation select
+	MemoryAddr(0x0061B7C0, Set To, 0x00E400E4); //-Clear build queue 1 and 2
+	MemoryAddr(0x0061B7C4, Set To, 0x00E400E4); //-Clear build queue 3 and 4
+	MemoryAddr(0x0068C14C, Add, 0); //-Reset buttons
+	Move Unit("Current Player", "Terran Civilian", All, "Diplo", "Buffer Zone");
 	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
 	Give Units to Player("Player 8", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Duchy of Bedford");
 	Give Units to Player("Player 12", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Diplo");
@@ -1026,7 +1055,7 @@ Actions:
 
 Trigger("Player 1"){
 Conditions:
-	Bring("Current Player", "Zerg Lurker", "Diplo 1", At least, 1);
+	Masked MemoryAddr(0x0061B7C0, Exactly, 103, 0xFFFF); //-Lurker is in buildqueue at Unit Index 156
 	Bring("Player 12", "Warp Gate", "Diplo 1", At least, 1);
 	Deaths("Current Player", "Independent Command Center", At most, 0);
 	Switch("Choose", set);
@@ -1034,8 +1063,11 @@ Conditions:
 	Bring("\x006Kings", "Warp Gate", "Anywhere", At most, 0);
 
 Actions:
-	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
-	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Masked MemoryAddr(0x0058CF44, Set To, 0, 0xFF); //-Disable Stim Pack and nation select
+	MemoryAddr(0x0061B7C0, Set To, 0x00E400E4); //-Clear build queue 1 and 2
+	MemoryAddr(0x0061B7C4, Set To, 0x00E400E4); //-Clear build queue 3 and 4
+	MemoryAddr(0x0068C14C, Add, 0); //-Reset buttons
+	Move Unit("Current Player", "Terran Civilian", All, "Diplo", "Buffer Zone");
 	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
 	Give Units to Player("Player 8", "Current Player", "Warp Gate", All, "Duchy of Morway");
 	Give Units to Player("Player 12", "Current Player", "Warp Gate", All, "Diplo");
@@ -1063,7 +1095,7 @@ Actions:
 
 Trigger("Player 1"){
 Conditions:
-	Bring("Current Player", "Zerg Lurker", "Diplo 1", At least, 1);
+	Masked MemoryAddr(0x0061B7C0, Exactly, 103, 0xFFFF); //-Lurker is in buildqueue at Unit Index 156
 	Bring("Player 12", "Stasis Cell/Prison", "Diplo 1", At least, 1);
 	Deaths("Current Player", "Independent Command Center", At most, 0);
 	Switch("Choose", set);
@@ -1071,8 +1103,11 @@ Conditions:
 	Bring("\x006Kings", "Stasis Cell/Prison", "Anywhere", At most, 0);
 
 Actions:
-	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
-	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
+	Masked MemoryAddr(0x0058CF44, Set To, 0, 0xFF); //-Disable Stim Pack and nation select
+	MemoryAddr(0x0061B7C0, Set To, 0x00E400E4); //-Clear build queue 1 and 2
+	MemoryAddr(0x0061B7C4, Set To, 0x00E400E4); //-Clear build queue 3 and 4
+	MemoryAddr(0x0068C14C, Add, 0); //-Reset buttons
+	Move Unit("Current Player", "Terran Civilian", All, "Diplo", "Buffer Zone");
 	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
 	Give Units to Player("Player 8", "Current Player", "Stasis Cell/Prison", All, "Duchy of Orleans");
 	Give Units to Player("Player 12", "Current Player", "Stasis Cell/Prison", All, "Diplo");
@@ -1093,123 +1128,14 @@ Actions:
 	Comment("Choose France 1066");
 }
 
-//-----------------------------------------------------------------//
-
-Trigger("Player 2"){
-Conditions:
-	Bring("Current Player", "Zerg Lurker", "Diplo 2", At least, 1);
-	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 2", At least, 1);
-	Deaths("Current Player", "Independent Command Center", At most, 0);
-	Switch("Choose", set);
-	Score("Player 8", Custom, Exactly, 1066);
-	Bring("\x006Kings", "Norad II (Crashed Battlecruiser)", "Anywhere", At most, 0);
-
-Actions:
-	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
-	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
-	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
-	Give Units to Player("Player 12", "Current Player", "Norad II (Crashed Battlecruiser)", All, "Diplo");
-	Move Location("Current Player", "Norad II (Crashed Battlecruiser)", "Anywhere", "County Loc Universal");
-	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Bedford");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lancaster");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Cornwall");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Normandy");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Northumberland");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Norfolk");
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Bedford", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Cornwall", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Wales", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Norfolk", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Lancaster", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Northumberland", enabled);
-	Set Doodad State("All Players", "Protoss Cybernetics Core", "Duchy of Normandy", enabled);
-	Set Deaths("Current Player", "Protoss Marker", Set To, 3);
-	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 27);
-	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 48);
-	Set Deaths("Current Player", "Mineral Field (Type 1)", Set To, 48);
-	Set Deaths("Current Player", "Mineral Chunk (Type 2)", Set To, 1);
-	Comment("Choose England 1066");
-}
-
-//-----------------------------------------------------------------//
-
-Trigger("Player 2"){
-Conditions:
-	Bring("Current Player", "Zerg Lurker", "Diplo 2", At least, 1);
-	Bring("Player 12", "Warp Gate", "Diplo 2", At least, 1);
-	Deaths("Current Player", "Independent Command Center", At most, 0);
-	Switch("Choose", set);
-	Score("Player 8", Custom, Exactly, 1066);
-	Bring("\x006Kings", "Warp Gate", "Anywhere", At most, 0);
-
-Actions:
-	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
-	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
-	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
-	Give Units to Player("Player 12", "Current Player", "Warp Gate", All, "Diplo");
-	Move Location("Current Player", "Warp Gate", "Anywhere", "County Loc Universal");
-	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Morway");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Galloway");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Albany");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Lothian");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Hebrides");
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Galloway", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Albany", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Lothian", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Morway", enabled);
-	Set Doodad State("Current Player", "Protoss Cybernetics Core", "Duchy of Hebrides", enabled);
-	Set Deaths("Current Player", "Protoss Marker", Set To, 1);
-	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 21);
-	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 38);
-	Set Deaths("Current Player", "Mineral Field (Type 1)", Set To, 38);
-	Set Deaths("Current Player", "Mineral Chunk (Type 2)", Set To, 1);
-	Comment("Choose Scotland 1066");
-}
-
-//-----------------------------------------------------------------//
-
-Trigger("Player 2"){
-Conditions:
-	Bring("Current Player", "Zerg Lurker", "Diplo 2", At least, 1);
-	Bring("Player 12", "Stasis Cell/Prison", "Diplo 2", At least, 1);
-	Deaths("Current Player", "Independent Command Center", At most, 0);
-	Switch("Choose", set);
-	Score("Player 8", Custom, Exactly, 1066);
-	Bring("\x006Kings", "Stasis Cell/Prison", "Anywhere", At most, 0);
-
-Actions:
-	Remove Unit At Location("Current Player", "Zerg Lurker", 1, "Diplo");
-	Create Unit with Properties("Current Player", "Zerg Larva", 1, "Buffer Zone", 2);
-	Set Deaths("Current Player", "Independent Command Center", Set To, 1);
-	Give Units to Player("Player 12", "Current Player", "Stasis Cell/Prison", All, "Diplo");
-	Move Location("Current Player", "Stasis Cell/Prison", "Anywhere", "County Loc Universal");
-	Center View("County Loc Universal");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Brittany");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Anjou");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Orleans");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Gascogne");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Toulouse");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Auvergne");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Burgundy");
-	Give Units to Player("Player 8", "Current Player", "Buildings", All, "Duchy of Flanders");
-	Set Deaths("Current Player", "Protoss Marker", Set To, 1);
-	Set Deaths("Current Player", "Protoss Photon Cannon", Set To, 31);
-	Set Deaths("Current Player", "Mineral Chunk (Type 1)", Set To, 65);
-	Set Deaths("Current Player", "Mineral Field (Type 1)", Set To, 65);
-	Set Deaths("Current Player", "Mineral Chunk (Type 2)", Set To, 1);
-	Comment("Choose France 1066");
-}
-
 //<Nation Selection Information//>
 
 Trigger("Player 1"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 1", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 1", At least, 1);
 	Bring("Player 12", "Stasis Cell/Prison", "Diplo 1", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Orleans");
@@ -1223,10 +1149,10 @@ Actions:
 
 Trigger("Player 1"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 1", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 1", At least, 1);
 	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 1", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Bedford");
@@ -1240,10 +1166,10 @@ Actions:
 
 Trigger("Player 1"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 1", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 1", At least, 1);
 	Bring("Player 12", "Warp Gate", "Diplo 1", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Albany");
@@ -1257,10 +1183,10 @@ Actions:
 
 Trigger("Player 2"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 2", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 2", At least, 1);
 	Bring("Player 12", "Stasis Cell/Prison", "Diplo 2", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Orleans");
@@ -1274,10 +1200,10 @@ Actions:
 
 Trigger("Player 2"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 2", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 2", At least, 1);
 	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 2", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Bedford");
@@ -1291,10 +1217,10 @@ Actions:
 
 Trigger("Player 2"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 2", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 2", At least, 1);
 	Bring("Player 12", "Warp Gate", "Diplo 2", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Albany");
@@ -1308,10 +1234,10 @@ Actions:
 
 Trigger("Player 3"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 3", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 3", At least, 1);
 	Bring("Player 12", "Stasis Cell/Prison", "Diplo 3", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Orleans");
@@ -1325,10 +1251,10 @@ Actions:
 
 Trigger("Player 3"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 3", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 3", At least, 1);
 	Bring("Player 12", "Norad II (Crashed Battlecruiser)", "Diplo 3", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Bedford");
@@ -1342,10 +1268,10 @@ Actions:
 
 Trigger("Player 3"){
 Conditions:
-	Bring("Current Player", "Zerg Larva", "Diplo 3", At least, 1);
+	Switch("Start", not set);
+	Bring("Current Player", "Terran Civilian", "Diplo 3", At least, 1);
 	Bring("Player 12", "Warp Gate", "Diplo 3", At least, 1);
 	Switch("Choose", set);
-	Switch("Start", not set);
 
 Actions:
 	Minimap Ping("Duchy of Albany");
@@ -1354,6 +1280,7 @@ Actions:
 	Preserve Trigger();
 	Comment("England Info, 1066");
 }
+
 //<Enable/Terran SCV//>
 
 Trigger("\x006Kings"){
@@ -3806,7 +3733,7 @@ Actions:
 Trigger("\x006Kings"){
 Conditions:
 	Bring("Current Player", "Protoss Carrier", "Anywhere", Exactly, 1);
-	Bring("Current Player", "Protoss Carrier", "County Low Ground", At most, 0);
+	Bring("Current Player", "Protoss Carrier", "Map", At most, 0);
 	Deaths("Current Player", "Kakaru (Twilight)", Exactly, 0);
 
 Actions:
@@ -3821,7 +3748,7 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Bring("Current Player", "Protoss Carrier", "County Low Ground", At most, 0);
+	Bring("Current Player", "Protoss Carrier", "Map", At most, 0);
 	Bring("All Players", "Protoss Photon Cannon", "County Loc Universal", At most, 0);
 	Bring("All Players", "Protoss Gateway", "County Loc Universal", At most, 0);
 	Bring("All Players", "Protoss Nexus", "County Loc Universal", At most, 0);
@@ -5243,7 +5170,9 @@ Actions:
 	Set Deaths("Current Player", "Kakaru (Twilight)", Add, 1);
 	Preserve Trigger();
 	Comment("Cancel Upgrade");
-}//<1 Bedford Upgrades//>
+}
+
+//<1 Bedford Upgrades//>
 
 Trigger("\x006Kings"){
 Conditions:

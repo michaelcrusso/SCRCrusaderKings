@@ -1,2 +1,2 @@
 @echo off
-xcopy /s C:\Users\Michael\Documents\Starcraft\Maps\Work\CrusaderKingsEUD.scx C:\Users\Michael\Documents\GitHub\SCRcrusaderkings /y
+xcopy "C:\Users\Michael\OneDrive\Documents\GitHub\SCRcrusaderkings\CrusaderKingsEUD.scx" "C:\Users\Michael\OneDrive\Documents\StarCraft\Maps\Work\" /y

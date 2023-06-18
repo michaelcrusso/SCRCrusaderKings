@@ -3,7 +3,7 @@
 Trigger("\x006Kings"){
 Conditions:
 	Bring("Current Player", "Protoss Carrier", "Anywhere", Exactly, 1);
-	Bring("Current Player", "Protoss Carrier", "County Low Ground", At most, 0);
+	Bring("Current Player", "Protoss Carrier", "Map", At most, 0);
 	Deaths("Current Player", "County/Duchy Upgrade Switch", Exactly, 0);
 
 Actions:
@@ -18,7 +18,7 @@ Actions:
 
 Trigger("\x006Kings"){
 Conditions:
-	Bring("Current Player", "Protoss Carrier", "County Low Ground", At most, 0);
+	Bring("Current Player", "Protoss Carrier", "Map", At most, 0);
 	Bring("All Players", "Income", "County Loc Universal", At most, 0);
 	Bring("All Players", "Pay Resources Switch", "County Loc Universal", At most, 0);
 	Bring("All Players", "Protoss Nexus", "County Loc Universal", At most, 0);
@@ -1441,3 +1441,4 @@ Actions:
 	Preserve Trigger();
 	Comment("Cancel Upgrade");
 }
+
