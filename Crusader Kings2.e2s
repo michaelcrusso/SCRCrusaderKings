@@ -2110,7 +2110,7 @@ ElementsCount:0
 END
 
 &beforeTriggerExec&
-Type:0,False,False,False
+Type:0,False,True,False
 ElementsCount:1
 Type:10,False,False,False
 AllUnitஐ1ஐ10
