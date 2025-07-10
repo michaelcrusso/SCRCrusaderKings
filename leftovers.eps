@@ -1,0 +1,22 @@
+// Reset build queue by clearing all 5 slots individually and stopping unit order
+function buildReset(unitEPD) {
+    var queueEPD = unitEPD + c.BUILD_QUEUE_OFFSET;
+    
+    // Clear all 5 build queue slots individually using bitmasks
+    // DWORD 0: Clear Slot 0 (lower 16 bits) and Slot 1 (upper 16 bits)
+    SetMemoryXEPD(queueEPD, SetTo, c.UNIT_NONE, 0xFFFF);           // Slot 0 = "None"
+    SetMemoryXEPD(queueEPD, SetTo, c.UNIT_NONE << 16, 0xFFFF0000); // Slot 1 = "None"
+    
+    // DWORD 1: Clear Slot 2 (lower 16 bits) and Slot 3 (upper 16 bits)
+    queueEPD += 1;
+    SetMemoryXEPD(queueEPD, SetTo, c.UNIT_NONE, 0xFFFF);           // Slot 2 = "None"
+    SetMemoryXEPD(queueEPD, SetTo, c.UNIT_NONE << 16, 0xFFFF0000); // Slot 3 = "None"
+    
+    // DWORD 2: Clear Slot 4 (lower 16 bits), set upper bits as in original
+    queueEPD += 1;
+    SetMemoryXEPD(queueEPD, SetTo, c.UNIT_NONE, 0xFFFF);           // Slot 4 = "None"
+    queueEPD += 1;
+    SetMemoryXEPD(queueEPD, SetTo, 2 << 16, 0xFFFF0000);           // Clear "active slot"
+    
+    simpleprint("Build queue reset - all 5 slots cleared for EPD: ", unitEPD);
+}

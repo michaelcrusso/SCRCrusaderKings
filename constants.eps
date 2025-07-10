@@ -1,0 +1,308 @@
+// =============================================================================
+// CRUSADER KINGS - CONSTANTS MODULE
+// =============================================================================
+// All game constants including duchy definitions and initialization data
+
+// =============================================================================
+// SIEGE CONSTANTS
+// =============================================================================
+
+const SIEGE_GEAR = 114;
+
+// =============================================================================
+// UNIT CONSTANTS
+// =============================================================================
+const MAX_DUCHIES = 154;
+const DUCHY_BUILDING = "Protoss Cybernetics Core";
+const CASTLE_BUILDING = "Terran Missile Turret";
+const TOWN_BUILDING = "Protoss Photon Cannon";
+const PIKEMAN = "Terran Firebat";
+const CROSSBOWMAN = "Terran Marine";
+const LONGBOWMAN = "Terran Ghost";
+const LIGHT_INFANTRY = "Zerg Zergling";
+const HEAVY_INFANTRY = "Protoss Zealot";
+const HORSE_ARCHER = "Terran Vulture";
+
+// =============================================================================
+// BUILD QUEUE CONSTANTS
+// =============================================================================
+// These values don't matter; the units are completely arbitrary, because
+// they'll be canceled before training ever completes. However, can't be
+// units that ordinarily require supply (otherwise we might be unable to
+// train them)
+
+const BUILD_QUEUE_OFFSET = 0x98/4;
+const UNIT_NONE = 228; // "None" unit ID for proper empty slot marking
+const DISABLE_LEVY = 4; // Goliath Turret
+const ENABLE_LEVY = 6; // Siege Tank Turret (Tank Mode)
+const SEND_LEVY_HOME = 10; // Gui Montag (Firebat)
+const RAISE_LOCAL_LEVY = 7; // Terran SCV
+const RAISE_GLOBAL_LEVY = 9; // Terran Science Vessel
+const MASS_HERE = 12; // Terran Battlecruiser
+const DEBUG = 13; // Spider Mine
+const UPGRADE_INCOME = 14; // Nuclear Missile
+const UPGRADE_FORTIFICATIONS = 22; // Magellan
+const UPGRADE_MILITIA_HALL = 24; // Edmund Duke Turret (Tank Mode)
+const UPGRADE_BARRACKS = 26; // Edmund Duke Turret (Siege Mode)
+const UPGRADE_STABLES = 31; // Siege Tank Turret (Tank Mode)
+
+// =============================================================================
+// DUCHY STATE ARRAYS
+// =============================================================================
+
+// Economic properties
+const duchyOwner = EUDArray(MAX_DUCHIES);       // Which player owns each duchy (used for when duchy is occupied)
+const duchyIncome = EUDArray(MAX_DUCHIES);     // Base income per duchy
+
+// Military properties  
+const duchyMilitiaHall = EUDArray(MAX_DUCHIES);     // Level of militia hall building
+const duchyBarracks = EUDArray(MAX_DUCHIES);        // Level of barracks building
+const duchyStables = EUDArray(MAX_DUCHIES);         // Level of stables building
+const duchyFortifications = EUDArray(MAX_DUCHIES);  // Fortification level
+const duchyOccupied = EUDArray(MAX_DUCHIES);        // "BOOL" - 1/0 variable of whether the duchy is occupied, true if occupied, false if not occupied
+const duchyOccupiedBy = EUDArray(MAX_DUCHIES);      // Which player occupies the duchy (if occupied) - 0 if not occupied
+const duchyLevyDisabled = EUDArray(MAX_DUCHIES);     // "BOOL" - 1/0 variable of whether the duchy has levy disabled, true if disabled, false if not disabled
+const duchyLevyRaised = EUDArray(MAX_DUCHIES);      // "BOOL" - 1/0 variable of whether the duchy has levied, true if levied, false if not levied
+const duchyUnderSiege = EUDArray(MAX_DUCHIES);      // "BOOL" - 1/0 variable of whether the duchy is under siege, true if under siege, false if not under siege
+
+// Political properties
+const duchyLoyalty = EUDArray(MAX_DUCHIES);     // 0-100 INT, Loyalty to current owner
+const duchyRebellion = EUDArray(MAX_DUCHIES);   // "BOOL" - 1/0 variable of whether the duchy is in rebellion, true if in rebellion, false if not in rebellion
+const duchyDemesne = EUDArray(MAX_DUCHIES);     // "BOOL" - 1/0 variable of whether the duchy is a demesne, true if demesne, false if vassal
+
+// =============================================================================
+// GLOBAL PLAYER VARIABLES
+// =============================================================================
+
+// Duchy mass target per player (tracks target duchy to mass spawned units to)
+const duchyMassTarget = EUDArray(5); 
+
+// =============================================================================
+// DUCHY ID CONSTANTS - ORGANIZED BY REGION
+// =============================================================================
+
+// === ENGLISH DUCHIES ===
+const DUCHY_MIDDLESEX = 0;        // Capital
+const DUCHY_CORNWALL = 1;
+const DUCHY_WALES = 2;
+const DUCHY_LANCASTER = 3;
+const DUCHY_NORFOLK = 4;
+const DUCHY_NORTHUMBERLAND = 5;
+
+// === SCOTTISH DUCHIES ===
+const DUCHY_LOTHIAN = 6;
+const DUCHY_ALBANY = 7;
+const DUCHY_GALLOWAY = 8;
+const DUCHY_HEBRIDES = 9;
+const DUCHY_MORWAY = 10;
+
+// === IRISH DUCHIES ===
+const DUCHY_ULSTER = 11;
+const DUCHY_CONNACHT = 12;
+const DUCHY_MUNSTER = 13;
+
+// === FRENCH DUCHIES ===
+const DUCHY_NORMANDY = 14;
+
+// =============================================================================
+// REGIONAL DUCHY RANGES (for iteration)
+// =============================================================================
+const ENGLISH_DUCHY_START = 0;
+const ENGLISH_DUCHY_END = 6;
+const SCOTTISH_DUCHY_START = 7;
+const SCOTTISH_DUCHY_END = 11;
+const IRISH_DUCHY_START = 12;
+const IRISH_DUCHY_END = 14;
+const FRENCH_DUCHY_START = 15;
+
+// =============================================================================
+// INCOME/EXPENSES/DEBT/MANPOWER CONSTANTS
+// =============================================================================
+
+// Supply system constants for reading game data directly
+const MANPOWER = 0; // Corresponds to Zerg race
+const MANPOWER_MAX = 0;
+const MANPOWER_LEVEL = 1;
+const MANPOWER_MAX_GLOBAL = 2; // This just sets how high it can go if all supply buildings are built (normally 200)
+
+const INCOME_EXPENSES = 1; // Corresponds to Terran race
+const INCOME = 0;
+const EXPENSES = 1;
+const INCOME_MAX = 2; // This should never be used -- set to arbitrarily high value on plugin start
+
+const DEBT = 2; // Corresponds to Protoss race
+const ENABLE_DISABLE = 0; // 0 to disable, 1 to enable
+const DEBT_LEVEL = 1; // This reflect the current amount of debt
+
+// Supply-based approach - no arrays needed
+
+function SetPlayerSupply(player: TrgPlayer, race, type, amount) {
+    dwwrite(0x582144 + (race) * 36 * 4 + (type) * 12 * 4 + (player) * 4, amount * 2);
+}
+
+function GetPlayerSupply(player: TrgPlayer, race, type) {
+    return dwread(0x582144 + (race) * 36 * 4 + (type) * 12 * 4 + (player) * 4) / 2;
+}
+
+function GetPlayerMinerals(player) {
+    // Read minerals from memory - minerals are stored at 0x57F0F0 + player * 4
+    return dwread(0x57F0F0 + player * 4);
+}
+
+// =============================================================================
+// DUCHY MAPPING SYSTEM
+// =============================================================================
+
+// Simple mapping: duchy index -> unit pointer
+// duchyUnitPointers[DUCHY_MIDDLESEX] = pointer to MIDDLESEX's Cybernetics Core
+const duchyUnitPointers = EUDArray(MAX_DUCHIES);
+
+// Register a duchy building with its duchy index
+function registerDuchyUnit(duchyIndex, unitPtr) {
+    duchyUnitPointers[duchyIndex] = unitPtr;
+}
+
+// Get duchy index from unit pointer (returns -1 if not found)
+function getDuchyIndexFromUnit(unitPtr) {
+    // Search through all duchies
+    for (var i = 0; i < MAX_DUCHIES; i++) {
+        if (duchyUnitPointers[i] == unitPtr) {
+            return i;
+        }
+    }
+    simpleprint("No match found, returning -1");
+    return -1; // Not found
+}
+
+function initializeDuchyOwnerValues() {
+    for (var i = 0; i < MAX_DUCHIES; i++) {
+        duchyOwner[i] = 27;
+    }
+}
+
+// =============================================================================
+// DUCHY LOCATION MAPPING
+// =============================================================================
+// Note: Direct location mapping is handled in duchies.eps via switch statements
+// since $L() macro requires compile-time constants
+
+// =============================================================================
+// INITIALIZATION/LOOKUP FUNCTIONS
+// =============================================================================    
+
+// duchies.eps - Initialize directly, only income, militia hall, barracks, stables, fortifications
+function initializeAllDuchies() {
+    // English duchies - direct assignment
+    duchyIncome[DUCHY_MIDDLESEX] =            5; 
+    duchyMilitiaHall[DUCHY_MIDDLESEX] =       1; 
+    duchyBarracks[DUCHY_MIDDLESEX] =          1; 
+    duchyStables[DUCHY_MIDDLESEX] =           1; 
+    duchyFortifications[DUCHY_MIDDLESEX] =    1;
+
+    duchyIncome[DUCHY_CORNWALL] =           5; 
+    duchyMilitiaHall[DUCHY_CORNWALL] =      1; 
+    duchyBarracks[DUCHY_CORNWALL] =         1; 
+    duchyStables[DUCHY_CORNWALL] =          1; 
+    duchyFortifications[DUCHY_CORNWALL] =   1;
+
+    duchyIncome[DUCHY_WALES] =              5; 
+    duchyMilitiaHall[DUCHY_WALES] =         1; 
+    duchyBarracks[DUCHY_WALES] =            1; 
+    duchyStables[DUCHY_WALES] =             1; 
+    duchyFortifications[DUCHY_WALES] =      1;
+
+    duchyIncome[DUCHY_LANCASTER] =          5; 
+    duchyMilitiaHall[DUCHY_LANCASTER] =     1; 
+    duchyBarracks[DUCHY_LANCASTER] =        1; 
+    duchyStables[DUCHY_LANCASTER] =         1; 
+    duchyFortifications[DUCHY_LANCASTER] =  1;
+
+    duchyIncome[DUCHY_NORFOLK] =            5; 
+    duchyMilitiaHall[DUCHY_NORFOLK] =       1; 
+    duchyBarracks[DUCHY_NORFOLK] =          1; 
+    duchyStables[DUCHY_NORFOLK] =           1;
+    duchyFortifications[DUCHY_NORFOLK] =    1;
+
+    duchyIncome[DUCHY_NORTHUMBERLAND] =         5; 
+    duchyMilitiaHall[DUCHY_NORTHUMBERLAND] =    1; 
+    duchyBarracks[DUCHY_NORTHUMBERLAND] =       1; 
+    duchyStables[DUCHY_NORTHUMBERLAND] =        1; 
+    duchyFortifications[DUCHY_NORTHUMBERLAND] = 1;
+
+    duchyIncome[DUCHY_NORMANDY] =           5; 
+    duchyMilitiaHall[DUCHY_NORMANDY] =      1; 
+    duchyBarracks[DUCHY_NORMANDY] =         1; 
+    duchyStables[DUCHY_NORMANDY] =          1; 
+    duchyFortifications[DUCHY_NORMANDY] =   1;
+
+    // Scottish duchies - direct assignment
+    duchyIncome[DUCHY_LOTHIAN] =            5; 
+    duchyMilitiaHall[DUCHY_LOTHIAN] =       1; 
+    duchyBarracks[DUCHY_LOTHIAN] =          1; 
+    duchyStables[DUCHY_LOTHIAN] =           1; 
+    duchyFortifications[DUCHY_LOTHIAN] =    1;
+
+    duchyIncome[DUCHY_ALBANY] =             5; 
+    duchyMilitiaHall[DUCHY_ALBANY] =        1; 
+    duchyBarracks[DUCHY_ALBANY] =           1; 
+    duchyStables[DUCHY_ALBANY] =            1; 
+    duchyFortifications[DUCHY_ALBANY] =     1;
+
+    duchyIncome[DUCHY_GALLOWAY] =           5; 
+    duchyMilitiaHall[DUCHY_GALLOWAY] =      1; 
+    duchyBarracks[DUCHY_GALLOWAY] =         1; 
+    duchyStables[DUCHY_GALLOWAY] =          1; 
+    duchyFortifications[DUCHY_GALLOWAY] =   1;
+
+    duchyIncome[DUCHY_HEBRIDES] =           5; 
+    duchyMilitiaHall[DUCHY_HEBRIDES] =      1; 
+    duchyBarracks[DUCHY_HEBRIDES] =         1; 
+    duchyStables[DUCHY_HEBRIDES] =          1; 
+    duchyFortifications[DUCHY_HEBRIDES] =   1;
+
+    duchyIncome[DUCHY_MORWAY] =             5; 
+    duchyMilitiaHall[DUCHY_MORWAY] =        1; 
+    duchyBarracks[DUCHY_MORWAY] =           1; 
+    duchyStables[DUCHY_MORWAY] =            1; 
+    duchyFortifications[DUCHY_MORWAY] =     1;
+    
+    // Irish duchies - direct assignment
+    duchyIncome[DUCHY_ULSTER] =             5; 
+    duchyMilitiaHall[DUCHY_ULSTER] =        1; 
+    duchyBarracks[DUCHY_ULSTER] =           1; 
+    duchyStables[DUCHY_ULSTER] =            1; 
+    duchyFortifications[DUCHY_ULSTER] =     1;
+
+    duchyIncome[DUCHY_CONNACHT] =           5; 
+    duchyMilitiaHall[DUCHY_CONNACHT] =      1; 
+    duchyBarracks[DUCHY_CONNACHT] =         1; 
+    duchyStables[DUCHY_CONNACHT] =          1; 
+    duchyFortifications[DUCHY_CONNACHT] =   1;
+
+    duchyIncome[DUCHY_MUNSTER] =            5; 
+    duchyMilitiaHall[DUCHY_MUNSTER] =       1; 
+    duchyBarracks[DUCHY_MUNSTER] =          1; 
+    duchyStables[DUCHY_MUNSTER] =           1; 
+    duchyFortifications[DUCHY_MUNSTER] =    1;
+} 
+
+// =============================================================================
+// GLOBAL NAMESPACE REGISTRATION
+// =============================================================================
+// Register all duchy arrays for cross-module access
+EUDRegisterObjectToNamespace("duchyOwner", duchyOwner);
+EUDRegisterObjectToNamespace("duchyIncome", duchyIncome);
+EUDRegisterObjectToNamespace("duchyMilitiaHall", duchyMilitiaHall);
+EUDRegisterObjectToNamespace("duchyBarracks", duchyBarracks);
+EUDRegisterObjectToNamespace("duchyStables", duchyStables);
+EUDRegisterObjectToNamespace("duchyFortifications", duchyFortifications);
+EUDRegisterObjectToNamespace("duchyOccupied", duchyOccupied);
+EUDRegisterObjectToNamespace("duchyOccupiedBy", duchyOccupiedBy);
+EUDRegisterObjectToNamespace("duchyLevyDisabled", duchyLevyDisabled);
+EUDRegisterObjectToNamespace("duchyLevyRaised", duchyLevyRaised);
+EUDRegisterObjectToNamespace("duchyLoyalty", duchyLoyalty);
+EUDRegisterObjectToNamespace("duchyRebellion", duchyRebellion);
+EUDRegisterObjectToNamespace("duchyDemesne", duchyDemesne);
+EUDRegisterObjectToNamespace("duchyUnitPointers", duchyUnitPointers);
+EUDRegisterObjectToNamespace("duchyMassTarget", duchyMassTarget);
+EUDRegisterObjectToNamespace("duchyUnderSiege", duchyUnderSiege);

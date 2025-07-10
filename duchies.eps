@@ -1,0 +1,619 @@
+// =============================================================================
+// CRUSADER KINGS - DUCHIES MODULE
+// =============================================================================
+// Main state management system for duchy properties across economic, military, and political dimensions
+
+import constants as c;
+
+// Siege checking variables for two-phase approach
+var siegeCheckPhase = 0;
+var currentSiegeCheckIndex = 0;
+var currentSiegeCheckOwner = 0;
+const Starports = UnitGroup(100);
+
+// =============================================================================
+// SIEGE AND WARFARE FUNCTIONS
+// =============================================================================
+
+// Set siege location coordinates based on duchy index
+function setSiegeLocationForDuchy(duchyIndex) {
+    if (duchyIndex == 0) {
+        setloc($L("SiegeCheck"), 1952, 2192, 2272, 2528); // Middlesex
+    } else if (duchyIndex == 1) {
+        setloc($L("SiegeCheck"), 1184, 2368, 1920, 2592); // Cornwall  
+    } else if (duchyIndex == 2) {
+        setloc($L("SiegeCheck"), 1344, 2016, 1632, 2336); // Wales
+    } else if (duchyIndex == 3) {
+        setloc($L("SiegeCheck"), 1632, 1952, 1952, 2368); // Lancaster
+    } else if (duchyIndex == 4) {
+        setloc($L("SiegeCheck"), 1952, 1952, 2288, 2192); // Norfolk
+    } else if (duchyIndex == 5) {
+        setloc($L("SiegeCheck"), 1536, 1696, 1984, 1952); // Northumberland
+    } else if (duchyIndex == 6) {
+        setloc($L("SiegeCheck"), 1408, 1440, 1856, 1696); // Lothian
+    } else if (duchyIndex == 7) {
+        setloc($L("SiegeCheck"), 1552, 1184, 1920, 1440); // Albany
+    } else if (duchyIndex == 8) {
+        setloc($L("SiegeCheck"), 1312, 1216, 1552, 1504); // Galloway
+    } else if (duchyIndex == 9) {
+        setloc($L("SiegeCheck"), 1040, 928, 1312, 1504);  // Hebrides
+    } else if (duchyIndex == 10) {
+        setloc($L("SiegeCheck"), 1392, 880, 1792, 1216);  // Morway
+    } else if (duchyIndex == 11) {
+        setloc($L("SiegeCheck"), 928, 1536, 1376, 1792);  // Ulster
+    } else if (duchyIndex == 12) {
+        setloc($L("SiegeCheck"), 704, 1760, 1344, 2080);  // Connacht
+    } else if (duchyIndex == 13) {
+        setloc($L("SiegeCheck"), 704, 2080, 1120, 2368);  // Munster
+    } else if (duchyIndex == 14) {
+        setloc($L("SiegeCheck"), 1760, 2624, 2288, 2928); // Normandy
+    }
+}
+
+// Start a siege at the specified duchy
+function startSiege(duchyIndex, duchyUnitPtr, siegingPlayer) {
+    // Mark duchy as under siege
+    c.duchyUnderSiege[duchyIndex] = 1;
+    
+    // Create a lifted Terran Starport at the duchy location
+    const duchyUnit = CUnit.from_ptr(duchyUnitPtr);
+    duchyUnit.setloc($L("County Loc Universal"));
+    CreateUnitWithProperties(1, c.SIEGE_GEAR, $L("Buildings Buffer 1"), siegingPlayer, UnitProperty(
+         hitpoint = 2,       // Health percentage  
+         intransit = True,    // Whether being transported  
+         invincible = True)   // Whether invincible  
+    );  
+    MoveUnit(1, c.SIEGE_GEAR, siegingPlayer, $L("Buildings Buffer 1"), $L("County Loc Universal"));
+    
+    // Store the duchy index in the newly created starport's killCount field
+    // This is much more efficient than looping through all units
+    foreach (unit : EUDLoopNewCUnit()) {
+        if (unit.unitType == c.SIEGE_GEAR && unit.owner == siegingPlayer) {
+            unit.killCount = duchyIndex;    
+            break;
+        }
+    }
+}
+
+// Check for siege conditions using two-phase approach to handle timing
+function checkSiegesWithCoordinates() {
+    if (siegeCheckPhase == 0) {
+        // Phase 1: Find next duchy to check and set location
+        var foundDuchy = false;
+        var validDuchyCount = 0;
+        
+        foreach (unit : EUDLoopCUnit()) {
+            if (unit.unitType == $U(c.DUCHY_BUILDING)) {
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                
+                // Skip if invalid index
+                if (duchyIndex >= 15) {
+                    continue;
+                }
+                
+                // Count only valid duchies
+                if (validDuchyCount == currentSiegeCheckIndex) {
+                    // Set location for this duchy
+                    setSiegeLocationForDuchy(duchyIndex);
+                    currentSiegeCheckOwner = unit.owner;
+                    foundDuchy = true;
+                    siegeCheckPhase = 1; // Move to checking phase next frame
+                    break;
+                }
+                validDuchyCount++;
+            }
+        }
+        
+        if (!foundDuchy) {
+            // No more duchies to check, reset to start
+            currentSiegeCheckIndex = 0;
+        }
+    } else {
+        // Phase 2: Check the location that was set last frame
+        const cp = getcurpl();
+        setcurpl(currentSiegeCheckOwner);
+        
+        // Get the duchy index for this check
+        var currentDuchyIndex = -1;
+        var validDuchyCount = 0;
+        foreach (unit : EUDLoopCUnit()) {
+            if (unit.unitType == $U(c.DUCHY_BUILDING)) {
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                
+                if (duchyIndex >= 15) {
+                    continue;
+                }
+                
+                if (validDuchyCount == currentSiegeCheckIndex && unit.owner == currentSiegeCheckOwner) {
+                    currentDuchyIndex = duchyIndex;
+                    break;
+                }
+                validDuchyCount++;
+            }
+        }
+        
+        if (currentDuchyIndex != -1) {
+            // Check if duchy is currently under siege
+            if (c.duchyUnderSiege[currentDuchyIndex] == 1) {
+                // Siege is active - check if attackers have retreated
+                if (Bring(Foes, AtMost, 7, "Men", "SiegeCheck")) {
+                    // Attackers have retreated - cancel the siege
+                    c.duchyUnderSiege[currentDuchyIndex] = 0;
+                    
+                    // Find the starport for this duchy and mark it as canceled
+                    foreach (unit : Starports.cploop) {
+                        unit.move_cp(0x8C / 4); // Move to 4-byte aligned address containing killCount
+                        const duchyStarportIndex = bread_cp(0, 3); // Read byte at offset 3 (0x8F - 0x8C = 3)
+                        if (duchyStarportIndex == currentDuchyIndex) {
+                            // Mark this starport as canceled by setting killCount to 255 (invalid duchy index)
+                            bwrite_cp(0, 3, 255); // Write 255 to the killCount byte
+                            unit.remove();
+                        }
+                    }
+                    MinimapPing("County Loc Universal");
+                    DisplayText("The enemy has lifted their siege!");
+                    
+                    // Remove the siege gear at this location
+                    RemoveUnitAt(All, c.SIEGE_GEAR, "SiegeCheck", AllPlayers);
+                }
+            } else {
+                // No active siege - check if one should start
+                if (Bring(Foes, AtLeast, 8, "Men", "SiegeCheck")) {
+                    // First check that the duchy owner doesn't command the most units (they're outnumbered)
+                    if (CommandLeastAt("Men", "SiegeCheck")) {
+                        // Find which specific enemy player has the most units at this location
+                        foreach (p : EUDLoopPlayer()) {
+                            if (p != currentSiegeCheckOwner) {
+                                const cp = getcurpl();
+                                setcurpl(p);
+                                if (CommandMostAt("Men", "SiegeCheck")) {
+                                    setcurpl(cp);
+                                    
+                                    // Found the sieging player - start the siege immediately
+                                    foreach (unit : EUDLoopCUnit()) {
+                                        if (unit.unitType == $U(c.DUCHY_BUILDING)) {
+                                            const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                                            
+                                            if (duchyIndex == currentDuchyIndex && unit.owner == currentSiegeCheckOwner) {
+                                                startSiege(duchyIndex, unit.ptr, p);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    break; // Exit the player loop once we've started the siege
+                                }
+                                setcurpl(cp);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        setcurpl(cp);
+        
+        // Move to next duchy for next cycle
+        currentSiegeCheckIndex++;
+        siegeCheckPhase = 0;
+    }
+}
+
+// Conclude a siege - transfer ownership and apply effects
+function concludeSiege(duchyIndex, siegingPlayer) {
+    // Mark duchy as no longer under siege
+    c.duchyUnderSiege[duchyIndex] = 0;
+    
+    // Get the duchy unit pointer
+    const duchyUnitPtr = c.duchyUnitPointers[duchyIndex];
+    if (duchyUnitPtr == 0) {
+        simpleprint("Error: Could not find duchy unit for index ", duchyIndex);
+        return;
+    }
+    
+    const duchyUnit = CUnit.from_ptr(duchyUnitPtr);
+    const currentOwner = duchyUnit.owner;
+    const originalOwner = c.duchyOwner[duchyIndex];
+    
+    // Transfer ownership of the duchy building
+    // We use classic Starcraft functions so that the unit color is changed
+    // and the building fire offsets are generated. Assigning a new unit.owner
+    // Has the interesting quirk that the color remains the same as the previous 
+    // owner. Might be useful.
+    //duchyUnit.owner = siegingPlayer;
+    setSiegeLocationForDuchy(duchyIndex);
+    const cp = getcurpl();
+    setcurpl(siegingPlayer);
+    GiveUnits(All, c.DUCHY_BUILDING, duchyUnit.owner, "SiegeCheck", siegingPlayer);
+    if (siegingPlayer == originalOwner) {
+        // Original owner liberated duchy
+        ModifyUnitHitPoints(All, c.DUCHY_BUILDING, duchyUnit.owner, "SiegeCheck", 100);
+        c.duchyOccupied[duchyIndex] = 0;
+        c.duchyOwner[duchyIndex] = 27; // Reset to "invalid/empty"
+        MinimapPing("County Loc Universal");
+        DisplayText("We have liberated our duchy!");
+    }
+    else {
+        ModifyUnitHitPoints(All, c.DUCHY_BUILDING, duchyUnit.owner, "SiegeCheck", 50);
+        c.duchyOccupied[duchyIndex] = 1;
+        c.duchyOwner[duchyIndex] = currentOwner; // Store the original owner for future reference
+        MinimapPing("County Loc Universal");
+        DisplayText("We have won a siege!");
+    }
+    setcurpl(cp);
+
+
+    // c.duchyOccupiedBy[duchyIndex] = siegingPlayer; // This might be irrelevant, since the occupying player owns it.
+    
+    // Reset levy status since ownership changed
+    c.duchyLevyRaised[duchyIndex] = 0;
+    c.duchyLevyDisabled[duchyIndex] = 0;
+}
+
+// =============================================================================
+// DUCHY UTILITY FUNCTIONS
+// =============================================================================
+
+// Spawn units for a specific duchy based on its upgrade levels
+// Returns true if successful, false if insufficient manpower
+function spawnDuchyLevy(duchyIndex, unitPtr, looping) {
+    // Check if we have enough manpower and if levies aren't already raised
+    if (c.duchyLevyRaised[duchyIndex] == 1) {
+        if (looping == 0) {
+            simpleprint("Levies already raised for duchy", duchyIndex);
+        }
+        return true; // Already raised is considered "success" for loop continuation
+    }
+    
+    if (c.duchyLevyDisabled[duchyIndex] == 1) {
+        if (looping == 0) {
+            simpleprint("Levies disabled for duchy", duchyIndex);
+        }
+        return true; // Disabled is considered "success" for loop continuation
+    }
+
+    if (c.duchyOccupied[duchyIndex] == 1) {
+        if (looping == 0) {
+            simpleprint("Duchy is occupied, cannot raise levy.");
+        }
+        return true; // Occupied is considered "success" for loop continuation
+    }
+    
+    // Get the owner of this duchy building to spawn units for the right player
+    const owner = CUnit.from_ptr(unitPtr).owner;
+    const globalManpower = c.GetPlayerSupply(owner, c.MANPOWER, c.MANPOWER_LEVEL);
+    
+    // Calculate total manpower needed based on upgrade levels
+    const militiaLevel = c.duchyMilitiaHall[duchyIndex];
+    const barracksLevel = c.duchyBarracks[duchyIndex];
+    const stablesLevel = c.duchyStables[duchyIndex]; // Placeholder for now
+    
+    // Calculate manpower costs (based on legacy trigger patterns)
+    var totalManpowerNeeded = 0;
+    var unitsToSpawn = 0;
+    
+    // Militia spawning (light infantry - 1 manpower each)
+    if (militiaLevel >= 1) {
+        totalManpowerNeeded += militiaLevel * 2; // 2 manpower per militia level
+        unitsToSpawn += militiaLevel * 2; // 2 light units per level
+    }
+    
+    // Barracks spawning (heavy infantry - 1 manpower each)
+    if (barracksLevel >= 1) {
+        totalManpowerNeeded += barracksLevel * 2; // 2 manpower per barracks level
+        unitsToSpawn += barracksLevel * 2; // 2 heavy units per level
+    }
+    
+    // Check global manpower availability
+    if (globalManpower < totalManpowerNeeded) {
+        return false; // Insufficient manpower - signal to stop global levy
+    }
+    
+    // Spawn militia units (Zerglings + Ghosts based on legacy pattern)
+    if (militiaLevel >= 1) {
+        for (var i = 0; i < militiaLevel; i++) {
+            CreateUnit(1, $U("Zerg Zergling"), $L("Buffer Zone"), owner);
+            CreateUnit(1, $U("Terran Ghost"), $L("Buffer Zone"), owner);
+            const current_manpower = c.GetPlayerSupply(owner, c.MANPOWER, c.MANPOWER_LEVEL);
+            c.SetPlayerSupply(owner, c.MANPOWER, c.MANPOWER_LEVEL, current_manpower - 2);
+        }
+    }
+    
+    // Spawn barracks units (Zealots + Firebats based on legacy pattern)
+    if (barracksLevel >= 1) {
+        for (var i = 0; i < barracksLevel; i++) {
+            CreateUnit(1, $U("Protoss Zealot"), $L("Buffer Zone"), owner);
+            CreateUnit(1, $U("Terran Firebat"), $L("Buffer Zone"), owner);
+            const current_manpower = c.GetPlayerSupply(owner, c.MANPOWER, c.MANPOWER_LEVEL);
+            c.SetPlayerSupply(owner, c.MANPOWER, c.MANPOWER_LEVEL, current_manpower - 2);
+        }
+    }
+    
+    // Move all spawned units from buffer to duchy location
+    // Use the much simpler CUnit.setloc() method to position the universal location
+    const duchyUnit = CUnit.from_ptr(unitPtr);
+    duchyUnit.setloc($L("County Loc Universal"));
+
+    MoveUnit(All, "Men", owner, $L("Buffer Zone"), $L("County Loc Universal"));
+
+    const globalDuchyMassTarget = GetEUDNamespace().get("duchyMassTarget");
+    // Check if this player has a mass target set
+    if (globalDuchyMassTarget[owner] < c.MAX_DUCHIES) {
+        // Get the target duchy's unit pointer from our mapping
+        const targetDuchyPtr = c.duchyUnitPointers[globalDuchyMassTarget[owner]];
+        if (targetDuchyPtr != 0) {
+            // Position the mass target location on the target duchy
+            const targetDuchyUnit = CUnit.from_ptr(targetDuchyPtr);
+            targetDuchyUnit.setloc($L("MassTarget"));
+            
+            // Expand the current location to encompass units for the order
+            dilateloc($L("County Loc Universal"), 200, 200);
+            
+            // Order all spawned units to attack-move to the mass target
+            Order("Men", owner, $L("County Loc Universal"), Attack, $L("MassTarget"));
+        }
+    }
+
+    // Mark levy as raised
+    c.duchyLevyRaised[duchyIndex] = 1;
+        
+    //simpleprint("Levy raised for duchy", duchyIndex, "- spawned", unitsToSpawn, "units");
+    return true; // Successfully spawned levy
+}
+
+// Check if a specific unit type is in the build queue of a unit at given EPD
+function checkBuildQueueEPD(unitEPD, targetUnit) {
+    // Access build queue at offset 0x98/4 from unit EPD
+    var queueEPD = unitEPD + c.BUILD_QUEUE_OFFSET;
+    
+    // Check first queue slot (16-bit unit ID in lower 16 bits)
+    // Execution is so fast that there's no need to check other slots.
+    // We'll call unit.reset_buildq() if it's found.
+    if (MemoryXEPD(queueEPD, Exactly, targetUnit, 0xFFFF)) {
+        return true;
+    }
+    return false;
+}
+
+function demobilizeDuchyLevy(owner) {
+    foreach (unit : EUDLoopCUnit()) {
+        if (unit.owner == owner && unit.unitType == $U(c.DUCHY_BUILDING)) {
+            // Reset duchy levy status to 0 (demobilized)
+            const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+            c.duchyLevyRaised[duchyIndex] = 0;
+        }
+        else if (unit.owner == owner && (
+            unit.unitType == $U("Zerg Zergling") ||
+            unit.unitType == $U("Terran Ghost") ||
+            unit.unitType == $U("Protoss Zealot") ||
+            unit.unitType == $U("Terran Firebat")
+        )) {
+            // Remove levy units
+            unit.remove();
+            c.SetPlayerSupply(owner, c.MANPOWER, c.MANPOWER_LEVEL, c.GetPlayerSupply(owner, c.MANPOWER, c.MANPOWER_LEVEL) + 1);
+        }
+    }
+}
+
+// Check all Cybernetics Cores for specific unit production (specified in constants.eps)
+function checkCyberneticsCoreQueues() {
+    // Loop through all units
+    foreach (unit : EUDLoopCUnit()) {
+        // Check if this unit is a Cybernetics Core
+        if (unit.unitType == $U(c.DUCHY_BUILDING)) {
+            const epd = EPD(unit.ptr);
+            
+            // Check for all the different build queue constants and perform actions
+            if (checkBuildQueueEPD(epd, $U(c.DISABLE_LEVY))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                if (c.duchyLevyDisabled[duchyIndex] == 0) {
+                    c.duchyLevyDisabled[duchyIndex] = 1;
+                    simpleprint("Levy spawning disabled for this duchy.");
+                }
+                else {
+                    simpleprint("Levies already disabled for this duchy.");
+                }
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.ENABLE_LEVY))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                if (c.duchyLevyDisabled[duchyIndex] == 1) {
+                    c.duchyLevyDisabled[duchyIndex] = 0;
+                    simpleprint("Levy spawning enabled for this duchy.");
+                }
+                else {
+                    simpleprint("Levies already enabled for this duchy.");
+                }
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.RAISE_LOCAL_LEVY))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                if (c.duchyOccupied[duchyIndex] == 1) {
+                    simpleprint("Duchy is occupied, cannot raise levy.");
+                    return;
+                }
+                // Call the new spawning function
+                spawnDuchyLevy(duchyIndex, unit.ptr, 0);
+                const cp = getcurpl();
+                setcurpl(unit.owner);
+                PlayWAV("staredit\\wav\\levy.ogg");
+                setcurpl(cp);
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.RAISE_GLOBAL_LEVY))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                // Raise levies for all duchies owned by this player by 
+                // looping through all duchies
+                foreach (duchyUnit : EUDLoopCUnit()) {
+                    if (duchyUnit.unitType == $U(c.DUCHY_BUILDING) && duchyUnit.owner == unit.owner) {
+                        const targetDuchyIndex = c.getDuchyIndexFromUnit(duchyUnit.ptr);
+                        //simpleprint("GLOBAL_LEVY: Found owned duchy at index", targetDuchyIndex, "for player", unit.owner);
+                        const spawned = spawnDuchyLevy(targetDuchyIndex, duchyUnit.ptr, 1);
+                        if (!spawned) {
+                            simpleprint("Insufficient manpower to raise all levies.");
+                            break; // Stop trying to spawn more levies
+                        }
+                    }
+
+                }
+                const cp = getcurpl();
+                setcurpl(unit.owner);
+                PlayWAV("staredit\\wav\\levy.ogg");
+                setcurpl(cp);
+                simpleprint("All available levies raised!");
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.SEND_LEVY_HOME))) {
+                unit.reset_buildq();
+                demobilizeDuchyLevy(unit.owner);
+                simpleprint("All levies sent home.");
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.MASS_HERE))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                // TODO: Implement unit movement/massing logic
+                simpleprint("All levies will now mass to duchy index", duchyIndex);
+                const globalDuchyMassTarget = GetEUDNamespace().get("duchyMassTarget");
+                globalDuchyMassTarget[unit.owner] = duchyIndex;
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.UPGRADE_INCOME))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                c.duchyIncome[duchyIndex] += 1;
+                simpleprint("Duchy income upgraded at index", duchyIndex);
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.UPGRADE_FORTIFICATIONS))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                c.duchyFortifications[duchyIndex] += 1;
+                simpleprint("Duchy fortifications upgraded at index", duchyIndex);
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.UPGRADE_MILITIA_HALL))) { 
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                c.duchyMilitiaHall[duchyIndex] += 1;
+                simpleprint("Duchy militia hall upgraded at index", duchyIndex);
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.UPGRADE_BARRACKS))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                c.duchyBarracks[duchyIndex] += 1;
+                simpleprint("Duchy barracks upgraded at index", duchyIndex);
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.UPGRADE_STABLES))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                c.duchyStables[duchyIndex] += 1;
+                simpleprint("Duchy stables upgraded at index", duchyIndex);
+            }
+            else if (checkBuildQueueEPD(epd, $U(c.DEBUG))) {
+                unit.reset_buildq();
+                const duchyIndex = c.getDuchyIndexFromUnit(unit.ptr);
+                simpleprint("Duchy Income", c.duchyIncome[duchyIndex]);
+                simpleprint("Duchy Militia Hall Level", c.duchyMilitiaHall[duchyIndex]);
+                simpleprint("Duchy Barracks Level", c.duchyBarracks[duchyIndex]);
+                simpleprint("Duchy Stables Level", c.duchyStables[duchyIndex]);
+                simpleprint("Duchy Fortifications Level", c.duchyFortifications[duchyIndex]);
+                simpleprint("Duchy Occupied", c.duchyOccupied[duchyIndex]);
+                simpleprint("Duchy Occupied By", c.duchyOccupiedBy[duchyIndex]);
+                simpleprint("Duchy Levy Disabled", c.duchyLevyDisabled[duchyIndex]);
+                simpleprint("Duchy Levy Raised", c.duchyLevyRaised[duchyIndex]);
+            }
+        }
+    }
+}
+
+// =============================================================================
+// INITIALIZATION FUNCTIONS
+// =============================================================================
+
+// Register all duchy buildings' unit pointers (ID) with their corresponding indices
+// This assigns duchy indices in the order units appear in the unit list (0, then 1699, 1698, etc.)
+// We need this to match duchies to names in constants.eps (DUCHY_MORWAY) and thereby their locations. 
+// This allows us to move locations onto unit coordinates directly via unit.setloc() if we know the index.
+function registerAllDuchyBuildings() {
+    const firstUnit = EUDLightBool();
+    var duchyIndex = 0;
+    
+    foreach (unit : EUDLoopCUnit()) {
+        if (unit.unitType == $U(c.DUCHY_BUILDING)) {
+            if (firstUnit.IsCleared()) {
+                c.registerDuchyUnit(duchyIndex, unit.ptr);
+                duchyIndex = c.MAX_DUCHIES - 1;
+                DoActions(firstUnit.Set());
+            }
+            else {
+                c.registerDuchyUnit(duchyIndex, unit.ptr);
+                duchyIndex -= 1;
+            }
+        }
+    }
+}
+
+// =============================================================================
+// PLUGIN LIFECYCLE FUNCTIONS
+// =============================================================================
+
+function onPluginStart() {
+    // This sets the "owner" value for each duchy to 27 (invalid player)
+    // We use this value to indicate that a duchy has been occupied and
+    // should be returned to its previous owner.
+    c.initializeDuchyOwnerValues();
+
+    // Initialize all duchies using constants data
+    c.initializeAllDuchies();
+    
+    // Register all duchy buildings for unit-to-duchy mapping
+    registerAllDuchyBuildings();
+    
+}
+
+function beforeTriggerExec() {
+    // Duchy state management logic that runs every frame
+    checkCyberneticsCoreQueues();
+    
+    // Check sieges on a timer to reduce performance impact
+    checkSiegesWithCoordinates();
+
+    foreach(unit : EUDLoopNewCUnit(20)) {
+        epdswitch (unit + 25, 0xFF) {
+        case $U("Terran Starport"):
+            unit.userActionFlags |= 4;  // dead animation won't be displayed
+            Starports.add(unit);
+            break;
+        }
+    }
+}
+
+function afterTriggerExec() {
+    foreach(unit : Starports.cploop) {
+        foreach(dead : unit.dying) {
+            // Retrieve the duchy index from the dying starport using CPTrick-optimized access
+            dead.move_cp(0x8C / 4); // Move to 4-byte aligned address containing killCount
+            const duchyIndex = bread_cp(0, 3); // Read byte at offset 3 (0x8F - 0x8C = 3)
+            
+            // Check if this is a canceled siege (marked with 255)
+            if (duchyIndex == 255) {
+                continue; // Skip processing this as a successful siege
+            }
+            
+            // Get the sieging player (owner of the dying starport)
+            dead.move_cp(0x4C / 4); // Move to owner field
+            const siegingPlayer = bread_cp(0, 0);
+            
+            // Get the siege location and create explosion effect
+            dead.move_cp(0x28 / 4); // Move to position
+            const x, y = posread_cp(0);
+            setloc("County Loc Universal", x, y);
+            dilateloc("County Loc Universal", 100, 100);
+            CreateUnitWithProperties(1, "Terran Battlecruiser", "County Loc Universal", P8, UnitProperty(
+                invincible = True
+            ));
+            KillUnitAt(1, "Terran Battlecruiser", "County Loc Universal", P8);
+
+            // Conclude the siege - transfer ownership and apply effects
+            concludeSiege(duchyIndex, siegingPlayer);
+
+            //simpleprint("Siege concluded at duchy index", duchyIndex, "- ownership transferred to player", siegingPlayer);
+        }
+    }
+} 

@@ -1,0 +1,141 @@
+// =============================================================================
+// CRUSADER KINGS - ECONOMY MODULE
+// =============================================================================
+// This module handles economic relations, taxes, and resource management
+
+import constants as c;
+
+// Economy variables
+var payTimer = 0;  // Timer for economy cycles
+var manpowerTimer = 0;  // Timer for manpower cycles
+const PAY_INTERVAL = 240;  // Process economy every 240 frames (~10 seconds)
+const MANPOWER_INTERVAL = 120;  // Process manpower every 120 frames (~5 seconds)
+
+function processIncome(player) {
+    // Use max supply as base income storage and current supply as army size
+    const baseIncome = c.GetPlayerSupply(player, c.INCOME_EXPENSES, c.INCOME);
+    const currentArmySize = c.GetPlayerSupply(player, c.INCOME_EXPENSES, c.EXPENSES);
+
+    // Calculate net income (can be negative)
+    const income = baseIncome - currentArmySize;
+
+    const debtEnabled = c.GetPlayerSupply(player, c.DEBT, c.ENABLE_DISABLE);
+    
+    // Check if income is actually negative (appears as large positive due to unsigned wraparound)
+    if (income < 0x80000000) {
+        // Positive income - first pay off debt, then add to minerals
+        const currentDebt = c.GetPlayerSupply(player, c.DEBT, c.DEBT_LEVEL);
+        
+        if (currentDebt > 0) {
+            // Pay off debt first - use simple comparison instead of min()
+            var debtPayment = income;
+            if (currentDebt < income) {
+                debtPayment = currentDebt;
+            }
+            
+            c.SetPlayerSupply(player, c.DEBT, c.DEBT_LEVEL, (currentDebt - debtPayment));
+            
+            // Add remaining income to minerals
+            const remainingIncome = income - debtPayment;
+            if (remainingIncome > 0) {
+                SetResources(player, Add, remainingIncome, Ore);
+                if (debtEnabled == 1) { 
+                    c.SetPlayerSupply(player, c.DEBT, c.ENABLE_DISABLE, 0);
+                }
+                simpleprint("We are free from debt!");
+            }
+        } else {
+            if (debtEnabled == 1) {
+                c.SetPlayerSupply(player, c.DEBT, c.ENABLE_DISABLE, 0); 
+                simpleprint("We are free from debt!");
+            }
+            // No debt, add full income to minerals
+            SetResources(player, Add, income, Ore);   
+        }
+    } else {
+        // Negative income - check current minerals
+        const currentMinerals = c.GetPlayerMinerals(player);
+        // Calculate actual deficit: if income is negative, it appears as (2^32 - actual_deficit)
+        // So actual_deficit = 2^32 - income = 0x100000000 - income
+        const deficit = 0x100000000 - income;
+        
+        if (currentMinerals >= deficit) {
+            // Can afford the deficit - subtract from minerals
+            SetResources(player, Subtract, deficit, Ore);
+        } else {
+            // Cannot afford full deficit - subtract all minerals and add remainder to debt
+            if (currentMinerals > 0) {
+                SetResources(player, Subtract, currentMinerals, Ore);
+            }
+            if (debtEnabled == 0) {
+                c.SetPlayerSupply(player, c.DEBT, c.ENABLE_DISABLE, 1);
+                simpleprint("We are in debt... Our deficit is growing by", deficit, "ducats");
+            }
+            
+            const remainingDebt = deficit - currentMinerals;
+            const currentDebt = c.GetPlayerSupply(player, c.DEBT, c.DEBT_LEVEL);
+            c.SetPlayerSupply(player, c.DEBT, c.DEBT_LEVEL, (currentDebt + remainingDebt));
+        }
+    }
+}
+
+function processManpower(player) {
+    const currentManpower = c.GetPlayerSupply(player, c.MANPOWER, c.MANPOWER_LEVEL);
+    const maxManpower = c.GetPlayerSupply(player, c.MANPOWER, c.MANPOWER_MAX);
+
+    if (currentManpower < maxManpower) {
+        c.SetPlayerSupply(player, c.MANPOWER, c.MANPOWER_LEVEL, currentManpower + 1);
+    }
+}
+
+function onPluginStart() {
+    // Economy system initialization
+    
+    // Initialize supply-based resource system for all players
+    for (var player = 0; player < 5; player++) {
+
+        // Initialize global manpower (Zerg Max Supply)
+        c.SetPlayerSupply(player, c.MANPOWER, c.MANPOWER_LEVEL, 200); // 100 starting manpower * 2
+        c.SetPlayerSupply(player, c.INCOME, c.INCOME_MAX, 10000);
+    }
+}
+
+function beforeTriggerExec() {
+    // Only process economy if it has been enabled
+    if (Switch($S("Switch 1"), Set)) {
+        // Timer-based economy processing
+        payTimer++;
+
+        if (payTimer >= PAY_INTERVAL) {
+            // Process income for players 0-4 (P1-P5)
+            const cp = getcurpl();
+            for (var player = 0; player < 5; player++) {
+                setcurpl(player);
+                processIncome(player);
+                PlayWAV("staredit\\wav\\money_in2.ogg");
+            }
+            setcurpl(cp);
+            
+            payTimer = 0;  // Reset timer
+        }
+
+        manpowerTimer++;
+
+        if (manpowerTimer >= MANPOWER_INTERVAL) {
+            // Process manpower for players 0-4 (P1-P5)
+            const cp = getcurpl();
+            for (var player = 0; player < 5; player++) {
+                setcurpl(player);
+                processManpower(player);
+            }
+            setcurpl(cp);
+
+            manpowerTimer = 0;  // Reset timer
+        }
+    }
+}
+
+function afterTriggerExec() {
+    // Economy actions that run after triggers
+}
+

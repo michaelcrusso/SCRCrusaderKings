@@ -1,0 +1,2571 @@
+S_ProjectSET
+Version : 0.18.1.7
+InputMap : C:\Users\Michael\OneDrive\Documents\StarCraft\Maps\SCRCrusaderKings\Crusader Kings.scx
+OutputMap : C:\Users\Michael\OneDrive\Documents\StarCraft\Maps\SCRCrusaderKings\Crusader Kings EUDDraft.scx
+euddraftuse : True
+loadfromCHK : True
+UsedSetting0 : True
+UsedSetting1 : True
+UsedSetting2 : False
+UsedSetting3 : False
+UsedSetting4 : True
+UsedSetting5 : False
+UsedSetting6 : True
+UsedSetting7 : True
+UsedSetting8 : True
+EUDEditorDebug : False
+epTraceDebug : False
+triggerSetTouse : True
+triggerPlayer : 7
+E_ProjectSET
+S_DatEditSET
+0,0,7,127
+0,0,9,122
+0,0,28,10
+0,0,35,61
+0,0,38,63
+0,0,41,66
+0,0,72,42
+0,0,113,29
+0,0,126,24
+0,0,130,76
+0,0,131,104
+0,0,136,66
+0,0,138,65
+0,0,139,73
+0,0,143,7
+0,0,152,110
+0,0,154,1
+0,0,159,7
+0,0,160,4
+0,0,163,49
+0,0,165,75
+0,0,168,60
+0,0,169,-9
+0,0,170,47
+0,0,171,31
+0,0,186,163
+0,0,189,-69
+0,0,201,-75
+0,4,38,-31
+0,4,43,879
+0,4,165,105
+0,9,7,-4
+0,9,9,-15
+0,9,12,3
+0,9,28,-13
+0,9,114,15
+0,9,126,8
+0,9,164,7
+0,9,168,8
+0,9,189,8
+0,10,35,1
+0,12,35,-154
+0,12,131,-78
+0,13,35,-75
+0,13,131,-78
+0,14,35,-75
+0,15,35,-178
+0,16,35,-186
+0,17,12,111
+0,17,28,107
+0,17,103,21
+0,17,162,50
+0,19,12,110
+0,19,28,106
+0,19,124,101
+0,19,162,49
+0,20,124,-1
+0,22,1,128
+0,22,7,-1472266244
+0,22,9,2064640
+0,22,28,-467664960
+0,22,32,128
+0,22,42,-32768
+0,22,61,-4194304
+0,22,65,128
+0,22,72,-469762048
+0,22,74,-4194304
+0,22,75,-4194304
+0,22,113,-3254779936
+0,22,114,-67108864
+0,22,124,1879015168
+0,22,126,-67108860
+0,22,130,-65693
+0,22,131,-2197885056
+0,22,134,-196605
+0,22,135,-196733
+0,22,136,-131197
+0,22,137,-196733
+0,22,138,-131197
+0,22,139,-131197
+0,22,143,-131069
+0,22,148,-67338365
+0,22,149,-73853
+0,22,150,-196605
+0,22,151,-125
+0,22,152,3
+0,22,159,2146959360
+0,22,160,-524288
+0,22,162,1878491136
+0,22,164,2097152
+0,22,165,-604504064
+0,22,168,4
+0,22,169,2146959360
+0,22,170,-524288
+0,22,171,-524288
+0,22,189,4
+0,22,201,-229373
+0,24,35,7
+0,26,65,1
+0,26,131,-2
+0,26,165,-2
+0,28,35,1
+0,28,124,-3
+0,29,72,-580
+0,30,35,-132
+0,31,35,-129
+0,32,35,-850
+0,32,79,-715
+0,33,35,-850
+0,33,79,-718
+0,34,35,723
+0,35,35,726
+0,36,7,-22
+0,36,9,-45
+0,36,12,-79
+0,36,28,-74
+0,36,36,-31
+0,36,72,-63
+0,36,113,-127
+0,36,114,-127
+0,36,126,-84
+0,36,130,-80
+0,36,131,-127
+0,36,135,-48
+0,36,136,-80
+0,36,137,-16
+0,36,138,-48
+0,36,139,-48
+0,36,143,-16
+0,36,148,-112
+0,36,149,-80
+0,36,151,-48
+0,36,152,-48
+0,36,154,-64
+0,36,159,-32
+0,36,160,-64
+0,36,163,-32
+0,36,165,-95
+0,36,168,-116
+0,36,169,-32
+0,36,170,-32
+0,36,171,-32
+0,36,186,-28
+0,36,189,-84
+0,37,7,-22
+0,37,9,-30
+0,37,12,-63
+0,37,28,-58
+0,37,36,-31
+0,37,72,-63
+0,37,113,-95
+0,37,114,-95
+0,37,126,-52
+0,37,130,-48
+0,37,131,-95
+0,37,135,-16
+0,37,136,-16
+0,37,137,-16
+0,37,138,-16
+0,37,139,-16
+0,37,143,-16
+0,37,148,-48
+0,37,149,-16
+0,37,151,-16
+0,37,152,-16
+0,37,154,-32
+0,37,160,-32
+0,37,165,-63
+0,37,168,-84
+0,37,186,-28
+0,37,189,-52
+0,40,1,-2
+0,40,7,-10
+0,40,9,-20
+0,40,12,-36
+0,40,28,-36
+0,40,32,-4
+0,40,36,-15
+0,40,37,-3
+0,40,38,-2
+0,40,65,-4
+0,40,72,-31
+0,40,113,-55
+0,40,114,-47
+0,40,126,-36
+0,40,130,-34
+0,40,131,-48
+0,40,135,-16
+0,40,136,-24
+0,40,137,-4
+0,40,139,-20
+0,40,148,-55
+0,40,149,-39
+0,40,151,-16
+0,40,152,-16
+0,40,154,-36
+0,40,159,-24
+0,40,160,-28
+0,40,163,-4
+0,40,165,-31
+0,40,168,-52
+0,40,169,-20
+0,40,170,-24
+0,40,171,-12
+0,40,186,-12
+0,40,189,-36
+0,41,1,-5
+0,41,7,-10
+0,41,9,-21
+0,41,12,-28
+0,41,28,-28
+0,41,32,1
+0,41,36,-15
+0,41,37,1
+0,41,38,-2
+0,41,65,3
+0,41,72,-31
+0,41,113,-39
+0,41,114,-39
+0,41,126,-20
+0,41,130,-17
+0,41,131,-31
+0,41,135,-8
+0,41,136,-8
+0,41,137,-8
+0,41,139,-8
+0,41,148,-7
+0,41,149,-7
+0,41,151,-8
+0,41,152,-8
+0,41,154,-23
+0,41,160,-16
+0,41,163,-8
+0,41,165,-23
+0,41,168,-36
+0,41,169,-16
+0,41,170,-12
+0,41,171,-16
+0,41,186,-12
+0,41,189,-20
+0,42,1,-2
+0,42,7,-10
+0,42,9,-20
+0,42,12,-36
+0,42,28,-36
+0,42,32,-4
+0,42,36,-14
+0,42,37,-2
+0,42,38,-2
+0,42,65,-4
+0,42,72,-30
+0,42,113,-55
+0,42,114,-47
+0,42,126,-35
+0,42,130,-34
+0,42,131,-48
+0,42,135,-16
+0,42,136,-24
+0,42,137,-4
+0,42,139,-8
+0,42,148,-54
+0,42,149,-38
+0,42,151,-8
+0,42,152,-8
+0,42,154,-36
+0,42,159,-24
+0,42,160,-28
+0,42,163,-20
+0,42,165,-31
+0,42,168,-51
+0,42,169,-27
+0,42,170,-24
+0,42,171,-12
+0,42,186,-11
+0,42,189,-35
+0,43,1,-6
+0,43,7,-10
+0,43,9,-4
+0,43,12,-28
+0,43,28,-28
+0,43,32,-6
+0,43,36,-14
+0,43,37,-6
+0,43,38,-4
+0,43,65,-5
+0,43,72,-30
+0,43,113,-39
+0,43,114,-37
+0,43,126,-19
+0,43,130,-17
+0,43,131,-31
+0,43,136,20
+0,43,139,4
+0,43,148,-15
+0,43,149,-6
+0,43,151,-7
+0,43,152,-7
+0,43,154,-23
+0,43,159,-12
+0,43,160,-24
+0,43,163,-8
+0,43,165,-23
+0,43,168,-35
+0,43,169,-8
+0,43,170,-12
+0,43,171,-4
+0,43,186,-11
+0,43,189,-19
+0,44,35,-3
+0,45,164,-200
+0,49,35,9
+0,49,37,1
+0,49,42,1
+0,49,61,-2
+0,49,65,-2
+0,49,72,-2
+0,49,74,-2
+0,49,75,-2
+0,49,124,32
+0,49,130,-1
+0,49,134,-1
+0,49,143,-1
+0,49,150,-1
+0,49,152,-1
+0,49,154,-2
+0,49,159,-2
+0,49,160,-2
+0,49,162,-2
+0,49,163,-2
+0,49,164,30
+0,49,165,-3
+0,49,169,-2
+0,49,170,-2
+0,49,171,-2
+0,50,42,-16
+0,50,124,2
+0,50,154,-18
+0,50,156,-14
+0,50,162,4
+0,50,164,4
+0,51,7,-2
+0,51,8,-4
+0,51,9,-4
+0,51,11,-4
+0,51,12,-12
+0,51,14,-16
+0,51,32,1
+0,51,37,1
+0,51,39,-8
+0,51,41,-2
+0,51,42,6
+0,51,43,-4
+0,51,45,-4
+0,51,72,-12
+0,51,103,-4
+0,55,0,-100
+0,55,1,-350
+0,55,2,-150
+0,55,3,-400
+0,55,5,-700
+0,55,7,-100
+0,55,9,-1250
+0,55,10,-400
+0,55,13,-25
+0,55,15,-10
+0,55,16,-700
+0,55,17,-800
+0,55,19,-300
+0,55,20,-200
+0,55,22,-2500
+0,55,23,-1400
+0,55,25,-1400
+0,55,27,-4800
+0,55,28,-4800
+0,55,29,-4800
+0,55,30,-700
+0,55,32,-200
+0,55,34,-250
+0,55,35,-10
+0,55,36,-25
+0,55,37,-50
+0,55,38,-350
+0,55,39,-1300
+0,55,40,-25
+0,55,41,-100
+0,55,42,-200
+0,55,43,-600
+0,55,44,-1100
+0,55,45,-800
+0,55,48,-2600
+0,55,50,-400
+0,55,51,-4000
+0,55,52,-900
+0,55,53,-500
+0,55,54,-100
+0,55,55,-1200
+0,55,56,-2200
+0,55,57,-400
+0,55,61,-650
+0,55,63,-1300
+0,55,64,-100
+0,55,65,-200
+0,55,66,-500
+0,55,67,-700
+0,55,68,-1400
+0,55,69,-400
+0,55,70,-1300
+0,55,71,-2050
+0,55,72,-1900
+0,55,73,-60
+0,55,74,-400
+0,55,75,-800
+0,55,76,-2800
+0,55,77,-400
+0,55,78,-1000
+0,55,79,-1400
+0,55,80,-2600
+0,55,81,-1600
+0,55,103,-500
+0,58,35,463
+1,0,25,-1
+1,1,0,7
+1,1,2,6
+1,4,2,16
+1,5,2,-128
+1,7,0,-1
+1,7,25,-1
+1,8,0,-2
+1,8,2,-2
+1,10,25,-2
+1,11,25,-15
+1,12,25,-20
+1,13,25,-25
+1,16,0,7
+1,16,2,8
+1,16,35,14
+1,20,0,16
+1,20,2,24
+1,23,0,46
+1,23,2,45
+1,23,25,6
+2,0,19,25
+2,0,29,92
+2,0,80,152
+2,0,110,-140
+2,0,117,179
+2,0,143,-5
+2,0,206,-275
+2,1,80,-1707
+2,1,110,-427
+2,1,149,-8514
+2,2,80,-67
+2,2,110,-33
+2,2,149,-8266
+2,3,80,-21745
+2,3,110,-2763
+2,4,80,-40
+2,4,110,-27
+2,5,80,97
+2,6,110,1
+3,0,161,487
+3,0,171,903
+3,0,176,455
+3,0,178,851
+3,0,179,608
+3,0,181,374
+3,0,246,257
+3,0,268,37
+3,0,272,-2
+3,0,346,-4
+3,0,378,106
+3,0,390,-288
+3,1,154,36
+3,1,260,21
+3,3,239,-1
+3,3,247,-1
+3,3,516,-1
+3,4,31,-3
+3,4,34,-1
+3,4,41,-2
+3,4,44,-4
+3,4,46,-6
+3,4,48,-6
+3,4,49,-3
+3,4,136,-3
+3,4,157,2
+3,4,260,3
+3,4,355,-3
+3,5,31,10
+3,5,41,2
+3,5,46,3
+3,5,48,6
+3,5,157,4
+4,1,247,-1
+4,2,247,-1
+4,2,545,1
+4,2,548,1
+4,2,703,1
+4,2,753,1
+4,2,946,1
+4,2,959,-1
+4,2,983,1
+4,3,233,-1
+4,3,247,-1
+4,4,233,-1
+4,4,247,-1
+4,5,84,9
+4,5,321,-8
+4,5,356,9
+4,5,761,9
+4,6,84,3
+4,6,356,4
+4,6,761,1
+4,7,99,265
+4,7,134,-100
+4,7,174,2
+4,7,296,-3
+4,7,316,-80
+4,7,356,-79
+4,7,517,-210
+4,7,534,-10
+4,7,535,-10
+4,7,545,140
+4,7,548,-230
+4,7,753,-44
+4,7,925,-314
+4,7,946,-305
+4,7,974,9
+4,10,99,-54
+4,10,296,-318
+4,10,356,350
+4,10,753,66
+4,10,939,66
+4,12,356,351
+4,13,356,352
+E_DatEditSET
+S_FireGraftSET
+E_FireGraftSET
+S_BtnSET
+BtnUse1 : True
+BtnData1 : 1,228,4358864,4342848,0,0,664,0,2,229,4358864,4338672,0,0,665,0,3,230,4362032,4342656,0,0,666,0,4,254,4358864,4342080,0,0,667,0,5,255,4358864,4338544,0,0,668,0,7,252,4363232,4339504,10,10,344,355,7,253,4363120,4338288,10,0,345,0,8,240,4363488,4341616,1,1,335,347,9,311,4360208,4340288,0,0,685,761,
+BtnUse15 : True
+BtnData15 : 2,335,4361392,4561648,0,238,680,0,3,235,4361264,4561648,0,241,686,0,1,318,4361264,4561648,0,241,681,0,9,215,4363488,4338864,0,103,1165,1546,
+BtnUse35 : True
+BtnData35 : 2,353,4361392,4561648,0,238,680,0,3,372,4361264,4561648,0,241,681,0,1,215,4364064,4339600,103,103,1165,1298,
+BtnUse38 : True
+BtnData38 : 8,228,4359104,4342848,0,0,664,0,9,229,4359104,4338672,0,0,665,0,1,215,4364064,4339600,103,103,1165,1298,2,381,4361392,4561648,0,238,680,0,3,258,4361264,4561648,0,241,681,0,
+BtnUse41 : True
+BtnData41 : 65535,228,4359104,4342848,0,0,664,0,9,229,4359104,4338672,0,0,665,0,1,215,4361824,4339600,103,103,1165,1298,7,257,4361392,4561648,0,238,680,0,8,258,4361264,4561648,0,241,681,0,
+BtnUse42 : True
+BtnData42 : 1,228,4358864,4342848,0,0,664,0,2,318,4358864,4561648,0,229,812,0,9,312,4361888,4340480,0,0,684,0,
+BtnUse43 : True
+BtnData43 : 1,228,4358864,4342848,0,0,664,0,2,229,4358864,4338672,0,0,665,0,3,230,4362032,4342656,0,0,666,0,4,254,4358864,4342080,0,0,667,0,5,255,4358864,4338544,0,0,668,0,7,44,4361824,4339600,44,44,581,742,8,62,4361824,4339600,62,62,1288,1297,
+BtnUse72 : True
+BtnData72 : 1,228,4358864,4342368,0,0,664,0,2,229,4358864,4338640,0,0,665,0,3,230,4359904,4342272,0,0,666,759,4,254,4358864,4342080,0,0,667,0,5,255,4358864,4338544,0,0,668,0,7,73,4361728,4338576,73,73,607,0,9,236,4359472,4338832,0,254,693,0,
+BtnUse124 : True
+BtnData124 : 9,236,4359392,4338736,0,0,691,0,1,387,4361824,4338864,7,7,670,0,2,386,4361824,4338864,41,41,989,0,3,388,4361824,4338864,21,21,676,0,7,232,4361824,4338864,72,72,369,0,
+BtnUse161 : True
+BtnData161 : 
+BtnUse162 : True
+BtnData162 : 7,232,4361824,4338864,72,72,369,0,9,236,4359392,4338736,0,0,691,0,1,387,4361824,4338864,7,7,670,0,5,0,5106496,4338736,0,0,1,1,2,386,4361824,4338864,41,41,989,0,3,388,4361824,4338864,21,21,676,0,
+BtnUse164 : True
+BtnData164 : 7,232,4358864,4561648,72,179,369,0,1,387,4361824,4338864,4,4,670,0,2,386,4361824,4338864,6,6,989,0,4,365,4361824,4338864,13,13,1537,1,3,388,4361824,4338864,7,7,676,0,9,389,4361824,4338864,10,10,677,0,6,233,4361824,4338864,9,9,1542,1,8,309,4361824,4338864,12,12,682,0,
+BtnUse179 : True
+BtnData179 : 1,367,4361824,4338864,14,14,1516,1,2,293,4361824,4338864,22,22,1515,1,4,166,4361824,4338864,24,24,1514,1,6,155,4361824,4338864,31,31,1512,1,5,111,4361824,4338864,26,26,1513,1,9,236,4358864,4561648,0,228,688,0,
+BtnUse238 : True
+BtnData238 : 9,236,4358864,4561648,0,228,688,0,4,42,4361824,4339600,42,42,579,0,1,162,4361824,4339600,37,37,575,738,2,164,4361824,4339600,38,38,576,739,3,371,4361824,4339600,41,41,1545,0,
+BtnUse241 : True
+BtnData241 : 4,46,4361824,4339600,46,46,583,744,5,47,4361824,4339600,47,47,584,745,1,365,4361824,4339600,43,43,580,741,2,39,4361824,4339600,39,39,577,740,3,45,4361824,4339600,45,45,582,743,9,236,4358864,4561648,0,228,688,0,
+E_BtnSET
+S_ReqSET
+ReqUse0,0 : 2
+ReqPos0,0 : 2
+ReqCount0,0 : 0
+ReqUse0,1 : 2
+ReqPos0,1 : 4
+ReqCount0,1 : 0
+ReqUse0,2 : 2
+ReqPos0,2 : 6
+ReqCount0,2 : 0
+ReqUse0,3 : 2
+ReqPos0,3 : 8
+ReqCount0,3 : 0
+ReqUse0,4 : 2
+ReqPos0,4 : 10
+ReqCount0,4 : 0
+ReqUse0,5 : 2
+ReqPos0,5 : 12
+ReqCount0,5 : 0
+ReqUse0,6 : 2
+ReqPos0,6 : 14
+ReqCount0,6 : 0
+ReqUse0,7 : 2
+ReqPos0,7 : 16
+ReqCount0,7 : 0
+ReqUse0,8 : 2
+ReqPos0,8 : 18
+ReqCount0,8 : 0
+ReqUse0,9 : 2
+ReqPos0,9 : 20
+ReqCount0,9 : 0
+ReqUse0,10 : 2
+ReqPos0,10 : 22
+ReqCount0,10 : 0
+ReqUse0,11 : 2
+ReqPos0,11 : 24
+ReqCount0,11 : 0
+ReqUse0,12 : 2
+ReqPos0,12 : 26
+ReqCount0,12 : 0
+ReqUse0,13 : 2
+ReqPos0,13 : 28
+ReqCount0,13 : 0
+ReqUse0,14 : 2
+ReqPos0,14 : 30
+ReqCount0,14 : 0
+ReqUse0,15 : 2
+ReqPos0,15 : 32
+ReqCount0,15 : 0
+ReqUse0,16 : 2
+ReqPos0,16 : 34
+ReqCount0,16 : 0
+ReqUse0,17 : 2
+ReqPos0,17 : 36
+ReqCount0,17 : 0
+ReqUse0,18 : 2
+ReqPos0,18 : 38
+ReqCount0,18 : 0
+ReqUse0,19 : 2
+ReqPos0,19 : 40
+ReqCount0,19 : 0
+ReqUse0,20 : 2
+ReqPos0,20 : 42
+ReqCount0,20 : 0
+ReqUse0,21 : 2
+ReqPos0,21 : 44
+ReqCount0,21 : 0
+ReqUse0,22 : 2
+ReqPos0,22 : 46
+ReqCount0,22 : 0
+ReqUse0,23 : 2
+ReqPos0,23 : 48
+ReqCount0,23 : 0
+ReqUse0,24 : 2
+ReqPos0,24 : 50
+ReqCount0,24 : 0
+ReqUse0,25 : 2
+ReqPos0,25 : 52
+ReqCount0,25 : 0
+ReqUse0,26 : 2
+ReqPos0,26 : 54
+ReqCount0,26 : 0
+ReqUse0,27 : 2
+ReqPos0,27 : 56
+ReqCount0,27 : 0
+ReqUse0,28 : 2
+ReqPos0,28 : 58
+ReqCount0,28 : 0
+ReqUse0,29 : 2
+ReqPos0,29 : 60
+ReqCount0,29 : 0
+ReqUse0,30 : 2
+ReqPos0,30 : 62
+ReqCount0,30 : 0
+ReqUse0,31 : 2
+ReqPos0,31 : 64
+ReqCount0,31 : 0
+ReqUse0,32 : 2
+ReqPos0,32 : 66
+ReqCount0,32 : 0
+ReqUse0,33 : 2
+ReqPos0,33 : 68
+ReqCount0,33 : 0
+ReqUse0,34 : 2
+ReqPos0,34 : 70
+ReqCount0,34 : 0
+ReqUse0,35 : 2
+ReqPos0,35 : 72
+ReqCount0,35 : 0
+ReqUse0,36 : 2
+ReqPos0,36 : 74
+ReqCount0,36 : 0
+ReqUse0,37 : 2
+ReqPos0,37 : 76
+ReqCount0,37 : 0
+ReqUse0,38 : 2
+ReqPos0,38 : 78
+ReqCount0,38 : 0
+ReqUse0,39 : 2
+ReqPos0,39 : 80
+ReqCount0,39 : 0
+ReqUse0,40 : 2
+ReqPos0,40 : 82
+ReqCount0,40 : 0
+ReqUse0,41 : 2
+ReqPos0,41 : 84
+ReqCount0,41 : 0
+ReqUse0,42 : 2
+ReqPos0,42 : 86
+ReqCount0,42 : 0
+ReqUse0,43 : 2
+ReqPos0,43 : 88
+ReqCount0,43 : 0
+ReqUse0,44 : 2
+ReqPos0,44 : 90
+ReqCount0,44 : 0
+ReqUse0,45 : 2
+ReqPos0,45 : 92
+ReqCount0,45 : 0
+ReqUse0,46 : 2
+ReqPos0,46 : 94
+ReqCount0,46 : 0
+ReqUse0,47 : 2
+ReqPos0,47 : 96
+ReqCount0,47 : 0
+ReqUse0,48 : 2
+ReqPos0,48 : 98
+ReqCount0,48 : 0
+ReqUse0,49 : 2
+ReqPos0,49 : 100
+ReqCount0,49 : 0
+ReqUse0,50 : 2
+ReqPos0,50 : 102
+ReqCount0,50 : 0
+ReqUse0,51 : 2
+ReqPos0,51 : 104
+ReqCount0,51 : 0
+ReqUse0,52 : 2
+ReqPos0,52 : 106
+ReqCount0,52 : 0
+ReqUse0,53 : 2
+ReqPos0,53 : 108
+ReqCount0,53 : 0
+ReqUse0,54 : 2
+ReqPos0,54 : 110
+ReqCount0,54 : 0
+ReqUse0,55 : 2
+ReqPos0,55 : 112
+ReqCount0,55 : 0
+ReqUse0,56 : 2
+ReqPos0,56 : 114
+ReqCount0,56 : 0
+ReqUse0,57 : 2
+ReqPos0,57 : 116
+ReqCount0,57 : 0
+ReqUse0,58 : 2
+ReqPos0,58 : 118
+ReqCount0,58 : 0
+ReqUse0,59 : 2
+ReqPos0,59 : 120
+ReqCount0,59 : 0
+ReqUse0,60 : 2
+ReqPos0,60 : 122
+ReqCount0,60 : 0
+ReqUse0,61 : 2
+ReqPos0,61 : 124
+ReqCount0,61 : 0
+ReqUse0,62 : 2
+ReqPos0,62 : 126
+ReqCount0,62 : 0
+ReqUse0,63 : 2
+ReqPos0,63 : 128
+ReqCount0,63 : 0
+ReqUse0,64 : 2
+ReqPos0,64 : 130
+ReqCount0,64 : 0
+ReqUse0,65 : 2
+ReqPos0,65 : 132
+ReqCount0,65 : 0
+ReqUse0,66 : 2
+ReqPos0,66 : 134
+ReqCount0,66 : 0
+ReqUse0,67 : 2
+ReqPos0,67 : 136
+ReqCount0,67 : 0
+ReqUse0,68 : 2
+ReqPos0,68 : 138
+ReqCount0,68 : 0
+ReqUse0,69 : 2
+ReqPos0,69 : 140
+ReqCount0,69 : 0
+ReqUse0,70 : 2
+ReqPos0,70 : 142
+ReqCount0,70 : 0
+ReqUse0,71 : 2
+ReqPos0,71 : 144
+ReqCount0,71 : 0
+ReqUse0,72 : 2
+ReqPos0,72 : 146
+ReqCount0,72 : 0
+ReqUse0,73 : 2
+ReqPos0,73 : 148
+ReqCount0,73 : 0
+ReqUse0,74 : 2
+ReqPos0,74 : 150
+ReqCount0,74 : 0
+ReqUse0,75 : 2
+ReqPos0,75 : 152
+ReqCount0,75 : 0
+ReqUse0,76 : 2
+ReqPos0,76 : 154
+ReqCount0,76 : 0
+ReqUse0,77 : 2
+ReqPos0,77 : 156
+ReqCount0,77 : 0
+ReqUse0,78 : 2
+ReqPos0,78 : 158
+ReqCount0,78 : 0
+ReqUse0,79 : 2
+ReqPos0,79 : 160
+ReqCount0,79 : 0
+ReqUse0,80 : 2
+ReqPos0,80 : 162
+ReqCount0,80 : 0
+ReqUse0,81 : 2
+ReqPos0,81 : 164
+ReqCount0,81 : 0
+ReqUse0,82 : 2
+ReqPos0,82 : 166
+ReqCount0,82 : 0
+ReqUse0,83 : 2
+ReqPos0,83 : 168
+ReqCount0,83 : 0
+ReqUse0,84 : 2
+ReqPos0,84 : 170
+ReqCount0,84 : 0
+ReqUse0,85 : 2
+ReqPos0,85 : 172
+ReqCount0,85 : 0
+ReqUse0,86 : 2
+ReqPos0,86 : 174
+ReqCount0,86 : 0
+ReqUse0,87 : 2
+ReqPos0,87 : 176
+ReqCount0,87 : 0
+ReqUse0,88 : 2
+ReqPos0,88 : 178
+ReqCount0,88 : 0
+ReqUse0,89 : 2
+ReqPos0,89 : 180
+ReqCount0,89 : 0
+ReqUse0,90 : 2
+ReqPos0,90 : 182
+ReqCount0,90 : 0
+ReqUse0,91 : 2
+ReqPos0,91 : 184
+ReqCount0,91 : 0
+ReqUse0,92 : 2
+ReqPos0,92 : 186
+ReqCount0,92 : 0
+ReqUse0,93 : 2
+ReqPos0,93 : 188
+ReqCount0,93 : 0
+ReqUse0,94 : 2
+ReqPos0,94 : 190
+ReqCount0,94 : 0
+ReqUse0,95 : 2
+ReqPos0,95 : 192
+ReqCount0,95 : 0
+ReqUse0,96 : 2
+ReqPos0,96 : 194
+ReqCount0,96 : 0
+ReqUse0,97 : 2
+ReqPos0,97 : 196
+ReqCount0,97 : 0
+ReqUse0,98 : 2
+ReqPos0,98 : 198
+ReqCount0,98 : 0
+ReqUse0,99 : 2
+ReqPos0,99 : 200
+ReqCount0,99 : 0
+ReqUse0,100 : 2
+ReqPos0,100 : 202
+ReqCount0,100 : 0
+ReqUse0,101 : 2
+ReqPos0,101 : 204
+ReqCount0,101 : 0
+ReqUse0,102 : 2
+ReqPos0,102 : 206
+ReqCount0,102 : 0
+ReqUse0,103 : 2
+ReqPos0,103 : 208
+ReqCount0,103 : 0
+ReqUse0,104 : 2
+ReqPos0,104 : 210
+ReqCount0,104 : 0
+ReqUse0,105 : 2
+ReqPos0,105 : 212
+ReqCount0,105 : 0
+ReqUse0,106 : 2
+ReqPos0,106 : 214
+ReqCount0,106 : 0
+ReqUse0,107 : 2
+ReqPos0,107 : 216
+ReqCount0,107 : 0
+ReqUse0,108 : 2
+ReqPos0,108 : 218
+ReqCount0,108 : 0
+ReqUse0,109 : 2
+ReqPos0,109 : 220
+ReqCount0,109 : 0
+ReqUse0,110 : 2
+ReqPos0,110 : 222
+ReqCount0,110 : 0
+ReqUse0,111 : 2
+ReqPos0,111 : 224
+ReqCount0,111 : 0
+ReqUse0,112 : 2
+ReqPos0,112 : 226
+ReqCount0,112 : 0
+ReqUse0,113 : 2
+ReqPos0,113 : 228
+ReqCount0,113 : 0
+ReqUse0,114 : 2
+ReqPos0,114 : 230
+ReqCount0,114 : 0
+ReqUse0,115 : 2
+ReqPos0,115 : 232
+ReqCount0,115 : 0
+ReqUse0,116 : 2
+ReqPos0,116 : 234
+ReqCount0,116 : 0
+ReqUse0,117 : 2
+ReqPos0,117 : 236
+ReqCount0,117 : 0
+ReqUse0,118 : 2
+ReqPos0,118 : 238
+ReqCount0,118 : 0
+ReqUse0,119 : 2
+ReqPos0,119 : 240
+ReqCount0,119 : 0
+ReqUse0,120 : 2
+ReqPos0,120 : 242
+ReqCount0,120 : 0
+ReqUse0,121 : 2
+ReqPos0,121 : 244
+ReqCount0,121 : 0
+ReqUse0,122 : 2
+ReqPos0,122 : 246
+ReqCount0,122 : 0
+ReqUse0,123 : 2
+ReqPos0,123 : 248
+ReqCount0,123 : 0
+ReqUse0,124 : 2
+ReqPos0,124 : 250
+ReqCount0,124 : 0
+ReqUse0,125 : 2
+ReqPos0,125 : 252
+ReqCount0,125 : 0
+ReqUse0,126 : 2
+ReqPos0,126 : 254
+ReqCount0,126 : 0
+ReqUse0,127 : 2
+ReqPos0,127 : 256
+ReqCount0,127 : 0
+ReqUse0,128 : 2
+ReqPos0,128 : 258
+ReqCount0,128 : 0
+ReqUse0,129 : 2
+ReqPos0,129 : 260
+ReqCount0,129 : 0
+ReqUse0,130 : 2
+ReqPos0,130 : 262
+ReqCount0,130 : 0
+ReqUse0,131 : 2
+ReqPos0,131 : 264
+ReqCount0,131 : 0
+ReqUse0,132 : 2
+ReqPos0,132 : 266
+ReqCount0,132 : 0
+ReqUse0,133 : 2
+ReqPos0,133 : 268
+ReqCount0,133 : 0
+ReqUse0,134 : 2
+ReqPos0,134 : 270
+ReqCount0,134 : 0
+ReqUse0,135 : 2
+ReqPos0,135 : 272
+ReqCount0,135 : 0
+ReqUse0,136 : 2
+ReqPos0,136 : 274
+ReqCount0,136 : 0
+ReqUse0,137 : 2
+ReqPos0,137 : 276
+ReqCount0,137 : 0
+ReqUse0,138 : 2
+ReqPos0,138 : 278
+ReqCount0,138 : 0
+ReqUse0,139 : 2
+ReqPos0,139 : 280
+ReqCount0,139 : 0
+ReqUse0,140 : 2
+ReqPos0,140 : 282
+ReqCount0,140 : 0
+ReqUse0,141 : 2
+ReqPos0,141 : 284
+ReqCount0,141 : 0
+ReqUse0,142 : 2
+ReqPos0,142 : 286
+ReqCount0,142 : 0
+ReqUse0,143 : 2
+ReqPos0,143 : 288
+ReqCount0,143 : 0
+ReqUse0,144 : 2
+ReqPos0,144 : 290
+ReqCount0,144 : 0
+ReqUse0,145 : 2
+ReqPos0,145 : 292
+ReqCount0,145 : 0
+ReqUse0,146 : 2
+ReqPos0,146 : 294
+ReqCount0,146 : 0
+ReqUse0,147 : 2
+ReqPos0,147 : 296
+ReqCount0,147 : 0
+ReqUse0,148 : 2
+ReqPos0,148 : 298
+ReqCount0,148 : 0
+ReqUse0,149 : 2
+ReqPos0,149 : 300
+ReqCount0,149 : 0
+ReqUse0,150 : 2
+ReqPos0,150 : 302
+ReqCount0,150 : 0
+ReqUse0,151 : 2
+ReqPos0,151 : 304
+ReqCount0,151 : 0
+ReqUse0,152 : 2
+ReqPos0,152 : 306
+ReqCount0,152 : 0
+ReqUse0,153 : 2
+ReqPos0,153 : 308
+ReqCount0,153 : 0
+ReqUse0,154 : 2
+ReqPos0,154 : 310
+ReqCount0,154 : 0
+ReqUse0,155 : 2
+ReqPos0,155 : 312
+ReqCount0,155 : 0
+ReqUse0,156 : 2
+ReqPos0,156 : 314
+ReqCount0,156 : 0
+ReqUse0,157 : 2
+ReqPos0,157 : 316
+ReqCount0,157 : 0
+ReqUse0,158 : 2
+ReqPos0,158 : 318
+ReqCount0,158 : 0
+ReqUse0,159 : 2
+ReqPos0,159 : 320
+ReqCount0,159 : 0
+ReqUse0,160 : 2
+ReqPos0,160 : 322
+ReqCount0,160 : 0
+ReqUse0,161 : 2
+ReqPos0,161 : 324
+ReqCount0,161 : 0
+ReqUse0,162 : 2
+ReqPos0,162 : 326
+ReqCount0,162 : 0
+ReqUse0,163 : 2
+ReqPos0,163 : 328
+ReqCount0,163 : 0
+ReqUse0,164 : 2
+ReqPos0,164 : 330
+ReqCount0,164 : 0
+ReqUse0,165 : 2
+ReqPos0,165 : 332
+ReqCount0,165 : 0
+ReqUse0,166 : 2
+ReqPos0,166 : 334
+ReqCount0,166 : 0
+ReqUse0,167 : 2
+ReqPos0,167 : 336
+ReqCount0,167 : 0
+ReqUse0,168 : 2
+ReqPos0,168 : 338
+ReqCount0,168 : 0
+ReqUse0,169 : 2
+ReqPos0,169 : 340
+ReqCount0,169 : 0
+ReqUse0,170 : 2
+ReqPos0,170 : 342
+ReqCount0,170 : 0
+ReqUse0,171 : 2
+ReqPos0,171 : 344
+ReqCount0,171 : 0
+ReqUse0,172 : 2
+ReqPos0,172 : 346
+ReqCount0,172 : 0
+ReqUse0,173 : 2
+ReqPos0,173 : 348
+ReqCount0,173 : 0
+ReqUse0,174 : 2
+ReqPos0,174 : 350
+ReqCount0,174 : 0
+ReqUse0,175 : 2
+ReqPos0,175 : 352
+ReqCount0,175 : 0
+ReqUse0,176 : 2
+ReqPos0,176 : 354
+ReqCount0,176 : 0
+ReqUse0,177 : 2
+ReqPos0,177 : 356
+ReqCount0,177 : 0
+ReqUse0,178 : 2
+ReqPos0,178 : 358
+ReqCount0,178 : 0
+ReqUse0,179 : 2
+ReqPos0,179 : 360
+ReqCount0,179 : 0
+ReqUse0,180 : 2
+ReqPos0,180 : 362
+ReqCount0,180 : 0
+ReqUse0,181 : 2
+ReqPos0,181 : 364
+ReqCount0,181 : 0
+ReqUse0,182 : 2
+ReqPos0,182 : 366
+ReqCount0,182 : 0
+ReqUse0,183 : 2
+ReqPos0,183 : 368
+ReqCount0,183 : 0
+ReqUse0,184 : 2
+ReqPos0,184 : 370
+ReqCount0,184 : 0
+ReqUse0,185 : 2
+ReqPos0,185 : 372
+ReqCount0,185 : 0
+ReqUse0,186 : 2
+ReqPos0,186 : 374
+ReqCount0,186 : 0
+ReqUse0,187 : 2
+ReqPos0,187 : 376
+ReqCount0,187 : 0
+ReqUse0,188 : 2
+ReqPos0,188 : 378
+ReqCount0,188 : 0
+ReqUse0,189 : 2
+ReqPos0,189 : 380
+ReqCount0,189 : 0
+ReqUse0,190 : 2
+ReqPos0,190 : 382
+ReqCount0,190 : 0
+ReqUse0,191 : 2
+ReqPos0,191 : 384
+ReqCount0,191 : 0
+ReqUse0,192 : 2
+ReqPos0,192 : 386
+ReqCount0,192 : 0
+ReqUse0,193 : 2
+ReqPos0,193 : 388
+ReqCount0,193 : 0
+ReqUse0,194 : 2
+ReqPos0,194 : 390
+ReqCount0,194 : 0
+ReqUse0,195 : 2
+ReqPos0,195 : 392
+ReqCount0,195 : 0
+ReqUse0,196 : 2
+ReqPos0,196 : 394
+ReqCount0,196 : 0
+ReqUse0,197 : 2
+ReqPos0,197 : 396
+ReqCount0,197 : 0
+ReqUse0,198 : 2
+ReqPos0,198 : 398
+ReqCount0,198 : 0
+ReqUse0,199 : 2
+ReqPos0,199 : 400
+ReqCount0,199 : 0
+ReqUse0,200 : 2
+ReqPos0,200 : 402
+ReqCount0,200 : 0
+ReqUse0,201 : 2
+ReqPos0,201 : 404
+ReqCount0,201 : 0
+ReqUse0,202 : 2
+ReqPos0,202 : 406
+ReqCount0,202 : 0
+ReqUse0,203 : 2
+ReqPos0,203 : 408
+ReqCount0,203 : 0
+ReqUse0,204 : 2
+ReqPos0,204 : 410
+ReqCount0,204 : 0
+ReqUse0,205 : 2
+ReqPos0,205 : 412
+ReqCount0,205 : 0
+ReqUse0,206 : 2
+ReqPos0,206 : 414
+ReqCount0,206 : 0
+ReqUse0,207 : 2
+ReqPos0,207 : 416
+ReqCount0,207 : 0
+ReqUse0,208 : 2
+ReqPos0,208 : 418
+ReqCount0,208 : 0
+ReqUse0,209 : 2
+ReqPos0,209 : 420
+ReqCount0,209 : 0
+ReqUse0,210 : 2
+ReqPos0,210 : 422
+ReqCount0,210 : 0
+ReqUse0,211 : 2
+ReqPos0,211 : 424
+ReqCount0,211 : 0
+ReqUse0,212 : 2
+ReqPos0,212 : 426
+ReqCount0,212 : 0
+ReqUse0,213 : 2
+ReqPos0,213 : 428
+ReqCount0,213 : 0
+ReqUse0,214 : 2
+ReqPos0,214 : 430
+ReqCount0,214 : 0
+ReqUse0,215 : 2
+ReqPos0,215 : 432
+ReqCount0,215 : 0
+ReqUse0,216 : 2
+ReqPos0,216 : 434
+ReqCount0,216 : 0
+ReqUse0,217 : 2
+ReqPos0,217 : 436
+ReqCount0,217 : 0
+ReqUse0,218 : 2
+ReqPos0,218 : 438
+ReqCount0,218 : 0
+ReqUse0,219 : 2
+ReqPos0,219 : 440
+ReqCount0,219 : 0
+ReqUse0,220 : 2
+ReqPos0,220 : 442
+ReqCount0,220 : 0
+ReqUse0,221 : 2
+ReqPos0,221 : 444
+ReqCount0,221 : 0
+ReqUse0,222 : 2
+ReqPos0,222 : 446
+ReqCount0,222 : 0
+ReqUse0,223 : 2
+ReqPos0,223 : 448
+ReqCount0,223 : 0
+ReqUse0,224 : 2
+ReqPos0,224 : 450
+ReqCount0,224 : 0
+ReqUse0,225 : 2
+ReqPos0,225 : 452
+ReqCount0,225 : 0
+ReqUse0,226 : 2
+ReqPos0,226 : 454
+ReqCount0,226 : 0
+ReqUse0,227 : 2
+ReqPos0,227 : 456
+ReqCount0,227 : 0
+ReqUse2,32 : 2
+ReqPos2,32 : 150
+ReqCount2,32 : 0
+ReqUse3,0 : 3
+ReqPos3,0 : 2
+ReqCount3,0 : 1
+ReqData3,0,0 : 65295
+ReqUse3,32 : 2
+ReqPos3,32 : 321
+ReqCount3,32 : 0
+ReqUse4,0 : 2
+ReqPos4,0 : 2
+ReqCount4,0 : 0
+ReqUse4,1 : 2
+ReqPos4,1 : 4
+ReqCount4,1 : 0
+ReqUse4,2 : 2
+ReqPos4,2 : 6
+ReqCount4,2 : 0
+ReqUse4,3 : 2
+ReqPos4,3 : 8
+ReqCount4,3 : 0
+ReqUse4,4 : 2
+ReqPos4,4 : 10
+ReqCount4,4 : 0
+ReqUse4,5 : 2
+ReqPos4,5 : 12
+ReqCount4,5 : 0
+ReqUse4,6 : 2
+ReqPos4,6 : 14
+ReqCount4,6 : 0
+ReqUse4,7 : 2
+ReqPos4,7 : 16
+ReqCount4,7 : 0
+ReqUse4,8 : 2
+ReqPos4,8 : 18
+ReqCount4,8 : 0
+ReqUse4,9 : 2
+ReqPos4,9 : 20
+ReqCount4,9 : 0
+ReqUse4,10 : 2
+ReqPos4,10 : 22
+ReqCount4,10 : 0
+ReqUse4,11 : 2
+ReqPos4,11 : 24
+ReqCount4,11 : 0
+ReqUse4,12 : 2
+ReqPos4,12 : 26
+ReqCount4,12 : 0
+ReqUse4,13 : 2
+ReqPos4,13 : 28
+ReqCount4,13 : 0
+ReqUse4,14 : 2
+ReqPos4,14 : 30
+ReqCount4,14 : 0
+ReqUse4,15 : 2
+ReqPos4,15 : 32
+ReqCount4,15 : 0
+ReqUse4,16 : 2
+ReqPos4,16 : 34
+ReqCount4,16 : 0
+ReqUse4,17 : 2
+ReqPos4,17 : 36
+ReqCount4,17 : 0
+ReqUse4,18 : 2
+ReqPos4,18 : 38
+ReqCount4,18 : 0
+ReqUse4,19 : 2
+ReqPos4,19 : 40
+ReqCount4,19 : 0
+ReqUse4,20 : 2
+ReqPos4,20 : 42
+ReqCount4,20 : 0
+ReqUse4,21 : 2
+ReqPos4,21 : 44
+ReqCount4,21 : 0
+ReqUse4,22 : 2
+ReqPos4,22 : 46
+ReqCount4,22 : 0
+ReqUse4,23 : 2
+ReqPos4,23 : 48
+ReqCount4,23 : 0
+ReqUse4,24 : 2
+ReqPos4,24 : 50
+ReqCount4,24 : 0
+ReqUse4,25 : 2
+ReqPos4,25 : 52
+ReqCount4,25 : 0
+ReqUse4,26 : 2
+ReqPos4,26 : 54
+ReqCount4,26 : 0
+ReqUse4,27 : 2
+ReqPos4,27 : 56
+ReqCount4,27 : 0
+ReqUse4,28 : 2
+ReqPos4,28 : 58
+ReqCount4,28 : 0
+ReqUse4,29 : 2
+ReqPos4,29 : 60
+ReqCount4,29 : 0
+ReqUse4,30 : 2
+ReqPos4,30 : 62
+ReqCount4,30 : 0
+ReqUse4,31 : 2
+ReqPos4,31 : 64
+ReqCount4,31 : 0
+ReqUse4,32 : 2
+ReqPos4,32 : 66
+ReqCount4,32 : 0
+ReqUse4,33 : 2
+ReqPos4,33 : 68
+ReqCount4,33 : 0
+ReqUse4,34 : 2
+ReqPos4,34 : 70
+ReqCount4,34 : 0
+ReqUse4,35 : 2
+ReqPos4,35 : 72
+ReqCount4,35 : 0
+ReqUse4,36 : 2
+ReqPos4,36 : 74
+ReqCount4,36 : 0
+ReqUse4,37 : 2
+ReqPos4,37 : 76
+ReqCount4,37 : 0
+ReqUse4,38 : 2
+ReqPos4,38 : 78
+ReqCount4,38 : 0
+ReqUse4,39 : 2
+ReqPos4,39 : 80
+ReqCount4,39 : 0
+ReqUse4,40 : 2
+ReqPos4,40 : 82
+ReqCount4,40 : 0
+ReqUse4,41 : 2
+ReqPos4,41 : 84
+ReqCount4,41 : 0
+ReqUse4,42 : 2
+ReqPos4,42 : 86
+ReqCount4,42 : 0
+ReqUse4,43 : 2
+ReqPos4,43 : 88
+ReqCount4,43 : 0
+ReqUse4,44 : 2
+ReqPos4,44 : 90
+ReqCount4,44 : 0
+ReqUse4,45 : 2
+ReqPos4,45 : 92
+ReqCount4,45 : 0
+ReqUse4,46 : 2
+ReqPos4,46 : 94
+ReqCount4,46 : 0
+ReqUse4,47 : 2
+ReqPos4,47 : 96
+ReqCount4,47 : 0
+ReqUse4,48 : 2
+ReqPos4,48 : 98
+ReqCount4,48 : 0
+ReqUse4,49 : 2
+ReqPos4,49 : 100
+ReqCount4,49 : 0
+ReqUse4,50 : 2
+ReqPos4,50 : 102
+ReqCount4,50 : 0
+ReqUse4,51 : 2
+ReqPos4,51 : 104
+ReqCount4,51 : 0
+ReqUse4,52 : 2
+ReqPos4,52 : 106
+ReqCount4,52 : 0
+ReqUse4,53 : 2
+ReqPos4,53 : 108
+ReqCount4,53 : 0
+ReqUse4,54 : 2
+ReqPos4,54 : 110
+ReqCount4,54 : 0
+ReqUse4,55 : 2
+ReqPos4,55 : 112
+ReqCount4,55 : 0
+ReqUse4,56 : 2
+ReqPos4,56 : 114
+ReqCount4,56 : 0
+ReqUse4,57 : 2
+ReqPos4,57 : 116
+ReqCount4,57 : 0
+ReqUse4,58 : 2
+ReqPos4,58 : 118
+ReqCount4,58 : 0
+ReqUse4,59 : 2
+ReqPos4,59 : 120
+ReqCount4,59 : 0
+ReqUse4,60 : 2
+ReqPos4,60 : 122
+ReqCount4,60 : 0
+ReqUse4,61 : 2
+ReqPos4,61 : 124
+ReqCount4,61 : 0
+ReqUse4,62 : 2
+ReqPos4,62 : 126
+ReqCount4,62 : 0
+ReqUse4,63 : 2
+ReqPos4,63 : 128
+ReqCount4,63 : 0
+ReqUse4,64 : 2
+ReqPos4,64 : 130
+ReqCount4,64 : 0
+ReqUse4,65 : 2
+ReqPos4,65 : 132
+ReqCount4,65 : 0
+ReqUse4,66 : 2
+ReqPos4,66 : 134
+ReqCount4,66 : 0
+ReqUse4,67 : 2
+ReqPos4,67 : 136
+ReqCount4,67 : 0
+ReqUse4,68 : 2
+ReqPos4,68 : 138
+ReqCount4,68 : 0
+ReqUse4,69 : 2
+ReqPos4,69 : 140
+ReqCount4,69 : 0
+ReqUse4,70 : 2
+ReqPos4,70 : 142
+ReqCount4,70 : 0
+ReqUse4,71 : 2
+ReqPos4,71 : 144
+ReqCount4,71 : 0
+ReqUse4,72 : 2
+ReqPos4,72 : 146
+ReqCount4,72 : 0
+ReqUse4,73 : 2
+ReqPos4,73 : 148
+ReqCount4,73 : 0
+ReqUse4,74 : 2
+ReqPos4,74 : 150
+ReqCount4,74 : 0
+ReqUse4,75 : 2
+ReqPos4,75 : 152
+ReqCount4,75 : 0
+ReqUse4,76 : 2
+ReqPos4,76 : 154
+ReqCount4,76 : 0
+ReqUse4,77 : 2
+ReqPos4,77 : 156
+ReqCount4,77 : 0
+ReqUse4,78 : 2
+ReqPos4,78 : 158
+ReqCount4,78 : 0
+ReqUse4,79 : 2
+ReqPos4,79 : 160
+ReqCount4,79 : 0
+ReqUse4,80 : 2
+ReqPos4,80 : 162
+ReqCount4,80 : 0
+ReqUse4,81 : 2
+ReqPos4,81 : 164
+ReqCount4,81 : 0
+ReqUse4,82 : 2
+ReqPos4,82 : 166
+ReqCount4,82 : 0
+ReqUse4,83 : 2
+ReqPos4,83 : 168
+ReqCount4,83 : 0
+ReqUse4,84 : 2
+ReqPos4,84 : 170
+ReqCount4,84 : 0
+ReqUse4,85 : 2
+ReqPos4,85 : 172
+ReqCount4,85 : 0
+ReqUse4,86 : 2
+ReqPos4,86 : 174
+ReqCount4,86 : 0
+ReqUse4,87 : 2
+ReqPos4,87 : 176
+ReqCount4,87 : 0
+ReqUse4,88 : 2
+ReqPos4,88 : 178
+ReqCount4,88 : 0
+ReqUse4,89 : 2
+ReqPos4,89 : 180
+ReqCount4,89 : 0
+ReqUse4,90 : 2
+ReqPos4,90 : 182
+ReqCount4,90 : 0
+ReqUse4,91 : 2
+ReqPos4,91 : 184
+ReqCount4,91 : 0
+ReqUse4,92 : 2
+ReqPos4,92 : 186
+ReqCount4,92 : 0
+ReqUse4,93 : 2
+ReqPos4,93 : 188
+ReqCount4,93 : 0
+ReqUse4,94 : 2
+ReqPos4,94 : 190
+ReqCount4,94 : 0
+ReqUse4,95 : 2
+ReqPos4,95 : 192
+ReqCount4,95 : 0
+ReqUse4,96 : 2
+ReqPos4,96 : 194
+ReqCount4,96 : 0
+ReqUse4,97 : 2
+ReqPos4,97 : 196
+ReqCount4,97 : 0
+ReqUse4,98 : 2
+ReqPos4,98 : 198
+ReqCount4,98 : 0
+ReqUse4,99 : 2
+ReqPos4,99 : 200
+ReqCount4,99 : 0
+ReqUse4,100 : 2
+ReqPos4,100 : 202
+ReqCount4,100 : 0
+ReqUse4,101 : 2
+ReqPos4,101 : 204
+ReqCount4,101 : 0
+ReqUse4,102 : 2
+ReqPos4,102 : 206
+ReqCount4,102 : 0
+ReqUse4,103 : 2
+ReqPos4,103 : 208
+ReqCount4,103 : 0
+ReqUse4,104 : 2
+ReqPos4,104 : 210
+ReqCount4,104 : 0
+ReqUse4,105 : 2
+ReqPos4,105 : 212
+ReqCount4,105 : 0
+ReqUse4,106 : 2
+ReqPos4,106 : 214
+ReqCount4,106 : 0
+ReqUse4,107 : 2
+ReqPos4,107 : 216
+ReqCount4,107 : 0
+ReqUse4,108 : 2
+ReqPos4,108 : 218
+ReqCount4,108 : 0
+ReqUse4,109 : 2
+ReqPos4,109 : 220
+ReqCount4,109 : 0
+ReqUse4,110 : 2
+ReqPos4,110 : 222
+ReqCount4,110 : 0
+ReqUse4,111 : 2
+ReqPos4,111 : 224
+ReqCount4,111 : 0
+ReqUse4,112 : 2
+ReqPos4,112 : 226
+ReqCount4,112 : 0
+ReqUse4,113 : 2
+ReqPos4,113 : 228
+ReqCount4,113 : 0
+ReqUse4,114 : 2
+ReqPos4,114 : 230
+ReqCount4,114 : 0
+ReqUse4,115 : 2
+ReqPos4,115 : 232
+ReqCount4,115 : 0
+ReqUse4,116 : 2
+ReqPos4,116 : 234
+ReqCount4,116 : 0
+ReqUse4,117 : 2
+ReqPos4,117 : 236
+ReqCount4,117 : 0
+ReqUse4,118 : 2
+ReqPos4,118 : 238
+ReqCount4,118 : 0
+ReqUse4,119 : 2
+ReqPos4,119 : 240
+ReqCount4,119 : 0
+ReqUse4,120 : 2
+ReqPos4,120 : 242
+ReqCount4,120 : 0
+ReqUse4,121 : 2
+ReqPos4,121 : 244
+ReqCount4,121 : 0
+ReqUse4,122 : 2
+ReqPos4,122 : 246
+ReqCount4,122 : 0
+ReqUse4,123 : 2
+ReqPos4,123 : 248
+ReqCount4,123 : 0
+ReqUse4,124 : 2
+ReqPos4,124 : 250
+ReqCount4,124 : 0
+ReqUse4,125 : 2
+ReqPos4,125 : 252
+ReqCount4,125 : 0
+ReqUse4,126 : 2
+ReqPos4,126 : 254
+ReqCount4,126 : 0
+ReqUse4,127 : 2
+ReqPos4,127 : 256
+ReqCount4,127 : 0
+ReqUse4,128 : 2
+ReqPos4,128 : 258
+ReqCount4,128 : 0
+ReqUse4,129 : 2
+ReqPos4,129 : 260
+ReqCount4,129 : 0
+ReqUse4,130 : 2
+ReqPos4,130 : 262
+ReqCount4,130 : 0
+ReqUse4,131 : 2
+ReqPos4,131 : 264
+ReqCount4,131 : 0
+ReqUse4,132 : 2
+ReqPos4,132 : 266
+ReqCount4,132 : 0
+ReqUse4,133 : 2
+ReqPos4,133 : 268
+ReqCount4,133 : 0
+ReqUse4,134 : 2
+ReqPos4,134 : 270
+ReqCount4,134 : 0
+ReqUse4,135 : 2
+ReqPos4,135 : 272
+ReqCount4,135 : 0
+ReqUse4,136 : 2
+ReqPos4,136 : 274
+ReqCount4,136 : 0
+ReqUse4,137 : 2
+ReqPos4,137 : 276
+ReqCount4,137 : 0
+ReqUse4,138 : 2
+ReqPos4,138 : 278
+ReqCount4,138 : 0
+ReqUse4,139 : 2
+ReqPos4,139 : 280
+ReqCount4,139 : 0
+ReqUse4,140 : 2
+ReqPos4,140 : 282
+ReqCount4,140 : 0
+ReqUse4,141 : 2
+ReqPos4,141 : 284
+ReqCount4,141 : 0
+ReqUse4,142 : 2
+ReqPos4,142 : 286
+ReqCount4,142 : 0
+ReqUse4,143 : 2
+ReqPos4,143 : 288
+ReqCount4,143 : 0
+ReqUse4,144 : 2
+ReqPos4,144 : 290
+ReqCount4,144 : 0
+ReqUse4,145 : 2
+ReqPos4,145 : 292
+ReqCount4,145 : 0
+ReqUse4,146 : 2
+ReqPos4,146 : 294
+ReqCount4,146 : 0
+ReqUse4,147 : 2
+ReqPos4,147 : 296
+ReqCount4,147 : 0
+ReqUse4,148 : 2
+ReqPos4,148 : 298
+ReqCount4,148 : 0
+ReqUse4,149 : 2
+ReqPos4,149 : 300
+ReqCount4,149 : 0
+ReqUse4,150 : 2
+ReqPos4,150 : 302
+ReqCount4,150 : 0
+ReqUse4,151 : 2
+ReqPos4,151 : 304
+ReqCount4,151 : 0
+ReqUse4,152 : 2
+ReqPos4,152 : 306
+ReqCount4,152 : 0
+ReqUse4,153 : 2
+ReqPos4,153 : 308
+ReqCount4,153 : 0
+ReqUse4,154 : 2
+ReqPos4,154 : 310
+ReqCount4,154 : 0
+ReqUse4,155 : 2
+ReqPos4,155 : 312
+ReqCount4,155 : 0
+ReqUse4,156 : 2
+ReqPos4,156 : 314
+ReqCount4,156 : 0
+ReqUse4,157 : 2
+ReqPos4,157 : 316
+ReqCount4,157 : 0
+ReqUse4,158 : 2
+ReqPos4,158 : 318
+ReqCount4,158 : 0
+ReqUse4,159 : 2
+ReqPos4,159 : 320
+ReqCount4,159 : 0
+ReqUse4,160 : 2
+ReqPos4,160 : 322
+ReqCount4,160 : 0
+ReqUse4,161 : 2
+ReqPos4,161 : 324
+ReqCount4,161 : 0
+ReqUse4,162 : 2
+ReqPos4,162 : 326
+ReqCount4,162 : 0
+ReqUse4,163 : 2
+ReqPos4,163 : 328
+ReqCount4,163 : 0
+ReqUse4,164 : 2
+ReqPos4,164 : 330
+ReqCount4,164 : 0
+ReqUse4,165 : 2
+ReqPos4,165 : 332
+ReqCount4,165 : 0
+ReqUse4,166 : 2
+ReqPos4,166 : 334
+ReqCount4,166 : 0
+ReqUse4,167 : 2
+ReqPos4,167 : 336
+ReqCount4,167 : 0
+ReqUse4,168 : 2
+ReqPos4,168 : 338
+ReqCount4,168 : 0
+ReqUse4,169 : 2
+ReqPos4,169 : 340
+ReqCount4,169 : 0
+ReqUse4,170 : 2
+ReqPos4,170 : 342
+ReqCount4,170 : 0
+ReqUse4,171 : 2
+ReqPos4,171 : 344
+ReqCount4,171 : 0
+ReqUse4,172 : 2
+ReqPos4,172 : 346
+ReqCount4,172 : 0
+ReqUse4,173 : 2
+ReqPos4,173 : 348
+ReqCount4,173 : 0
+ReqUse4,174 : 2
+ReqPos4,174 : 350
+ReqCount4,174 : 0
+ReqUse4,175 : 2
+ReqPos4,175 : 352
+ReqCount4,175 : 0
+ReqUse4,176 : 2
+ReqPos4,176 : 354
+ReqCount4,176 : 0
+ReqUse4,177 : 2
+ReqPos4,177 : 356
+ReqCount4,177 : 0
+ReqUse4,178 : 2
+ReqPos4,178 : 358
+ReqCount4,178 : 0
+ReqUse4,179 : 2
+ReqPos4,179 : 360
+ReqCount4,179 : 0
+ReqUse4,180 : 2
+ReqPos4,180 : 362
+ReqCount4,180 : 0
+ReqUse4,181 : 2
+ReqPos4,181 : 364
+ReqCount4,181 : 0
+ReqUse4,182 : 2
+ReqPos4,182 : 366
+ReqCount4,182 : 0
+ReqUse4,183 : 2
+ReqPos4,183 : 368
+ReqCount4,183 : 0
+ReqUse4,184 : 2
+ReqPos4,184 : 370
+ReqCount4,184 : 0
+ReqUse4,185 : 2
+ReqPos4,185 : 372
+ReqCount4,185 : 0
+ReqUse4,186 : 2
+ReqPos4,186 : 374
+ReqCount4,186 : 0
+ReqUse4,187 : 2
+ReqPos4,187 : 376
+ReqCount4,187 : 0
+ReqUse4,188 : 2
+ReqPos4,188 : 378
+ReqCount4,188 : 0
+E_ReqSET
+S_BinEditSET
+projectsceneDataCount : 1
+projectsceneData 0binDataCount : 26
+E_BinEditSET
+S_SoundPlayerSET
+Soundinterval : 5
+E_SoundPlayerSET
+S_GRPEditorSET
+GRPEditorDATCount : 0
+GRPEditorUsingDATCount : 0
+GRPEditorUsingindexDATCount : 0
+E_GRPEditorSET
+S_TileSET
+ProjectTileUseFile : False
+ProjectTileSetFileName : 
+ProjectTIleMSetCount : 25249
+ProjectTIleMSetArray : 
+ProjectTileSetDataCount : 0
+ProjectMTXMDATACount : 65536
+ProjectMTXMDATAArray : 
+E_TileSET
+S_SCDBSet
+SCDBDeath : 
+SCDBLoc : 
+SCDBVariable : 
+SCDBLocLoad : 
+SCDBUse : False
+SCDBSerial : 0
+SCDBMaker : Noname
+SCDBMapName : Noname
+SCDBDataSize : 4
+E_SCDBSet
+S_FileManagerSET
+statlang : 0
+stattextdicCount : 25
+stattextdickey0 : 252
+stattextdicvalue0 : Pike
+stattextdickey1 : 251
+stattextdicvalue1 : Pike
+stattextdickey2 : 669
+stattextdicvalue2 : d<0><17>D<4>isable (Local) Levy<10><30>Disables raising the levy from this particular holding.
+stattextdickey3 : 988
+stattextdicvalue3 : e<0><17>E<4>nable (Local) Levy<10><30>Enables the levy from this holding to be raised.
+stattextdickey4 : 675
+stattextdicvalue4 : r<0><17>R<4>aise (Local) Levy<10><30>Raise the levy from only this particular holding.
+stattextdickey5 : 368
+stattextdicvalue5 : u<0><17>U<4>pgrade Holding<10><30>Upgrade the economic or military buildings within this holding.
+stattextdickey6 : 103
+stattextdicvalue6 : <23>Select Nation
+stattextdickey7 : 1164
+stattextdicvalue7 : c<1><3>C<1>hoose Nation
+stattextdickey8 : 676
+stattextdicvalue8 : h<0><4>Send Levies <17>H<4>ome<10><30>Demobilizes levies and returns their manpower to the pool<10><6>Levies in battle or enemy territory might not make it home!
+stattextdickey9 : 681
+stattextdicvalue9 : m<0><17>M<4>ass Armies Here<10><30>When toggled, raised levies will rally to this holding.
+stattextdickey10 : 1544
+stattextdicvalue10 : h<0><04>H<03>oly War
+stattextdickey11 : 679
+stattextdicvalue11 : d<0><3>D<1>eclare War
+stattextdickey12 : 680
+stattextdicvalue12 : r<0><3>R<1>elations Options
+stattextdickey13 : 574
+stattextdicvalue13 : c<0><04>De Jure <03>C<04>ounty Conquest
+stattextdickey14 : 575
+stattextdicvalue14 : d<0><04>De Jure <03>D<04>uchy Conquest
+stattextdickey15 : 579
+stattextdicvalue15 : i<0><3>I<4>mprove Relations
+stattextdickey16 : 1545
+stattextdicvalue16 : Nation Already Selected
+stattextdickey17 : 685
+stattextdicvalue17 : v<0><3>V<1>assal Relations
+stattextdickey18 : 1541
+stattextdicvalue18 : a<0><4>Raise <17>A<4>ll Levies<10><30>Raises levies from all holdings owned by the player.
+stattextdickey19 : 1536
+stattextdicvalue19 : e<0><4>D<17>e<4>bug Information
+stattextdickey20 : 1515
+stattextdicvalue20 : m<0><4>Upgrade <17>M<4>arket<10><30>Increases duchy income <10><7>(+1 / minute)
+stattextdickey21 : 1514
+stattextdicvalue21 : f<0><4>Upgrade <17>F<4>ortifications<10><30>Increases hostile siege time <10><6>(+30 seconds)
+stattextdickey22 : 1513
+stattextdicvalue22 : h<0><4>Upgrade Militia <17>H<4>all<10><30>Increases light infantry spawn
+stattextdickey23 : 1512
+stattextdicvalue23 : b<0><4>Upgrade <17>B<4>arracks<10><30>Increases local heavy infantry spawn
+stattextdickey24 : 1511
+stattextdicvalue24 : s<0><4>Upgrade <17>S<4>tables<10><30>Increases cavalry spawn
+wireuse : True
+wireframData124 : 122
+wireframData154 : 187
+wireframData160 : 187
+wireframData162 : 187
+wireframData163 : 122
+wireframData165 : 122
+wireframData169 : 187
+wireframData170 : 122
+wireframData171 : 122
+E_FileManagerSET
+S_TriggerEditorSET
+&AddText&
+Type:23,False,False,False
+
+ElementsCount:0
+END
+
+&functions&
+Type:15,False,False,False
+ElementsCount:4
+Type:16,False,True,False
+BuildResetஐFalse
+ElementsCount:2
+Type:17,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitPTRஐ35
+ElementsCount:0
+END
+END
+Type:18,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+/*ToolTipஐ*/ஐTrue
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+KoreanஐKoreanஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:3
+Type:8,False,False,False
+act:RawCode
+구조오프셋Ptr
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitPTRஐ35
+ElementsCount:0
+END
+Type:8,False,False,False
+act:RawCode
+의 생산 대기열을 초기화합니다.
+ElementsCount:0
+END
+END
+END
+Type:21,False,False,False
+EnglishஐEnglishஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:RawCode
+Reset build queues of CUnit ptr
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitPTRஐ35
+ElementsCount:0
+END
+END
+END
+END
+END
+Type:19,False,False,False
+BuildResetEPDஐEPD(unitPTR)
+ElementsCount:0
+END
+END
+END
+Type:16,False,True,False
+BuildResetEPDஐFalse
+ElementsCount:2
+Type:17,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitEPDஐ35
+ElementsCount:0
+END
+END
+Type:18,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+/*ToolTipஐ*/ஐTrue
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+KoreanஐKoreanஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:3
+Type:8,False,False,False
+act:RawCode
+구조오프셋EPD
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitEPDஐ35
+ElementsCount:0
+END
+Type:8,False,False,False
+act:RawCode
+의 생산 대기열을 초기화합니다.
+ElementsCount:0
+END
+END
+END
+Type:21,False,False,False
+EnglishஐEnglishஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:RawCode
+Reset build queues of CUnit EPD
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitEPDஐ35
+ElementsCount:0
+END
+END
+END
+END
+END
+Type:8,False,False,False
+act:RawCode
+VProc(unitEPD, list(
+unitEPD.AddNumber(0x98/4),
+unitEPD.SetDest(EPD(0x6509B0)),
+));
+setcurpl2cpcache(actions=list(
+SetDeaths(CurrentPlayer, SetTo, 0xE400E4, 0),
+SetMemory(0x6509B0, Add, 1),
+SetDeaths(CurrentPlayer, SetTo, 0xE400E4, 0),
+SetMemory(0x6509B0, Add, 1),
+SetDeathsX(CurrentPlayer, SetTo, 228, 0, 0xFFFF),
+SetMemory(0x6509B0, Add, 1),
+SetDeathsX(CurrentPlayer, SetTo, 2 << 16, 0, 0xFFFF0000),
+));
+ElementsCount:0
+END
+END
+END
+Type:16,False,False,False
+BuildCheckஐFalse
+ElementsCount:2
+Type:17,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitPTRஐ35
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+Unitஐ3
+ElementsCount:0
+END
+END
+Type:18,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+/*ToolTipஐ*/ஐTrue
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+KoreanஐKoreanஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:5
+Type:8,False,False,False
+act:RawCode
+구조오프셋Ptr
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitPTRஐ35
+ElementsCount:0
+END
+Type:8,False,False,False
+act:RawCode
+이
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+Unitஐ3
+ElementsCount:0
+END
+Type:8,False,False,False
+act:RawCode
+를 생산중인지 확인합니다.
+ElementsCount:0
+END
+END
+END
+Type:21,False,False,False
+EnglishஐEnglishஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:4
+Type:8,False,False,False
+act:RawCode
+Check whether CUnit ptr
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitPTRஐ35
+ElementsCount:0
+END
+Type:8,False,False,False
+act:RawCode
+is training an unit:
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+Unitஐ3
+ElementsCount:0
+END
+END
+END
+END
+END
+Type:19,False,False,False
+BuildCheckEPDஐEPD(unitPTR)ஐUnit
+ElementsCount:0
+END
+END
+END
+Type:16,False,False,False
+BuildCheckEPDஐFalse
+ElementsCount:2
+Type:17,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitEPDஐ35
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitஐ3
+ElementsCount:0
+END
+END
+Type:18,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+/*ToolTipஐ*/ஐTrue
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+KoreanஐKoreanஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:5
+Type:8,False,False,False
+act:RawCode
+구조오프셋EPD
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitEPDஐ35
+ElementsCount:0
+END
+Type:8,False,False,False
+act:RawCode
+이
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitஐ3
+ElementsCount:0
+END
+Type:8,False,False,False
+act:RawCode
+를 생산중인지 확인합니다.
+ElementsCount:0
+END
+END
+END
+Type:21,False,False,False
+EnglishஐEnglishஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:4
+Type:8,False,False,False
+act:RawCode
+Check whether CUnit EPD
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitEPDஐ35
+ElementsCount:0
+END
+Type:8,False,False,False
+act:RawCode
+is training an unit:
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreateVariableWithNoini
+unitஐ3
+ElementsCount:0
+END
+END
+END
+END
+END
+Type:8,False,False,False
+act:RawCode
+unitEPD += 0x98 / 4;  // buildQueue
+const checkUnit = Forward();
+if (MemoryEPD(unitEPD, Exactly, 0xE400E4)) {
+unitEPD += 1;
+if (MemoryEPD(unitEPD, Exactly, 0xE400E4)) {
+unitEPD += 1;
+if (MemoryXEPD(unitEPD, Exactly, 0xE4, 0xFFFF)) return False;
+unitEPD -= 2;
+SetNextTrigger(checkUnit);
+}
+unitEPD -= 1;
+}
+checkUnit.__lshift__(NextTrigger());
+if (MemoryXEPD(unitEPD, Exactly, unit, 0xFFFF)) {
+return True;
+} else {
+const mulUnit = unit * 65536;
+if (MemoryXEPD(unitEPD, Exactly, mulUnit, 0xFFFF0000)) {
+return True;
+} else {
+unitEPD += 1;
+if (MemoryXEPD(unitEPD, Exactly, unit, 0xFFFF)) {
+return True;
+} else if (MemoryXEPD(unitEPD, Exactly, mulUnit, 0xFFFF0000)) {
+return True;
+} else {
+unitEPD += 1;
+if (MemoryXEPD(unitEPD, Exactly, unit, 0xFFFF)) {
+return True;
+}
+}
+}
+}
+return False;
+ElementsCount:0
+END
+END
+END
+END
+
+&GlobalVar&
+Type:0,False,False,False
+ElementsCount:0
+END
+
+&RawTriggers&
+Type:25,False,False,False
+ElementsCount:6
+Type:24,False,False,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Always
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:BGMPlay
+17ஐ0ஐ1
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+128
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Always
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:EUDTurbo
+None
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+256
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Deaths
+13ஐ2ஐ1ஐ214
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:ChatAnnouncement
+Playerஐ"\x11Raised Army: \x01{P1_D_194}"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+256
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Deaths
+13ஐ2ஐ2ஐ214
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:ChatAnnouncement
+Playerஐ"\x11Manpower: \x01{P9_D_176}"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+256
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:2
+Type:7,False,False,False
+con:Deaths
+13ஐ2ஐ3ஐ214
+ElementsCount:0
+END
+Type:7,False,False,False
+con:Deaths
+13ஐ2ஐ3ஐ193
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:ChatAnnouncement
+Playerஐ"\x11Religion: \x01Catholicism"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+256
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:2
+Type:7,False,False,False
+con:Deaths
+13ஐ2ஐ3ஐ214
+ElementsCount:0
+END
+Type:7,False,False,False
+con:Deaths
+13ஐ2ஐ1ஐ193
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:ChatAnnouncement
+Playerஐ"\x11Religion: \x1DSunni Islam"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+END
+END
+END
+
+&onPluginStart&
+Type:0,False,False,False
+ElementsCount:0
+END
+
+&beforeTriggerExec&
+Type:0,False,False,False
+ElementsCount:1
+Type:10,False,False,False
+AllUnitஐ1ஐ10
+ElementsCount:1
+Type:14,False,False,False
+ElementsCount:1
+Type:1,False,False,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:CUnitData
+ptrஐ44ஐ0ஐ164
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:0
+END
+END
+END
+END
+END
+
+&afterTriggerExec&
+Type:0,False,False,False
+ElementsCount:0
+END
+
+
+E_TriggerEditorSET
+S_PluginSET
+soundstopper : False
+scmloader : False
+noAirColsion : False
+unlimiter : True
+keepSTR : False
+eudTurbo : True
+iscriptPatcher : 
+iscriptPatcheruse : False
+unpatcher : 
+unpatcheruse : False
+nqcuse : False
+nqcunit : 58
+nqclocs : 
+nqccommands : \0#214#0\1#214#1\2#214#2\3#214#3
+grpinjectoruse : False
+grpinjector_arrow : 
+grpinjector_drag : 
+grpinjector_illegal : 
+dataDumperuse : False
+dataDumper_user : 
+dataDumper_grpwire : 
+dataDumper_tranwire : 
+dataDumper_wirefram : 
+dataDumper_cmdicons : 
+dataDumper_stat_txt : 
+dataDumper_AIscript : 
+dataDumper_iscript : 
+dataDumper_grpwire_f : 0
+dataDumper_tranwire_f : 0
+dataDumper_wirefram_f : 0
+dataDumper_cmdicons_f : 0
+dataDumper_stat_txt_f : 0
+dataDumper_AIscript_f : 0
+dataDumper_iscript_f : 0
+extraedssetting : [C:/Users/Michael/OneDrive/Documents/StarCraft/Maps/SCRCrusaderKings/constants.eps]
+[C:/Users/Michael/OneDrive/Documents/StarCraft/Maps/SCRCrusaderKings/duchies.eps]
+[C:/Users/Michael/OneDrive/Documents/StarCraft/Maps/SCRCrusaderKings/economy.eps]
+[initialization.eps]
+
+
+E_PluginSET

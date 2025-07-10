@@ -1,0 +1,164 @@
+// =============================================================================
+// CRUSADER KINGS - INITIALIZATION MODULE
+// =============================================================================
+// This module handles game initialization, player setup, and initial configuration
+
+import economy;
+import duchies;
+import constants as c;
+
+// Forward declarations
+function selectEngland(player);
+function nationSelection();
+
+// Nation selection variables
+const nationsSelected = EUDLightBool();
+
+function selectEngland(player) {
+    // Give England capital and buildings
+    GiveUnits(All, "Norad II (Crashed Battlecruiser)", P8, $L("Duchy of Middlesex"), player);
+    GiveUnits(All, "Norad II (Crashed Battlecruiser)", P12, $L("Diplo"), player);
+    
+    // Center view on capital
+    CenterView($L("Duchy of Middlesex"));
+    
+    // Give duchy buildings
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Middlesex"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Cornwall"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Lancaster"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Northumberland"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Norfolk"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Normandy"), player);
+
+    // Set player manpower using global namespace
+    c.SetPlayerSupply(player, c.MANPOWER, c.MANPOWER_MAX, 50);
+    c.SetPlayerSupply(player, c.MANPOWER, c.MANPOWER_LEVEL, 24);
+
+
+
+    // Initialize duchy mass target using global namespace as blank (155)
+    const globalDuchyMassTarget = GetEUDNamespace().get("duchyMassTarget");
+    globalDuchyMassTarget[player] = 155;
+
+    DisplayTextAll("Player has chosen England!");
+}
+
+function selectScotland(player) {
+    // Give Scotland capital and buildings
+    GiveUnits(All, "Norad II (Crashed Battlecruiser)", P8, $L("Duchy of Lothian"), player);
+    GiveUnits(All, "Warp Gate", P12, $L("Diplo"), player);
+
+    // Give Scotland capital and buildings
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Lothian"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Albany"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Morway"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Galloway"), player);
+    GiveUnits(All, "Buildings", P8, $L("Duchy of Hebrides"), player);
+
+    // Set player manpower using global namespace
+    c.SetPlayerSupply(player, c.MANPOWER, c.MANPOWER_MAX, 50);
+    c.SetPlayerSupply(player, c.MANPOWER, c.MANPOWER_LEVEL, 24);
+
+    // Initialize duchy mass target using global namespace as blank (155)
+    const globalDuchyMassTarget = GetEUDNamespace().get("duchyMassTarget");
+    globalDuchyMassTarget[player] = 155;
+
+    DisplayTextAll("Player has chosen Scotland!");
+}
+
+function refreshPreplacedBuildings() {
+    // Remove and replace Terran Missile Turrets (counties/buildings) to stop their animations
+    while (Bring(P9, AtLeast, 1, "Terran Missile Turret", $L("Anywhere"))) {
+        MoveLocation($L("County Loc Universal"), "Terran Missile Turret", P9, $L("Anywhere"));
+        RemoveUnitAt(1, "Terran Missile Turret", $L("County Loc Universal"), P9);
+        CreateUnitWithProperties(1, "Terran Missile Turret", $L("Buildings Buffer 1"), P8, UnitProperty(invincible = true));
+        MoveUnit(1, "Terran Missile Turret", P8, $L("Buildings Buffer 1"), $L("County Loc Universal"));
+    }
+    
+    // Refresh Protoss Photon Cannons (income buildings)  
+    while (Bring(P9, AtLeast, 1, "Protoss Photon Cannon", $L("Anywhere"))) {
+        MoveLocation($L("County Loc Universal"), "Protoss Photon Cannon", P9, $L("Anywhere"));
+        RemoveUnitAt(1, "Protoss Photon Cannon", $L("County Loc Universal"), P9);
+        CreateUnitWithProperties(1, "Protoss Photon Cannon", $L("Buildings Buffer 1"), P8, UnitProperty(invincible = true));
+        MoveUnit(1, "Protoss Photon Cannon", P8, $L("Buildings Buffer 1"), $L("County Loc Universal"));
+    }
+}
+
+function setupInitialConditions() {
+    // Setup initial player resources, units, and territories
+    // Simple placeholder - give starting resources
+    foreach(player : EUDLoopPlayer("Human")) {
+        RunAIScript("+Vi7");
+        RunAIScript("+Vi6");
+        RunAIScript("+Vi5");
+    }
+    SetResources(P1, SetTo, 50, Ore);  // Starting gold
+    SetResources(P1, SetTo, 0, Gas);  // No starting debt
+
+} 
+
+function nationSelection() {
+    // Placeholder for future nation selection logic
+    // For now, automatically select England for P1
+    selectEngland(P1);
+    selectScotland(P2);
+
+    const cp = getcurpl();
+    setcurpl(P8);
+    SetAllianceStatus(P1, Enemy);
+    setcurpl(P1);
+    SetAllianceStatus(P8, Enemy);
+    setcurpl(cp);
+
+    DoActions(nationsSelected.Set());
+    SetSwitch($S("Switch 1"), Set);  // Enable economy processing
+    DisplayTextAll("Nation selection completed!");
+}
+
+function spawnTestUnits() {
+    CreateUnit(12, "Zerg Zergling", "Duchy of Northumberland", P8);
+    CreateUnit(6, "Protoss Zealot", "Duchy of Northumberland", P8);
+    CreateUnit(10, "Terran Ghost", "Duchy of Northumberland", P8);
+    CreateUnit(6, "Terran Firebat", "Duchy of Northumberland", P8);
+}
+
+function onPluginStart() {
+
+    // Setup initial player resources and units
+    setupInitialConditions();
+
+    // Refresh pre-placed buildings
+    refreshPreplacedBuildings();
+
+    // Spawn test units
+    spawnTestUnits();
+}
+
+function beforeTriggerExec() {
+    // Delayed doodad state changes to ensure proper timing
+    once (ElapsedTime(AtLeast, 1)) {
+        // Enable all Protoss Cybernetics Cores owned by human players
+        var enabledCount = 0;
+        foreach(unit : EUDLoopCUnit()) {
+            if (unit.unitID == $U("Protoss Cybernetics Core") || unit.unitID == $U("Protoss Photon Cannon")) {
+                // Check if owned by a human player (P1-P8)
+                if (unit.owner >= P1 && unit.owner <= P8) {
+                    // Create a temporary location at the unit's position
+                    setloc($L("County Loc Universal"), unit.posX, unit.posY);
+                    SetDoodadState(Enable, unit.unitID, unit.owner, $L("County Loc Universal"));
+                    enabledCount++;
+                }
+            }
+        }
+    }
+}
+
+
+function afterTriggerExec() {
+    // Initialization logic that runs every frame after triggers
+    // Auto-select nation for testing (skip manual selection)
+    once (ElapsedTime(AtLeast, 1)) {
+        nationSelection();
+    }
+}
+

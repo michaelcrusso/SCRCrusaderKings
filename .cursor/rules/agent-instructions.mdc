@@ -1,0 +1,61 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Agent Instructions for epScript StarCraft: Remastered Project
+
+## PROJECT SCOPE
+In this project we will be writing code to create a Starcraft: Remastered map. We want to start over from scratch and generate new triggers using epScript, a new pseudo-code abstracted language which uses Java-like syntax, which will compile down to classic Starcraft triggers that can be executed within the game. We will NOT be writing in any other language, and so we must always confine all queries in this project to this scope and refer closely back to the documentation below.
+
+## AI ASSISTANT ROLE
+You will help me write and parse ONLY epScript code, as well as instruct me in the limitations of epScript and potential optimizations, and help walk me through the build/compilation process. If possible, try to cite/reference where you've acquired context information specifically, or otherwise indicate whether it is a best-guess/approximation based on standard programming practices. DO NOT EVER run a build via build.bat. Ask me to share output with you for debugging purposes.
+
+## EPS STRUCTURE CONSIDERATIONS
+All user-defined functions must be declared BEFORE the plugin lifecycle functions (onPluginStart, beforeTriggerExec, afterTriggerExec).
+
+## CRITICAL PERFORMANCE CONSIDERATIONS
+Always consider these epScript performance characteristics when providing code suggestions, but only mention them when it is pertinent:
+- **Cheap Operations** (1 trigger): `var += constant`, `var = constant`, comparisons with constants
+- **Expensive Operations** (30+ triggers): `var1 = var2`, `var1 += var2`, any variable-to-variable operations
+- **Memory Usage**: EUDVariable (72 bytes), EUDLightVariable (4 bytes) - prefer light variables for simple counters
+- **Trigger Types**: Use `RawTrigger()` for static conditions/actions, `Trigger()` only when variables are involved
+
+## COMMON PITFALLS TO AVOID
+- Don't suggest variable-to-variable operations without mentioning performance cost
+- Don't use regular variables for simple boolean flags (use EUDLightBool instead)
+- Don't forget that epScript only supports 32-bit unsigned integers
+- Always consider if constants can be used instead of variables
+
+## REFERENCE DOCUMENTS AND WHEN TO USE THEM
+
+- [epScript-Reference.md](mdc:_Reference/epScript-Reference.md) The main entry point and getting started guide that covers environment setup, project structure, and basic workflow. Reference this when setting up new projects, understanding the .edd/.eps file relationship, or learning about compilation and execution order.
+
+- [Syntax.md](mdc:_Reference/Syntax.md) Complete language syntax reference covering basic constructs, data types, control flow, and operators. Essential for understanding epScript's Java-like syntax, variable declarations, conditionals, loops, and how it differs from traditional programming languages (32-bit unsigned integers only, case sensitivity, etc.).
+
+- [Use-of-Variables.md](mdc:_Reference/Use-of-Variables.md) Detailed guide to variable types, scope, and mathematical operations. Covers basic variable declaration, static variables, and the fundamental concepts of epScript's 32-bit unsigned integer system.
+
+- [Use-of-Functions.md](mdc:_Reference/Use-of-Functions.md) Function declaration, parameters, return values, and type annotations. Reference when creating reusable code, understanding parameter passing, and working with multiple return values through tuple unpacking.
+
+- [Use-of-Objects.md](mdc:_Reference/Use-of-Objects.md) Object-oriented programming features including object declarations, constructors/destructors, and instance creation (static vs dynamic allocation). Use when creating complex data structures or when traditional variables aren't sufficient for your game logic.
+
+- [Understanding-Strings.md](mdc:_Reference/Understanding-Strings.md) Comprehensive string handling covering compile-time strings (py_str), map strings (TrgString), string data (Db), and TBL strings. Essential for text display, string manipulation, and understanding the different string types and their performance characteristics.
+
+- [Built-in-Functions.md](mdc:_Reference/Built-in-Functions.md) Massive reference (3,869 lines) of all available functions including StarCraft conditions/actions, extended functions, memory operations, math functions, and utility functions. Your primary reference when implementing game mechanics, trigger logic, or any StarCraft-specific functionality.
+
+- [Built-in-Object-Types.md](mdc:_Reference/Built-in-Object-Types.md) Documentation of core object types like EUDVariable, EUDLightVariable, EUDLightBool, EUDArray, StringBuffer, and other data structures. Critical for understanding memory usage (EUDVariable: 72 bytes, EUDLightVariable: 4 bytes) and when to use each type.
+
+- [Built-in-Object-Types-(Extended).md](mdc:_Reference/Built-in-Object-Types-(Extended).md) Extended object types and advanced data structures beyond the basic ones. Use for specialized data handling or advanced programming patterns.
+
+- [Constants-Reference.md](mdc:_Reference/Constants-Reference.md) Quick reference for game constants, modifiers, and enums. Essential for trigger conditions, resource types, player references, and other StarCraft-specific values.
+
+- /_Reference/Constants Reference/ (directory) - Detailed constant references for specific game elements (units, weapons, tech, upgrades, etc.). Reference when working with specific StarCraft entities and need their exact identifiers.
+
+- /_Reference/Code Examples/ (directory) - Contains practical examples including position manipulation, trigger usage, supply limit changes, and UI menus. Use these as templates and learning resources for common game development patterns.
+
+## WORKFLOW GUIDANCE
+1. **Always reference appropriate documentation** before providing code solutions
+2. **Explain performance implications** of suggested code patterns
+3. **Suggest optimizations** when expensive operations are necessary
+4. **Provide complete, runnable examples** that follow epScript best practices
+5. **Reference existing legacy triggers** in [Triggers/](mdc:Triggers) when converting functionality

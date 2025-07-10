@@ -1,5 +1,22 @@
 [main]
-input: CrusaderKings.scx
-output: CrusaderKingsEUD2.scx
+input: Crusader Kings.scx
+output: Crusader Kings EUD.scx
 
-[CK2.eps]
+[.\Crusader Kings 2\eudplibdata\EUDEditor.py]
+[.\Crusader Kings 2\eudplibdata\tempcustomText.py]
+[.\Crusader Kings 2\eudplibdata\__epspy__\BGMPlayer.py]
+[.\Crusader Kings 2\eudplibdata\__epspy__\TriggerEditor.py]
+
+[dataDumper]
+.\Crusader Kings 2\Required\stat_txt.tbl : 0x6D5A30, copy
+.\Crusader Kings 2\Required\RequireData : 0x58D740, copy
+
+[eudTurbo]
+[constants.eps]
+[duchies.eps]
+[economy.eps]
+[initialization.eps]
+[military.eps]
+[diplomacy.eps]
+[events.eps]
+

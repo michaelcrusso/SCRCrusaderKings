@@ -1,0 +1,339 @@
+import BGMPlayer as BGM;
+import tempcustomText as tct;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+const trgk = $T('Artanis & safhfh');
+
+
+
+function BuildReset(unitPTR);
+function BuildResetEPD(unitEPD);
+function BuildCheck(unitPTR, Unit);
+function BuildCheckEPD(unitEPD, unit);
+function BuildReset(unitPTR) {
+    /*ToolTip
+    Korean
+    구조오프셋Ptr;
+    var unitPTR;
+    의 생산 대기열을 초기화합니다.;
+    Korean
+    English
+    Reset build queues of CUnit ptr;
+    var unitPTR;
+    English
+    */
+    BuildResetEPD(EPD(unitPTR));
+}
+function BuildResetEPD(unitEPD) {
+    /*ToolTip
+    Korean
+    구조오프셋EPD;
+    var unitEPD;
+    의 생산 대기열을 초기화합니다.;
+    Korean
+    English
+    Reset build queues of CUnit EPD;
+    var unitEPD;
+    English
+    */
+    VProc(unitEPD, list(
+    unitEPD.AddNumber(0x98/4),
+    unitEPD.SetDest(EPD(0x6509B0)),
+    ));
+    setcurpl2cpcache(actions=list(
+    SetDeaths(CurrentPlayer, SetTo, 0xE400E4, 0),
+    SetMemory(0x6509B0, Add, 1),
+    SetDeaths(CurrentPlayer, SetTo, 0xE400E4, 0),
+    SetMemory(0x6509B0, Add, 1),
+    SetDeathsX(CurrentPlayer, SetTo, 228, 0, 0xFFFF),
+    SetMemory(0x6509B0, Add, 1),
+    SetDeathsX(CurrentPlayer, SetTo, 2 << 16, 0, 0xFFFF0000),
+    ));
+}
+function BuildCheck(unitPTR ,Unit) {
+    /*ToolTip
+    Korean
+    구조오프셋Ptr;
+    var unitPTR;
+    이;
+    var Unit;
+    를 생산중인지 확인합니다.;
+    Korean
+    English
+    Check whether CUnit ptr;
+    var unitPTR;
+    is training an unit:;
+    var Unit;
+    English
+    */
+    BuildCheckEPD(EPD(unitPTR),Unit);
+}
+function BuildCheckEPD(unitEPD ,unit) {
+    /*ToolTip
+    Korean
+    구조오프셋EPD;
+    var unitEPD;
+    이;
+    var unit;
+    를 생산중인지 확인합니다.;
+    Korean
+    English
+    Check whether CUnit EPD;
+    var unitEPD;
+    is training an unit:;
+    var unit;
+    English
+    */
+    unitEPD += 0x98 / 4;  // buildQueue
+    const checkUnit = Forward();
+    if (MemoryEPD(unitEPD, Exactly, 0xE400E4)) {
+    unitEPD += 1;
+    if (MemoryEPD(unitEPD, Exactly, 0xE400E4)) {
+    unitEPD += 1;
+    if (MemoryXEPD(unitEPD, Exactly, 0xE4, 0xFFFF)) return False;
+    unitEPD -= 2;
+    SetNextTrigger(checkUnit);
+    }
+    unitEPD -= 1;
+    }
+    checkUnit.__lshift__(NextTrigger());
+    if (MemoryXEPD(unitEPD, Exactly, unit, 0xFFFF)) {
+    return True;
+    } else {
+    const mulUnit = unit * 65536;
+    if (MemoryXEPD(unitEPD, Exactly, mulUnit, 0xFFFF0000)) {
+    return True;
+    } else {
+    unitEPD += 1;
+    if (MemoryXEPD(unitEPD, Exactly, unit, 0xFFFF)) {
+    return True;
+    } else if (MemoryXEPD(unitEPD, Exactly, mulUnit, 0xFFFF0000)) {
+    return True;
+    } else {
+    unitEPD += 1;
+    if (MemoryXEPD(unitEPD, Exactly, unit, 0xFFFF)) {
+    return True;
+    }
+    }
+    }
+    }
+    return False;
+}
+
+const ClassicTriggerExecTimer0 = EUDArray(8);
+function ClassicTriggerExec0() {
+    if (ClassicTriggerExecTimer0[getcurpl()] == 1) {
+        BGM.Play((17), (0), (1));
+    }
+    if (ClassicTriggerExecTimer0[getcurpl()] > 0) {
+        ClassicTriggerExecTimer0[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer1 = EUDArray(8);
+function ClassicTriggerExec1() {
+    if (ClassicTriggerExecTimer1[getcurpl()] == 1) {
+        SetMemory(0x6509A0, SetTo, 0);
+        PreserveTrigger();
+        ClassicTriggerExecTimer1[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer1[getcurpl()] > 0) {
+        ClassicTriggerExecTimer1[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer2 = EUDArray(8);
+function ClassicTriggerExec2() {
+    if (ClassicTriggerExecTimer2[getcurpl()] == 1) {
+        tct.chatAnnouncement("\x11Raised Army: \x01", dwread_epd(194 * 12 + 0), "");
+        PreserveTrigger();
+        ClassicTriggerExecTimer2[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer2[getcurpl()] > 0) {
+        ClassicTriggerExecTimer2[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer3 = EUDArray(8);
+function ClassicTriggerExec3() {
+    if (ClassicTriggerExecTimer3[getcurpl()] == 1) {
+        tct.chatAnnouncement("\x11Manpower: \x01", dwread_epd(176 * 12 + getcurpl()), "");
+        PreserveTrigger();
+        ClassicTriggerExecTimer3[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer3[getcurpl()] > 0) {
+        ClassicTriggerExecTimer3[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer4 = EUDArray(8);
+function ClassicTriggerExec4() {
+    if (ClassicTriggerExecTimer4[getcurpl()] == 1) {
+        tct.chatAnnouncement("\x11Religion: \x01Catholicism");
+        PreserveTrigger();
+        ClassicTriggerExecTimer4[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer4[getcurpl()] > 0) {
+        ClassicTriggerExecTimer4[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer5 = EUDArray(8);
+function ClassicTriggerExec5() {
+    if (ClassicTriggerExecTimer5[getcurpl()] == 1) {
+        tct.chatAnnouncement("\x11Religion: \x1DSunni Islam");
+        PreserveTrigger();
+        ClassicTriggerExecTimer5[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer5[getcurpl()] > 0) {
+        ClassicTriggerExecTimer5[getcurpl()] += 1;
+    }
+
+}
+function ClassicTriggerStarter0() {
+    if (
+        Always()
+    ) {
+        if (ClassicTriggerExecTimer0[getcurpl()] == 0) {
+            ClassicTriggerExecTimer0[getcurpl()] = 1;
+            ClassicTriggerExec0();
+        }
+    }
+}
+function ClassicTriggerStarter1() {
+    if (
+        Always()
+    ) {
+        if (ClassicTriggerExecTimer1[getcurpl()] == 0) {
+            ClassicTriggerExecTimer1[getcurpl()] = 1;
+            ClassicTriggerExec1();
+        }
+    }
+}
+function ClassicTriggerStarter2() {
+    if (
+        Deaths((13), (10), 1, (214))
+    ) {
+        if (ClassicTriggerExecTimer2[getcurpl()] == 0) {
+            ClassicTriggerExecTimer2[getcurpl()] = 1;
+            ClassicTriggerExec2();
+        }
+    }
+}
+function ClassicTriggerStarter3() {
+    if (
+        Deaths((13), (10), 2, (214))
+    ) {
+        if (ClassicTriggerExecTimer3[getcurpl()] == 0) {
+            ClassicTriggerExecTimer3[getcurpl()] = 1;
+            ClassicTriggerExec3();
+        }
+    }
+}
+function ClassicTriggerStarter4() {
+    if (
+        Deaths((13), (10), 3, (214)) && 
+        Deaths((13), (10), 3, (193))
+    ) {
+        if (ClassicTriggerExecTimer4[getcurpl()] == 0) {
+            ClassicTriggerExecTimer4[getcurpl()] = 1;
+            ClassicTriggerExec4();
+        }
+    }
+}
+function ClassicTriggerStarter5() {
+    if (
+        Deaths((13), (10), 3, (214)) && 
+        Deaths((13), (10), 1, (193))
+    ) {
+        if (ClassicTriggerExecTimer5[getcurpl()] == 0) {
+            ClassicTriggerExecTimer5[getcurpl()] = 1;
+            ClassicTriggerExec5();
+        }
+    }
+}
+function ClassicTriggerExec() {
+    ClassicTriggerExec0();
+    ClassicTriggerExec1();
+    ClassicTriggerExec2();
+    ClassicTriggerExec3();
+    ClassicTriggerExec4();
+    ClassicTriggerExec5();
+}
+function ClassicTriggerStarter() {
+    if (playerexist(P1)) {
+        setcurpl(P1);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter4();
+        ClassicTriggerStarter5();
+    }
+    if (playerexist(P2)) {
+        setcurpl(P2);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter4();
+        ClassicTriggerStarter5();
+    }
+    if (playerexist(P3)) {
+        setcurpl(P3);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter4();
+        ClassicTriggerStarter5();
+    }
+    if (playerexist(P4)) {
+        setcurpl(P4);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter4();
+        ClassicTriggerStarter5();
+    }
+    if (playerexist(P5)) {
+        setcurpl(P5);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter4();
+        ClassicTriggerStarter5();
+    }
+    if (playerexist(P6)) {
+        setcurpl(P6);
+        ClassicTriggerStarter0();
+    }
+    if (playerexist(P7)) {
+        setcurpl(P7);
+        ClassicTriggerStarter0();
+    }
+    if (playerexist(P8)) {
+        setcurpl(P8);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+    }
+}
+function WaitableTriggerExec() {
+}
+function onPluginStart() {
+    randomize();
+
+}
+function beforeTriggerExec() {
+    EUDPlayerLoop()();
+        WaitableTriggerExec();
+        ClassicTriggerExec();
+    EUDEndPlayerLoop();
+    ClassicTriggerStarter();
+    BGM.Player();
+    foreach(ptr, epd : EUDLoopPlayerUnit(0) ) {
+        if (
+            wread(ptr + 0x064) == 164
+        ) {
+        }
+    }
+}
+function afterTriggerExec() {
+}

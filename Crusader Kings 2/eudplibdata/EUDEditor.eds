@@ -1,0 +1,22 @@
+[main]
+
+input: ..\Map\Crusader Kings.scx
+output: C:\Users\Michael\OneDrive\Documents\StarCraft\Maps\SCRCrusaderKings\Crusader Kings EUDDraft.scx
+
+
+[EUDEditor.py]
+
+[TriggerEditor.eps]
+
+[dataDumper]
+C\:\Users\Michael\OneDrive\Desktop\Utils\EUD Editor SE\Data\temp\stat_txt.tbl : 0x6D5A30, copy
+C\:\Users\Michael\OneDrive\Desktop\Utils\EUD Editor SE\Data\temp\RequireData : 0x58D740, copy
+[unlimiter]
+
+[eudTurbo]
+
+[../../constants.eps]
+[../../duchies.eps]
+[../../economy.eps]
+[../../initialization.eps]
+
